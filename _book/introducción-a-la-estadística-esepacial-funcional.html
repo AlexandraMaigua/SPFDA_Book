@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 4 Introducción a la estadística esepacial funcional | Clusterización Funcional Espacial</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 4 Introducción a la estadística esepacial funcional | Clusterización Funcional Espacial" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 4 Introducción a la estadística esepacial funcional | Clusterización Funcional Espacial" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Nosotros" />
+
+
+<meta name="date" content="2022-07-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"/>
+<link rel="next" href="agrupación.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Clusterización Funcional Espacial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introducción.html"><a href="introducción.html#motivación-de-datos-funcionales-espaciales"><i class="fa fa-check"></i><b>1.1</b> Motivación de datos funcionales espaciales</a></li>
+<li class="chapter" data-level="1.2" data-path="introducción.html"><a href="introducción.html#por-qué-es-importante-el-análisis-de-datos"><i class="fa fa-check"></i><b>1.2</b> Por qué es importante el análisis de datos</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introducción.html"><a href="introducción.html#data-1h"><i class="fa fa-check"></i><b>1.2.1</b> Data 1(H)</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introducción.html"><a href="introducción.html#data-2c"><i class="fa fa-check"></i><b>1.2.2</b> Data 2(C)</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introducción.html"><a href="introducción.html#data-3n"><i class="fa fa-check"></i><b>1.2.3</b> Data 3(N)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="estadística-espacial.html"><a href="estadística-espacial.html"><i class="fa fa-check"></i><b>2</b> Estadística espacial</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-aleatoria"><i class="fa fa-check"></i><b>2.1.1</b> Función Aleatoria</a></li>
+<li class="chapter" data-level="2.1.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#proceso-estocástico"><i class="fa fa-check"></i><b>2.1.2</b> Proceso Estocástico</a></li>
+<li class="chapter" data-level="2.1.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#proceso-espacial"><i class="fa fa-check"></i><b>2.1.3</b> Proceso Espacial</a></li>
+<li class="chapter" data-level="2.1.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#proceso-temporal"><i class="fa fa-check"></i><b>2.1.4</b> Proceso Temporal</a></li>
+<li class="chapter" data-level="2.1.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#proceso-espacio-temporal"><i class="fa fa-check"></i><b>2.1.5</b> Proceso Espacio Temporal</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#clases-de-datos-espaciales"><i class="fa fa-check"></i><b>2.2</b> Clases de Datos Espaciales</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#geoestadística"><i class="fa fa-check"></i><b>2.2.1</b> Geoestadística</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#datos-de-área"><i class="fa fa-check"></i><b>2.2.2</b> Datos de Área</a></li>
+<li class="chapter" data-level="2.2.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#patrones-puntuales"><i class="fa fa-check"></i><b>2.2.3</b> Patrones Puntuales</a></li>
+<li class="chapter" data-level="2.2.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#datos-georreferenciados"><i class="fa fa-check"></i><b>2.2.4</b> Datos Georreferenciados</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#geoestadística-1"><i class="fa fa-check"></i><b>2.3</b> Geoestadística</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#variable-regionalizada"><i class="fa fa-check"></i><b>2.3.1</b> Variable Regionalizada</a></li>
+<li class="chapter" data-level="2.3.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-distribución-conjunta"><i class="fa fa-check"></i><b>2.3.2</b> Función de Distribución Conjunta</a></li>
+<li class="chapter" data-level="2.3.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-media"><i class="fa fa-check"></i><b>2.3.3</b> Función de Media</a></li>
+<li class="chapter" data-level="2.3.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-varianza"><i class="fa fa-check"></i><b>2.3.4</b> Función de varianza</a></li>
+<li class="chapter" data-level="2.3.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-covarianza"><i class="fa fa-check"></i><b>2.3.5</b> Función de Covarianza</a></li>
+<li class="chapter" data-level="2.3.6" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-correlación-o-correlograma"><i class="fa fa-check"></i><b>2.3.6</b> Función de correlación o Correlograma</a></li>
+<li class="chapter" data-level="2.3.7" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-semi-variograma"><i class="fa fa-check"></i><b>2.3.7</b> Función de semi-variograma</a></li>
+<li class="chapter" data-level="2.3.8" data-path="estadística-espacial.html"><a href="estadística-espacial.html#estacionariedad-de-funciones-aleatorias"><i class="fa fa-check"></i><b>2.3.8</b> Estacionariedad de Funciones Aleatorias</a></li>
+<li class="chapter" data-level="2.3.9" data-path="estadística-espacial.html"><a href="estadística-espacial.html#no-estacionariedad-de-funciones-aleatorias"><i class="fa fa-check"></i><b>2.3.9</b> No estacionariedad de Funciones Aleatorias</a></li>
+<li class="chapter" data-level="2.3.10" data-path="estadística-espacial.html"><a href="estadística-espacial.html#isotropía"><i class="fa fa-check"></i><b>2.3.10</b> Isotropía</a></li>
+<li class="chapter" data-level="2.3.11" data-path="estadística-espacial.html"><a href="estadística-espacial.html#anisotropía"><i class="fa fa-check"></i><b>2.3.11</b> Anisotropía</a></li>
+<li class="chapter" data-level="2.3.12" data-path="estadística-espacial.html"><a href="estadística-espacial.html#correlación-espacial"><i class="fa fa-check"></i><b>2.3.12</b> Correlación Espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#variograma"><i class="fa fa-check"></i><b>2.4</b> Variograma</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#disimilitud-contra-separación"><i class="fa fa-check"></i><b>2.4.1</b> Disimilitud contra Separación</a></li>
+<li class="chapter" data-level="2.4.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#variograma-empírico"><i class="fa fa-check"></i><b>2.4.2</b> Variograma Empírico</a></li>
+<li class="chapter" data-level="2.4.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#estimación-del-variograma-ejemplos"><i class="fa fa-check"></i><b>2.4.3</b> Estimación del variograma (Ejemplos)*</a></li>
+<li class="chapter" data-level="2.4.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#criterios-para-la-estimación-y-ajuste-del-variograma"><i class="fa fa-check"></i><b>2.4.4</b> Criterios para la estimación y ajuste del variograma</a></li>
+<li class="chapter" data-level="2.4.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#métodos-de-estimación-teórica-más-utilizados"><i class="fa fa-check"></i><b>2.4.5</b> Métodos de estimación teórica más utilizados</a></li>
+<li class="chapter" data-level="2.4.6" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-teóricos-de-variograma"><i class="fa fa-check"></i><b>2.4.6</b> Modelos teóricos de variograma</a></li>
+<li class="chapter" data-level="2.4.7" data-path="estadística-espacial.html"><a href="estadística-espacial.html#caso-multivariante-ejemplos"><i class="fa fa-check"></i><b>2.4.7</b> Caso Multivariante (Ejemplos)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#geoestadística-espacio-temporal"><i class="fa fa-check"></i><b>2.5</b> Geoestadística espacio-temporal</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#tsapéndice"><i class="fa fa-check"></i><b>2.5.1</b> TS*(apéndice)</a></li>
+<li class="chapter" data-level="2.5.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-separables"><i class="fa fa-check"></i><b>2.5.2</b> Modelos separables</a></li>
+<li class="chapter" data-level="2.5.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-no-separables"><i class="fa fa-check"></i><b>2.5.3</b> Modelos no separables</a></li>
+<li class="chapter" data-level="2.5.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#estimación-del-variograma-espacio-temporal-ejemplos"><i class="fa fa-check"></i><b>2.5.4</b> Estimación del variograma espacio-temporal (Ejemplos)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><i class="fa fa-check"></i><b>3</b> Introducción al análisis de datos funcionales (FDA) (analisis descriptivo, distancias, algoritmos en funcional)</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>3.1</b> Espacios de Hilbert</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#el-espacio-l2"><i class="fa fa-check"></i><b>3.1.1</b> <strong>El Espacio</strong> <span class="math inline">\(L^2\)</span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#funciones-aleatorias-cuadrado-integrables"><i class="fa fa-check"></i><b>3.1.2</b> <strong>Funciones Aleatorias Cuadrado Integrables</strong></a></li>
+<li class="chapter" data-level="3.1.3" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#estimación-de-la-función-de-media-y-covarianza"><i class="fa fa-check"></i><b>3.1.3</b> <strong>Estimación de la función de media y covarianza</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#campos-aleatorios-funcionales-espaciales"><i class="fa fa-check"></i><b>3.2</b> Campos aleatorios funcionales espaciales</a></li>
+<li class="chapter" data-level="3.3" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#campos-aleatorios-funcionales-espaciales-multivariantes"><i class="fa fa-check"></i><b>3.3</b> Campos aleatorios funcionales espaciales multivariantes</a></li>
+<li class="chapter" data-level="3.4" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#reducción-de-dimensionalidad"><i class="fa fa-check"></i><b>3.4</b> Reducción de Dimensionalidad</a>
+<ul>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#bases-de-expansión"><i class="fa fa-check"></i>Bases de expansión</a></li>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#bases-de-fourier"><i class="fa fa-check"></i>Bases de Fourier</a></li>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#base-de-splines"><i class="fa fa-check"></i>Base de Splines</a></li>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#estimación-de-curvas-utilizando-sistemas-de-bases-por-mínimos-cuadrados"><i class="fa fa-check"></i>Estimación de curvas utilizando sistemas de bases por mínimos cuadrados</a></li>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-de-fourier"><i class="fa fa-check"></i>Suavizamiento de datos funcionales mediante el uso de bases de Fourier</a></li>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-b-splines"><i class="fa fa-check"></i>Suavizamiento de datos funcionales mediante el uso de bases B-splines</a></li>
+<li class="chapter" data-level="3.4.1" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#elección-de-número-de-bases"><i class="fa fa-check"></i><b>3.4.1</b> Elección de número de bases</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#detección-de-atípicos"><i class="fa fa-check"></i><b>3.5</b> Detección de atípicos</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#medidas-de-profundidad"><i class="fa fa-check"></i><b>3.5.1</b> Medidas de profundidad</a></li>
+<li class="chapter" data-level="3.5.2" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#gráfico-de-magnitudes-y-formas"><i class="fa fa-check"></i><b>3.5.2</b> Gráfico de Magnitudes y Formas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#anova-para-datos-funcionales"><i class="fa fa-check"></i><b>3.6</b> ANOVA Para datos funcionales</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#one-way-anova"><i class="fa fa-check"></i><b>3.6.1</b> One-Way ANOVA</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html"><i class="fa fa-check"></i><b>4</b> Introducción a la estadística esepacial funcional</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#proceso-espacial-funcional"><i class="fa fa-check"></i><b>4.1</b> Proceso Espacial Funcional</a></li>
+<li class="chapter" data-level="4.2" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#datos-funcionales-espaciales"><i class="fa fa-check"></i><b>4.2</b> Datos funcionales espaciales</a></li>
+<li class="chapter" data-level="4.3" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#variable-regionalizada-funcional"><i class="fa fa-check"></i><b>4.3</b> Variable Regionalizada Funcional</a></li>
+<li class="chapter" data-level="4.4" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-distribución-conjunta-funcional"><i class="fa fa-check"></i><b>4.4</b> Función de Distribución Conjunta Funcional</a></li>
+<li class="chapter" data-level="4.5" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-media-funcional"><i class="fa fa-check"></i><b>4.5</b> Función de Media Funcional</a></li>
+<li class="chapter" data-level="4.6" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-varianza-funcional"><i class="fa fa-check"></i><b>4.6</b> Función de varianza Funcional</a></li>
+<li class="chapter" data-level="4.7" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-covarianza-funcional"><i class="fa fa-check"></i><b>4.7</b> Función de Covarianza Funcional</a></li>
+<li class="chapter" data-level="4.8" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-correlación-o-correlograma-funcional"><i class="fa fa-check"></i><b>4.8</b> Función de correlación o Correlograma Funcional</a></li>
+<li class="chapter" data-level="4.9" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-semi-variograma-funcional"><i class="fa fa-check"></i><b>4.9</b> Función de semi-variograma Funcional</a></li>
+<li class="chapter" data-level="4.10" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#estacionariedad-de-funciones-aleatorias-1"><i class="fa fa-check"></i><b>4.10</b> Estacionariedad de Funciones Aleatorias</a></li>
+<li class="chapter" data-level="4.11" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#no-estacionariedad-de-funciones-aleatorias-1"><i class="fa fa-check"></i><b>4.11</b> No estacionariedad de Funciones Aleatorias</a></li>
+<li class="chapter" data-level="4.12" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#correlación-espacial-funcional"><i class="fa fa-check"></i><b>4.12</b> Correlación Espacial Funcional</a></li>
+<li class="chapter" data-level="4.13" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#índices-de-correlación-espacial"><i class="fa fa-check"></i><b>4.13</b> Índices de correlación espacial</a>
+<ul>
+<li class="chapter" data-level="4.13.1" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#índice-de-moran-funcional"><i class="fa fa-check"></i><b>4.13.1</b> Índice de Moran funcional</a></li>
+<li class="chapter" data-level="4.13.2" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#índice-de-geary-funcional"><i class="fa fa-check"></i><b>4.13.2</b> Índice de Geary funcional</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="agrupación.html"><a href="agrupación.html"><i class="fa fa-check"></i><b>5</b> Agrupación</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="agrupación.html"><a href="agrupación.html#algoritmos-de-agrupación"><i class="fa fa-check"></i><b>5.1</b> Algoritmos de agrupación</a></li>
+<li class="chapter" data-level="5.2" data-path="agrupación.html"><a href="agrupación.html#agrupación-datos-multivariantes-apéndice"><i class="fa fa-check"></i><b>5.2</b> Agrupación: Datos Multivariantes (apéndice)</a></li>
+<li class="chapter" data-level="5.3" data-path="agrupación.html"><a href="agrupación.html#agrupación-datos-funcionales"><i class="fa fa-check"></i><b>5.3</b> Agrupación: Datos Funcionales</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="agrupación.html"><a href="agrupación.html#métodos-de-datos-en-bruto"><i class="fa fa-check"></i><b>5.3.1</b> Métodos de datos en bruto</a></li>
+<li class="chapter" data-level="5.3.2" data-path="agrupación.html"><a href="agrupación.html#métodos-de-filtrado"><i class="fa fa-check"></i><b>5.3.2</b> Métodos de filtrado</a></li>
+<li class="chapter" data-level="5.3.3" data-path="agrupación.html"><a href="agrupación.html#métodos-adaptativos"><i class="fa fa-check"></i><b>5.3.3</b> Métodos adaptativos</a></li>
+<li class="chapter" data-level="5.3.4" data-path="agrupación.html"><a href="agrupación.html#clasificación-basados-en-modelos"><i class="fa fa-check"></i><b>5.3.4</b> Clasificación basados en modelos</a></li>
+<li class="chapter" data-level="5.3.5" data-path="agrupación.html"><a href="agrupación.html#método-adaptativo-de-agrupación-usando-coeficientes-de-bases-de-expansión"><i class="fa fa-check"></i><b>5.3.5</b> Método adaptativo de agrupación usando coeficientes de bases de expansión</a></li>
+<li class="chapter" data-level="5.3.6" data-path="agrupación.html"><a href="agrupación.html#método-adaptativo-de-agrupación-usando-fpca"><i class="fa fa-check"></i><b>5.3.6</b> Método adaptativo de agrupación usando FPCA</a></li>
+<li class="chapter" data-level="5.3.7" data-path="agrupación.html"><a href="agrupación.html#métodos-basados-en-distancia"><i class="fa fa-check"></i><b>5.3.7</b> Métodos basados en distancia</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="agrupación.html"><a href="agrupación.html#agrupación-datos-espaciales"><i class="fa fa-check"></i><b>5.4</b> Agrupación: Datos Espaciales</a></li>
+<li class="chapter" data-level="5.5" data-path="agrupación.html"><a href="agrupación.html#agrupación-datos-funcionales-con-correlación-espacial"><i class="fa fa-check"></i><b>5.5</b> Agrupación: Datos funcionales con correlación espacial</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="agrupación.html"><a href="agrupación.html#método-jerárquico-para-datos-funcionales-con-correlación-espacial"><i class="fa fa-check"></i><b>5.5.1</b> Método jerárquico para datos funcionales con correlación espacial</a></li>
+<li class="chapter" data-level="5.5.2" data-path="agrupación.html"><a href="agrupación.html#método-k-medias-para-datos-funcionales-con-correlación-espacial"><i class="fa fa-check"></i><b>5.5.2</b> Método k-medias para datos funcionales con correlación espacial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="aplicaciones.html"><a href="aplicaciones.html"><i class="fa fa-check"></i><b>6</b> Aplicaciones</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="aplicaciones.html"><a href="aplicaciones.html#aplicación-1"><i class="fa fa-check"></i><b>6.1</b> Aplicación 1</a></li>
+<li class="chapter" data-level="6.2" data-path="aplicaciones.html"><a href="aplicaciones.html#aplicación-2"><i class="fa fa-check"></i><b>6.2</b> Aplicación 2</a></li>
+<li class="chapter" data-level="6.3" data-path="aplicaciones.html"><a href="aplicaciones.html#aplicación-3"><i class="fa fa-check"></i><b>6.3</b> Aplicación 3</a></li>
+<li class="chapter" data-level="6.4" data-path="aplicaciones.html"><a href="aplicaciones.html#aplicación-4"><i class="fa fa-check"></i><b>6.4</b> Aplicación 4</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="apéndice.html"><a href="apéndice.html"><i class="fa fa-check"></i><b>7</b> Apéndice</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="apéndice.html"><a href="apéndice.html#introducción-a-la-simulación-geoestadística-codicional-y-no-condicional"><i class="fa fa-check"></i><b>7.1</b> Introducción a la simulación geoestadística codicional y no condicional</a></li>
+<li class="chapter" data-level="7.2" data-path="apéndice.html"><a href="apéndice.html#estudio-de-simulación-referencia-al-artículo"><i class="fa fa-check"></i><b>7.2</b> Estudio de simulación (referencia al artículo)</a></li>
+<li class="chapter" data-level="7.3" data-path="apéndice.html"><a href="apéndice.html#índices"><i class="fa fa-check"></i><b>7.3</b> Índices</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="apéndice.html"><a href="apéndice.html#selección-de-número-de-grupos"><i class="fa fa-check"></i><b>7.3.1</b> Selección de número de grupos</a></li>
+<li class="chapter" data-level="7.3.2" data-path="apéndice.html"><a href="apéndice.html#validación-de-grupos"><i class="fa fa-check"></i><b>7.3.2</b> Validación de grupos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Clusterización Funcional Espacial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introducción-a-la-estadística-esepacial-funcional" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number"> 4</span> Introducción a la estadística esepacial funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#introducción-a-la-estadística-esepacial-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="proceso-espacial-funcional" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Proceso Espacial Funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#proceso-espacial-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="datos-funcionales-espaciales" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Datos funcionales espaciales<a href="introducción-a-la-estadística-esepacial-funcional.html#datos-funcionales-espaciales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="variable-regionalizada-funcional" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Variable Regionalizada Funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#variable-regionalizada-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="función-de-distribución-conjunta-funcional" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Función de Distribución Conjunta Funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-distribución-conjunta-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="función-de-media-funcional" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Función de Media Funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-media-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="función-de-varianza-funcional" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Función de varianza Funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-varianza-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="función-de-covarianza-funcional" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Función de Covarianza Funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-covarianza-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="función-de-correlación-o-correlograma-funcional" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Función de correlación o Correlograma Funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-correlación-o-correlograma-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="función-de-semi-variograma-funcional" class="section level2 hasAnchor" number="4.9">
+<h2><span class="header-section-number">4.9</span> Función de semi-variograma Funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-semi-variograma-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="estacionariedad-de-funciones-aleatorias-1" class="section level2 hasAnchor" number="4.10">
+<h2><span class="header-section-number">4.10</span> Estacionariedad de Funciones Aleatorias<a href="introducción-a-la-estadística-esepacial-funcional.html#estacionariedad-de-funciones-aleatorias-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="no-estacionariedad-de-funciones-aleatorias-1" class="section level2 hasAnchor" number="4.11">
+<h2><span class="header-section-number">4.11</span> No estacionariedad de Funciones Aleatorias<a href="introducción-a-la-estadística-esepacial-funcional.html#no-estacionariedad-de-funciones-aleatorias-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="correlación-espacial-funcional" class="section level2 hasAnchor" number="4.12">
+<h2><span class="header-section-number">4.12</span> Correlación Espacial Funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#correlación-espacial-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="índices-de-correlación-espacial" class="section level2 hasAnchor" number="4.13">
+<h2><span class="header-section-number">4.13</span> Índices de correlación espacial<a href="introducción-a-la-estadística-esepacial-funcional.html#índices-de-correlación-espacial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="índice-de-moran-funcional" class="section level3 hasAnchor" number="4.13.1">
+<h3><span class="header-section-number">4.13.1</span> Índice de Moran funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#índice-de-moran-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="índice-de-geary-funcional" class="section level3 hasAnchor" number="4.13.2">
+<h3><span class="header-section-number">4.13.2</span> Índice de Geary funcional<a href="introducción-a-la-estadística-esepacial-funcional.html#índice-de-geary-funcional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="agrupación.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-efe.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

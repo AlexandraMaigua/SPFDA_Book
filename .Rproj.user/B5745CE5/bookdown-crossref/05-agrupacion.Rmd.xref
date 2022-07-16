@@ -1,0 +1,18 @@
+h1:agrupación Agrupación
+h2:algoritmos-de-agrupación Algoritmos de agrupación
+h2:agrupación-datos-multivariantes-apéndice Agrupación: Datos Multivariantes (apéndice)
+h2:agrupación-datos-funcionales Agrupación: Datos Funcionales
+h3:métodos-de-datos-en-bruto Métodos de datos en bruto
+h3:métodos-de-filtrado Métodos de filtrado
+h3:métodos-adaptativos Métodos adaptativos
+h3:clasificación-basados-en-modelos Clasificación basados en modelos
+h3:método-adaptativo-de-agrupación-usando-coeficientes-de-bases-de-expansión Método adaptativo de agrupación usando coeficientes de bases de expansión
+h3:método-adaptativo-de-agrupación-usando-fpca Método adaptativo de agrupación usando FPCA
+h3:métodos-basados-en-distancia Métodos basados en distancia
+h4:métodos-que-usan-distancias Métodos que usan distancias
+h4:métodos-heurísticos Métodos Heurísticos
+h2:agrupación-datos-espaciales Agrupación: Datos Espaciales
+h2:agrupación-datos-funcionales-con-correlación-espacial Agrupación: Datos funcionales con correlación espacial
+h3:método-jerárquico-para-datos-funcionales-con-correlación-espacial Método jerárquico para datos funcionales con correlación espacial
+h3:método-k-medias-para-datos-funcionales-con-correlación-espacial Método k-medias para datos funcionales con correlación espacial
+

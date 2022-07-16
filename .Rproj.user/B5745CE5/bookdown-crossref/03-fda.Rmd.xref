@@ -1,0 +1,28 @@
+h1:introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional Introducción al análisis de datos funcionales (FDA) (analisis descriptivo, distancias, algoritmos en funcional)
+h2:espacios-de-hilbert Espacios de Hilbert
+h3:el-espacio-l2  
+h3:funciones-aleatorias-cuadrado-integrables 
+h3:estimación-de-la-función-de-media-y-covarianza 
+h2:campos-aleatorios-funcionales-espaciales Campos aleatorios funcionales espaciales
+h2:campos-aleatorios-funcionales-espaciales-multivariantes Campos aleatorios funcionales espaciales multivariantes
+h2:reducción-de-dimensionalidad Reducción de Dimensionalidad
+h3:bases-de-expansión Bases de expansión
+h3:bases-de-fourier Bases de Fourier
+h3:base-de-splines Base de Splines
+h3:estimación-de-curvas-utilizando-sistemas-de-bases-por-mínimos-cuadrados Estimación de curvas utilizando sistemas de bases por mínimos cuadrados
+h3:suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-de-fourier Suavizamiento de datos funcionales mediante el uso de bases de Fourier
+h3:suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-b-splines Suavizamiento de datos funcionales mediante el uso de bases B-splines
+h3:elección-de-número-de-bases Elección de número de bases
+h2:detección-de-atípicos Detección de atípicos
+h3:medidas-de-profundidad Medidas de profundidad
+h4:profundidad-de-fraiman-y-muniz Profundidad de Fraiman y Muniz
+h4:profundidad-h-modal Profundidad H-modal
+h4:profundidad-de-proyección-aleatoria Profundidad de proyección aleatoria
+h3:gráfico-de-magnitudes-y-formas Gráfico de Magnitudes y Formas
+h2:anova-para-datos-funcionales ANOVA Para datos funcionales
+h3:one-way-anova One-Way ANOVA
+h4:cs-test CS-Test
+h4:prueba-basadas-en-la-norma-mathcall2 Prueba basadas en la norma 
+h4:prueba-f Prueba F
+h4:prueba-basada-en-representación-de-funciones-base Prueba basada en representación de funciones base
+

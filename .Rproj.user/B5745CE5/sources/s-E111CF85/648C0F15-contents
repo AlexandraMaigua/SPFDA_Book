@@ -1,0 +1,350 @@
+# Agrupación
+
+De manera empírica, agrupación significa encontrar grupos en un conjunto de datos. La primera agrupación en la historia fue de tipo jerárquico, cuando Aristóteles clasificó a los seres vivos. El análisis de agrupación ha sido desarrollado en diferentes campos y con diversas aplicaciones \cite{hand}.
+
+En el análisis de agrupación el objetivo es examinar datos que no contienen etiquetas, para luego encontrar agrupaciones de los datos; se debe tener en cuenta que se desconoce el número de grupos. Esta metodología es una forma de aprendizaje no supervisado; es decir, no se utilizan datos de entrenamiento. \cite{andrew}.
+
+Formalmente, si se tiene un conjunto de datos, $D=\{z_1,z_2,...,z_n\}$, el cual contiene $n$ datos, la tarea de los métodos de agrupación es asignarlos a $K$ subconjuntos disjuntos de $D$, denotados por $C_1,C_2,...,C_K$ \cite{hand}. Estos métodos con frecuencia se utilizan como un paso preliminar en la exploración de datos para identificar patrones que tengan una interpretación útil para el usuario \cite{Jaque}.
+
+## Algoritmos de agrupación
+
+Algoritmo 1 Algoritmo 2 Algoritmo 3 Algoritmo 4
+
+## Agrupación: Datos Multivariantes (apéndice)
+
+## Agrupación: Datos Funcionales
+
+Como se mencionó, el objetivo principal del análisis de agrupación es construir grupos homogéneos de observaciones que representen realizaciones de alguna variable aleatoria $Z$, y se busca que las observaciones asignadas a los grupos sean similares entre ellas y lo más diferente posible de las observaciones asignadas a otros grupos \cite{joan}. En el espacio finito dimensional, $Z$ es un vector aleatorio con valores en $\mathbb{R}^p$, $Z=(Z_1,...,Z_p), p\geq 1$. Un caso particular es cuando las variables aleatorias toman valores en un espacio infinito dimensional, usualmente un espacio de funciones definidas en algún conjunto continuo $\mathcal{T}$; de esta forma los datos son representados por medio de curvas y la variable aleatoria que corresponde a los datos es un proceso estocástico $Z=\{Z(t),t \in \mathcal{T}\}$. En la actualidad este tipo de datos son más fáciles de observar y se han desarrollado herramientas para poderlos almacenar y procesar \cite{Jaque}.
+
+Se conocen cuatro metodologías para la agrupación de datos funcionales, las cuales son:
+
+-   Métodos de datos en bruto: Estos métodos consisten en agrupar directamente las curvas sobre la base de sus puntos de evaluación.
+
+-   Métodos de filtrado: Estos métodos realizan la aproximación de las curvas en alguna base de funciones y luego realizan la agrupación utilizando los coeficientes de la expansión en la base.
+
+-   Métodos adaptativos: Estos métodos consideran que la representación de un dato funcional depende del grupo, y se realiza simultáneamente la reducción de dimensión y la agrupación.
+
+-   Métodos con base en distancias: Estos métodos usan algoritmos de agrupación con base en distancias específicas para datos funcionales.
+
+En el presente trabajo se hará uso de los métodos de filtrado y los métodos basados en distancias.
+
+### Métodos de datos en bruto
+
+Este primer enfoque, uno de los más sencillos, consiste en utilizar directamente la discretización de las funciones en algunos puntos de tiempo; en este caso no es necesario reconstruir la forma funcional de los datos, debido al gran tamaño de la discretización, por lo cual se requiere utilizar métodos de agrupación para datos vectoriales de alta dimensión.
+
+Existen métodos que realizan agrupación extrayendo las observaciones a partir de datos con ruido, por lo cual se espera pérdidas de información; incluso curvas observadas en diferentes puntos de evaluación pueden no ser tomadas en cuenta por este método. Por otro lado, existen métodos que realizan la agrupacióncon base en la distribución de probabilidad de las observaciones discretas de las curvas en cada intervalo de alguna partición de algún conjunto continuo $\mathcal{T}$. En general, estos métodos tienen la ventaja de que no dependen de ninguna asunción sobre de la naturaleza de los datos, puesto que la expansión de base no se utiliza \cite{Jaque}.
+
+### Métodos de filtrado
+
+Este método consiste de dos etapas para la agrupación de datos funcionales. La primera hace referencia al método de filtrado, el cual reduce la dimensión de los datos, pues consiste generalmente en aproximar las curvas utilizando una base finita de funciones; esta base puede ser de tipo B-splines, Fourier o Wavelets; otra técnica de reducción de dimensión es el análisis de componentes principales funcionales (FACP). La segunda etapa consiste en que a partir de los coeficientes de la base de expansión o de los *scores* de los componentes principales, se aplican algoritmos habituales de agrupación para determinar los grupos \cite{Jaque}.
+
+Se debe tener en cuenta que el método de filtrado tiene algunos inconvenientes; uno de ellos es que si las curvas son medidas en diferentes puntos de tiempo, la varianza de la estimación de los coeficientes de base es distinto para cada individuo. Para conjuntos de datos dispersos, varios coeficientes de base podrían tener varianza infinita, haciendo imposible obtener estimaciones razonables \cite{sugar}.
+
+### Métodos adaptativos
+
+Contrario al método de filtrado en donde las curvas son aproximadas en una base finita de funciones y sus curvas son identificadas mediante los coeficientes de expansión de la base, en este método en lugar de tratar los coeficientes como parámetros, estos son considerados variables aleatorias con una distribución de probabilidad de un grupo específico. Estos métodos se dividen en dos grupos, los que modelan los scores del FPCA y los que modelizan directamente los coeficientes de expansión de una base finita de funciones \cite{Jaque}.
+
+### Clasificación basados en modelos
+
+En el marco multivariante, este método utiliza la técnica de agrupación basada en modelos; es decir, se asume que las observaciones $z_1,...,z_n$ son generadas de acuerdo a una distribución mixta con $G$ componentes. Sea $f_k(z,\theta_k)$ la densidad correspondiente al *k-ésimo* grupo con parámetro $\theta_k$, y sea $y_i=(y_{i1},...,y_{iG})$ un vector que indica la pertenencia a un grupo para la *i-ésima* observación donde $y_{ik}=1$ si $z_i$ es un miembro del *k-ésimo* grupo y $0$ caso contrario. Los $y_i$ son desconocidos y generalmente son tratados con uno de los dos siguientes enfoques: *clasificación por verosimilitud* o *verosimilitud mixta*.
+
+En el primer enfoque, los $y_i$ son vistos como parámetros y el modelo es ajustado para maximizar la verosimilitud:
+
+\begin{align*}
+    L_c(\theta_1,...,\theta_G;y_1,...,y_n|z_1,...,z_n)=\prod_{i=1}^n {f_{y_i}(z_i|\theta_{y_i})}
+\end{align*}
+
+donde $f_{k}(z|\theta_k)$ es una normal multivariante con matriz identidad como covarianza; este enfoque produce una solución por *k-medias* \cite{sugar}.
+
+Por otro lado, el segundo enfoque también considera $f_k(z,\theta_k)$ como una normal multivariante y con matriz identidad como covarianza; sin embargo, puede ocurrir que los miembros de algún grupo pueden ser tratados como datos faltantes, donde $y_i$ es una multinomial con parámetros $(\pi_1,...,\pi_G)$ y $\pi_k$ es la probabilidad de que una observación pertenezca al *k-ésimo* grupo; entonces, los parámetros son estimados maximizando lo siguiente:
+
+```{=tex}
+\begin{align*}
+    L_M(\theta_1,...,\theta_G;\pi_1,...,\pi_n|z_1,...,z_n)=\prod_{i=1}^n \sum_{k=1}^G\pi_k f_{y_i}(z_i|\theta_{y_k})
+\end{align*}
+```
+La principal diferencia entre estos dos enfoques es que en el primero, cada punto se asigna a un único grupo, mientras que en el segundo a cada punto se le asigna a una probabilidad originada en cada grupo y así influye en la estimación de todos los parámetros \cite{sugar}.
+
+### Método adaptativo de agrupación usando coeficientes de bases de expansión
+
+El algoritmo **fclust** es el primer algoritmo de agrupación de este tipo y fue propuesto por \cite{sugar}, donde consideran que los coeficientes de la base de expansión tipo spline de las curvas se distribuyen de acuerdo a una mezcla de distribuciones Gaussianas con media específica para cada grupo $\mu_k$ y una varianza común $\Sigma$; es decir:
+
+```{=tex}
+\begin{align*}
+    \alpha_i \sim \mathcal{N}(\mu_k,\Sigma)
+\end{align*}
+```
+A diferencia de los métodos de filtrado, en el cual los coeficientes de la base de expansión son considerados fijos, aquí son considerados como variables aleatorias, que además permite proceder eficientemente con una muestra de curvas dispersa \cite{Jaque}.
+
+### Método adaptativo de agrupación usando FPCA
+
+Utilizando la noción de densidad de probabilidad para variables aleatorias funcionales desarrollada en \cite{delagua} y asumiendo una distribución Gaussiana de los componentes principales y definiendo las técnicas de agrupación basadas en el modelo combinado dador por:
+
+```{=tex}
+\begin{align*}
+    f_Z^{(q)}(z;\theta)=\sum_{k=1}^{q_k} \pi_k\prod_{j=1}^{q_k} f_{C_{j{|Y_k=1}}}(c_{jk}(z);\lambda_{jk})
+\end{align*}
+```
+
+
+donde $\theta=(\pi_{k},\lambda_{1k},...,\lambda_{q_{k}k})_{1\leq k \leq K}$ son los parámetros del modelo referentes a las proporciones de los grupos y las varianzas de los componentes principales y $q_k$ es el orden de la densidad de probabilidad específica para el grupo $k$ \cite{Jaque}. En \cite{cristian} se desarrolló el modelo denominado *funclust* y los scores $c_{jk}(z)$ de $Z$ son calculados en cada grupo \cite{Jaque}. Si el FPCA no fuera calculado para cada grupo, tales métodos corresponden a una agrupacióncon base en modelos con probabilidades Gaussianas aplicados a los scores del FPCA y podrían ser considerados como métodos de filtrado.
+
+Estos métodos son importantes puesto que asumiendo una distribución de probabilidad de los coeficientes de la base de expansión permiten tomar en cuenta la incertidumbre gracias a la reconstrucción de los datos funcionales \cite{Jaque}.
+
+### Métodos basados en distancia
+
+Estos métodos también son conocidos como métodos no paramétricos y se dividen en dos categorías, la primera agrupa los métodos que hacen uso de distancias o disimilitudes específicas, mientras que la segunda hace uso de heurísticas.
+
+#### Métodos que usan distancias {.unnumbered}
+
+Estos métodos aplican técnicas de agrupación no paramétrica como el método k-medias o el método jerárquico, los cuales consideran distancias específicas o disimilitudes entre curvas. Para este propósito se utiliza una métrica basada en derivadas que mide la proximidad en las curvas $z_i$ y $z_i'$ mediante la siguiente expresión:
+
+```{=tex}
+\begin{align*}
+    d_q(z_i,z_i')^2=\int\left( z_i^{(q)}(t)-z_{i'}^{(q)}(t)\right)^2dt
+\end{align*}
+```
+donde $z^{(q)}$ denota la *q-ésima* derivada de $z$ y $d_0(z,0)$ es la norma $\mathcal{L}^2$ \cite{ferraty}. Si el cálculo de $d_0$ se lo realiza utilizando las observaciones discretas de la curva, los métodos no paramétricos son equivalentes a los métodos de agrupación de datos brutos. Por otro lado, si el cálculo de $d_0$ se lo realiza mediante la representación de las curvas en una base finita, estos métodos son equivalentes a los métodos de filtrado \cite{Jaque}.
+
+#### Métodos Heurísticos {.unnumbered}
+
+Estos métodos proponen usar heurísticas para la agrupación de datos funcionales. En \cite{herbalife} se desarrollaron dos algoritmos de programación dinámica que realizan la agrupación y la estimación de los centros de cada grupo simultáneamente. Por otro lado, en \cite{yamamoto} se desarrolló un procedimiento para identificar simultáneamente grupos óptimos de funciones y subespacios óptimos para la agrupación; para esto se define una función objetivo como la suma de las distancias entre las observaciones y sus proyecciones más las distancias entre las proyecciones y las medias de los grupos \cite{Jaque}.
+
+## Agrupación: Datos Espaciales
+
+El incremento de los datos espaciales y el uso extendido de bases de este tipo de datos ponen en evidencia la necesidad de generar procesos que permitan la extracción de información espacial; en este sentido se ha desarrollado la minería de datos espaciales, debido a que esta permite descubrir patrones interesantes y previamente desconocidos pero potencialmente útiles \cite{sumati}. A medida que se dispone de más y más datos sobre un área espacial es deseable identificar las diferentes funciones y papeles que desempeñan las distintas partes de esta área; en particular, un objetivo bastante deseable es identificar regiones homogéneas y descubrir sus características, creando resúmenes de alto nivel para los datos en estudio y obteniendo información valiosa para planificadores, científicos, entre otros \cite{cesario}.
+
+Los datos espaciales poseen dos atributos distintos: uno espacial y otro no espacial. Los atributos espaciales de este tipo de datos incluyen información relacionada a la ubicación espacial como longitud, latitud, elevación, forma, entre otros. Por otro lado, los atributos no espaciales se utilizan para describir características como nombre, población, tasa de desempleo, entre otros. Se debe tener en cuenta que la información espacial referente a las relaciones entre los datos, tales como la influencia de los datos con los de sus vecinos, usualmente está implícita; por lo cual, para capturar esta información se hace uso de técnicas o instrumentos que la incorporen \cite{chuek}. Para este propósito se hace uso de las siguientes técnicas:
+
+-   Generalizaciones basadas en descubrimiento de conocimiento.
+
+-   Métodos de agrupación.
+
+-   Medidas de proximidad agregada.
+
+-   Reglas de asociación espacial.
+
+El presente trabajo se enfocará en los métodos de agrupación. Este clase de métodos han sido desarrollados por la estadística a lo largo del tiempo, en primera instancia se trabajó en una dimensión, y se centraron en la búsqueda de medidas de tendencia, variabilidad o dispersión. Luego se extendió para dos dimensiones, que tratan atributos con media o propiedades modales y variabilidad o dispersión, estos atributos son bidimensionales; en el caso de datos espaciales estas cantidades tiene interpretación como la ubicación del centro del grupo y la dispersión del grupo \cite{andrew}.
+
+Los métodos clásicos de agrupación utilizados para particionar un conjunto de datos espaciales dan como resultado grupos que espacialmente están mezclados o carecen de sentido \cite{ambrosi}; para dar solución a este problema, se han desarrollado métodos que toman en cuenta la información espacial de los datos; la aplicación de estos incluyen la identificación de áreas con características o factores similares y el objeto de estudio depende del campo de aplicación.
+
+Una solución que ha sido utilizada a lo largo de los años es ponderar las disimilitudes entre las muestras mediante la función de variograma; es decir:
+
+```{=tex}
+\begin{align*}
+    d_{ij}^*=d_{ij}\gamma(h)
+\end{align*}
+```
+donde $\gamma(h)$ es el variograma ajustado al variograma empírico $\hat{\gamma}(h)$; $d_{ij}$ es la disimilitud entre las muestras $i$ y $j$ \cite{borou}.
+
+Por otro lado, en el caso multivariante, en cuanto a similaridad, se tiene que la ponderación está realizada mediante la función de autocovarianza multivariada; es decir:
+
+```{=tex}
+\begin{align*}
+    S^{*2}_{ij}=S_{ij}^2K(h)
+\end{align*}
+```
+Esta ecuación es más robusta en el sentido de que favorece a la formación de grupos que son espacialmete homogéneos.
+
+Por otro lado, en cuanto a disimilitud y utilizando la función de variograma multivariado se tiene que:
+
+```{=tex}
+\begin{align*}
+    d_{ij}^{*2}=d_{ij}^2\Gamma(h)
+\end{align*}
+```
+Se debe tener en cuenta que esta última ecuación es un poco más general ya que permite variogramas multivariados sin silla. Ambas ecuaciones se desempeñan adecuadamente cuando el efecto pepita está presente \cite{borou}.
+
+Una vez que los cálculos son realizados para todos los $i$ y $j$ el resultado es una matriz de disimilitud modificada $D^*$ con elementos $d_{ij}^*$. Esta matriz se utiliza por una amplia variedad de estrategias de clasificación; por ejemplo, el método jerárquico opera directamente en esta matriz, agrupando primero aquellos individuos para los cuales $d_{ij}^*$ es la menor y luego la menos similar según las reglas del algoritmo en uso. Por otro lado, la agrupación dinámica es más apropiada para agrupar individuos de poblaciones que no presentan estructura jerárquica \cite{oliver}.
+
+A partir de esta ponderación se pueden aplicar algunos métodos de agrupación que se clasifican de la siguiente forma:
+
+
+- **Métodos jerárquicos**
+
+Este método agrupa los datos en forma de árboles y generalmete se clasifican en dos tipos de enfoque, uno aglomerativo y otro divisivo.
+
++ **El enfoque aglomerativo:**
+Utiliza una estrategia ascendente para agrupar los objetos; se fusionan los grupos más pequeños en grupos cada vez más grandes hasta que todos los objetos hayan sido agrupados en uno solo. Los métodos más utilizados son AGNES y DIANA.
+
++ **El enfoque divisivo:**
+Utiliza una estrategia descendente para agrupar los objetos, en este caso los grupos más grandes se dividen en grupos más pequeños hasta que cada objeto forme un grupo por si mismo. Los métodos más utilizados son: CURE, BIRC Y CHAMALEON \cite{ritu}.
+
+
+
+- **Métodos de particionamiento.**
+
+Los algoritmos de partición organizan los objetos en grupos tales que la dispersión total de cada objeto con respecto a su centro de grupo se minimice. Inicialmente, cada objeto se clasifica como un único grupo; en los siguientes pasos, todos los puntos de datos se reasignan iterativamente a cada grupo hasta que se cumpla un cierto criterio de parada. Bajo este criterio existen los siguientes métodos \cite{sumati}: algoritmo del vecino más cercano, algoritmo K-medioides, algoritmo K-medias.
+
+
+- **Métodos con base en grillas.**
+
+Los algoritmos de agrupación con base en grillas primero cuantifican el espacio de agrupación en un número limitado de celdas y luego realizan las operaciones necesarias en la estructura de la grilla, las celdas que contienen más de un cierto número de puntos se tratan como densas, la principal ventaja de este enfoque es su rápido tiempo de procesamiento ya que el tiempo es independiente del número de objetos de datos pero depende del número de celdas. Los métodos más utilizados de este tipo son: STRING, Wave Grupo, Cliqué \cite{sumati}.
+
+
+- **Métodos con base en densidades.**
+
+El método considera los grupos como regiones densas de objetos separadas por regiones de baja densidad, que representan el ruido; a diferencia de los métodos de partición se pueden descubrir grupos de manera arbitraria. Los métodos con base en densidades pueden utilizarse para filtrar el ruido y los valores atípicos. Los métodos más utilizados de este tipo son: DBSCAN y OPTICS \cite{sumati}.
+    
+
+## Agrupación: Datos funcionales con correlación espacial
+
+Como se ha visto a lo largo de este capítulo, los métodos de agrupación se han ido adaptando a las necesidades para tratar los problemas del mundo real. Puesto que se ha ido generalizando esta técnica para trabajar con datos puntuales, luego datos espaciales y datos funcionales; ahora la nueva problemática es extender aun más estos métodos de agrupación para datos funcionales con dependencia espacial. Este es el caso cuando las muestras son funciones observadas en diferentes sitios de una región o cuando estas funciones son observadas sobre un conjunto discreto de tiempo. Si los datos funcionales son espacialmente dependientes, los métodos básicos de agrupación de FDA fallan, ya que la estructura espacial es ignorada dando como resultado grupos en donde las curvas no son similares en forma o comportamiento. Es así que, además de considerar las características individuales en cada una de las curvas, se debe considerar la ubicación espacial de la curva y así agrupar aquellas curvas que son homogéneas no solo con respecto a su forma sino también con respecto a su ubicación espacial \cite{Romano}.
+
+Para agrupar datos funcionales con correlación espacial se han desarrollado métodos como el dinámico y jerárquico, así como varias formas de capturar la dependencia espacial. En \cite{Hclust} se propuso el método jerárquico y en \cite{RomanoDIN} el método dinámico; ambos métodos utilizan una medida de asociación espacial para resaltar y distinguir la dependencia espacial entre las curvas; esta medida está dada por la función trazo-variograma. Ambos métodos tienen en cuenta la dinámica funcional de las curvas en términos de tiempo y sus relaciones espaciales. El método jerárquico toma en cuenta la dinámica funcional a través de la distancia entre las curvas mediante la norma $\mathcal{L}^2$, mientras que el método dinámico la considera a través de la distancia euclidiana al cuadrado entre las curvas calculando la función de variograma en cada grupo. No obstante, la dependencia espacial influye de manera diferente en el proceso de agrupación; en el caso jerárquico, la dependencia espacial es considerada por la función de trazo-variograma y en el caso dinámico, esta dependencia es considerada también por el trazo-variograma, pero calculado dentro de cada grupo \cite{Romano}. Por otro lado en \cite{Elvira} presentan un método para este tipo de datos tomando en cuenta la contribución de cada curva a la variabilidad espacial; de esta forma se define una función de dispersión espacial asociada a cada curva y llevan a cabo la agrupación utilizando el algoritmo k-medias; este algoritmo se basa en la optimización de un criterio de ajuste entre las funciones de dispersión espacial asociadas a cada curva y el representante o centro de los grupos. En el trabajo realizado por \cite{romanoNP} se extiende la estrategia de agrupación con base en modelos para datos funcionales con correlación espacial; esta estrategia se enfoca en clasificar curvas espacialmente dependientes y obtener un modelo funcional espacial base para cada grupo; el ajuste de estos modelos implica estimar la función trazo-variograma, por lo que proponen un estimador de variograma de kernel.%no se ha definido lo de kernel
+
+Ahora bien, dado que el objetivo de este trabajo es adaptar el método k-medias para datos funcionales espacialmente correlacionados, se hará uso de la metodología planteada en \cite{Hclust}.
+
+### Método jerárquico para datos funcionales con correlación espacial
+
+Suponiendo que $X_1(t),...,X_n(t)$ es una muestra de curvas definidas en $t\in T=[a,b]\subseteq \mathbb{R}$ y que además pertenecen al espacio de Hilbert de funciones cuadrado integrables definidas en $[a,b]$; es decir:
+
+```{=tex}
+\begin{align*}
+    L_2(T)=\left\{f: T\to \mathbb{R}: \int_Tf(t)^2<\infty \right\}.
+\end{align*}
+```
+De igual manera, se asume que las funciones son expandidas en términos de alguna base de funciones como sigue:
+
+```{=tex}
+\begin{align*}
+    X_i(t)=\sum_{l=1}^Ka_{il}B_l(t)=a_i^TB(t),\quad i=1,...,n
+\end{align*}
+```
+El análisis de agrupación jerárquico funcional es desarrollado como en el enfoque clásico, pero considerando la distancia entre las curvas $X_i(t)$ y $X_j(t)$ a través de la norma $\mathcal{L}^2$; es decir:
+
+```{=tex}
+\begin{align*}
+    d_{ij}=\sqrt{\int_{[a,b]} (X_{i}(t)-X_{j}(t))^2 dt}
+\end{align*}
+```
+de donde, utilizando la representación de la curva en la base de funciones, se tiene:
+
+```{=tex}
+\begin{align*}
+    d_{ij}&=\sqrt{\int_{[a,b]} ((a_i - a_j)^T B(t)B(t)^T (a_i - a_j) dt}\\\\
+   d_{ij} &=\sqrt{(a_i-a_j)^T W (a_i - a_j)}
+\end{align*}
+```
+donde:
+
+```{=tex}
+\begin{align*}
+    W=\int_{[a,b]}B(t)B(t)^Tdt
+\end{align*}
+```
+donde $a_i$ y $a_j$ son vectores de coeficientes de la base para las curvas $i$ y $j$. Al utilizar bases ortonormales como la de Fourier, la matriz $W$ es la identidad. Una vez calculada la matriz de disimilitud, el proceso estándar aglomerativo o divisivo es aplicado.
+
+Cuando la estructura espacial es tomada en cuenta, y se considera el entorno geoestadístico, la agrupación permite encontrar grupos de sitios cercanos con características similares. Sea $\{Z(s)=(Z_1(s),...,Z_m(s)): s\in D\}$ un proceso espacial $m$ multivariante definido sobre un dominio $D\subseteq \mathcal{R}^d$. Cuando $m=1$, el proceso de agrupación pondera las disimilitudes $d_{ij}$ entre curvas por:
+
+```{=tex}
+\begin{align*}
+    d_{ij}^w=d_{ij}\gamma(h)
+\end{align*}
+```
+donde $\gamma(h)$ es el variograma calculado para las distancias entre las ubicaciones $i,j$. Por otro lado, si $m>1$ la ponderación es llevada a cabo por:
+
+```{=tex}
+\begin{align*}
+    d_{ij}^w=d_{ij}\Gamma(h)
+\end{align*}
+```
+donde $\Gamma(h)$ es el variograma multivariado definido por:
+
+```{=tex}
+\begin{align*}
+    \Gamma(h)=\frac{1}{2}E[Z(x)-Z(x+h)]^T M[Z(x)-Z(x+h)]
+\end{align*}
+```
+con M una matriz simétrica definida positiva usada como métrica. En particular si $M=I$, el variograma multivariado está dado por:
+
+```{=tex}
+\begin{align*}
+    \Gamma(h)&=\sum_{l=1}^m \frac{1}{2} E[Z_l (x) - Z_l (x+h)]^2\\\\
+    \Gamma(h)&=\sum_{l}^m \gamma_{ll}(h)
+\end{align*}
+```
+donde $\gamma_{ll}(h)$ es el variograma de la *l-ésima* variable. Una alternativa a la matriz M es la inversa de la matriz de varianzas-covarianzas. En este caso el variogrma multivariado es una suma ponderada de los variogramas y variogramas cruzados.
+
+Ahora bien, en el contexto de datos funcionales con correlación espacial, se considera $\{\mathcal{Z}_s(t), s\in D\subseteq \mathbb{R}^d\}$ un proceso aleatorio funcional estacionario isotrópico y $\mathcal{Z}_1(t),...,\mathcal{Z}_n(t)$ una realización de este proceso aleatorio observado en $n$ sitios con coordenadas $s_1,...,s_n$ respectivamente. Es así que, para realizar el análisis de agrupación la estructura espacial se la considera a través del trazo-variograma, definido por $\gamma$, de la siguiente manera:
+
+```{=tex}
+\begin{align*}
+    \gamma(h)&=\frac{1}{2}E\left[\int_{[a,b]}(X_i(t)-X_j(t))^2dt \right],\quad h=||x_i-x_j||
+\end{align*}
+```
+y la ponderación de las distancias entre las curvas está dada por:
+
+```{=tex}
+\begin{align*}
+    d_{ij}^w&=d_{ij}\gamma(h)
+\end{align*}
+```
+Utilizando el método de momentos la estimación de $\gamma(h)$ es la siguiente:
+
+```{=tex}
+\begin{align*}
+    \hat{\gamma}(h)=\frac{1}{2 |N(h)|}\sum_{s_i,s_j\in N(h)}\int_{[a,b]}(\mathcal{Z}_{s_i}(t)-\mathcal{Z}_{s_j}(t))^2dt
+\end{align*}
+```
+donde $N(h)=\{(s_i, s_j):  ||s_i -s_j||=h\}$ es el número de elementos distintos en $N(h)$. Luego de estimar el trazo-variograma para una secuencia de $P$ puntos $h_p$, se ajusta un modelo paramétrico $\gamma(h;\theta)$ a los puntos $(h_p,\hat{\gamma}(h_p)),\ p=1,...,P$; este ajuste se lo hace usualmente mediante mínimos cuadrados ordinarios o ponderados. Este trazo-variograma, es un variograma válido debido a que tiene las mismas propiedades que las de un variograma paramétrico ajustado a partir de un conjunto de datos espaciales univariante.
+
+Por otro lado, una segunda alternativa para la agrupación de este tipo de datos, es estimar los variogramas simples y variogramas cruzados a partir de los coeficientes de las funciones base obtenidos en la suavización.
+
+Asumiendo que la curva para cada ubicación de muestra $i=1,...,n$ se la ha expandido utilizando los coeficientes de las funciones base, se tiene la siguiente matriz de coeficientes:
+
+```{=tex}
+\begin{equation*}
+A=
+\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1K}\\
+a_{21} & a_{22} & \cdots & a_{2K}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n1} & a_{n2} & \cdots & a_{nK}
+\end{pmatrix}_{(nxK)}
+\end{equation*}
+```
+que forman una realización de un campo aleatorio de K-variables $\{A(s)=(A_1((s),..,A_K(s)): s\in D \subseteq \mathbb{R}^d\}$ con $E(A_i(t))=v_i$, y la matriz de variogramas y variogramas cruzados es de la siguiente forma:
+
+```{=tex}
+\begin{equation*}
+\Upsilon(h)=
+\begin{pmatrix}
+\gamma_{11}(h) & \gamma_{12}(h) & \cdots & \gamma_{1K}(h)\\
+\gamma_{21}(h) & \gamma_{22}(h) & \cdots & \gamma_{2K}(h)\\
+\vdots & \vdots & \ddots & \vdots\\
+\gamma_{K1}(h) & \gamma_{K2}(h) & \cdots & \gamma_{KK}(h)
+\end{pmatrix}_{(KxK)}
+\end{equation*}
+```
+donde $\gamma_{lq}=\frac{1}{2}E[A_l(s_l)-A_q(s_j)^2],\ l,q=1,...,K,\ h=||s_i-s_j||$; para estimar la matriz anterior se hace uso del modelo lineal de coregionalización (LMC), este método permite modelizar los variogramas y variogramas cruzados de dos o más variables de modo que la varianza de cualquier combinación lineal posible de estas variables es siempre positiva. A partir del modelo estimado de LMC, se calcula el variograma multivariado utilizando los coeficientes de las funciones base.
+
+```{=tex}
+\begin{align*}
+    \gamma_{lq}(h)&=\sum_{k=1}^K b_{lq}^kg_k(h)\quad \forall l,q\\
+\end{align*}
+```
+donde los $b_{lq}^k$ son las sillas o pendientes de los $g_k(h)$ y:
+
+```{=tex}
+\begin{align*}
+    \frac{1}{2}E\left[A_{kl}(s)-A_{kl}(s+h) \right]\left[A_{k'l'}(s)-A_{k'l'}(s+h) \right]=\left \{ \begin{matrix} g_l(h) & \mbox{Si } k=k'\ \mbox{,}l=l'\\
+    0 & \mbox{En otro caso }\end{matrix}\right.  
+\end{align*}
+```
+y matricialmente se tiene que:
+
+```{=tex}
+\begin{align*}
+    \Gamma(h)&=\sum_{l=1}^K[b_{ij}^l]\gamma_{ll}(h)
+\end{align*}
+```
+y finalmente se tiene que:
+
+```{=tex}
+\begin{align*}
+    d_{ij}^w=d_{ij}\Gamma(h)
+\end{align*}
+```
+
+### Método k-medias para datos funcionales con correlación espacial

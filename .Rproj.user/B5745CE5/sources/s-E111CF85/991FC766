@@ -1,0 +1,32 @@
+{
+    "id": "991FC766",
+    "path": "~/pseudolibro/SPFDA_Book/index.Rmd",
+    "project_path": "index.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1656463007239.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "cursorPosition": "14,34",
+        "scrollLine": "0",
+        "rmdVisualModeLocation": "615:381",
+        "docOutlineSize": "62"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1657946293,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1657946293,
+    "read_only": false,
+    "read_only_alternatives": []
+}

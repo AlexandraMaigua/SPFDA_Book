@@ -1,0 +1,61 @@
+h1:estadística-espacial Estadística espacial
+h2:preliminares Preliminares
+h3:función-aleatoria Función Aleatoria
+h3:proceso-estocástico Proceso Estocástico
+h3:proceso-espacial Proceso Espacial
+h3:proceso-temporal Proceso Temporal
+h3:proceso-espacio-temporal Proceso Espacio Temporal
+h2:clases-de-datos-espaciales Clases de Datos Espaciales
+h3:geoestadística Geoestadística
+h3:datos-de-área Datos de Área
+h3:patrones-puntuales Patrones Puntuales
+h3:datos-georreferenciados Datos Georreferenciados
+h2:geoestadística-1 Geoestadística
+h3:variable-regionalizada Variable Regionalizada
+h3:función-de-distribución-conjunta Función de Distribución Conjunta
+h3:función-de-media Función de Media
+h3:función-de-varianza Función de varianza
+h3:función-de-covarianza Función de Covarianza
+h3:función-de-correlación-o-correlograma Función de correlación o Correlograma
+h3:función-de-semi-variograma Función de semi-variograma
+h3:estacionariedad-de-funciones-aleatorias Estacionariedad de Funciones Aleatorias
+h4:estacionariedad-fuerte-o-de-primer-orden Estacionariedad Fuerte o de primer orden
+h4:estacionariedad-de-segundo-orden Estacionariedad de Segundo Orden
+h4:estacionariedad-intrínseca Estacionariedad Intrínseca
+h3:no-estacionariedad-de-funciones-aleatorias No estacionariedad de Funciones Aleatorias
+h3:isotropía Isotropía
+h3:anisotropía Anisotropía
+h3:correlación-espacial Correlación Espacial
+h4:covariograma Covariograma
+h4:semivariograma Semivariograma
+h2:variograma Variograma
+h3:disimilitud-contra-separación Disimilitud contra Separación
+h3:variograma-empírico Variograma Empírico
+h4:tolerancia-en-los-parámetros-de-cálculo Tolerancia en los parámetros de cálculo
+h4:propiedades-del-variograma-empírico Propiedades del variograma empírico
+h4:nube-variográfica Nube variográfica
+h3:estimación-del-variograma-ejemplos Estimación del variograma (Ejemplos)*
+h4:comportamiento-en-el-origen Comportamiento en el origen
+h4:comportamiento-para-distancias-muy-grades Comportamiento para distancias muy grades
+h3:criterios-para-la-estimación-y-ajuste-del-variograma Criterios para la estimación y ajuste del variograma
+h4:tendencia Tendencia:
+h4:establecer-la-variable-correcta Establecer la variable correcta:
+h4:verificación-de-isotropía Verificación de isotropía:
+h3:métodos-de-estimación-teórica-más-utilizados Métodos de estimación teórica más utilizados
+h4:estimador-reml Estimador REML
+h4:verosimilitud-compuesta-cl Verosimilitud Compuesta (CL)
+h4:mínimos-cuadrados-ponderados Mínimos cuadrados ponderados
+h4:modelo-lineal-de-regionalización Modelo lineal de regionalización
+h3:modelos-teóricos-de-variograma Modelos teóricos de variograma
+h4:variogramas-con-silla Variogramas con silla
+h4:variogramas-con-efecto-hueco Variogramas con efecto hueco
+h4:variogramas-sin-silla Variogramas sin silla
+h3:caso-multivariante-ejemplos Caso Multivariante (Ejemplos)
+h4:modelo-lineal-de-coregionalización-mlc Modelo lineal de coregionalización (MLC)
+h4:ajuste-del-mlc Ajuste del MLC
+h2:geoestadística-espacio-temporal Geoestadística espacio-temporal
+h3:tsapéndice TS*(apéndice)
+h3:modelos-separables Modelos separables
+h3:modelos-no-separables Modelos no separables
+h3:estimación-del-variograma-espacio-temporal-ejemplos Estimación del variograma espacio-temporal (Ejemplos)
+

@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 2 Estadística espacial | Clusterización Funcional Espacial</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 2 Estadística espacial | Clusterización Funcional Espacial" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 2 Estadística espacial | Clusterización Funcional Espacial" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Nosotros" />
+
+
+<meta name="date" content="2022-07-15" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introducción.html"/>
+<link rel="next" href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Clusterización Funcional Espacial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introducción.html"><a href="introducción.html#motivación-de-datos-funcionales-espaciales"><i class="fa fa-check"></i><b>1.1</b> Motivación de datos funcionales espaciales</a></li>
+<li class="chapter" data-level="1.2" data-path="introducción.html"><a href="introducción.html#por-qué-es-importante-el-análisis-de-datos"><i class="fa fa-check"></i><b>1.2</b> Por qué es importante el análisis de datos</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="introducción.html"><a href="introducción.html#data-1h"><i class="fa fa-check"></i><b>1.2.1</b> Data 1(H)</a></li>
+<li class="chapter" data-level="1.2.2" data-path="introducción.html"><a href="introducción.html#data-2c"><i class="fa fa-check"></i><b>1.2.2</b> Data 2(C)</a></li>
+<li class="chapter" data-level="1.2.3" data-path="introducción.html"><a href="introducción.html#data-3n"><i class="fa fa-check"></i><b>1.2.3</b> Data 3(N)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="estadística-espacial.html"><a href="estadística-espacial.html"><i class="fa fa-check"></i><b>2</b> Estadística espacial</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#preliminares"><i class="fa fa-check"></i><b>2.1</b> Preliminares</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-aleatoria"><i class="fa fa-check"></i><b>2.1.1</b> Función Aleatoria</a></li>
+<li class="chapter" data-level="2.1.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#proceso-estocástico"><i class="fa fa-check"></i><b>2.1.2</b> Proceso Estocástico</a></li>
+<li class="chapter" data-level="2.1.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#proceso-espacial"><i class="fa fa-check"></i><b>2.1.3</b> Proceso Espacial</a></li>
+<li class="chapter" data-level="2.1.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#proceso-temporal"><i class="fa fa-check"></i><b>2.1.4</b> Proceso Temporal</a></li>
+<li class="chapter" data-level="2.1.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#proceso-espacio-temporal"><i class="fa fa-check"></i><b>2.1.5</b> Proceso Espacio Temporal</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#clases-de-datos-espaciales"><i class="fa fa-check"></i><b>2.2</b> Clases de Datos Espaciales</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#geoestadística"><i class="fa fa-check"></i><b>2.2.1</b> Geoestadística</a></li>
+<li class="chapter" data-level="2.2.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#datos-de-área"><i class="fa fa-check"></i><b>2.2.2</b> Datos de Área</a></li>
+<li class="chapter" data-level="2.2.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#patrones-puntuales"><i class="fa fa-check"></i><b>2.2.3</b> Patrones Puntuales</a></li>
+<li class="chapter" data-level="2.2.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#datos-georreferenciados"><i class="fa fa-check"></i><b>2.2.4</b> Datos Georreferenciados</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#geoestadística-1"><i class="fa fa-check"></i><b>2.3</b> Geoestadística</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#variable-regionalizada"><i class="fa fa-check"></i><b>2.3.1</b> Variable Regionalizada</a></li>
+<li class="chapter" data-level="2.3.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-distribución-conjunta"><i class="fa fa-check"></i><b>2.3.2</b> Función de Distribución Conjunta</a></li>
+<li class="chapter" data-level="2.3.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-media"><i class="fa fa-check"></i><b>2.3.3</b> Función de Media</a></li>
+<li class="chapter" data-level="2.3.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-varianza"><i class="fa fa-check"></i><b>2.3.4</b> Función de varianza</a></li>
+<li class="chapter" data-level="2.3.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-covarianza"><i class="fa fa-check"></i><b>2.3.5</b> Función de Covarianza</a></li>
+<li class="chapter" data-level="2.3.6" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-correlación-o-correlograma"><i class="fa fa-check"></i><b>2.3.6</b> Función de correlación o Correlograma</a></li>
+<li class="chapter" data-level="2.3.7" data-path="estadística-espacial.html"><a href="estadística-espacial.html#función-de-semi-variograma"><i class="fa fa-check"></i><b>2.3.7</b> Función de semi-variograma</a></li>
+<li class="chapter" data-level="2.3.8" data-path="estadística-espacial.html"><a href="estadística-espacial.html#estacionariedad-de-funciones-aleatorias"><i class="fa fa-check"></i><b>2.3.8</b> Estacionariedad de Funciones Aleatorias</a></li>
+<li class="chapter" data-level="2.3.9" data-path="estadística-espacial.html"><a href="estadística-espacial.html#no-estacionariedad-de-funciones-aleatorias"><i class="fa fa-check"></i><b>2.3.9</b> No estacionariedad de Funciones Aleatorias</a></li>
+<li class="chapter" data-level="2.3.10" data-path="estadística-espacial.html"><a href="estadística-espacial.html#isotropía"><i class="fa fa-check"></i><b>2.3.10</b> Isotropía</a></li>
+<li class="chapter" data-level="2.3.11" data-path="estadística-espacial.html"><a href="estadística-espacial.html#anisotropía"><i class="fa fa-check"></i><b>2.3.11</b> Anisotropía</a></li>
+<li class="chapter" data-level="2.3.12" data-path="estadística-espacial.html"><a href="estadística-espacial.html#correlación-espacial"><i class="fa fa-check"></i><b>2.3.12</b> Correlación Espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#variograma"><i class="fa fa-check"></i><b>2.4</b> Variograma</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#disimilitud-contra-separación"><i class="fa fa-check"></i><b>2.4.1</b> Disimilitud contra Separación</a></li>
+<li class="chapter" data-level="2.4.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#variograma-empírico"><i class="fa fa-check"></i><b>2.4.2</b> Variograma Empírico</a></li>
+<li class="chapter" data-level="2.4.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#estimación-del-variograma-ejemplos"><i class="fa fa-check"></i><b>2.4.3</b> Estimación del variograma (Ejemplos)*</a></li>
+<li class="chapter" data-level="2.4.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#criterios-para-la-estimación-y-ajuste-del-variograma"><i class="fa fa-check"></i><b>2.4.4</b> Criterios para la estimación y ajuste del variograma</a></li>
+<li class="chapter" data-level="2.4.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#métodos-de-estimación-teórica-más-utilizados"><i class="fa fa-check"></i><b>2.4.5</b> Métodos de estimación teórica más utilizados</a></li>
+<li class="chapter" data-level="2.4.6" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-teóricos-de-variograma"><i class="fa fa-check"></i><b>2.4.6</b> Modelos teóricos de variograma</a></li>
+<li class="chapter" data-level="2.4.7" data-path="estadística-espacial.html"><a href="estadística-espacial.html#caso-multivariante-ejemplos"><i class="fa fa-check"></i><b>2.4.7</b> Caso Multivariante (Ejemplos)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#geoestadística-espacio-temporal"><i class="fa fa-check"></i><b>2.5</b> Geoestadística espacio-temporal</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#tsapéndice"><i class="fa fa-check"></i><b>2.5.1</b> TS*(apéndice)</a></li>
+<li class="chapter" data-level="2.5.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-separables"><i class="fa fa-check"></i><b>2.5.2</b> Modelos separables</a></li>
+<li class="chapter" data-level="2.5.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-no-separables"><i class="fa fa-check"></i><b>2.5.3</b> Modelos no separables</a></li>
+<li class="chapter" data-level="2.5.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#estimación-del-variograma-espacio-temporal-ejemplos"><i class="fa fa-check"></i><b>2.5.4</b> Estimación del variograma espacio-temporal (Ejemplos)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><i class="fa fa-check"></i><b>3</b> Introducción al análisis de datos funcionales (FDA) (analisis descriptivo, distancias, algoritmos en funcional)</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#espacios-de-hilbert"><i class="fa fa-check"></i><b>3.1</b> Espacios de Hilbert</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#el-espacio-l2"><i class="fa fa-check"></i><b>3.1.1</b> <strong>El Espacio</strong> <span class="math inline">\(L^2\)</span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#funciones-aleatorias-cuadrado-integrables"><i class="fa fa-check"></i><b>3.1.2</b> <strong>Funciones Aleatorias Cuadrado Integrables</strong></a></li>
+<li class="chapter" data-level="3.1.3" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#estimación-de-la-función-de-media-y-covarianza"><i class="fa fa-check"></i><b>3.1.3</b> <strong>Estimación de la función de media y covarianza</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#campos-aleatorios-funcionales-espaciales"><i class="fa fa-check"></i><b>3.2</b> Campos aleatorios funcionales espaciales</a></li>
+<li class="chapter" data-level="3.3" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#campos-aleatorios-funcionales-espaciales-multivariantes"><i class="fa fa-check"></i><b>3.3</b> Campos aleatorios funcionales espaciales multivariantes</a></li>
+<li class="chapter" data-level="3.4" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#reducción-de-dimensionalidad"><i class="fa fa-check"></i><b>3.4</b> Reducción de Dimensionalidad</a>
+<ul>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#bases-de-expansión"><i class="fa fa-check"></i>Bases de expansión</a></li>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#bases-de-fourier"><i class="fa fa-check"></i>Bases de Fourier</a></li>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#base-de-splines"><i class="fa fa-check"></i>Base de Splines</a></li>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#estimación-de-curvas-utilizando-sistemas-de-bases-por-mínimos-cuadrados"><i class="fa fa-check"></i>Estimación de curvas utilizando sistemas de bases por mínimos cuadrados</a></li>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-de-fourier"><i class="fa fa-check"></i>Suavizamiento de datos funcionales mediante el uso de bases de Fourier</a></li>
+<li class="chapter" data-level="" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-b-splines"><i class="fa fa-check"></i>Suavizamiento de datos funcionales mediante el uso de bases B-splines</a></li>
+<li class="chapter" data-level="3.4.1" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#elección-de-número-de-bases"><i class="fa fa-check"></i><b>3.4.1</b> Elección de número de bases</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#detección-de-atípicos"><i class="fa fa-check"></i><b>3.5</b> Detección de atípicos</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#medidas-de-profundidad"><i class="fa fa-check"></i><b>3.5.1</b> Medidas de profundidad</a></li>
+<li class="chapter" data-level="3.5.2" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#gráfico-de-magnitudes-y-formas"><i class="fa fa-check"></i><b>3.5.2</b> Gráfico de Magnitudes y Formas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#anova-para-datos-funcionales"><i class="fa fa-check"></i><b>3.6</b> ANOVA Para datos funcionales</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html#one-way-anova"><i class="fa fa-check"></i><b>3.6.1</b> One-Way ANOVA</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html"><i class="fa fa-check"></i><b>4</b> Introducción a la estadística esepacial funcional</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#proceso-espacial-funcional"><i class="fa fa-check"></i><b>4.1</b> Proceso Espacial Funcional</a></li>
+<li class="chapter" data-level="4.2" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#datos-funcionales-espaciales"><i class="fa fa-check"></i><b>4.2</b> Datos funcionales espaciales</a></li>
+<li class="chapter" data-level="4.3" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#variable-regionalizada-funcional"><i class="fa fa-check"></i><b>4.3</b> Variable Regionalizada Funcional</a></li>
+<li class="chapter" data-level="4.4" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-distribución-conjunta-funcional"><i class="fa fa-check"></i><b>4.4</b> Función de Distribución Conjunta Funcional</a></li>
+<li class="chapter" data-level="4.5" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-media-funcional"><i class="fa fa-check"></i><b>4.5</b> Función de Media Funcional</a></li>
+<li class="chapter" data-level="4.6" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-varianza-funcional"><i class="fa fa-check"></i><b>4.6</b> Función de varianza Funcional</a></li>
+<li class="chapter" data-level="4.7" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-covarianza-funcional"><i class="fa fa-check"></i><b>4.7</b> Función de Covarianza Funcional</a></li>
+<li class="chapter" data-level="4.8" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-correlación-o-correlograma-funcional"><i class="fa fa-check"></i><b>4.8</b> Función de correlación o Correlograma Funcional</a></li>
+<li class="chapter" data-level="4.9" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#función-de-semi-variograma-funcional"><i class="fa fa-check"></i><b>4.9</b> Función de semi-variograma Funcional</a></li>
+<li class="chapter" data-level="4.10" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#estacionariedad-de-funciones-aleatorias-1"><i class="fa fa-check"></i><b>4.10</b> Estacionariedad de Funciones Aleatorias</a></li>
+<li class="chapter" data-level="4.11" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#no-estacionariedad-de-funciones-aleatorias-1"><i class="fa fa-check"></i><b>4.11</b> No estacionariedad de Funciones Aleatorias</a></li>
+<li class="chapter" data-level="4.12" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#correlación-espacial-funcional"><i class="fa fa-check"></i><b>4.12</b> Correlación Espacial Funcional</a></li>
+<li class="chapter" data-level="4.13" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#índices-de-correlación-espacial"><i class="fa fa-check"></i><b>4.13</b> Índices de correlación espacial</a>
+<ul>
+<li class="chapter" data-level="4.13.1" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#índice-de-moran-funcional"><i class="fa fa-check"></i><b>4.13.1</b> Índice de Moran funcional</a></li>
+<li class="chapter" data-level="4.13.2" data-path="introducción-a-la-estadística-esepacial-funcional.html"><a href="introducción-a-la-estadística-esepacial-funcional.html#índice-de-geary-funcional"><i class="fa fa-check"></i><b>4.13.2</b> Índice de Geary funcional</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="agrupación.html"><a href="agrupación.html"><i class="fa fa-check"></i><b>5</b> Agrupación</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="agrupación.html"><a href="agrupación.html#algoritmos-de-agrupación"><i class="fa fa-check"></i><b>5.1</b> Algoritmos de agrupación</a></li>
+<li class="chapter" data-level="5.2" data-path="agrupación.html"><a href="agrupación.html#agrupación-datos-multivariantes-apéndice"><i class="fa fa-check"></i><b>5.2</b> Agrupación: Datos Multivariantes (apéndice)</a></li>
+<li class="chapter" data-level="5.3" data-path="agrupación.html"><a href="agrupación.html#agrupación-datos-funcionales"><i class="fa fa-check"></i><b>5.3</b> Agrupación: Datos Funcionales</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="agrupación.html"><a href="agrupación.html#métodos-de-datos-en-bruto"><i class="fa fa-check"></i><b>5.3.1</b> Métodos de datos en bruto</a></li>
+<li class="chapter" data-level="5.3.2" data-path="agrupación.html"><a href="agrupación.html#métodos-de-filtrado"><i class="fa fa-check"></i><b>5.3.2</b> Métodos de filtrado</a></li>
+<li class="chapter" data-level="5.3.3" data-path="agrupación.html"><a href="agrupación.html#métodos-adaptativos"><i class="fa fa-check"></i><b>5.3.3</b> Métodos adaptativos</a></li>
+<li class="chapter" data-level="5.3.4" data-path="agrupación.html"><a href="agrupación.html#clasificación-basados-en-modelos"><i class="fa fa-check"></i><b>5.3.4</b> Clasificación basados en modelos</a></li>
+<li class="chapter" data-level="5.3.5" data-path="agrupación.html"><a href="agrupación.html#método-adaptativo-de-agrupación-usando-coeficientes-de-bases-de-expansión"><i class="fa fa-check"></i><b>5.3.5</b> Método adaptativo de agrupación usando coeficientes de bases de expansión</a></li>
+<li class="chapter" data-level="5.3.6" data-path="agrupación.html"><a href="agrupación.html#método-adaptativo-de-agrupación-usando-fpca"><i class="fa fa-check"></i><b>5.3.6</b> Método adaptativo de agrupación usando FPCA</a></li>
+<li class="chapter" data-level="5.3.7" data-path="agrupación.html"><a href="agrupación.html#métodos-basados-en-distancia"><i class="fa fa-check"></i><b>5.3.7</b> Métodos basados en distancia</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="agrupación.html"><a href="agrupación.html#agrupación-datos-espaciales"><i class="fa fa-check"></i><b>5.4</b> Agrupación: Datos Espaciales</a></li>
+<li class="chapter" data-level="5.5" data-path="agrupación.html"><a href="agrupación.html#agrupación-datos-funcionales-con-correlación-espacial"><i class="fa fa-check"></i><b>5.5</b> Agrupación: Datos funcionales con correlación espacial</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="agrupación.html"><a href="agrupación.html#método-jerárquico-para-datos-funcionales-con-correlación-espacial"><i class="fa fa-check"></i><b>5.5.1</b> Método jerárquico para datos funcionales con correlación espacial</a></li>
+<li class="chapter" data-level="5.5.2" data-path="agrupación.html"><a href="agrupación.html#método-k-medias-para-datos-funcionales-con-correlación-espacial"><i class="fa fa-check"></i><b>5.5.2</b> Método k-medias para datos funcionales con correlación espacial</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="aplicaciones.html"><a href="aplicaciones.html"><i class="fa fa-check"></i><b>6</b> Aplicaciones</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="aplicaciones.html"><a href="aplicaciones.html#aplicación-1"><i class="fa fa-check"></i><b>6.1</b> Aplicación 1</a></li>
+<li class="chapter" data-level="6.2" data-path="aplicaciones.html"><a href="aplicaciones.html#aplicación-2"><i class="fa fa-check"></i><b>6.2</b> Aplicación 2</a></li>
+<li class="chapter" data-level="6.3" data-path="aplicaciones.html"><a href="aplicaciones.html#aplicación-3"><i class="fa fa-check"></i><b>6.3</b> Aplicación 3</a></li>
+<li class="chapter" data-level="6.4" data-path="aplicaciones.html"><a href="aplicaciones.html#aplicación-4"><i class="fa fa-check"></i><b>6.4</b> Aplicación 4</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="apéndice.html"><a href="apéndice.html"><i class="fa fa-check"></i><b>7</b> Apéndice</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="apéndice.html"><a href="apéndice.html#introducción-a-la-simulación-geoestadística-codicional-y-no-condicional"><i class="fa fa-check"></i><b>7.1</b> Introducción a la simulación geoestadística codicional y no condicional</a></li>
+<li class="chapter" data-level="7.2" data-path="apéndice.html"><a href="apéndice.html#estudio-de-simulación-referencia-al-artículo"><i class="fa fa-check"></i><b>7.2</b> Estudio de simulación (referencia al artículo)</a></li>
+<li class="chapter" data-level="7.3" data-path="apéndice.html"><a href="apéndice.html#índices"><i class="fa fa-check"></i><b>7.3</b> Índices</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="apéndice.html"><a href="apéndice.html#selección-de-número-de-grupos"><i class="fa fa-check"></i><b>7.3.1</b> Selección de número de grupos</a></li>
+<li class="chapter" data-level="7.3.2" data-path="apéndice.html"><a href="apéndice.html#validación-de-grupos"><i class="fa fa-check"></i><b>7.3.2</b> Validación de grupos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Clusterización Funcional Espacial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estadística-espacial" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number"> 2</span> Estadística espacial<a href="estadística-espacial.html#estadística-espacial" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="preliminares" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Preliminares<a href="estadística-espacial.html#preliminares" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="función-aleatoria" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Función Aleatoria<a href="estadística-espacial.html#función-aleatoria" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dado un dominio <span class="math inline">\(D\subset \mathbb{R}^n\)</span> y un espacio de probabilidad <span class="math inline">\((\Omega,\mathcal{A},P)\)</span>, una función aleatoria es una función de dos variables <span class="math inline">\(Z(x,\omega)\)</span> tal que para cada <span class="math inline">\(x\in D\)</span>, <span class="math inline">\(Z(x,.)\)</span> es una variable aleatoria en <span class="math inline">\((\Omega,\mathcal{A},P)\)</span>. Por otro lado, <span class="math inline">\(Z(.,\omega)\)</span>, definido en <span class="math inline">\(D\)</span> como la sección de la función aleatoria en <span class="math inline">\(\omega \in \Omega\)</span> es una realización de la función aleatoria. La función aleatoria <span class="math inline">\(Z(x,\omega)\)</span> se denota como <span class="math inline">\(Z(x)\)</span> y una realización es representada por <span class="math inline">\(z(x)\)</span> .</p>
+</div>
+<div id="proceso-estocástico" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Proceso Estocástico<a href="estadística-espacial.html#proceso-estocástico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Según , una función aleatoria es llamada proceso estocástico cuando <span class="math inline">\(x\)</span> varia en un espacio unidimensional como el tiempo; por otro lado, si <span class="math inline">\(x\)</span> varia en más de una dimensión es conocido como campo aleatorio.</p>
+</div>
+<div id="proceso-espacial" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Proceso Espacial<a href="estadística-espacial.html#proceso-espacial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea <span class="math inline">\(Z\)</span> la variable aleatoria de interés y <span class="math inline">\(s\)</span> su ubicación espacia. El proceso espacial es el proceso estocástico</p>
+<p><span class="math display">\[\{Z(s):s \in D\}\]</span></p>
+<p>donde <span class="math inline">\(D \subset \mathbb{R}^d\)</span> es el conjunto formado por todas las ubicaciones espaciales .</p>
+</div>
+<div id="proceso-temporal" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Proceso Temporal<a href="estadística-espacial.html#proceso-temporal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea <span class="math inline">\(Z\)</span> la variable aleatoria de interés y <span class="math inline">\(t\)</span> el tiempo. El proceso temporal es el proceso estocástico</p>
+<p><span class="math display">\[\{Z(t):t \in D\}\]</span></p>
+<p>donde <span class="math inline">\(D \subset \mathbb{R}\)</span> es el conjunto formado por todos los instantes de tiempo .</p>
+</div>
+<div id="proceso-espacio-temporal" class="section level3 hasAnchor" number="2.1.5">
+<h3><span class="header-section-number">2.1.5</span> Proceso Espacio Temporal<a href="estadística-espacial.html#proceso-espacio-temporal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea <span class="math inline">\(Z\)</span> la variable aleatoria de interés, <span class="math inline">\(s\)</span> su ubicación espacial y <span class="math inline">\(t\)</span> el tiempo de ocurrencia. Un proceso espacio-temporal es un proceso estocástico</p>
+<p><span class="math display">\[\{Z(s,t):(s,t) \in D \times D&#39; \}\]</span></p>
+<p>donde el conjunto <span class="math inline">\(D \subset \mathbb{R}^d\)</span> es el conjunto de todas las ubicaciones espaciales y el conjunto <span class="math inline">\(D&#39; \subset \mathbb{R}\)</span> es el conjunto de todos los instantes de tiempo. Los conjuntos <span class="math inline">\(D\)</span> y <span class="math inline">\(D&#39;\)</span> pueden ser continuos o discretos, fijos o aleatorios .</p>
+</div>
+</div>
+<div id="clases-de-datos-espaciales" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Clases de Datos Espaciales<a href="estadística-espacial.html#clases-de-datos-espaciales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dependiendo de las características del dominio espacial <span class="math inline">\(D\)</span> del proceso estocástico de interés, se tienen los siguientes tipos de datos espaciales principales, los cuales son geoestadística, datos de área o , procesos o patrones espaciales puntuales y datos georreferenciados.</p>
+<div id="geoestadística" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Geoestadística<a href="estadística-espacial.html#geoestadística" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Es el conjunto de métodos aplicados a datos espaciales, donde las ubicaciones espaciales <span class="math inline">\(s\)</span> provienen de un conjunto continuo y fijo <span class="math inline">\(D \subset \mathbb{R}^d\)</span>; cabe resaltar que el propósito de la geoestadística es la interpolación. Además, si el conjunto <span class="math inline">\(D\)</span> no es continuo se puede llegar a obtener predicciones carentes de sentido, y se considera <span class="math inline">\(D\)</span> fijo pues los puntos en el espacio se seleccionan a conveniencia o bajo un esquema de muestreo probabilístico .</p>
+</div>
+<div id="datos-de-área" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Datos de Área<a href="estadística-espacial.html#datos-de-área" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este tipo de datos las ubicaciones espaciales pertenecen a un conjunto discreto contable y fijo <span class="math inline">\(D \subset \mathbb{R}^d\)</span>. Las ubicaciones pueden estar espaciadas regular o irregularmente, usualmente son irregulares pues sus separaciones no siguen un patrón predecible..</p>
+</div>
+<div id="patrones-puntuales" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Patrones Puntuales<a href="estadística-espacial.html#patrones-puntuales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este caso, las ubicaciones espaciales pertenecen a un conjunto discreto o continuo y aleatorio <span class="math inline">\(D\subset \mathbb{R}^d\)</span>. Con este tipo de dato se realizan análisis con el propósito de determinar si la distribución de las mediciones en la región es aleatoria, agregada o uniforme .</p>
+</div>
+<div id="datos-georreferenciados" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Datos Georreferenciados<a href="estadística-espacial.html#datos-georreferenciados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En este caso, las variables de interés tienen asociadas las coordenadas de las ubicaciones donde fueron medidas, las que pueden ser geográficas, planas o cartesianas .</p>
+</div>
+</div>
+<div id="geoestadística-1" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Geoestadística<a href="estadística-espacial.html#geoestadística-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La palabra geoestadística fue establecida por Hart en el año de 1954. El significado de esta palabra se lo puede deducir a partir de su prefijo geo, que hace referencia a la tierra; por lo tanto, la geoestadística es una rama de la estadística enfocada en el análisis y la modelización de la variabilidad espacial de fenómenos que ocurren dentro de una zona geográfica; además, es considerada como una disciplina híbrida entre Geología, Matemática, Estadística y Minería de datos .</p>
+<div id="variable-regionalizada" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Variable Regionalizada<a href="estadística-espacial.html#variable-regionalizada" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Una variable regionalizada es un proceso estocástico con dominio continuo contenido en un espacio euclidiano d-dimensional <span class="math inline">\(\{Z(s):s\in D\subset \mathbb{R}^d\}\)</span>.</p>
+<p>En el caso de que las mediciones sean realizadas en una superficie; es decir, <span class="math inline">\(d=2\)</span>, <span class="math inline">\(Z(s)\)</span> puede asociarse a la variable aleatoria ligada a ese punto del plano, <span class="math inline">\(s\)</span> representa las coordenadas geográficas y <span class="math inline">\(Z\)</span> la variable en cada una de ellas. La medición de esta variable aleatoria puede representar la magnitud de una variable ambiental medida en un conjunto de coordenadas en la región de estudio .</p>
+<p>Un proceso estocástico espacial se caracteriza por su distribución de probabilidad de dimensión finita; es decir, la distribución de probabilidad conjunta de un conjunto de variables <span class="math inline">\(Z(s_1),...,Z(s_k)\)</span> para todo <span class="math inline">\(k \in \mathbb{N}\)</span> y para todos los puntos <span class="math inline">\(s_1,...s_k \in D\)</span> .</p>
+</div>
+<div id="función-de-distribución-conjunta" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Función de Distribución Conjunta<a href="estadística-espacial.html#función-de-distribución-conjunta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Considérese una función/campo aleatorio <span class="math inline">\(Z=\{Z(s):s\in D\}\)</span> y <span class="math inline">\(k\)</span> ubicaciones espaciales <span class="math inline">\(s_1,...,s_k \in D\)</span>. El vector aleatorio <span class="math inline">\(\{Z(s_1),...,Z(s_k)\}\)</span> está caracterizado por su función de distribución conjunta:</p>
+<p><span class="math display">\[F_{s_1,...,s_k}(z_1,...,z_2)=P[Z(s_1)\leq z_1,...,Z(s_k)\leq z_k]\]</span></p>
+</div>
+<div id="función-de-media" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Función de Media<a href="estadística-espacial.html#función-de-media" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La esperanza o el momento de primer orden de un campo aleatorio o proceso estocástico espacial <span class="math inline">\(Z(s)\)</span>, es una función no aleatoria de <span class="math inline">\(s\)</span></p>
+<span class="math display">\[\begin{align*}
+E[Z(s)]=\mu(s)\quad\text{donde}\quad \mu(s_i)=E(Z(s_i))\ i=1,...,k    
+\end{align*}\]</span>
+<p>En cada sitio <span class="math inline">\(s\)</span> dado, <span class="math inline">\(\mu(s)\)</span> representa la media alrededor de la cual se distribuyen los valores tomados por las realizaciones de la funciones aleatoria . Si la esperanza del campo aleatorio varía con la ubicación espacial, se le conoce como deriva o del campo aleatorio.</p>
+<p>En geoestadística existen tres elementos de segundo orden, los cuales son: varianza, convarianza y variograma.</p>
+</div>
+<div id="función-de-varianza" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Función de varianza<a href="estadística-espacial.html#función-de-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La varianza de un campo aleatorio o proceso estocástico espacial <span class="math inline">\(Z(s)\)</span> respecto a <span class="math inline">\(\mu(s)\)</span>, está definida por:</p>
+<span class="math display">\[\begin{align*}
+  V(s)=\sigma^2(s)=Var[Z(s)]=E[(Z(s)-\mu(s))^2]\quad \text{donde} \quad V(s_i)=\sigma^2(s_i)=V(Z(s_i))\ i=1,...,k
+\end{align*}\]</span>
+</div>
+<div id="función-de-covarianza" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Función de Covarianza<a href="estadística-espacial.html#función-de-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sean <span class="math inline">\(Z(s_i)\)</span> y <span class="math inline">\(Z(s_j)\)</span> dos variables aleatorias de un proceso estocástico espacial, la covarianza es una función de separación espacial de <span class="math inline">\(s_i\)</span> y <span class="math inline">\(s_j\)</span> y está definida por:</p>
+<span class="math display">\[\begin{align*}
+  C(s_i,s_j)&amp;=C(s_i-s_j)\\ \\
+  C(s_i,s_j)&amp;=C(Z(s_i),Z(s_j))\\ \\
+  C(s_i,s_j)&amp;=E[(Z(s_i)-\mu(s_j))(Z(s_j)-\mu(s_j))]\\ \\
+  C(s_i,s_j)&amp;=E[Z(s_i)Z(s_j)]-\mu(s_i)\mu(s_j)
+\end{align*}\]</span>
+<p>Nótese que:</p>
+<span class="math display">\[\begin{align*}
+  C(s,s)=C(0)=\sigma^2(s)  
+\end{align*}\]</span>
+</div>
+<div id="función-de-correlación-o-correlograma" class="section level3 hasAnchor" number="2.3.6">
+<h3><span class="header-section-number">2.3.6</span> Función de correlación o Correlograma<a href="estadística-espacial.html#función-de-correlación-o-correlograma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La correlación lineal de dos variables aleatorias de un proceso estocástico espacial <span class="math inline">\(Z(s_i)\)</span> y <span class="math inline">\(Z(s_j)\)</span>, está definida por:</p>
+<span class="math display">\[\begin{align*}
+  \rho(s_i,s_j)=\frac{C(s_i,s_j)}{\sigma(s_i)\sigma(s_j)}  
+\end{align*}\]</span>
+</div>
+<div id="función-de-semi-variograma" class="section level3 hasAnchor" number="2.3.7">
+<h3><span class="header-section-number">2.3.7</span> Función de semi-variograma<a href="estadística-espacial.html#función-de-semi-variograma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El semi-variograma entre dos variables aleatorias de un proceso estocástico espacial <span class="math inline">\(Z(s_i)\)</span> y <span class="math inline">\(Z(s_j)\)</span> está dado por:</p>
+<span class="math display">\[\begin{align*}
+  \gamma(s_i,s_j)=\gamma(s_i-s_j)= \frac{1}{2} V[Z(s_i)-Z(s_j)], \ \forall s_i,s_j \in D
+\end{align*}\]</span>
+</div>
+<div id="estacionariedad-de-funciones-aleatorias" class="section level3 hasAnchor" number="2.3.8">
+<h3><span class="header-section-number">2.3.8</span> Estacionariedad de Funciones Aleatorias<a href="estadística-espacial.html#estacionariedad-de-funciones-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Una variable aleatoria regionalizada vista como una realización de un proceso estocástico espacial o función aleatoria <span class="math inline">\(\{Z(s):s\in D\}\)</span>, probabilísticamente adquiere sentido cuando es posible inferir toda o parte de la ley de probabilidad del proceso estocástico o campo aleatorio. Es claro que inferir la ley de probabilidad cuando solo se tiene una realización del proceso estocástico espacial o función aleatorio sería imposible; para poder hacer inferencia consistente, se necesitan de varias realizaciones, pero en la realidad solo existe una, inclusive solo una parte de las realizaciones está disponible en las ubicaciones de la muestra; para dar solución a este problema, se introduce el supuesto de estacionariedad, que significa que la ley de probabilidad espacial del proceso estocástico espacial o función aleatoria, o parte de este, es invariante respecto a traslaciones; es decir, las propiedades probabilísticas de un conjunto de observaciones no dependen de las ubicaciones donde fueron medidas, solo dependen de su separación; además, como se mencionó, las realizaciones no son independientes . Así, se distinguen tres tipos de estacionariedad:</p>
+<ul>
+<li>Estacionariedad fuerte o de primer orden.</li>
+<li>Estacionariedad débil o de segundo orden.</li>
+<li>Estacionariedad intrínseca .</li>
+</ul>
+<div id="estacionariedad-fuerte-o-de-primer-orden" class="section level4 unnumbered hasAnchor">
+<h4>Estacionariedad Fuerte o de primer orden<a href="estadística-espacial.html#estacionariedad-fuerte-o-de-primer-orden" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Este supuesto se refiere a que el proceso alcanza un estado de equilibrio. Formalmente, una variable regionalizada es estacionaria si su función de distribución no varía con la traslación del vector h; esto es, si para:</p>
+<span class="math display">\[\begin{align*}
+    Z(s)&amp;=[Z(s_1),...,Z(s_n)]^{&#39;} \\ \\
+    Z(s+h)&amp;=[Z(s_{1} +h),...,Z(s_{n} +h )]^{&#39;}
+\end{align*}\]</span>
+<p>se tiene que:</p>
+<span class="math display">\[\begin{align*}
+  F_{Z_1,...,Z_n}(s_1,...,s_n)=F_{Z_1,...,Z_n}((s_1+h),...,(s_n+h))  
+\end{align*}\]</span>
+<p>Nótese que esta condición es muy restrictiva, por lo que normalmente se relaja a condiciones de segundo orden, las que limitan el supuesto de estacionariedad a los dos primeros momentos del proceso estocástico o campo aleatorio .</p>
+</div>
+<div id="estacionariedad-de-segundo-orden" class="section level4 unnumbered hasAnchor">
+<h4>Estacionariedad de Segundo Orden<a href="estadística-espacial.html#estacionariedad-de-segundo-orden" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Sea <span class="math inline">\(\{Z(s): s\in D \}\)</span> un proceso estocástico o campo aleatorio, se dice débilmente estacionario o de segundo orden si tiene momentos de segundo orden finitos; es decir, que la covarianza existe y se verifica que:</p>
+<ul>
+<li><p>La esperanza existe, es constante a través del dominio <span class="math inline">\(D\)</span>, y no depende de la ubicación <span class="math inline">\(s\)</span>; es decir:</p>
+<span class="math display">\[\begin{align*}
+    E(Z(s))=\mu(s)=\mu  
+  \end{align*}\]</span></li>
+<li><p>La covarianza existe para todo par de variables aleatorias, <span class="math inline">\(Z(s)\)</span> y <span class="math inline">\(Z(s+h)\)</span>, y solo depende del vector de separación <span class="math inline">\(h\)</span> entre las ubicaciones <span class="math inline">\(s\)</span> y <span class="math inline">\(s+h\)</span>; es decir, depende de la dirección y la distancia de separación, y no de sus ubicaciones absolutas y se tiene que:</p>
+<span class="math display">\[\begin{align*}
+    Cov(Z(s),Z(s+h))=C(h),\forall s\in D \ y\ h  
+  \end{align*}\]</span>
+<p>La estacionariedad de la covarianza implica que la varianza <span class="math inline">\(Var(Z(s))\)</span> existe, es finita y no depende de <span class="math inline">\(s\)</span>; es decir:</p>
+<span class="math display">\[\begin{align*}
+    Var(Z(s))=\sigma^2(s)=C(s,s)=C(s-s)=C(0)=\sigma^2  
+\end{align*}\]</span></li>
+</ul>
+<p>La estacionariedad de segundo orden implica la siguiente relación entre entre la función de semivarianza y la de autocovarianza:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(h)&amp;=\frac{1}{2}V(Z(s+h)-Z(s)), \quad \text{con} \ \gamma(h)=\gamma(s+h,s)\\
+&amp;=\frac{1}{2}(V(Z(s+h))+V(Z(s))+2C(Z(s+h),Z(s)))\\
+&amp;=\frac{1}{2}(C(0)+C(0)+2C(h))\\
+&amp;=C(0)-C(h)
+\end{align*}\]</span>
+<p>Nótese que si un proceso estocástico o campo aleatorio es estacionario de segundo orden, entonces también será un proceso estocástico estacionariamente fuerte; sin embargo, esto no ocurre en el sentido contrario.</p>
+<p>Se debe tener en cuenta que la estacionariedad de segundo orden implica la existencia de la varianza del proceso estocástico o campo aleatorio. Existen fenómenos con varianza infinita lo que imposibilita su modelización utilizando procesos de este tipo. Sin embargo, existen casos en los que los incrementos, <span class="math inline">\(Z(s+h)-Z(s)\)</span>, tienen varianza finita y que además son un proceso estacionario de segundo orden; este tipo de proceso estocástico o campo aleatorio se conoce como un proceso con estacionariedad intrínseca .</p>
+</div>
+<div id="estacionariedad-intrínseca" class="section level4 unnumbered hasAnchor">
+<h4>Estacionariedad Intrínseca<a href="estadística-espacial.html#estacionariedad-intrínseca" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Sea <span class="math inline">\(\{Z(s): s\in D\}\)</span> un proceso estocástico o campo aleatorio; se dice que es un proceso con estacionariedad intrínseca, si:</p>
+<ul>
+<li><p><span class="math inline">\(Z(s)\)</span> tiene esperanza finita y constante para todo punto en el domino, lo cual implica que la esperanza de los incrementos sea cero.</p>
+<p><span class="math display">\[E(Z(s+h)-Z(s))=0\]</span></p></li>
+<li><p>Para cualquier vector <span class="math inline">\(h\)</span>, la varianza del incremento está definida y es una función única de la distancia.</p>
+<p><span class="math display">\[V(Z(s+h)-Z(s))=E(Z(s+h)-Z(s))^2=2\gamma(h)\]</span></p></li>
+</ul>
+</div>
+</div>
+<div id="no-estacionariedad-de-funciones-aleatorias" class="section level3 hasAnchor" number="2.3.9">
+<h3><span class="header-section-number">2.3.9</span> No estacionariedad de Funciones Aleatorias<a href="estadística-espacial.html#no-estacionariedad-de-funciones-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea <span class="math inline">\(\{Z(s): s\in D\}\)</span> un proceso estocástico o campo aleatorio para el cual la media y/o la función de covarianza depende de la ubicación espacial; es decir, no son traslacionalmente invariantes; se dice que <span class="math inline">\(Z(s)\)</span> es una función aleatoria no estacionaria.</p>
+<p>Cuando el proceso estocástico o campo aleatorio <span class="math inline">\(\{Z(s): s\in D\}\)</span> tiene media no constante y varia con la ubicación espacial, y sus incrementos de primer orden <span class="math inline">\(Z(s+h)-Z(s)\)</span> son no estacionarios, se dice que la función aleatoria es no intrínseca .</p>
+</div>
+<div id="isotropía" class="section level3 hasAnchor" number="2.3.10">
+<h3><span class="header-section-number">2.3.10</span> Isotropía<a href="estadística-espacial.html#isotropía" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Identificar la estacionariedad en un campo temporal es fácil, ya que solo existe una dirección de variación. Por otro lado, en el campo espacial existen múltiples direcciones, por lo que se debe asumir que el fenómeno es estacionario en todas ellas. Cuando la esperanza de la variable cambie respecto a las direcciones o cuando la covarianza o correlación dependan del sentido en el que se determinen, entonces se dirá que no se tiene estacionariedad .</p>
+<p>Ahora bien, si <span class="math inline">\(C(h)\)</span> y/o <span class="math inline">\(\gamma(h)\)</span>, son funciones únicas de la magnitud <span class="math inline">\(||h||\)</span></p>
+<span class="math display">\[\begin{align*}
+    Cov(Z(s),Z(s+h)&amp;= C(||h||))\\
+    \frac{1}{2} Var(Z(s+h)-Z(s))&amp;=\gamma(||h||)
+\end{align*}\]</span>
+<p>el proceso posee función de covarianza y/o semivarianza isotrópica. La estacionariedad posibilita combinar pares de datos con la misma diferencia en magnitud de separación de las coordenadas, y si los vectores de diferencias tienen la posibilidad de ser reemplazados con distancias escalares, entonces el campo se dice isotrópico . Si la correlación entre los datos no es dependiente de la dirección en la que esta se calcule se plantea que el fenómeno es isotrópico ; en caso opuesto un campo aleatorio que es estacionario pero no isotrópico se desenvuelve de forma distinta según las diferentes direcciones del espacio; por lo cual, no es suficiente conocer cuánto permanecen distanciadas las ubicaciones, sino además es necesario conocer la orientación de esa distancia; a dichos campos se los conoce como campos aleatorios anisotrópicos .</p>
+</div>
+<div id="anisotropía" class="section level3 hasAnchor" number="2.3.11">
+<h3><span class="header-section-number">2.3.11</span> Anisotropía<a href="estadística-espacial.html#anisotropía" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="correlación-espacial" class="section level3 hasAnchor" number="2.3.12">
+<h3><span class="header-section-number">2.3.12</span> Correlación Espacial<a href="estadística-espacial.html#correlación-espacial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El análisis estructural es la primera etapa en el desarrollo de un análisis geoestadístico; a partir de este se puede expresar la estructura de dependencia espacial o correlación que existe entre los datos medidos de una variable mediante funciones como el variograma y/o covariograma .</p>
+<div id="covariograma" class="section level4 unnumbered hasAnchor">
+<h4>Covariograma<a href="estadística-espacial.html#covariograma" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Como se definió anteriormente, la función de covarianza de un proceso estocástico espacial o campo aleatorio esta dada por:</p>
+<span class="math display">\[\begin{align*}
+    C(s_i,s_j)&amp;=C(Z(s_i),Z(s_j))\\
+    &amp;= E((Z(s_i)-\mu(s_i)) (Z(s_j)-\mu(s_j))),\ \forall s_i,s_j\in D
+\end{align*}\]</span>
+<p>Bajo la hipótesis de estacionariedad de segundo orden, la función de covarianza tiene las siguientes propiedades:</p>
+<ul>
+<li><p>Solo depende del vector de separación <span class="math inline">\(h\)</span> entre las ubicaciones espaciales:</p>
+<span class="math display">\[\begin{align*}
+    C(h)=E((Z(s+h)-\mu)(Z(s)-\mu)),\ \forall s,s+h \in D\subset \mathbb{R}^d  
+  \end{align*}\]</span>
+<p>donde <span class="math inline">\(\mu\)</span> es la media constante del proceso estocástico espacial o campo aleatorio. El covariograma muestra el comportamiento de la correlación entre <span class="math inline">\(Z(s)\)</span> y <span class="math inline">\(Z(s+h)\)</span>.
+Cuando la función de covarianza solo depende de la distancia entre las ubicaciones <span class="math inline">\(s\)</span> y <span class="math inline">\(s+h\)</span> se conoce como <strong>proceso isotrópico</strong>. Cuando depende de la distancia y de la dirección del vector de separación h se conoce como un <strong>proceso anisotrópico</strong>.</p></li>
+<li><p>Está acotado por la varianza del proceso estocástico espacial o campo aleatorio en el origen; es decir:</p>
+<span class="math display">\[\begin{align*}
+    |C(h)|\leq C(0)=Var(Z(s))  
+  \end{align*}\]</span></li>
+<li><p>Es una función par; es decir:</p>
+<span class="math display">\[\begin{align*}
+    C(h)=C(-h)  
+  \end{align*}\]</span></li>
+<li><p>Es una función definida positiva, en términos de diferencia entre coordenadas <span class="math inline">\(s_i-s_j=h\)</span>:</p>
+<span class="math display">\[\begin{align*}
+    \sum_{i=1}^n \sum_{j=1}^n\lambda_i \lambda_j C(s_i-s_j)\geq 0,\forall n\in \mathbb{N}^*,\forall \lambda_1,...,\lambda_n \in \mathbb{R}, \forall s_1,...,s_n\in D \subset \mathbb{R}^d  
+  \end{align*}\]</span>
+<p>Esta condición es la más importante y necesaria para que una función de covarianza esté bien definida .</p></li>
+<li><p>Si <span class="math inline">\(C_k(h),\forall k \in \mathbb{N}\)</span> son funciones de covarianza en <span class="math inline">\(\mathbb{R}^d\)</span> y:</p>
+<span class="math display">\[\begin{align*}
+    \lim_{k\to \infty}C_{k}(h)=C(h),\forall h \in \mathbb{R}^d  
+  \end{align*}\]</span>
+<p>entonces, <span class="math inline">\(C(h)\)</span> es una función de covarianza en <span class="math inline">\(\mathbb{R}^d\)</span>, teniendo en cuenta que este límite existe <span class="math inline">\(\forall h\)</span>.</p></li>
+<li><p>Toda combinación lineal de funciones de covarianza con coeficientes positivos, también es una función de covarianza.</p></li>
+<li><p>El producto de funciones de covarianza es también una función de covarianza.</p></li>
+</ul>
+</div>
+<div id="semivariograma" class="section level4 unnumbered hasAnchor">
+<h4>Semivariograma<a href="estadística-espacial.html#semivariograma" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El semivariograma es el instrumento más usado para describir la dependencia espacial de variables regionalizadas, pues este cubre un mayor espectro de estas variables en comparación de la función de covarianza, incluyendo la estacionariedad intrínseca de funciones aleatorias, en donde la covarianza no puede ser definida .</p>
+<p>Como se definió anteriormente, el semivariograma está dado por:</p>
+<span class="math display">\[\begin{align*}
+  \gamma(s_i-s_j)=\frac{1}{2}Var(Z(s_i)-Z(s_j)),\forall s_i,s_j \in D  
+\end{align*}\]</span>
+<p>Bajo el supuesto de estacionariedad de segundo orden o de hipótesis intrínseca (sin media/drift), se escribe como:</p>
+<span class="math display">\[\begin{align*}
+  \gamma(h)=\frac{1}{2}Var(Z(s+h)-Z(s))=\frac{1}{2}E((Z(s+h)-Z(s))^2)  
+\end{align*}\]</span>
+<p>la cual muestra como la disimilitud entre <span class="math inline">\(Z(s+h)\)</span> y <span class="math inline">\(Z(s)\)</span> se desenvuelve con la distancia <span class="math inline">\(h\)</span>.</p>
+<p>Como se vio anteriormente, bajo el supuesto de estacionariedad de segundo orden, el semivariograma y el covariograma verifican la siguiente relación:</p>
+<span class="math display">\[\begin{align*}
+  C(h)=C(0)-\gamma(h)  
+\end{align*}\]</span>
+<p>En la práctica se utiliza el semivariograma en lugar del covariograma puesto que este no necesita conocer la media de la función aleatoria .</p>
+<p>Para que una función de semivariograma sea válido necesita verificar las siguientes propiedades teóricas:</p>
+<ul>
+<li><p>Por definición <span class="math inline">\(\gamma(0)=0\)</span>, aunque es común que presente una discontinuidad en el origen; esta discontinuidad se la conoce como efecto pepita.</p></li>
+<li><p>Es una función par; es decir:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(h)=\gamma(-h)  
+  \end{align*}\]</span></li>
+<li><p>Siempre toma valores mayores o iguales que cero:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(h)\geq 0  
+  \end{align*}\]</span></li>
+<li><p>Bajo estacionariedad intrínseca, es una función condicionalmente negativa; es decir:</p>
+<span class="math display">\[\begin{align*}
+    \sum_{i=1}^n \sum_{j=1}^n\lambda_i \lambda_j \gamma(s_i-s_j)\leq 0,\forall n\in \mathbb{N}^*,\forall \lambda_1,...,\lambda_n \in \mathbb{R}:\sum_{i=1}^n\lambda_i=0, \forall s_1,...,s_n \in D \subset \mathbb{R}^d  
+  \end{align*}\]</span></li>
+<li><p>El semivariograma de una proceso estocástico o campo aleatorio estacionario de segundo orden es finito; es decir, su comportamiento tiende a una línea horizontal a medida que se incrementa la separación de las coordenadas; sin embargo, el de una función aleatoria intrínsecamente estacionaria sin media o puede crecer al infinito; es decir, el semivariograma no se estabiliza; en este caso el semivariograma puede ser al menos intrínsecamente estacionario si crece más lento que una ecuación de segundo grado; es decir:</p>
+<span class="math display">\[\begin{align*}
+    \lim_{|h|\to \infty}\frac{\gamma(h)}{|h|^2}=0  
+  \end{align*}\]</span></li>
+</ul>
+<p>El semivariograma de un proceso estocástico espacial estacionario de segundo orden depende de los siguientes parámetros (ver Figura <span class="math inline">\(\ref{fig:pvar}\)</span> ):</p>
+<ul>
+<li><p>Silla: Es la asíntota superior del semivariograma. Solamente los procesos estacionarios de segundo orden tienen silla; en estos casos la silla es de <span class="math inline">\(C(0)=\sigma^2\)</span>.</p></li>
+<li><p>Rango: Es la distancia sobre la cual los puntos ya no ejercen influencia sobre otros; es decir, son independientes. Los puntos que se encuentran separados por una distancia menor o igual al rango se consideran espacialmente correlacionados, mientras que los puntos separados por una distancia mayor se consideran independientes .</p></li>
+<li><p>Efecto Pepita: Es una discontinuidad en el origen, <span class="math inline">\(\gamma(h)\to c_0\)</span> cuando <span class="math inline">\(h\to 0\)</span>.</p>
+<p>Existen dos causas principales para que se produzca este efecto. La primera es la existencia de error de medición (); sucede una vez que no es viable repetir una medición en la ubicación <span class="math inline">\(s\)</span> sin error, evidenciando su variabilidad. La segunda causa es el efecto de micro-escala (); el cual se produce ya que existe un proceso espacial que opera a distancias más pequeñas de las que fueron consideradas en el muestreo. Si y son diferentes de cero, el semivariograma presentará una discontinuidad puntual en el origen, conocido como efecto pepita y representado de la siguiente manera :</p></li>
+</ul>
+<span class="math display">\[\begin{align*}
+        c_0=\sigma^2_{EM}+\sigma_{MS}^2  
+  \end{align*}\]</span>
+<ul>
+<li>Silla Parcial: Si un semivariograma tiene efecto pepita <span class="math inline">\(c_0\)</span> y silla <span class="math inline">\(C(0)\)</span>, la diferencia <span class="math inline">\(c_p=C(0)-c_0\)</span> es la silla parcial del semivariograma, la cual representa la varianza de la variable <span class="math inline">\(Z(s)\)</span> sin el efecto pepita.</li>
+</ul>
+<p>La relación entre el covariograma y el semivariograma se modifica para tomar en cuenta el efecto pepita de la siguiente manera:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(h) &amp;= c_0+c_{p}\gamma&#39;(h)\\
+    C(h) &amp;= \left \{ \begin{matrix} c_p(1-\gamma&#39;(h)) &amp; si \ h&gt;0\\
+    c_0+c_p &amp; si \ h=0 \end{matrix}\right.
+\end{align*}\]</span>
+<p>donde <span class="math inline">\(\gamma&#39;(h)\)</span> es el modelo de variograma, <span class="math inline">\(c_p\)</span> es la silla parcial y <span class="math inline">\(c_0\)</span> es el efecto pepita .</p>
+<p>A partir de este punto se omitirá el prefijo “semi’’ y se tratará al semi-variograma solo por variograma.</p>
+</div>
+</div>
+</div>
+<div id="variograma" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Variograma<a href="estadística-espacial.html#variograma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En la práctica, se trabaja con las realizaciones del proceso estocástico o campo aleatorio en estudio; es decir, se cuenta con un conjunto de datos georeferenciados en un dominio dado. Utilizando estos datos, se puede inferir la estructura de dependencia espacial del fenómeno .</p>
+<p>Por lo general, la descripción de la distribución espacial se limita a los primeros momentos. La esperanza o el momento de primer orden involucra un solo sitio a la vez y no proporciona información sobre la dependencia espacial. Por otro lado, la covarianza, correlograma y variograma o momentos de segundo orden están definidos mediante un par ubicaciones; así, estos momentos proporcionan información de la continuidad y dependencia espacial de la variable regionalizada .</p>
+<div id="disimilitud-contra-separación" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Disimilitud contra Separación<a href="estadística-espacial.html#disimilitud-contra-separación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La variabilidad de una variable regionalizada <span class="math inline">\(Z(s)\)</span>, se mide en diferentes escalas y se calcula a través de la disimilitud entre los valores <span class="math inline">\(z_{s1}\)</span> y <span class="math inline">\(z_{s2}\)</span> ubicados en los puntos <span class="math inline">\(s_1\)</span> y <span class="math inline">\(s_2\)</span> del domino espacial <span class="math inline">\(D\)</span>. La medida de disimilitud <span class="math inline">\(\hat{\gamma}\)</span> de estos valores está dada por:</p>
+<span class="math display">\[\begin{align*}
+  \hat{\gamma}(s_1,s_2)=\frac{(z_{s1}-z_{s2})^2}{2}  
+\end{align*}\]</span>
+<p>Los dos puntos <span class="math inline">\(s_1\)</span> y <span class="math inline">\(s_2\)</span> en el espacio geográfico pueden unirse por un vector <span class="math inline">\(h=s_1-s_2\)</span> como se muestra en la Figura <span class="math inline">\(\ref{fig:distanciah}\)</span>.</p>
+<p>Si <span class="math inline">\(\hat{\gamma}\)</span> es dependiente de la separación y orientación del par de ubicaciones descritos por el vector <span class="math inline">\(h\)</span>, se tiene que :</p>
+<span class="math display">\[\begin{align*}
+  \hat{\gamma}(h)=\frac{1}{2}(z(s_1+h)-z(s_1))^2  
+\end{align*}\]</span>
+<p>La disimilitud es simétrica con respecto de <span class="math inline">\(h\)</span>, pues es una cantidad al cuadrado, por lo que, su representación será mostrada utilizando todos los pares de datos de la muestra en el conjunto <span class="math inline">\(D\)</span>. El gráfico de la disimilitud <span class="math inline">\(\hat{\gamma}\)</span> contra la separación espacial absoluta <span class="math inline">\(h\)</span>, es llamado nube del variograma .</p>
+<p>La disimilitud con frecuencia se incrementa con la distancia, pues los puntos cercanos tienden a ser similares (ver Figura <span class="math inline">\(\ref{varcloud}\)</span>).</p>
+</div>
+<div id="variograma-empírico" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Variograma Empírico<a href="estadística-espacial.html#variograma-empírico" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Teniendo en cuenta que el variograma <span class="math inline">\(\gamma(h)\)</span> es la varianza de la variable de incrementos <span class="math inline">\(Z(s+h)-Z(s)\)</span>, el estimador clásico se basa en la estimación de esta varianza mediante el método de momentos y está definido para un vector de separación <span class="math inline">\(h\)</span> de la siguiente manera:</p>
+<span class="math display">\[\begin{align*}
+  \hat{\gamma}(h)=\frac{1}{2|N(h)|}\sum_{N(h)}(Z(s+h)-Z(s))^2, \ h\in \mathbb{R}^d  
+\end{align*}\]</span>
+<p>donde:</p>
+<span class="math display">\[\begin{align*}
+  N(h)=\{(s_i,s_j):s_i-s_j=h, i,j=1,...,n\}  
+\end{align*}\]</span>
+<p>siendo <span class="math inline">\(N(h)\)</span> el conjunto de todos los pares de ubicaciones cuya separación corresponde a un vector <span class="math inline">\(h\)</span> y <span class="math inline">\(|N(h)|\)</span> es la cardinalidad de <span class="math inline">\(N(h)\)</span>. Nótese que <span class="math inline">\(N(-h)\neq N(h)\)</span>, aunque <span class="math inline">\(\hat{\gamma}(-h)=\hat{\gamma}(h)\)</span>, y la media <span class="math inline">\(\mu\)</span> no necesita ser estimada.</p>
+<p>Al ser un estimador de la varianza muestral es sensible a datos atípicos; es por ello que propuso estimadores resistentes a datos atípicos, asumiendo normalidad marginal del campo aleatorio ; sin embargo, la diferencia entre estos estimadores es pequeña .</p>
+<div id="tolerancia-en-los-parámetros-de-cálculo" class="section level4 unnumbered hasAnchor">
+<h4>Tolerancia en los parámetros de cálculo<a href="estadística-espacial.html#tolerancia-en-los-parámetros-de-cálculo" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En la práctica, los datos están distribuidos irregularmente en el dominio espacial <span class="math inline">\(D\)</span>, por lo que el número de pares <span class="math inline">\(|N(h)|\)</span> que se utilizan en el cálculo del variograma empírico, <span class="math inline">\(\hat{\gamma}(h)\)</span> para un vector <span class="math inline">\(h\)</span> dado, es por lo general escaso; dando como resultado una estimación del variograma empírico errónea, provocando que sea imposible de interpretarlo y modelarlo. Para corregir esto, se suelen añadir algunas tolerancias de cálculo sobre las distancias y direcciones, teniendo así que:</p>
+<span class="math display">\[\begin{align*}
+  \hat{\gamma^+}(h)=\frac{1}{2|N^+(h)|}\sum_{N^+(h)}(Z(s+h)-Z(s))^2  
+\end{align*}\]</span>
+<p>donde <span class="math inline">\(N^+=\{(s_i,s_j): s_i-s_j\in T(h)\}=\displaystyle \bigcup_{h^{&#39;}\in T(h)}N(h&#39;)\)</span></p>
+<p>Siendo <span class="math inline">\(T(h)\)</span> una región de tolerancia alrededor de <span class="math inline">\(h\)</span>; es decir, <span class="math inline">\(T(h)=[h-\Delta h,h+\Delta h]\)</span> en el caso unidiminesional. En el caso de dimensión dos o tres, existen tolerancias sobre la longitud de <span class="math inline">\(h\)</span> y sobre su orientación (véase Figura <span class="math inline">\(\ref{fig:reg_tol}\)</span>):</p>
+<p>El ancho de banda limita la división del cono de tolerancia a una expansión máxima. En el espacio de tres dimensiones, se introducen dos anchos de banda, horizontal y vertical .</p>
+</div>
+<div id="propiedades-del-variograma-empírico" class="section level4 unnumbered hasAnchor">
+<h4>Propiedades del variograma empírico<a href="estadística-espacial.html#propiedades-del-variograma-empírico" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li><p>El variograma empírico <span class="math inline">\(\hat{\gamma}(h)\)</span> es un estimador insesgado del variograma teórico :</p>
+<span class="math display">\[\begin{align*}
+    E(\hat{\gamma}(h))=\gamma(h)  
+  \end{align*}\]</span></li>
+<li><p>La varianza relativa es un indicador de robustez:</p>
+<span class="math display">\[\begin{align*}
+    \frac{Var(\hat{\gamma}(h))}{(\gamma(h))^2}  
+  \end{align*}\]</span>
+<p>A medida que más alta sea dicha varianza, más susceptible es el variograma empírico de fluctuar en torno a su valor esperado, y más difícil se vuelve la inferencia estadística.</p>
+<p>Los principales factores que influyen en la varianza relativa son :</p>
+<ul>
+<li>Norma del vector <span class="math inline">\(h\)</span>: la varianza relativa crece cuando la distancia aumenta.</li>
+<li>La irregularidad de la malla de muestreo, tiene la posibilidad de causar grandes variaciones en el cálculo del variograma empírico, incluso a distancias pequeñas.</li>
+<li>A medida que más reducido es el número de pares de datos, más grandes son las variaciones.</li>
+<li>La existencia de datos atípicos, puesto que en el cálculo del variograma empírico, se elevan los valores al cuadrado.</li>
+</ul></li>
+<li><p>Las direcciones de cálculo del variograma empírico deben tener en consideración la anisotropía de la variable regionalizada; en la situación de isotropía, donde los variogramas direccionales son semejantes, se puede tener en cuenta un variograma omnidireccional, determinado por:</p>
+<span class="math display">\[\begin{align*}
+    \bar{\gamma}^+(h)=\frac{1}{2|N^+(h)|}\sum_{N^+(h)}(Z(s+h)-Z(s))^2  
+  \end{align*}\]</span>
+<p>donde: <span class="math inline">\(|N^+(h)|=\{(s_i,s_j): s_i-s_j \thickapprox h\}\)</span> .</p></li>
+<li><p>Si el variograma presenta comportamiento anisotrópico es necesario realizar transformaciones de las coordenadas que permitan obtener variables regionalizadas anistrópicas a partir de los modelos isotrópicos .</p></li>
+</ul>
+</div>
+<div id="nube-variográfica" class="section level4 unnumbered hasAnchor">
+<h4>Nube variográfica<a href="estadística-espacial.html#nube-variográfica" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Teniendo presente que bajo el supuesto de estacionariedad, los valores <span class="math inline">\(\hat{\gamma}(s_i,s_j)\)</span> son estimadores insesgados de los valores que corresponden <span class="math inline">\(\gamma(s_i,s_j)\)</span>. La recopilación de pares de distancias y sus correspondientes valores de variograma, <span class="math inline">\(\{(h,\gamma(h)): h=s_i-s_j\}\)</span>, es conocido como variograma empírico y su gráfico como nube variográfica. Para mejorar la conducta del variograma empírico como un estimador del variograma teórico <span class="math inline">\(\gamma(h)\)</span> es necesario aplicar un tipo de suavización, puesto que se espera que la función <span class="math inline">\(\gamma(h)\)</span> varíe suavemente en función de <span class="math inline">\(h\)</span>, por lo cual se disminuye la varianza sin añadir sesgo llevando a cabo un promedio de los valores de <span class="math inline">\(\hat{\gamma}\)</span> sobre rangos o adecuados de distancia entre puntos <span class="math inline">\(s_i,s_j\)</span> .</p>
+<p>Si el diseño de muestreo es una grilla regular la suavización puede ser lograda sin introducir sesgo, simplemente promediando todos los valores <span class="math inline">\(\hat{\gamma}(h)\)</span> para cada <span class="math inline">\(h\)</span> diferente. Sin embargo, si el diseño es irregular, para un rango de ancho <span class="math inline">\(m\)</span> se define un variograma <span class="math inline">\(\gamma_k\)</span>, para un entero positivo <span class="math inline">\(k\)</span>, como el promedio de todos los <span class="math inline">\(\hat{\gamma}(h)\)</span> para el cual la respectiva distancia <span class="math inline">\(h\)</span> satisfaga <span class="math inline">\((k-1)m&lt;h\leq km\)</span>; entonces, <span class="math inline">\(\gamma_k\)</span> es aproximadamente una estimación insesgada de <span class="math inline">\(\gamma(h_k)\)</span>; por conveniencia se adopta <span class="math inline">\(h_k=(k-0.5)m\)</span>, que es el punto medio del intervalo respectivo .</p>
+</div>
+</div>
+<div id="estimación-del-variograma-ejemplos" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Estimación del variograma (Ejemplos)*<a href="estadística-espacial.html#estimación-del-variograma-ejemplos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se sabe que no se puede utilizar de manera directa el variograma emprírico, puesto que está definido para ciertas distancias y direcciones. Por otro lado, debido a los parámetros de tolerancia, está sujeto a aproximaciones, puesto que en el proceso de cálculo se utiliza un número limitado de datos. Para dar solución a esto, se ajusta un modelo teórico de variograma a partir del variograma empírico, siendo esta etapa la más significativa de todo análisis geoestadístico, puesto que nos da información de la continuidad espacial de la variable en estudio .</p>
+<p>Una función de variograma teórico es ajustada a la sucesión de disimilitudes medias; nótese que este ajuste involucra una interpretación del comportamiento en el origen y el comportamiento para largas distancias, más allá del rango del variograma empírico. El ajuste puede llevarse a cabo de manera empírica mediante criterio experto, puesto que en la mayoría de casos prácticos no es fundamental el que tan bien la función de variograma se ajuste a la secuencia de puntos; lo más relevante es el tipo de continuidad que se asume para la variable regionalizada y la hipótesis de estacionariedad asociada al proceso estocástico espacial o campo aleatorio; estas suposiciones sirven de guía en la selección de una función de variograma teórico .</p>
+<div id="comportamiento-en-el-origen" class="section level4 unnumbered hasAnchor">
+<h4>Comportamiento en el origen<a href="estadística-espacial.html#comportamiento-en-el-origen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Si las distancias son cercanas a cero; es decir, la variable regionalizada es regular en el espacio, más regular será el variograma en el origen. Generalmente, se suelen diferenciar tres tipos de comportamiento para el variograma en el origen (ver Figura <span class="math inline">\(\ref{var_comp}\)</span>) :</p>
+<ul>
+<li><p>Parabólico: Corresponde a una variable regionalizada bastante regular en el espacio.</p></li>
+<li><p>Lineal: Corresponde a una variable regionalizada continua, pero no tan regular.</p></li>
+<li><p>Discontinuo: Corresponde a una variable regionalizada más errática; es decir, con discontinuidades en la distribución espacial de sus valores. La diferencia entre dos datos bastante cercanos es grande, lo que provoca el efecto pepita.</p></li>
+</ul>
+</div>
+<div id="comportamiento-para-distancias-muy-grades" class="section level4 unnumbered hasAnchor">
+<h4>Comportamiento para distancias muy grades<a href="estadística-espacial.html#comportamiento-para-distancias-muy-grades" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El variograma habitualmente crece a partir del origen y se estabiliza a partir de una distancia <span class="math inline">\(\phi\)</span>, alrededor de una silla <span class="math inline">\(\sigma^2\)</span>; en este caso se conoce que esa silla es igual a la varianza a priori <span class="math inline">\(C(0)=\sigma^2\)</span>.</p>
+<p>Como se vio anteriormente, las variables aleatorias <span class="math inline">\(Z(s)\)</span> y <span class="math inline">\(Z(s+h)\)</span> están correlacionadas, si la longitud del vector de separación <span class="math inline">\(h\)</span> es inferior a la distancia <span class="math inline">\(\phi\)</span> o alcance; más allá de <span class="math inline">\(|h|=\phi\)</span>, el variograma es constante e igual a su silla, y las variables <span class="math inline">\(Z(s)\)</span> y <span class="math inline">\(Z(s+h)\)</span> son independientes. Los variogramas con silla, se denominan (ver Figura <span class="math inline">\(\ref{var_sill}\)</span>) .</p>
+<p>Existen casos en los cuales el variograma crece infinitamente una vez la distancia se incrementa y no posee ni silla ni rango; en este caso, la varianza es infinita <span class="math inline">\(C(0)=\infty\)</span> y no existe la función de covarianza ni el correlograma. Cuando se tiene ausencia de silla, es posible que sea una consecuencia del efecto de micro-escala .</p>
+</div>
+</div>
+<div id="criterios-para-la-estimación-y-ajuste-del-variograma" class="section level3 hasAnchor" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Criterios para la estimación y ajuste del variograma<a href="estadística-espacial.html#criterios-para-la-estimación-y-ajuste-del-variograma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tendencia" class="section level4 unnumbered hasAnchor">
+<h4>Tendencia:<a href="estadística-espacial.html#tendencia" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Es fundamental verificar que los datos no presenten tendencia, puesto que cuando la media del proceso <span class="math inline">\(\mu(s)\)</span> no es constante; es decir, el proceso no es estacionario, el variograma empírico calculado a partir de las observaciones es erróneo; este comportamiento de tendencia se puede comprobar mediante un gráfico de dispersión de la variable de respuesta frente a cada coordenada espacial (ver Figura <span class="math inline">\(\ref{coord_trend}\)</span>). En caso de que se evidencie tendencia se sugiere que se incluya un modelo de superficie de tendencia para la media que varía espacialmente, cuando una superficie de tendencia es incluida en el modelo, las dos coordenadas espaciales deben contribuir en este, puesto que la orientación de la región de estudio es arbitraria. En la práctica; al trabajar con datos geográficos de gran escala, se puede esperar que ciertas variables relacionadas a un ambiente físico muestren dependencia en la latitud .</p>
+<p>Cuando la función de media no es constante, el variograma empírico atribuye de manera errónea la variación inducida por esta a la estructura de convarianza de gran escala en el proceso no observado <span class="math inline">\(Z(s)\)</span>. Una solución es estimar <span class="math inline">\(\mu(s)\)</span> mediante un modelo de superficie de tendencia o, si la información de la covariable está disponible, mediante un modelo general de regresión, y utilizar los residuos <span class="math inline">\(R_i=Z_i-\hat{\mu}(s_i)\)</span> en lugar de las observaciones para el cálculo del variograma empírico . Este comportamiento se puede visualizar en la Figura <span class="math inline">\(\ref{rcoord_trend}\)</span>.</p>
+</div>
+<div id="establecer-la-variable-correcta" class="section level4 unnumbered hasAnchor">
+<h4>Establecer la variable correcta:<a href="estadística-espacial.html#establecer-la-variable-correcta" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En la estimación del variograma influye la distribución de los datos, pues estos pueden estar sesgados o tener valores extremos altos o bajos y por tanto su variograma calculado suele presentar un comportamiento errático. Para abordar este problema es recomendable transformar los datos a un espacio Normal o Gaussiano . Ver Figura <span class="math inline">\(\ref{den_var}\)</span>.</p>
+</div>
+<div id="verificación-de-isotropía" class="section level4 unnumbered hasAnchor">
+<h4>Verificación de isotropía:<a href="estadística-espacial.html#verificación-de-isotropía" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Como bien se conoce, se debe verificar la estacionariedad de los datos, puesto que este influye de manera directa en la estimación del variograma empírico; teniendo en cuenta que un proceso espacial puede estar definido en varias direcciones, este criterio se debe verificar para todas estas. No obstante, en la práctica la isotropía se estudia por medio del cálculo de funciones de autocovariaza o de semivarianza muestrales en algunas direcciones que habitualmente son: <span class="math inline">\(0^o,45^o, 90^o\)</span> y <span class="math inline">\(135^o\)</span>, ver Figura. <span class="math inline">\(\ref{iso_dir}\)</span>.</p>
+<p>Con la verificación de los puntos anteriores, se procede al cálculo del variograma empírico y su posterior ajuste de un modelo teórico por medio de los métodos que se exponen a continuación.</p>
+</div>
+</div>
+<div id="métodos-de-estimación-teórica-más-utilizados" class="section level3 hasAnchor" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> Métodos de estimación teórica más utilizados<a href="estadística-espacial.html#métodos-de-estimación-teórica-más-utilizados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Los parámetros de la función de covarianza pueden ser estimados por medio de los métodos de Máxima Verosimilitud (ML) y Máxima Verosimilitud restringida (REML), los cuales requieren la especificación de la distribución del vector <span class="math inline">\(Z=(Z(s_1),...,Z(s_n))\)</span>; generalmente, se asume normalidad multivariada. Para el caso ML, se tiene que:</p>
+<span class="math display">\[\begin{align*}
+  Z\sim N_n(X\beta,\Sigma(\theta))  
+\end{align*}\]</span>
+<p>donde <span class="math inline">\(\Sigma(\theta)=Cov(Z)\)</span> es una matriz de dimensión <span class="math inline">\(n \times n\)</span> y <span class="math inline">\(X\)</span> es una matriz de dimensión <span class="math inline">\(n\times q\)</span> con <span class="math inline">\(q&lt;n\)</span>, de variables explicativas, dentro de las cuales comúnmente se encuentran las coordenadas geográficas; de donde el negativo de la función de logverosimil es:</p>
+<span class="math display">\[\begin{align*}
+   L(\beta,\theta)=\frac{n}{2}\log(2\pi)+\frac{1}{2} \log|\Sigma(\theta|)+\frac{1}{2}(Z-X\beta)&#39;\Sigma^{-1}(\theta)(Z-X\beta)
+\end{align*}\]</span>
+<p>El elemento <span class="math inline">\(i,j\)</span> de la matriz <span class="math inline">\(\Sigma(\theta)\)</span> corresponde a la covarianza espacial entre las variables <span class="math inline">\(Z(s_i)\)</span> y <span class="math inline">\(Z(s_j)\)</span>; esto es:</p>
+<span class="math display">\[\begin{align*}
+  Cov(Z(s_i),Z(s_j);\theta))=C(s_i-s_j;\theta)=C(h;\theta)  
+\end{align*}\]</span>
+<p>El estimador <span class="math inline">\(\hat{\theta}\)</span> es sesgado pero asintóticamente eficiente; no obstante, al trabajar con una muestra grande se debe tener en consideración que debido a su conducta iterativa, se realizarán grandes cantidades de operaciones computacionales debido al cálculo del determinante y de la inversa de la matriz de covarianza .</p>
+<div id="estimador-reml" class="section level4 unnumbered hasAnchor">
+<h4>Estimador REML<a href="estadística-espacial.html#estimador-reml" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El estimador REML es una modificación del estimador ML propuesto para disminuir el sesgo, el cual reemplaza la maximización de la verosimilitud del vector <span class="math inline">\(Z\)</span>, por la del vector <span class="math inline">\(A&#39;Z\)</span> tal que: <span class="math inline">\(E(A&#39;Z)=0\)</span>, donde <span class="math inline">\(A\)</span> es una matriz de dimensión <span class="math inline">\(n\ \text{x}\ (n-p)\)</span>, de rango columna completo.</p>
+<p>Con esta modificación y dado que <span class="math display">\[\begin{align*}
+  Var(A&#39;Z)=A&#39;\Sigma(\theta)A  
+\end{align*}\]</span></p>
+<p>el negativo de la función de logverosímil queda:</p>
+<span class="math display">\[\begin{align*}
+   L(\theta)=\frac{n}{2}\log(2\pi)+\frac{1}{2} \log|A&#39;\Sigma(\theta) A|+\frac{1}{2}Z&#39;(A&#39;\Sigma(\theta) A)^{-1} A&#39;Z
+\end{align*}\]</span>
+<p>Esta función es dependiente únicamente de <span class="math inline">\(\theta\)</span>; de esta manera este método no usa la modelización de la superficie de tendencia, sino que se basa directamente en un vector de incrementos de media 0. No obstante, pese a minimizar el sesgo en las estimaciones de <span class="math inline">\(\theta\)</span>, aun interviene un costo computacional elevado .</p>
+</div>
+<div id="verosimilitud-compuesta-cl" class="section level4 unnumbered hasAnchor">
+<h4>Verosimilitud Compuesta (CL)<a href="estadística-espacial.html#verosimilitud-compuesta-cl" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El método CL que se utiliza para estimar <span class="math inline">\(\theta\)</span>, involucra la suma de componentes individuales de funciones logverosimilitud, correspondiente a las distribuciones marginales de las variables de interés. Por consiguiente, la distribución multivariada de <span class="math inline">\(Z\)</span> no es necesaria, puesto que se basa en las distribuciones marginales <span class="math inline">\(f(Z(s_i);\theta)\)</span> y se asume la existencia del gradiente y de la matriz Hessiana de <span class="math inline">\(f\)</span>.</p>
+<p>Ahora bien, se suponen conocidas <span class="math inline">\(f(Z(s_i);\theta)\)</span>, excepto el parámetro <span class="math inline">\(\theta\)</span>; entonces:</p>
+<span class="math display">\[\begin{align*}
+  \log(Z(s_i);\theta)=\ln(f(Z(s_i);\theta))  
+\end{align*}\]</span>
+<p>es una función logverosímil y la función de verosimilitud compuesta está definida por:</p>
+<span class="math display">\[\begin{align*}
+   CL(\theta)=\sum_{i=1}^{n} \log(Z(s_i);\theta)  
+\end{align*}\]</span>
+<p>Al gradiente de CL, <span class="math inline">\(\nabla CL=CS(\theta)\)</span>, se le conoce como función de score compuesta.</p>
+<p>Así, los valores estimados de <span class="math inline">\(\hat{\theta}\)</span> se determinan resolviendo el siguiente sistema de ecuaciones:</p>
+<span class="math display">\[\begin{align*}
+   CS(\theta)=\sum_{i=1}^{n} \nabla\log(Z(s_i);\theta)=0  
+\end{align*}\]</span>
+<p>Una de las razones principales para usar las funciones de verosimilitudes marginales es que aunque al inicio no se cumpla el supuesto requerido, es posible aproximarse a este por medio de alguna transformación .</p>
+</div>
+<div id="mínimos-cuadrados-ponderados" class="section level4 unnumbered hasAnchor">
+<h4>Mínimos cuadrados ponderados<a href="estadística-espacial.html#mínimos-cuadrados-ponderados" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Este método utiliza la matriz de ponderación <span class="math inline">\(W(\theta)\)</span> y suele ser expresado en términos del variograma o de la covarianza, gracias a su equivalencia en procesos estacionarios de segundo orden. Para el caso espacio-temporal, se estima <span class="math inline">\(\theta\)</span> para un variograma minimizando la siguiente expresión:</p>
+<span class="math display">\[\begin{align*}
+  (2\hat{\gamma}-2\gamma(\theta))&#39;W^{-1}(\theta)(2\hat{\gamma}-2\gamma(\theta))  
+\end{align*}\]</span>
+<p>donde la matriz de ponderación <span class="math inline">\(W(\theta)\)</span> está dada por:</p>
+<span class="math display">\[\begin{align*}
+  W(\theta)=Diag(Var(2\hat{\gamma}(h_k)))\approx Diag\left(\frac{2(2\gamma(h_k|\theta))^2}{N(h_k)}\right)  
+\end{align*}\]</span>
+<p>con:</p>
+<span class="math display">\[\begin{align*}
+  N(h_k)=\{(i,j):s_i-s_j=h_k\}  
+\end{align*}\]</span>
+<p>Para las ubicaciones <span class="math inline">\(i,j=1,...,n\)</span>, que producen los primeros <span class="math inline">\(k\)</span> rezagos espaciales <span class="math inline">\(k=1,...,K\)</span>; generalmente se utilizan los rezagos espaciales hasta la mitad de la distancia máxima entre cualquier par de ubicaciones, debido a que para ubicaciones bastante separadas disminuye notoriamente la cantidad de puntos incluidos en la estimación del variograma. La aproximación de <span class="math inline">\(Var(2\hat{\gamma}(h_k|\theta))\)</span>, se obtiene bajo el supuesto de que <span class="math inline">\(Z(s)\sim N(\mu;\sigma^2), \forall s\in \mathbb{R}^d\)</span>, y que por consiguiente:</p>
+<span class="math display">\[\begin{align*}
+  (Z(s+h)-Z(s))^2\approx 2\gamma(h)\chi_1^2   
+\end{align*}\]</span>
+<p>El inconveniente que presenta este método es la necesidad de definir clases de rezagos para realizar una estimación empírica de la covarianza o del variograma, pues si no se poseen muchos datos la cantidad de estos en cada una de las clases disminuye, de tal forma que para los primeros rezagos se pueden tener suficientes datos para la estimación de cada <span class="math inline">\(\hat{\gamma}(h_k)\)</span>; sin embargo, para los últimos rezagos podrían no existir suficientes datos para la estimación .</p>
+</div>
+<div id="modelo-lineal-de-regionalización" class="section level4 unnumbered hasAnchor">
+<h4>Modelo lineal de regionalización<a href="estadística-espacial.html#modelo-lineal-de-regionalización" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En la práctica, puede suceder que el variograma empírico no presente una apariencia o forma simple de ser modelizado por un modelo teórico; no obstante, esto no es un inconveniente, puesto que existe la posibilidad de combinar modelos teóricos de variograma, obteniendo nuevos modelos más complejos.</p>
+<p>Teniendo presente que un fenómeno regionalizado podría ser considerado como la suma de diversos subfenómenos independientes, el modelo lineal de regionalización construye un campo aleatorio <span class="math inline">\(Z(s)\)</span> como una combinación lineal de <span class="math inline">\(L\)</span> campos aleatorios independientes, cada uno con media 0 y función de covarianza <span class="math inline">\(C_l(h)\)</span>, mutuamente independientes .</p>
+<p>Así, sea <span class="math inline">\(Y_l\)</span> un subcampo aleatorio de <span class="math inline">\(Z\)</span> para todo <span class="math inline">\(l=1,...,L\)</span>, se tiene que:</p>
+<span class="math display">\[\begin{align*}
+  Z(s)=\sum_{l=0}^{L}a_lY_l(s)+\mu
+\end{align*}\]</span>
+<p>con:</p>
+<span class="math display">\[\begin{align*}
+    E(Z(s))&amp;=\mu\\
+    E(Y_l(s))&amp;=0\\
+    Cov(Y_l(s),Y_{l&#39;}(s+h))&amp;= \left \{ \begin{matrix} C_l(h) &amp; si \ l=l&#39;
+\\ 0 &amp; en\ otro\ caso.
+\end{matrix}\right.  
+\end{align*}\]</span>
+<p>Esto implica que la función de covarianza de <span class="math inline">\(Z(s)\)</span> es una combinación lineal de las <span class="math inline">\(L\)</span> funciones <span class="math inline">\(C_l(h)\)</span> y bajo el supuesto de independencia entre los <span class="math inline">\(Y\)</span>, se tiene que:</p>
+<span class="math display">\[\begin{align*}
+    C(h)&amp;=Cov(Z(s),Z(s+h))\\
+    &amp;= \sum_{l=0}^L\sum_{l&#39;=0}^L Cov((Y_l(s),Y_{l&#39;}(s+h))) \\
+    &amp;=\sum_{l=0}^La_la_lC_l(h)\\
+    &amp;=\sum_{l=0}^La_l^2C_l(h)
+\end{align*}\]</span>
+<p>por lo tanto, el modelo de convarianza <span class="math inline">\(C(h)\)</span> es:</p>
+<span class="math display">\[\begin{align*}
+  C(h)=\sum_{l=0}^Lb_lC_l(h),\ con\ b_l=a_l^2\geq 0  
+\end{align*}\]</span>
+<p>De esta forma, como <span class="math inline">\(b_l&gt;0\)</span> es siempre positivo, y es la silla del modelo básico de covarianza <span class="math inline">\(C_l(h)\)</span>. Las condiciones suficientes para que <span class="math inline">\(C(h)\)</span> sea un modelo válido de covarianza son:</p>
+<ul>
+<li>Las funciones <span class="math inline">\(C_l(h)\)</span> son modelos de convarianza válidos.</li>
+<li><span class="math inline">\(b_l&gt;0,\ \forall_l=1,...,L\)</span></li>
+</ul>
+<p>En términos de variogramas, se tiene que:</p>
+<span class="math display">\[\begin{align*}
+  E\left[ (Y_l(s)-Y_l(s+h))(Y_{l&#39;}(s)-Y_{l&#39;}(s+h))  \right]=\left \{ \begin{matrix} \gamma&#39;_l(h) &amp; si\ l=l&#39;\\
+0 &amp; en\ otro\ caso.
+\end{matrix}\right.    
+\end{align*}\]</span>
+<p>Entonces,</p>
+<span class="math display">\[\begin{align*}
+   \gamma(h)=\frac{1}{2} E[Z(s+h)-Z(s)]^2=\sum_{l=0}^Lb_l\gamma&#39;_l(h)
+\end{align*}\]</span>
+<p>con <span class="math inline">\(b_l=(a_l)^2\geq 0\)</span>, donde <span class="math inline">\(b_l\)</span> es la contribución en varianza del correspondiente variograma <span class="math inline">\(\gamma&#39;_l(h)\)</span> .</p>
+</div>
+</div>
+<div id="modelos-teóricos-de-variograma" class="section level3 hasAnchor" number="2.4.6">
+<h3><span class="header-section-number">2.4.6</span> Modelos teóricos de variograma<a href="estadística-espacial.html#modelos-teóricos-de-variograma" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En esta sección se presentan las funciones de variograma más comunes, que se definen para el caso isotrópico de funciones aleatorias. Para la representación gráfica de la función de variograma se hace uso de la relación <span class="math inline">\(\gamma(h)=C(0)-C(h)\)</span>. Estas funciones se pueden clasificar de la siguiente manera:</p>
+<ul>
+<li>Variogramas con silla o variogramas de transición.</li>
+<li>Variogramas con silla y efecto hueco.</li>
+<li>Variogramas sin silla.</li>
+</ul>
+<div id="variogramas-con-silla" class="section level4 unnumbered hasAnchor">
+<h4>Variogramas con silla<a href="estadística-espacial.html#variogramas-con-silla" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Modelo esférico</strong></p>
+<p>Este modelo es válido solo en <span class="math inline">\(\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3\)</span>, y está definido por:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(||h||;\theta) = \left \{ \begin{matrix} \sigma^2\left(1.5\frac{||h||}{\phi}-0.5\left(\frac{||h||}{\phi}\right)^3 \right) &amp;  si \ ||h||\leq \phi
+\\ \sigma^2 &amp;  si\ ||h||&gt;\phi \end{matrix}\right.
+\end{align*}\]</span>
+<p>con <span class="math inline">\(\theta=(\sigma^2,\phi)\)</span>, donde <span class="math inline">\(\sigma^2=C(0)\)</span> es el valor del variograma donde alcanza la silla, y <span class="math inline">\(\phi\)</span> es el rango.\</p>
+<p>Este variograma presenta un comportamiento lineal cerca del origen, lo cual sugiere continuidad pero con cierto grado de irregularidad en el proceso estocástico espacial o campo aleatorio. Sin embargo, referente a su comportamiento en distancias largas, alcanza su silla en <span class="math inline">\(||h||=\phi\)</span>. El uso habitual de este modelo en la práctica es gracias a su rango bien definido, su representación polinomial simple y su validez en <span class="math inline">\(\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3\)</span>. La principal razón para el uso de este es que se comporta de forma casi lineal hasta que alcanza su silla, y presenta estabilidad en una gran variedad de observaciones.</p>
+<p><strong>Modelo de efecto pepita puro</strong></p>
+<p>Este variograma refleja la ausencia de dependencia espacial en el proceso estocástico o campo aleatorio; este modelo puede ser visto como un caso particular del modelo esférico si <span class="math inline">\(\phi \to 0\)</span>:</p>
+<span class="math display">\[\begin{align*}        
+    \gamma(||h||;\theta) = \left \{ \begin{matrix} \sigma^2&amp;  si \ ||h|| =0\\
+    0 &amp;  si\ ||h||&gt;0 \end{matrix}\right.
+    \end{align*}\]</span>
+<p>con <span class="math inline">\(\theta=\sigma^2\)</span>.</p>
+<p>Se debe tener en cuenta que el modelo esférico corresponde a una función aleatoria continua, mientras que el modelo de efecto pepita puro, a una discontinuidad.</p>
+<p><strong>Modelo exponencial</strong></p>
+<p>Este modelo es válido en <span class="math inline">\(\mathbb{R}^d,\ d\geq 1\)</span>, y está definido por:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(||h||;\theta)=\sigma^2 \left(1-\exp\left(-\frac{||h||}{\phi}\right) \right),\quad \theta=(\sigma^2,\phi)
+\end{align*}\]</span>
+<p>El modelo exponencial refleja un comportamiento lineal cerca del origen, lo cual indica continuidad pero con un cierto grado de irregularidad en la función aleatoria. Por otro lado, en cuanto a su comportamiento en largas distancias, este alcanza su silla solo asintóticamente cuando <span class="math inline">\(||h||\to \infty\)</span>. El valor del rango es igual a la distancia para el cual el variograma toma un valor igual al <span class="math inline">\(95\%\)</span> de la silla.</p>
+<p><strong>Modelo Gaussiano</strong></p>
+<p>Este modelo es válido en <span class="math inline">\(\mathbb{R}^d,\ d\geq 1\)</span>, y está definido por:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(||h||;\theta)=\sigma^2\left(1-\exp\left(-\frac{||h||^2}{\phi^2} \right) \right),\quad \theta=(\sigma^2,\phi)
+\end{align*}\]</span>
+<p>La principal característica de este modelo es su forma parabólica cerca al origen; la dependencia espacial se desvanece solo en una distancia que tiende a infinito; por consiguiente, este modelo es considerado poco realista en la práctica.</p>
+<p><strong>Modelo Cúbico</strong></p>
+<p>Este modelo es válido en <span class="math inline">\(\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3\)</span>; generalmente es similar al modelo Gaussiano, puesto que también presenta un comportamiento parabólico cerca del origen. Sin embargo, este modelo alcanza una silla plana a una distancia <span class="math inline">\(\phi\)</span>, y esta definido por:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(||h||;\theta)=\left \{ \begin{matrix} \sigma^2\left(7\frac{||h||^2}{\phi^2}-\frac{35||h||^3}{4\phi^3}+\frac{7||h||^5}{2\phi^5}-\frac{3||h||^7}{4\phi^7} \right) &amp;  si \ 0\leq||h||\leq\phi\\
+    \sigma^2 &amp;  si\ ||h||&gt;\phi \end{matrix}\right.
+\end{align*}\]</span>
+<p>con <span class="math inline">\(\theta=(\sigma^2,\phi)\)</span>.</p>
+<p><strong>Modelo Estable</strong></p>
+<p>Este modelo es válido en <span class="math inline">\(\mathbb{R}^d,\ d\geq1\)</span> y está definido por:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(||h||;\theta)=\sigma^2 \left(1-\exp\left(-\left(\frac{||h||}{\phi}\right)^\alpha\right) \right),\quad 0&lt;\alpha \leq 2,\ \theta=(\sigma^2,\phi)
+\end{align*}\]</span>
+<p>Notar que para <span class="math inline">\(\alpha=1\)</span>, se obtiene el modelo exponencial y con <span class="math inline">\(\alpha=2\)</span>, se convierte en un modelo Gaussiano.</p>
+<p><strong>Modelo de Cauchy Generalizado</strong></p>
+<p>Este modelo es válido en <span class="math inline">\(\mathbb{R}^d,\ d\geq1\)</span>, y está definido por:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(||h||;\theta)=\sigma^2\left(1-\frac{1}{\left(1+\left( \frac{||h||}{\phi} \right)^2\right)^\alpha} \right), \quad \theta=(\sigma^2,\phi)
+\end{align*}\]</span>
+<p>Si <span class="math inline">\(\alpha=1\)</span> es conocido como el modelo de Cauchy.</p>
+<p>Este modelo muestra un comportamiento parabólico cerca del origen y si <span class="math inline">\(\alpha&lt;2\)</span> alcanza la silla lentamente.</p>
+<p><strong>Modelo de K-Bessel o Matérn</strong></p>
+<p>Este modelo es válido en <span class="math inline">\(\mathbb{R}^d,\quad d \geq 1\)</span>, y esta definido por:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(||h||;\theta)=\sigma^2\left(1-\frac{1}{2^{\alpha-1}\Gamma(\alpha)}\left(\frac{||h||}{\phi} \right)^\alpha K_\alpha \left(\frac{||h||}{\phi} \right) \right),\quad \alpha&gt;0,\ \theta=(\sigma^2,\phi)
+\end{align*}\]</span>
+<p>donde <span class="math inline">\(K_\alpha\)</span> es la función de Bessel modificada de segundo tipo de orden <span class="math inline">\(\alpha\)</span>, y que está definida por:</p>
+<span class="math display">\[\begin{align*}
+    K_\alpha (\nu) =\frac{\pi}{2\sin(\alpha \pi)}\left(\sum_{k=0}^\infty {\frac{1}{k!\Gamma(-\alpha+k+1)}\left(\frac{\nu}{2}\right)^{2k-\alpha}}-\sum_{k=0}^\infty {\frac{1}{k!\Gamma(\alpha+k+1)}\left(\frac{\nu}{2}\right)^{2k+\alpha}}\right)
+\end{align*}\]</span>
+<p>El modelo K-Bessel puede tener cualquier tipo de comportamiento cerca del origen. Para <span class="math inline">\(\alpha=1/2\)</span>, se obtiene el modelo exponencial.</p>
+</div>
+<div id="variogramas-con-efecto-hueco" class="section level4 unnumbered hasAnchor">
+<h4>Variogramas con efecto hueco<a href="estadística-espacial.html#variogramas-con-efecto-hueco" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En la práctica la dependencia espacial puede no crecer monótonamente, incluso esta podría ser negativa o presentar alternaciones entre dependencia espacial positiva y negativa. Estos modelos se llaman y se utilizan para definir oscilaciones que involucran un significado físico. Presentan un comportamiento lineal o parabólico cerca del origen, pueden tener o no tener silla, y pueden ser o no periódicos o pseduperiódicos.</p>
+<p><strong>Modelo J-Bessel</strong></p>
+<p>Este modelo está definido por:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(||h||;\theta)=\sigma^2\left(1-\left(\frac{2\phi}{||h||} \right)^{\alpha} \Gamma(\alpha+1)J_\alpha \left(\frac{||h||}{\phi} \right) \right),\quad \theta=(\sigma^2,\phi)
+\end{align*}\]</span>
+<p>donde <span class="math inline">\(\alpha\)</span> es el parámetro de forma, <span class="math inline">\(\phi\)</span> es el parámetro de escala, <span class="math inline">\(\Gamma\)</span> es la función de Euler, y <span class="math inline">\(J_\alpha\)</span> es la función <span class="math inline">\(J-Bessel\)</span> del primer tipo de orden <span class="math inline">\(\alpha\)</span> dada por:</p>
+<span class="math display">\[\begin{align*}
+    J_\alpha (\nu) =\left(\frac{\nu}{2}\right)^2 \sum_{k=0}^\infty{{\frac{-1^k}{k!\Gamma(\alpha+k+1)}}{\left(\frac{\nu}{2}\right)^{2k}}}
+\end{align*}\]</span>
+<p>y es válido para <span class="math inline">\(\mathbb{R}^d, d\leq 2(\alpha+1)\)</span>.\</p>
+<p><strong>Modelo seno cardinal</strong></p>
+<p>Este modelo es una particularización del modelo J-Bessel para <span class="math inline">\(\alpha=1/2\)</span>, y es uno de los pocos modelos de efecto hueco válidos en <span class="math inline">\(\mathbb{R}^3\)</span>, y está definido por:</p>
+<span class="math display">\[\begin{align*}
+    \gamma(||h||;\theta)=\sigma^2 \left(1-\frac{\phi}{||h||}\sin\left(\frac{||h||}{\phi} \right)  \right),\quad \theta=(\sigma^2,\phi)
+\end{align*}\]</span>
+</div>
+<div id="variogramas-sin-silla" class="section level4 unnumbered hasAnchor">
+<h4>Variogramas sin silla<a href="estadística-espacial.html#variogramas-sin-silla" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Estos modelos corresponden a procesos estocásticos espaciales o campos aleatorios que son intrínsecamente estacionarios, pero no son estacionarios de segundo orden. Estos modelos son no acotados y corresponden a un proceso estocástico espacial o campo aleatorio con capacidad ilimitada para la dispersión espacial y, por consiguiente, ni su covarianza, ni su varianza pueden ser definidas.</p>
+<p><strong>Modelo Potencia</strong></p>
+<p>Este modelo es válido en <span class="math inline">\(\mathbb{R}^d,d\geq 1\)</span> y está definido por:</p>
+<p><span class="math display">\[
+          \gamma(||h||)=(||h||)^\alpha,\quad  0&lt;\alpha&lt;2,
+\]</span><br />
+Este variograma no posee ni silla ni rango, sino que crece indefinidamente. Si <span class="math inline">\(\alpha\)</span> es cercano a cero, se dice que es un variograma de efecto pepita, si <span class="math inline">\(\alpha\)</span> es cercano a dos tiene un comportamiento parabólico y si <span class="math inline">\(\alpha\)</span> es igual a uno presenta un comportamiento lineal. Para <span class="math inline">\(\alpha\geq 2\)</span> la condición <span class="math inline">\(\lim_{h\to \infty}\frac{\gamma||h||}{h^2}=0\)</span> no se satisface; es decir, el modelo no es intrínsecamente estacionario.</p>
+<pre><code>```{=tex}
+\begin{figure}[H]
+      \centering
+      \includegraphics[width=10cm,height=5cm]{figuras/otros/pow_var.png}
+      \caption{Izquierda: Variable regionalizada. Derecha: Variograma potencia.}
+      \label{pow_var}
+\end{figure}
+```</code></pre>
+<p><strong>Modelo lineal</strong></p>
+<p>Este modelo es un caso especial del modelo potencia si <span class="math inline">\(\alpha=1\)</span>, y está asociado con la estacionariedad intrínseca, pero no con la estacionariedad de segundo orden y está definido por:</p>
+<p><span class="math display">\[
+          \gamma(||h||)=\left \{ \begin{matrix} 0 &amp; si\ ||h||=0\\ ||h|| &amp; si\ ||h||&gt;0 \end{matrix}\right.  
+\]</span></p>
+</div>
+</div>
+<div id="caso-multivariante-ejemplos" class="section level3 hasAnchor" number="2.4.7">
+<h3><span class="header-section-number">2.4.7</span> Caso Multivariante (Ejemplos)<a href="estadística-espacial.html#caso-multivariante-ejemplos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El variograma multivariado fue formalizado en 1991 como una aplicación a procesos estocásticos espaciales o campos aleatorios estacionarios. Para un vector de <span class="math inline">\(p\)</span> variables regionalizadas estacionarias y para toda métrica <span class="math inline">\(M\)</span>, el covariograma multivariado y el variograma multivariado son definidos como:</p>
+<ul>
+<li><p>Covariograma multivariado:</p>
+<span class="math display">\[\begin{align*}
+      K(h)&amp;=E[(Z(s)-\bm{\mu})M(Z(s+h)-\bm{\mu}){&#39;}]
+  \end{align*}\]</span></li>
+<li><p>Variograma multivariado:</p>
+<span class="math display">\[\begin{align*}
+      \Gamma(h)=E[(Z(s)-Z(s+h))M(Z(s)-Z(s+h))&#39;]
+  \end{align*}\]</span></li>
+</ul>
+<p>donde <span class="math inline">\(Z(s)\)</span> es un vector fila de <span class="math inline">\(p\)</span> procesos estocásticos espaciales o campos aleatorios estacionarios de segundo orden, <span class="math inline">\(\bm{\mu}=E[Z(s)]\)</span> y <span class="math inline">\(M\)</span> es una matriz simétrica definida positiva de tamaño <span class="math inline">\(p\times p\)</span> utilizada como métrica en el cálculo de similaridades .</p>
+<p>Asumiendo estacionariedad de segundo orden, la función de autocovarianza multivariada está relacionada con el variograma multivariado por medio de:</p>
+<span class="math display">\[\begin{align*}
+    K(h)=\Gamma(\infty)-\Gamma(h)
+\end{align*}\]</span>
+<p>donde <span class="math inline">\(\Gamma(\infty)\)</span> es la silla del variograma multivariado. Si <span class="math inline">\(\Gamma(0)=0\)</span> entonces <span class="math inline">\(K(0)=\Gamma(h)\)</span>.</p>
+<p>El variograma multivariado representa la esperanza matemática de una medida de disimilitud cuadrática, y la función de autocovarianza multivariada representa la esperanza matemática de una medida de similaridad multivariante .</p>
+<p>La estimación del variograma multivariado se realiza promediando las disimilitudes multivariadas al cuadrado, de forma similar al variograma tradicional; es decir:</p>
+<span class="math display">\[\begin{align*}
+    \Gamma^*(h)=\frac{1}{2|N(h)|}\sum_{N(h)}d_{ij}^2
+\end{align*}\]</span>
+<p>donde <span class="math inline">\(d_{ij}\)</span> es la disimilitud entre las muestras <span class="math inline">\(i\)</span> y <span class="math inline">\(j\)</span> calculadas con una métrica dada y <span class="math inline">\(N(h)\)</span> como se definió anteriormente .</p>
+<p>Ahora bien, para realizar el ajuste de los modelos teóricos de variogramas y variogramas cruzados, se utiliza el Modelo Lineal de Coregionalización.</p>
+<div id="modelo-lineal-de-coregionalización-mlc" class="section level4 unnumbered hasAnchor">
+<h4>Modelo lineal de coregionalización (MLC)<a href="estadística-espacial.html#modelo-lineal-de-coregionalización-mlc" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Para el cálculo del MLC es necesario introducir las siguientes medidas:</p>
+<ul>
+<li><p><strong>Covarianza cruzada:</strong></p>
+<span class="math display">\[\begin{align*}
+      C_{rr&#39;}(h)=\left[E(Z_r(s)-E(Z_r(s))) \right]\left[E(Z_{r&#39;}(s+h)-E(Z_{r&#39;}(s+h))) \right]
+  \end{align*}\]</span></li>
+<li><p><strong>Correlación cruzada:</strong></p>
+<span class="math display">\[\begin{align*}
+      \rho_{rr&#39;}=\dfrac{C_{rr&#39;}(h)}{\sigma_r \sigma_{r&#39;}}
+  \end{align*}\]</span></li>
+<li><p><strong>Variograma cruzado:</strong></p>
+<span class="math display">\[\begin{align*}
+      \gamma_{rr&#39;}(h)=\frac{1}{2}E\left[Z_r(s+h)-Z_r(s) \right]\left[ Z_{r&#39;}(s+h)-Z_{r&#39;}(s)\right]
+  \end{align*}\]</span></li>
+<li><p><strong>El pseudo variograma cruzado:</strong></p>
+<span class="math display">\[\begin{align*}
+      \phi_{rr&#39;}=\frac{1}{2}E\left[Z_r(s+h)-Z_{r&#39;}(s) \right]^2
+  \end{align*}\]</span></li>
+<li><p><strong>Co-dispersión:</strong></p>
+<span class="math display">\[\begin{align*}
+      v_{rr&#39;}(h)=\frac{\gamma_{rr&#39;}(h)}{\sqrt{\gamma_{rr}(h)}\sqrt{\gamma_{r&#39;r&#39;}(h)} } \in [-1,1]
+  \end{align*}\]</span></li>
+</ul>
+<p>Al igual que en el caso univariante, el variograma cruzado posee las siguientes propiedades: es invariante bajo traslación, <span class="math inline">\(\gamma_{rr&#39;}(0)=0\)</span>, <span class="math inline">\(\gamma_{rr&#39;}(h)=\gamma_{rr&#39;}(-h)\)</span>. Además, esta medida es la más utilizada en las aplicaciones geoestadísticas.</p>
+<p>Ahora bien, sea <span class="math inline">\(\mathbb{Z}=(Z_1,...,Z_p)\)</span> un proceso estocástico o campo aleatorio espacial multiavariante; se tiene que el MLC es una suma proporcional de modelos de covarianza o variogramas. En notación matricial donde <span class="math inline">\(C(h)=[C_{ij}(h)]\)</span> es una matriz de covarianza de dimensión <span class="math inline">\(p\times p\)</span> y de manera similar <span class="math inline">\(\Gamma(h)=[\Gamma_{ij}(h)]\)</span>, con</p>
+<span class="math display">\[\begin{align*}
+    C(h)&amp;=\sum_{k=1}^{L}B_kC_k(h)\\
+    \Gamma(h)&amp;=\sum_{k=1}^LB_k\gamma_k(h)
+\end{align*}\]</span>
+<p>donde cada <span class="math inline">\(B_k\)</span> se conoce como y:</p>
+<span class="math display">\[\begin{align*}
+    C_{ij}(h)&amp;=\sum_{k=1}^Lb_k(i,j)C_k(h)\quad \forall i,j=1,...,p\\
+    \Gamma_{ij}(h)&amp;=\sum_{k=1}^Lb_k(i,j)\gamma_k(h)\quad \forall i,j=1,...,p
+\end{align*}\]</span>
+<p>El MLC asume que todos los variogramas simples y cruzados pueden ser expresados como una combinación lineal de modelos básicos (exponencial, Gaussiano, esférico, entre otros) idénticos indexados por <span class="math inline">\(k\)</span>. Una condición suficiente para que el modelo sea válido es que cada una de las matrices <span class="math inline">\(B_k\)</span> sean definidas positivas.</p>
+<p>Por construcción del modelo, todos las covarianzas cruzadas son simétricas, y los variogramas cruzados son modelos de variograma válidos.</p>
+</div>
+<div id="ajuste-del-mlc" class="section level4 unnumbered hasAnchor">
+<h4>Ajuste del MLC<a href="estadística-espacial.html#ajuste-del-mlc" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El ajuste del MLC puede ser realizado mediante el método de mínimos cuadrados, al igual que en el caso univariante, teniendo en cuenta que la única diferencia es que la silla de cada elemento es reemplazada por una matriz de sillas.</p>
+<p>El ajuste es llevado a cabo por el algoritmo propuesto por Goulard (1989) quienes implementaron este algoritmo de manera iterativa para asegurar la positividad de los coeficientes <span class="math inline">\(B_k\)</span>.</p>
+<p>Se definen matricialmete el variograma empírico y variograma teórico multivariado como sigue:</p>
+<span class="math display">\[\begin{align*}
+    \hat{\Gamma(h)}&amp;=\left[\hat{\gamma}_{ij}(h)\right]\\
+    \Gamma(h)&amp;=\left[\gamma_{ij}(h)\right]=\sum_kB_k\gamma_k(h)
+\end{align*}\]</span>
+<p>el criterio de bondad de ajuste es la suma de cuadrados ponderados (SCP) de todos los términos de la matriz de errores <span class="math inline">\(\hat{\Gamma}(h)-\Gamma(h)\)</span> y se suman sobre el conjunto de retardos <span class="math inline">\(J\)</span> utilizados para el ajuste; es decir:%, específicamente es la norma Euclideana:</p>
+<span class="math display">\[\begin{align*}
+    SCP=\sum_{k\in J}w(h)\text{traza}\left\{ \left[V(\hat{\Gamma}(h)-\Gamma(h))\right]^2\right\}
+\end{align*}\]</span>
+<p>Los ponderadores <span class="math inline">\(w(h)\)</span> son positivos y usualmente iguales al número de pares utilizados para la estimación del variograma en el retardo <span class="math inline">\(h\)</span>. La matriz <span class="math inline">\(V\)</span> es definida positiva y diseñada para equilibrar la influencia de las variables; por lo general es la diagonal de la matriz o inversa de la matriz de varianzas o la matriz identidad. La idea es minimizar el criterio optimizando un <span class="math inline">\(B_k\)</span> a la vez y repitiendo esto hasta que no haya mejora alguna. El residuo para el ajuste actual menos el <span class="math inline">\(k-\)</span>ésimo término es:</p>
+<span class="math display">\[\begin{align*}
+    d\Gamma_k(h)=\hat{\Gamma}(h)-\sum_{u\neq k}B_u\gamma_u(h)
+\end{align*}\]</span>
+<p>En ausencia de restricción de positividad, el ajuste óptimo de <span class="math inline">\(d\Gamma_k\)</span> por <span class="math inline">\(B_k\gamma_k(h)\)</span> se obtiene por medio de la cancelación de la derivada de SCP en relación a <span class="math inline">\(B_k\)</span></p>
+<span class="math display">\[\begin{align*}
+    \frac{\partial SCP}{\partial B_k}=-2V\left[ \sum_{h\in J}w(h)\gamma_k(h)\left(d\Gamma_k(h)-\gamma_k(h)B_k\right)\right]V=0
+\end{align*}\]</span>
+<p>Como <span class="math inline">\(V\)</span> es no singular se tiene que:</p>
+<span class="math display">\[\begin{align*}
+    B_k&amp;=\frac{1}{\alpha_k}\sum_{h\in J}w(h)\gamma_k(h)d\Gamma_k(h)\\
+\end{align*}\]</span>
+<p>donde</p>
+<span class="math display">\[\begin{align*}
+    \alpha_k&amp;=\sum_{h\in J}w(h)\gamma_k(h)^2
+\end{align*}\]</span>
+<p>La solución restringida <span class="math inline">\(B_k^{+} \geq 0\)</span> es la matriz definida positiva cercana a <span class="math inline">\(B_k\)</span> de acuerdo a la norma definida por <span class="math inline">\(V\)</span>. Dado que es simétrica, la matriz <span class="math inline">\(B_k\)</span> tiene descomposición de la siguiente forma</p>
+<span class="math display">\[\begin{align*}
+    B_k=U_k\nabla_k U_k^{&#39;}\quad \text{con} \quad U_k^{&#39;}VU_k=I_p
+\end{align*}\]</span>
+<p>donde <span class="math inline">\(U_k\)</span> es una matriz de vectores propios de <span class="math inline">\(B_kV\)</span> y <span class="math inline">\(\nabla_k\)</span> es la matriz diagonal de sus valores propios.</p>
+<p>Por tanto, la solución restringida es</p>
+<span class="math display">\[\begin{align*}
+    B_k^{&#39;}=U_k\nabla_k^{+}U_k^{&#39;}
+\end{align*}\]</span>
+<p>donde <span class="math inline">\(\nabla_k^{+}\)</span> es la matriz <span class="math inline">\(\nabla_k\)</span> en el cual los valores propios negativos son reemplazados por ceros. Este algoritmo iterativo siempre converge y la solución no depende del punto de partida .</p>
+</div>
+</div>
+</div>
+<div id="geoestadística-espacio-temporal" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Geoestadística espacio-temporal<a href="estadística-espacial.html#geoestadística-espacio-temporal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tsapéndice" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> TS*(apéndice)<a href="estadística-espacial.html#tsapéndice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="modelos-separables" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Modelos separables<a href="estadística-espacial.html#modelos-separables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="modelos-no-separables" class="section level3 hasAnchor" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Modelos no separables<a href="estadística-espacial.html#modelos-no-separables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="estimación-del-variograma-espacio-temporal-ejemplos" class="section level3 hasAnchor" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Estimación del variograma espacio-temporal (Ejemplos)<a href="estadística-espacial.html#estimación-del-variograma-espacio-temporal-ejemplos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introducción.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-estadisticaespacial.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

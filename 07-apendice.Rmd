@@ -1,0 +1,22 @@
+# Apéndice
+
+## Introducción a la simulación geoestadística codicional y no condicional
+
+## Estudio de simulación (referencia al artículo)
+
+## Índices
+
+### Selección de número de grupos
+
+Índices basados en suma de cuadrados
+
+Índices clásicos Índices funcionales
+
+### Validación de grupos
+
+#### Correlación temporal
+
+#### Índices de correlación espacial
+
+Índice de Moran\
+Índice de Geary

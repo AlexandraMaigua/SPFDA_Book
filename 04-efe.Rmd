@@ -1,0 +1,31 @@
+# Introducción a la estadística esepacial funcional
+
+## Proceso Espacial Funcional
+
+## Datos funcionales espaciales
+
+## Variable Regionalizada Funcional
+
+## Función de Distribución Conjunta Funcional
+
+## Función de Media Funcional
+
+## Función de varianza Funcional
+
+## Función de Covarianza Funcional
+
+## Función de correlación o Correlograma Funcional
+
+## Función de semi-variograma Funcional
+
+## Estacionariedad de Funciones Aleatorias
+
+## No estacionariedad de Funciones Aleatorias
+
+## Correlación Espacial Funcional
+
+## Índices de correlación espacial
+
+### Índice de Moran funcional
+
+### Índice de Geary funcional
