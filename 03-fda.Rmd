@@ -1,12 +1,12 @@
 # Introducción al análisis de datos funcionales (FDA) (analisis descriptivo, distancias, algoritmos en funcional)
 
-Los objetivos fundamentales del FDA son los mismos que la estadística convencional e incluyen: (a) Representar y transformar los datos de manera que faciliten el análisis posterior. (b) Mostrar los datos de manera que se destaquen las variables en estudio. (c) Estudiar fuentes relevantes de patrones y variación de los datos. (d) Explicar la variación de una variable resultante o dependiente utilizando la información de la variable independiente \cite{raichle}.
+Los objetivos fundamentales del FDA son los mismos que la estadística convencional e incluyen: (a) Representar y transformar los datos de manera que faciliten el análisis posterior. (b) Mostrar los datos de manera que se destaquen las variables en estudio. (c) Estudiar fuentes relevantes de patrones y variación de los datos. (d) Explicar la variación de una variable resultante o dependiente utilizando la información de la variable independiente [@raichle].
 
-En la estadística elemental las observaciones son escalares, pero en la estadística multivariante las observaciones son vectores que pertenecen al espacio Euclídeo $\mathbb{R}^d$, donde $d$ es la dimensión de los vectores observados. Sin embargo, en el FDA las observaciones son funciones o curvas y aunque estas pueden ser medidas en puntos discretos se las pueden pensar como funciones en espacios infinitos dimensionales \cite{kokoska}.
+En la estadística elemental las observaciones son escalares, pero en la estadística multivariante las observaciones son vectores que pertenecen al espacio Euclídeo $\mathbb{R}^d$, donde $d$ es la dimensión de los vectores observados. Sin embargo, en el FDA las observaciones son funciones o curvas y aunque estas pueden ser medidas en puntos discretos se las pueden pensar como funciones en espacios infinitos dimensionales [@kokoska].
 
-Los datos funcionales por tanto son una generalización natural de datos multivariantes, pasando de una dimensión finita a una dimensión infinita \cite{jin}. La alta dimensionalidad de los datos, representa un reto para la teoría y para el cálculo computacional, donde estos retos varían dependiendo de como se tomaron las muestras. Sin embargo, la alta o infinita dimensionalidad de los datos, son una fuente rica en información, lo que conlleva a poder realizar investigaciones y análisis de datos mas robustos \cite{wang}.
+Los datos funcionales por tanto son una generalización natural de datos multivariantes, pasando de una dimensión finita a una dimensión infinita [@jin]. La alta dimensionalidad de los datos, representa un reto para la teoría y para el cálculo computacional, donde estos retos varían dependiendo de como se tomaron las muestras. Sin embargo, la alta o infinita dimensionalidad de los datos, son una fuente rica en información, lo que conlleva a poder realizar investigaciones y análisis de datos mas robustos [@wang].
 
-La extensa variedad de aplicaciones y herramientas hacen que definir de forma precisa el FDA sea de cierta manera difícil. El FDA surge cuando una variable de interés, en un conjunto de datos, puede ser naturalmente vista como una curva o función suave; entonces el FDA puede pensarse como un análisis de alto nivel estadístico sobre muestras de curvas \cite{kokoska}. En la práctica, los datos funcionales son obtenidos por medio de observaciones sobre el tiempo, [ESPACIO]{style="color:red"} u otros dominios continuos; los datos funcionales resultantes pueden ser curvas, superficies u objetos complejos \cite{jin}.
+La extensa variedad de aplicaciones y herramientas hacen que definir de forma precisa el FDA sea de cierta manera difícil. El FDA surge cuando una variable de interés, en un conjunto de datos, puede ser naturalmente vista como una curva o función suave; entonces el FDA puede pensarse como un análisis de alto nivel estadístico sobre muestras de curvas [@kokoska]. En la práctica, los datos funcionales son obtenidos por medio de observaciones sobre el tiempo, [ESPACIO]{style="color:red"} u otros dominios continuos; los datos funcionales resultantes pueden ser curvas, superficies u objetos complejos [@jin].
 
 [iNSERTAR IMÁGENES DATO FUNCIONAL CON DOMINIOS]{style="color:red"}
 
@@ -20,7 +20,7 @@ El espacio de *Hilbert* generaliza la noción de espacio euclidiano, extendiendo
 
 ### **El Espacio** $L^2$
 
-El espacio $L^2=L^2[0,1]$ es el conjunto de funciones reales medibles de Lebesgue $f$ definidas en $[0,1]$, tales que satisfacen \cite{lajos}:
+El espacio $L^2=L^2[0,1]$ es el conjunto de funciones reales medibles de Lebesgue $f$ definidas en $[0,1]$, tales que satisfacen [@lajos]:
 
 ```{=tex}
 \begin{align*}
@@ -29,7 +29,7 @@ El espacio $L^2=L^2[0,1]$ es el conjunto de funciones reales medibles de Lebesgu
 ```
 Este espacio se le conoce como el *Espacio de Funciones Cuadrado Integrables*.
 
-Si $f,g \in L^2$, la igualdad $f=g$, significa que \cite{kokoska}:
+Si $f,g \in L^2$, la igualdad $f=g$, significa que [@kokoska]:
 
 ```{=tex}
 \begin{align*}
@@ -44,7 +44,7 @@ Las funciones cuadrado integrables forman un espacio vectorial; esto significa q
          (af+bg)(t)=af(t)+bg(t),\ t \in [0,1]
   \end{align*}
 ```
-Se debe tener en cuenta que los elementos de $L^2$ y operaciones sobre estos no necesitan estar definidos para todo punto $t$, sino que están definidos para casi todo punto $t$ \cite{kokoska}.
+Se debe tener en cuenta que los elementos de $L^2$ y operaciones sobre estos no necesitan estar definidos para todo punto $t$, sino que están definidos para casi todo punto $t$ [@kokoska].
 
 Para funciones $f,g\in L^2$, se define el producto interno de dos funciones como:
 
@@ -115,7 +115,7 @@ Dado que $Z$ denota una función aleatoria en $\mathbb{R^d}$. Así, como una var
 ```
 La función $||Z(\omega)||$ es por tanto una variable aleatoria; si esta variable aleatoria tiene momento de segundo orden finito; es decir, $E||Z||^2<\infty$, por consiguiente $Z$ es una función aleatoria cuadrado integrable.
 
-Es importante notar la diferencia entre una función cuadrado integrable determinística, donde la integración se define en el intervalo $[0,1]$, y las funciones aleatorias cuadrado integrables, donde la integración está definida en el espacio de probabilidad $\Omega$ \cite{kokoska}.
+Es importante notar la diferencia entre una función cuadrado integrable determinística, donde la integración se define en el intervalo $[0,1]$, y las funciones aleatorias cuadrado integrables, donde la integración está definida en el espacio de probabilidad $\Omega$ [@kokoska].
 
 ### **Estimación de la función de media y covarianza**
 
@@ -171,7 +171,7 @@ Ahora bien, suponiendo que $Z_1,Z_2,...,Z_N$ son iid en $L^2$, y que tienen la m
       \end{align*}
     ```
 
-Nótese que $\hat{C}$ proyecta el espacio $L^2$ en un subespacio finito dimensional generado por $Z_1,Z_2,...,Z_N$, mostrando las limitaciones de la inferencia estadística para observaciones funcionales; una muestra finita puede cubrir un objeto infinito dimensional solo con reducida exactitud \cite{lajos}.
+Nótese que $\hat{C}$ proyecta el espacio $L^2$ en un subespacio finito dimensional generado por $Z_1,Z_2,...,Z_N$, mostrando las limitaciones de la inferencia estadística para observaciones funcionales; una muestra finita puede cubrir un objeto infinito dimensional solo con reducida exactitud [@lajos].
 
 [INSERTAR GRAFICOS, CODIGO, EJEMPLOS]{style="color:red"} 
 
@@ -181,9 +181,9 @@ Nótese que $\hat{C}$ proyecta el espacio $L^2$ en un subespacio finito dimensio
 
 ## Reducción de Dimensionalidad
 
-Como se mencionó, un dato funcional es intrínsecamente infinito dimensional, incluso si un gran número de datos son medidos de manera discreta sobre un conjunto finito de cualquier intervalo la dimensionalidad es alta, produciendo dificultades en el análisis de datos \cite{kokoska}, como la ralentización de algoritmos estadísticos convencionales o incluso produciendo que algunos de estos sean inviables. En algoritmos de clasificación, el costo computacional y la precisión de clasificación pueden ser mejorados de manera significativa utilizando un subconjunto de mediciones representativas; una razón es que instantes en el tiempo consecutivos usualmente están altamente correlacionados, incluyendo redundancias que pueden incrementar el nivel de ruido y ocultar información útil acerca de la estructura de los datos \cite{tian}.
+Como se mencionó, un dato funcional es intrínsecamente infinito dimensional, incluso si un gran número de datos son medidos de manera discreta sobre un conjunto finito de cualquier intervalo la dimensionalidad es alta, produciendo dificultades en el análisis de datos [@kokoska], como la ralentización de algoritmos estadísticos convencionales o incluso produciendo que algunos de estos sean inviables. En algoritmos de clasificación, el costo computacional y la precisión de clasificación pueden ser mejorados de manera significativa utilizando un subconjunto de mediciones representativas; una razón es que instantes en el tiempo consecutivos usualmente están altamente correlacionados, incluyendo redundancias que pueden incrementar el nivel de ruido y ocultar información útil acerca de la estructura de los datos [@tian].
 
-Para tratar el problema de alta dimensionalidad, se hace uso de funciones base, las que constituyen una herramienta para almacenar información acerca de las funciones y da la flexibilidad para combinar el poder computacional para ajustar cientos y miles de observaciones. Además, permite expresar los cálculos requeridos mediante matrices \cite{ramsay}.
+Para tratar el problema de alta dimensionalidad, se hace uso de funciones base, las que constituyen una herramienta para almacenar información acerca de las funciones y da la flexibilidad para combinar el poder computacional para ajustar cientos y miles de observaciones. Además, permite expresar los cálculos requeridos mediante matrices [@ramsay].
 
 El conjunto de datos más simple, en el contexto de FDA, es una muestra de la forma:
 
@@ -201,7 +201,7 @@ es decir, tenemos $N$ curvas que son observadas en un intervalo común $[T_1,T_2
 ```
 para los cuáles los valores $z_n(t)$ existen en todo punto $t$, pero solo son observados en puntos específicos $t_j$.
 
-El enfoque principal en el FDA es la forma de las funciones observadas o de las funciones que resumen las propiedades de los datos en un sentido específico \cite{kokoska}.
+El enfoque principal en el FDA es la forma de las funciones observadas o de las funciones que resumen las propiedades de los datos en un sentido específico [@kokoska].
 
 ### Bases de expansión {.unnumbered}
 
@@ -214,7 +214,7 @@ Se utiliza un conjunto de bloques funcionales $\phi_k,k=1,..,K$ llamados *funcio
     z(t)=\sum_{k=1}^Kc_k\phi_k(t)=c'\phi(t)
 \end{align*}
 ```
-conocido como *expansión en funciones base*. Los parámetros $c_1,...c_k$ son coeficientes de la expansión. La expresión matricial usa $c$ para referirse al vector de $K$ coeficientes y $\phi$ para denotar al vector de tamaño $K$ que contiene las funciones suaves de base que comparten las mismas propiedades. \cite{programsay}.
+conocido como *expansión en funciones base*. Los parámetros $c_1,...c_k$ son coeficientes de la expansión. La expresión matricial usa $c$ para referirse al vector de $K$ coeficientes y $\phi$ para denotar al vector de tamaño $K$ que contiene las funciones suaves de base que comparten las mismas propiedades. [@programsay].
 
 Usualmente se considera una muestra de funciones de tamaño $N$:
 
@@ -230,15 +230,15 @@ en este caso, la notación matricial está dada por:
     \textbf{z(t)}=C\phi(t)
 \end{align*}
 ```
-donde $\textbf{z(t)}$ es un vector de tamaño $N$ conteniendo las funciones $z_i(t)$, y la matriz de coeficientes $C$ tiene $N$ filas y $K$ columnas \cite{programsay}.
+donde $\textbf{z(t)}$ es un vector de tamaño $N$ conteniendo las funciones $z_i(t)$, y la matriz de coeficientes $C$ tiene $N$ filas y $K$ columnas [@programsay].
 
-Lo ideal, es que las funciones base tengan características que coincidan con las características de las funciones que se están estimando, lo que permite la obtención de una aproximación adecuada utilizando un número más pequeño que $K$ de funciones; cuánto menor sea $K$ y mejor reflejen las funciones base ciertas características de los datos: se tendrá más grados de libertad para realizar pruebas de hipótesis y calcular intervalos de confianza más precisos, menos cálculo computacional es requerido y es factible que los mismos coeficientes logren describir los datos \cite{ramsay}.
+Lo ideal, es que las funciones base tengan características que coincidan con las características de las funciones que se están estimando, lo que permite la obtención de una aproximación adecuada utilizando un número más pequeño que $K$ de funciones; cuánto menor sea $K$ y mejor reflejen las funciones base ciertas características de los datos: se tendrá más grados de libertad para realizar pruebas de hipótesis y calcular intervalos de confianza más precisos, menos cálculo computacional es requerido y es factible que los mismos coeficientes logren describir los datos [@ramsay].
 
-El concepto de sistemas de bases no es nuevo; por ejemplo, un polinomio de cualquier orden, no es más que una combinación lineal de las funciones base monomial $\{1,t,t^2,....,t^n\}$; no obstante, los polimonios no son muy útiles cuando se trabajan con formas funcionales complejas, por lo que, sistemas de base de tipo splines y Fourier son ampliamente utilizados en la práctica \cite{programsay}.
+El concepto de sistemas de bases no es nuevo; por ejemplo, un polinomio de cualquier orden, no es más que una combinación lineal de las funciones base monomial $\{1,t,t^2,....,t^n\}$; no obstante, los polimonios no son muy útiles cuando se trabajan con formas funcionales complejas, por lo que, sistemas de base de tipo splines y Fourier son ampliamente utilizados en la práctica [@programsay].
 
 ### Bases de Fourier {.unnumbered}
 
-Probablemente la expansión de base más conocida está dada por las series de Fourier. Esta serie es especialmente útil para funciones extremadamente estables; es decir, funciones en las que no hay características locales fuertes y donde la curva tiende a ser del mismo orden en todas partes. Estas series suelen dar lugar a expansiones uniformes, sin embargo son inadecuadas en cierto grado para los datos que se sospecha que tienen discontinuidades en la función o en las derivadas de bajo orden\cite{ramsay}. En algunas ocasiones, es necesario que las funciones se puedan repetir sobre un cierto período de tiempo $T$; por ejemplo, pueden ser requeridos para expresar comportamiento estacional en series de tiempo extensas. La serie de Fourier, está dada por \cite{programsay}:
+Probablemente la expansión de base más conocida está dada por las series de Fourier. Esta serie es especialmente útil para funciones extremadamente estables; es decir, funciones en las que no hay características locales fuertes y donde la curva tiende a ser del mismo orden en todas partes. Estas series suelen dar lugar a expansiones uniformes, sin embargo son inadecuadas en cierto grado para los datos que se sospecha que tienen discontinuidades en la función o en las derivadas de bajo orden[@ramsay]. En algunas ocasiones, es necesario que las funciones se puedan repetir sobre un cierto período de tiempo $T$; por ejemplo, pueden ser requeridos para expresar comportamiento estacional en series de tiempo extensas. La serie de Fourier, está dada por [@programsay]:
 
 ```{=tex}
 \begin{align*}
@@ -259,21 +259,21 @@ donde la constante $\omega$ está relacionado con el período $T$ por la relaci�
 ```
 Se observa que, después de la primera función base constante, las funciones base de Fourier son ordenadas de forma sucesiva en pares de seno/coseno, los dos con argumentos en cualquier par que se multiplique por uno de los enteros $1,2,...$ hasta un límite superior $m$. Si las series contienen ambos elementos de cada par, como es usual, el número de funciones base es $K=1+2m$, puesto que, de la forma en que se definió $\omega$, cada función base se repite por si misma después de $T$ unidades de tiempo transcurrido.
 
-Para definir una base de tipo Fourier, solo son necesario dos parámetros: el número de funciones base $K$ y el período $T$; no obstante, este último valor usualmente puede ser por defecto el rango de los valores $t$ en los cuales están definidos los datos \cite{programsay}.
+Para definir una base de tipo Fourier, solo son necesario dos parámetros: el número de funciones base $K$ y el período $T$; no obstante, este último valor usualmente puede ser por defecto el rango de los valores $t$ en los cuales están definidos los datos [@programsay].
 
 ### Base de Splines {.unnumbered}
 
-Las funciones spline son utilizadas usualmente para aproximaciones de datos funcionales no periódicos o perimétricos y estas son parecidas a los polinomios. Esta base ofrece una mayor flexibilidad, sin embargo es más compleja que la series finitas de Fourier. Los splines combinan el cálculo eficiente de los polinomios con una sustancial flexibilidad, usualmente conseguidos con un moderado número de funciones base. El principal camino para ganar flexibilidad en un spline es incrementar el número de puntos de división del intervalo en el cual se define la función \cite{ramsay}.
+Las funciones spline son utilizadas usualmente para aproximaciones de datos funcionales no periódicos o perimétricos y estas son parecidas a los polinomios. Esta base ofrece una mayor flexibilidad, sin embargo es más compleja que la series finitas de Fourier. Los splines combinan el cálculo eficiente de los polinomios con una sustancial flexibilidad, usualmente conseguidos con un moderado número de funciones base. El principal camino para ganar flexibilidad en un spline es incrementar el número de puntos de división del intervalo en el cual se define la función [@ramsay].
 
 **Funciones Splines y Grados de Libertad**
 
 Para definir un spline, el primer paso es dividir el intervalo sobre el cual una función va a ser aproximada en $L$ subintervalos separados por valores $\tau_l, l=1,...,L$ que se conocen como *puntos de ruptura* o *nodos*.
 
-El término *puntos de ruptura*, se refiere al número único de valores de los *nodos* mientras el que término *nodos* se refiere a la secuencia de valores en los *puntos de ruptura*, donde algunos *puntos de ruptura* pueden estar asociados con múltiples *nodos*. Todos los *nodos* son distintos en varias aplicaciones, y por tanto *puntos de ruptura* y *nodos* son la misma cosa, sin embargo, se encuentran sistemas de datos de entrada y salida donde las entradas son variadas en un sentido discreto, y estos requieren nodos coincidentes para modelizar estos cambios \cite{ramsay}.
+El término *puntos de ruptura*, se refiere al número único de valores de los *nodos* mientras el que término *nodos* se refiere a la secuencia de valores en los *puntos de ruptura*, donde algunos *puntos de ruptura* pueden estar asociados con múltiples *nodos*. Todos los *nodos* son distintos en varias aplicaciones, y por tanto *puntos de ruptura* y *nodos* son la misma cosa, sin embargo, se encuentran sistemas de datos de entrada y salida donde las entradas son variadas en un sentido discreto, y estos requieren nodos coincidentes para modelizar estos cambios [@ramsay].
 
-Sobre cada intervalo, un spline es un polinomio de orden específico $m$. El orden de un polinomio es el número de constantes requeridos para definirlo, y a medida que mayor es su grado, más alta es su potencia. El número total de grados de libertad en un ajuste es igual al orden de los polinomios más el número de *puntos de ruptura* en el interior $m+L-1$. *puntos de ruptura* interior, el spline se convierte en un polinomio sencillo. Un spline gana flexibilidad al incrementar el número de *puntos de ruptura*; generalmente se requiere más de estos puntos sobre regiones donde la función presenta la variación más compleja, y menos donde la función es levemente no lineal \cite{ramsay}.
+Sobre cada intervalo, un spline es un polinomio de orden específico $m$. El orden de un polinomio es el número de constantes requeridos para definirlo, y a medida que mayor es su grado, más alta es su potencia. El número total de grados de libertad en un ajuste es igual al orden de los polinomios más el número de *puntos de ruptura* en el interior $m+L-1$. *puntos de ruptura* interior, el spline se convierte en un polinomio sencillo. Un spline gana flexibilidad al incrementar el número de *puntos de ruptura*; generalmente se requiere más de estos puntos sobre regiones donde la función presenta la variación más compleja, y menos donde la función es levemente no lineal [@ramsay].
 
-Para splines de grado mayor que uno, los valores de la función están restringidos a ser iguales en su unión, puesto que los polinomios adyacentes se unen suavemente en el punto de ruptura que los separa, incluso las derivadas de orden $m-2$ también deben coincidir en esta unión \cite{ramsay}
+Para splines de grado mayor que uno, los valores de la función están restringidos a ser iguales en su unión, puesto que los polinomios adyacentes se unen suavemente en el punto de ruptura que los separa, incluso las derivadas de orden $m-2$ también deben coincidir en esta unión [@ramsay]
 
 **Base B-Spline**
 
@@ -285,7 +285,7 @@ Este sistema de funciones base $\phi_k(t)$ tiene la siguientes propiedades:
 
 -   Cualquier función spline definida por $m$ y $\tau$ puede expresarse como combinación lineal de estas funciones base.
 
-La propiedad de que una base de funciones B-spline de orden $m$ sea positiva sobre no más de $m$ intervalos, y que estos se junten, es denominada la **propiedad de soporte compacto**, y es de suma importancia para un cálculo computacional eficiente \cite{ramsay}.
+La propiedad de que una base de funciones B-spline de orden $m$ sea positiva sobre no más de $m$ intervalos, y que estos se junten, es denominada la **propiedad de soporte compacto**, y es de suma importancia para un cálculo computacional eficiente [@ramsay].
 
 La notación $B_k(t,\tau)$ se utiliza para indicar el valor en $t$ de la base de funciones B-spline definido por la secuencia de puntos de ruptura $\tau$; $k$ hace referencia al número del nodo más grande en o inmediatamente a la izquierda de $t$, teniendo en cuenta que cuando los nodos son discretos, se requieren $m+L-1$ funciones base. Una función spline se puede escribir como:
 
@@ -294,7 +294,7 @@ La notación $B_k(t,\tau)$ se utiliza para indicar el valor en $t$ de la base de
     S(t)=\sum_{k=1}^{m+L-1} {c_{k}B_{k}(t.\tau)}
 \end{align*}
 ```
-En cuanto a las posiciones de los nodos $\tau_l$, varias aplicaciones por defecto tienen la misma separación siempre y cuando los datos estén también separados de manera regular. Si no lo están, es recomendable ubicar un nodo en cada punto $j$ de los datos, donde $j$ es un número fijado previamente \cite{ramsay}.
+En cuanto a las posiciones de los nodos $\tau_l$, varias aplicaciones por defecto tienen la misma separación siempre y cuando los datos estén también separados de manera regular. Si no lo están, es recomendable ubicar un nodo en cada punto $j$ de los datos, donde $j$ es un número fijado previamente [@ramsay].
 
 ### Estimación de curvas utilizando sistemas de bases por mínimos cuadrados {.unnumbered}
 
@@ -388,7 +388,7 @@ donde, para todo $k$ se tiene que:
     b_k&=\frac{1}{\pi}\int_{-\pi}^\pi f(x) \sin{kx}dx
 \end{align*}
 ```
-esta representación de $f$ se conoce como la expansión en series de Fourier en el intervalo $[-\pi,\pi]$ y donde $a_k,b_k$ son conocidos como los coeficientes de Euler-Fourier de $f$ \cite{kreider} y este tipo de expansión se utiliza para aproximar datos periódicos.
+esta representación de $f$ se conoce como la expansión en series de Fourier en el intervalo $[-\pi,\pi]$ y donde $a_k,b_k$ son conocidos como los coeficientes de Euler-Fourier de $f$ [@kreider] y este tipo de expansión se utiliza para aproximar datos periódicos.
 
 El suavizamiento de datos, utilizando una base de Fourier, siempre implica que se tenga más puntos de los necesarios para modelizar la suavidad de la función en estudio. En la práctica, la frecuencia de la serie no sobrepasa una frecuencia de corte; es decir, que a partir de cierto término, digamos $m$, todos los coeficientes, $a_k, b_k$, de Fourier serán prácticamente cero; por lo tanto, la ecuación anterior, puede escribirse de la siguiente manera:
 
@@ -399,13 +399,9 @@ El suavizamiento de datos, utilizando una base de Fourier, siempre implica que s
 ```
 esta ecuación se conoce como la expansión de Fourier truncada y es la función suavizada de nuestros datos.
 
-```{=tex}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=12cm,heigth=7cm]{figuras/otros/suves_fda.png}
-    \caption{Suavización de curvas.}
-    \label{suaves}
-\end{figure}
+
+```{r suaves, echo=FALSE, fig.cap="Suavización de curvas.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/suves_fda.png")
 ```
 Usualmente, el intervalo donde una función está definida no es $[-\pi,\pi]$ o $[0,\pi]$; también podría ser un intervalo $[a,b]$ arbitrario, por lo cual la expansión en serie de Fourier queda de la siguiente forma:
 
@@ -454,7 +450,7 @@ Para medir la rugosidad de una función, la integral del cuadrado de la segunda 
     PEN_2(x)=\int[D^2x(s)]^2ds
 \end{align*}
 ```
-Para funciones con alta variabilidad, se espera un valor alto de $PEN_2(x)$, pues su segunda derivada es grande al menos en algún rango de interés. De forma general, la penalización de la rugosidad permite una derivada $D^mx$ de orden arbitrario \cite{ramsay}:
+Para funciones con alta variabilidad, se espera un valor alto de $PEN_2(x)$, pues su segunda derivada es grande al menos en algún rango de interés. De forma general, la penalización de la rugosidad permite una derivada $D^mx$ de orden arbitrario [@ramsay]:
 
 ```{=tex}
 \begin{align*}
@@ -497,17 +493,17 @@ de done la expresión para el vector de coeficientes estimados $\hat{c}$ es:
 
 ## Detección de atípicos
 
-El tratamiento de datos atípicos es un aspecto importante en cualquier análisis estadístico, pese a que los datos atípicos influyen de manera significativa en metodologías estadísticas en varios sentidos, su análisis en datos funcionales ha sido poco abordado \cite{oviedo}.
+El tratamiento de datos atípicos es un aspecto importante en cualquier análisis estadístico, pese a que los datos atípicos influyen de manera significativa en metodologías estadísticas en varios sentidos, su análisis en datos funcionales ha sido poco abordado [@oviedo].
 
-De manera intuitiva, se podría pensar en la estadística multivariante para tratar casos de datos atípicos en muestras de datos funcionales. Desafortunadamente, hay varios motivos por las que la estadística multivariante falla en el caso funcional. La primera es que los datos funcionales son realizaciones de un proceso aleatorio suave medido en un conjunto discreto de tiempo, por lo cual la estructura de correlación temporal es ignorada cuando se utilizan métodos de estadística multivariante. La segunda es que por la naturaleza infinto-dimensional, los métodos de estadística multivariante son afectados por la alta dimensionalidad; es decir, los métodos no son capaces de manejar las situaciones en donde el número de mediciones de una o más variables es más grande que el número de individuos en la muestra. La tercera es que pocas asunciones sobre la distribución son impuestas sobre los conjuntos de datos funcionales, mientras que los métodos mutlivariantes están implícitamente sujetos a poblaciones Gaussianas \cite{oviedo}.
+De manera intuitiva, se podría pensar en la estadística multivariante para tratar casos de datos atípicos en muestras de datos funcionales. Desafortunadamente, hay varios motivos por las que la estadística multivariante falla en el caso funcional. La primera es que los datos funcionales son realizaciones de un proceso aleatorio suave medido en un conjunto discreto de tiempo, por lo cual la estructura de correlación temporal es ignorada cuando se utilizan métodos de estadística multivariante. La segunda es que por la naturaleza infinto-dimensional, los métodos de estadística multivariante son afectados por la alta dimensionalidad; es decir, los métodos no son capaces de manejar las situaciones en donde el número de mediciones de una o más variables es más grande que el número de individuos en la muestra. La tercera es que pocas asunciones sobre la distribución son impuestas sobre los conjuntos de datos funcionales, mientras que los métodos mutlivariantes están implícitamente sujetos a poblaciones Gaussianas [@oviedo].
 
-Los datos atípicos en un conjunto de datos funcionales pueden surgir principalmente por dos razones. La primera es que las curvas pueden tener graves errores de medición, registro o de digitación; estos errores deben ser identificados y corregidos siempre que sea posible. La segunda es que los datos atípicos pueden ser curvas de datos que expresan la realidad, en el sentido de que no tienen errores graves; sin embargo, no se comportan como el resto de curvas. Por tanto, se considera que una curva es un dato atípico si ha sido generado por un proceso estocástico con diferente distribución que el resto de curvas, las cuales se asumen que son idénticamente distribuidas. Una curva puede ser un dato atípico si esta está significativamente alejada del proceso estocástico o si tiene diferente forma y/o comportamiento del resto de curvas \cite{oviedo}.
+Los datos atípicos en un conjunto de datos funcionales pueden surgir principalmente por dos razones. La primera es que las curvas pueden tener graves errores de medición, registro o de digitación; estos errores deben ser identificados y corregidos siempre que sea posible. La segunda es que los datos atípicos pueden ser curvas de datos que expresan la realidad, en el sentido de que no tienen errores graves; sin embargo, no se comportan como el resto de curvas. Por tanto, se considera que una curva es un dato atípico si ha sido generado por un proceso estocástico con diferente distribución que el resto de curvas, las cuales se asumen que son idénticamente distribuidas. Una curva puede ser un dato atípico si esta está significativamente alejada del proceso estocástico o si tiene diferente forma y/o comportamiento del resto de curvas [@oviedo].
 
-Para identificar datos atípicos en un conjunto de datos funcionales, se hace uso de la *profundidad funcional*. Este concepto fue originalmente introducido en el análisis multivariante para medir la centralidad de un punto en relación con la nube de puntos; es decir, la profundidad da una forma de ordenar los puntos en un espacio Euclídeo desde el centro hacia el exterior; así, los puntos cercanos al centro tendrán una profundidad más grande \cite{pinero}. Por otro lado, para datos funcionales, si una curva es un dato atípico, esta curva tendrá una profundidad baja, por lo que para detectar la presencia de datos atípicos funcionales basta analizar las curvas con profundidades más bajas \cite{oviedo}. Existen tres medidas principales para calcular la profundidad funcional, las cuales son: *Profundidad de Fraiman y Muniz*, *Profundidad H-modal*, y *Profundidad de proyección aleatoria*. Para mayor detalle revisar \cite{manuel}.
+Para identificar datos atípicos en un conjunto de datos funcionales, se hace uso de la *profundidad funcional*. Este concepto fue originalmente introducido en el análisis multivariante para medir la centralidad de un punto en relación con la nube de puntos; es decir, la profundidad da una forma de ordenar los puntos en un espacio Euclídeo desde el centro hacia el exterior; así, los puntos cercanos al centro tendrán una profundidad más grande [@pinero]. Por otro lado, para datos funcionales, si una curva es un dato atípico, esta curva tendrá una profundidad baja, por lo que para detectar la presencia de datos atípicos funcionales basta analizar las curvas con profundidades más bajas [@oviedo]. Existen tres medidas principales para calcular la profundidad funcional, las cuales son: *Profundidad de Fraiman y Muniz*, *Profundidad H-modal*, y *Profundidad de proyección aleatoria*. Para mayor detalle revisar [@manuel].
 
 ### Medidas de profundidad
 
-El objetivo de profundidad para datos funcionales es medir la centralidad de una curva dada $z_i$ dento de un conjunto de curvas $z_1,...,z_n$ generadas por un proceso estocástico $Z(.)$ con muestra de trayectorias en $C[a,b]$, el espacio de las funciones continuas definidas en el intervalo $[a,b]\subset \mathbb{R}$; es decir, la idea bajo la profundidad funcional es medir cuánto tiempo un curva permanece en el centro de todo el grupo de trayectorias \cite{manuel}.
+El objetivo de profundidad para datos funcionales es medir la centralidad de una curva dada $z_i$ dento de un conjunto de curvas $z_1,...,z_n$ generadas por un proceso estocástico $Z(.)$ con muestra de trayectorias en $C[a,b]$, el espacio de las funciones continuas definidas en el intervalo $[a,b]\subset \mathbb{R}$; es decir, la idea bajo la profundidad funcional es medir cuánto tiempo un curva permanece en el centro de todo el grupo de trayectorias [@manuel].
 
 #### Profundidad de Fraiman y Muniz {.unnumbered}
 
@@ -559,11 +555,11 @@ de manera similar, $T_{i,\nu}'$es la proyección de la derivada de $z_i$ a trav�
     RPD_n(z-I)=\frac{1}{P}\sum_{p=1}^P D_n((\langle\nu_{p},z_i \rangle),\langle\nu_p, z_{i}'\rangle), h)
 \end{align*}
 ```
-donde $D_n$ es cualquier profundidad definida en $\mathbb{R}^2$ de los puntos $(\langle\nu_p,z_i \rangle,\langle\nu_p,z_i' \rangle) \in \mathbb{R}^2$ \cite{manuel}. Para la visualización de datos atípicos se han desarrollado varias herramientas gráficas, principalmente propuestas para el caso univariante; sin embargo, para el caso multivariante han sido poco desarrolladas \cite{dai}.
+donde $D_n$ es cualquier profundidad definida en $\mathbb{R}^2$ de los puntos $(\langle\nu_p,z_i \rangle,\langle\nu_p,z_i' \rangle) \in \mathbb{R}^2$ [@manuel]. Para la visualización de datos atípicos se han desarrollado varias herramientas gráficas, principalmente propuestas para el caso univariante; sin embargo, para el caso multivariante han sido poco desarrolladas [@dai].
 
 ### Gráfico de Magnitudes y Formas
 
-Una de la herramientas gráficas usadas es el \textbf{MS-Plot} o \textbf{Gráfico de Magnitudes y Formas} propuesto por \cite{dai}, el cual se basa en el marco de la periferia funcional direccional, que mide la centralidad de los datos funcionales considerando el nivel y la dirección de sus desviaciones de la región central.\\
+Una de la herramientas gráficas usadas es el \textbf{MS-Plot} o \textbf{Gráfico de Magnitudes y Formas} propuesto por [@dai], el cual se basa en el marco de la periferia funcional direccional, que mide la centralidad de los datos funcionales considerando el nivel y la dirección de sus desviaciones de la región central.\\
 
 \textbf{Periferia Funcional Direccional}\\
 
@@ -618,11 +614,11 @@ Las tres medidas anteriores de externalidad pueden escribirse en una sola ecuaci
     FO=||MO||^2 +VO
 \end{align*}
 ```
-La ecuación anterior realiza una descomposición total de la externalidad funcional $\textbf{(FO)}$ en dos términos: la magnitud de externalidad ($||\textbf{MO}||$) y la cantidad de variación de externalidad direccional $\textbf{(VO)}$. Esta descomposición permite una gran flexibilidad para describir la centralidad de un conjunto de datos funcionales y para identificar curvas potencialmente atípicas \cite{dai}. \\
+La ecuación anterior realiza una descomposición total de la externalidad funcional $\textbf{(FO)}$ en dos términos: la magnitud de externalidad ($||\textbf{MO}||$) y la cantidad de variación de externalidad direccional $\textbf{(VO)}$. Esta descomposición permite una gran flexibilidad para describir la centralidad de un conjunto de datos funcionales y para identificar curvas potencialmente atípicas [@dai]. \\
 
 \textbf{MS-Plot}\\
 
-El \textbf{\textit{MS-Plot}} es un gráfico de dispersión de puntos, $(M0',VO)'$, para un grupo de datos funcionales. Cuando la dimensión es más grande que dos, se usa $(||MO||,VO)'$, la cual representa la magnitud general de externalidad y la forma de externalidad sin información de la dirección \cite{dai}.
+El \textbf{\textit{MS-Plot}} es un gráfico de dispersión de puntos, $(M0',VO)'$, para un grupo de datos funcionales. Cuando la dimensión es más grande que dos, se usa $(||MO||,VO)'$, la cual representa la magnitud general de externalidad y la forma de externalidad sin información de la dirección [@dai].
 
 De las definiciones de MO Y VO, se esperaría que:
 
@@ -636,7 +632,7 @@ De las definiciones de MO Y VO, se esperaría que:
 
 ## ANOVA Para datos funcionales
 
-En la práctica se vuelve un problema decidir si existen o no diferencias en el proceso de interés cuando varían condiciones que pueden afectarlo. Este problema se suele abordar mediante un modelo que supone la existencia de una función base que describe la evolución típica del proceso estudiado, suponiendo que los datos con los que se trabaja se han obtenido agregando variaciones aleatorias a esta función. Entonces, este problema se convierte en un tipo de problema de ANOVA funcional \cite{cuesta}.
+En la práctica se vuelve un problema decidir si existen o no diferencias en el proceso de interés cuando varían condiciones que pueden afectarlo. Este problema se suele abordar mediante un modelo que supone la existencia de una función base que describe la evolución típica del proceso estudiado, suponiendo que los datos con los que se trabaja se han obtenido agregando variaciones aleatorias a esta función. Entonces, este problema se convierte en un tipo de problema de ANOVA funcional [@cuesta].
 
 Existen varios procedimientos para tratar problemas de tipo ANOVA. En el presente trabajo se tratará el problema de *one-way* ANOVA para datos funcionales univariantes, conocido también como el problema de la *prueba de k-muestras*.
 
@@ -662,7 +658,7 @@ A continuación se presentan varias pruebas para este tipo de ANOVA.
 
 #### CS-Test {.unnumbered}
 
-El siguiente estadístico fue propuesto en \cite{cuevas}:
+El siguiente estadístico fue propuesto en [@cuevas]:
 
 ```{=tex}
 \begin{align*}
@@ -759,7 +755,7 @@ Este test usa el estadístico:
 ```
 Bajo la hipótesis nula, se tiene que $F_n \sim F_{d_1,d_2}$ aproximadamente, donde $d_1=(k-1)\kappa$ y $d_2=(n-k)\kappa$. De manera similar, la distribución aproximada de la prueba \textit{F} puede ser usada para calcular el p-valor de $F_n$ o su valor crítico; y el parámetro $\kappa$ puede ser estimado por el método naive o el método de reducción de sesgo.
 
-Cuando las muestras nos son Gaussianas o son pequeñas, estas pruebas no son utilizadas; en este caso, las versiones bootstrap de estas pruebas son usadas para calcular el p-valor de $S_n$ y $F_n$ \cite{gorgi}.\\
+Cuando las muestras nos son Gaussianas o son pequeñas, estas pruebas no son utilizadas; en este caso, las versiones bootstrap de estas pruebas son usadas para calcular el p-valor de $S_n$ y $F_n$ [@gorgi].\\
 
 #### Prueba basada en representación de funciones base {.unnumbered}
 
@@ -785,4 +781,4 @@ donde el proceso estocástico, la media funcional muestral y media funcional gru
 ```
 para todo $t\in T$.
 
-El numerador del estadístico \textit{F}, mide la variabilidad externa entre las diferentes muestras, mientras que el denominador mide la variabilidad interna dentro de las muestras \cite{cuevas}.
+El numerador del estadístico \textit{F}, mide la variabilidad externa entre las diferentes muestras, mientras que el denominador mide la variabilidad interna dentro de las muestras [@cuevas].

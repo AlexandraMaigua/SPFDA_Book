@@ -1,14 +1,17 @@
 # Estadística espacial
+```{r echo=FALSE}
+options(knitr.graphics.auto_pdf = TRUE)
+```
 
 ## Preliminares
 
 ### Función Aleatoria
 
-Dado un dominio $D\subset \mathbb{R}^n$ y un espacio de probabilidad $(\Omega,\mathcal{A},P)$, una función aleatoria es una función de dos variables $Z(x,\omega)$ tal que para cada $x\in D$, $Z(x,.)$ es una variable aleatoria en $(\Omega,\mathcal{A},P)$. Por otro lado, $Z(.,\omega)$, definido en $D$ como la sección de la función aleatoria en $\omega \in \Omega$ es una realización de la función aleatoria. La función aleatoria $Z(x,\omega)$ se denota como $Z(x)$ y una realización es representada por $z(x)$ \cite{GeoJean}.
+Dado un dominio $D\subset \mathbb{R}^n$ y un espacio de probabilidad $(\Omega,\mathcal{A},P)$, una función aleatoria es una función de dos variables $Z(x,\omega)$ tal que para cada $x\in D$, $Z(x,.)$ es una variable aleatoria en $(\Omega,\mathcal{A},P)$. Por otro lado, $Z(.,\omega)$, definido en $D$ como la sección de la función aleatoria en $\omega \in \Omega$ es una realización de la función aleatoria. La función aleatoria $Z(x,\omega)$ se denota como $Z(x)$ y una realización es representada por $z(x)$ [@GeoJean].
 
 ### Proceso Estocástico
 
-Según \cite{GeoJean}, una función aleatoria es llamada proceso estocástico cuando $x$ varia en un espacio unidimensional como el tiempo; por otro lado, si $x$ varia en más de una dimensión es conocido como campo aleatorio.
+Según [@GeoJean], una función aleatoria es llamada proceso estocástico cuando $x$ varia en un espacio unidimensional como el tiempo; por otro lado, si $x$ varia en más de una dimensión es conocido como campo aleatorio.
 
 ### Proceso Espacial
 
@@ -16,7 +19,7 @@ Sea $Z$ la variable aleatoria de interés y $s$ su ubicación espacia. El proces
 
 $$\{Z(s):s \in D\}$$
 
-donde $D \subset \mathbb{R}^d$ es el conjunto formado por todas las ubicaciones espaciales \cite{marta}.
+donde $D \subset \mathbb{R}^d$ es el conjunto formado por todas las ubicaciones espaciales [@marta].
 
 ### Proceso Temporal
 
@@ -24,7 +27,7 @@ Sea $Z$ la variable aleatoria de interés y $t$ el tiempo. El proceso temporal e
 
 $$\{Z(t):t \in D\}$$
 
-donde $D \subset \mathbb{R}$ es el conjunto formado por todos los instantes de tiempo \cite{marta}.
+donde $D \subset \mathbb{R}$ es el conjunto formado por todos los instantes de tiempo [@marta].
 
 ### Proceso Espacio Temporal
 
@@ -32,7 +35,7 @@ Sea $Z$ la variable aleatoria de interés, $s$ su ubicación espacial y $t$ el t
 
 $$\{Z(s,t):(s,t) \in D \times D' \}$$
 
-donde el conjunto $D \subset \mathbb{R}^d$ es el conjunto de todas las ubicaciones espaciales y el conjunto $D' \subset \mathbb{R}$ es el conjunto de todos los instantes de tiempo. Los conjuntos $D$ y $D'$ pueden ser continuos o discretos, fijos o aleatorios \cite{marta}.
+donde el conjunto $D \subset \mathbb{R}^d$ es el conjunto de todas las ubicaciones espaciales y el conjunto $D' \subset \mathbb{R}$ es el conjunto de todos los instantes de tiempo. Los conjuntos $D$ y $D'$ pueden ser continuos o discretos, fijos o aleatorios [@marta].
 
 ## Clases de Datos Espaciales
 
@@ -40,31 +43,31 @@ Dependiendo de las características del dominio espacial $D$ del proceso estocá
 
 ### Geoestadística
 
-Es el conjunto de métodos aplicados a datos espaciales, donde las ubicaciones espaciales $s$ provienen de un conjunto continuo y fijo $D \subset \mathbb{R}^d$; cabe resaltar que el propósito de la geoestadística es la interpolación. Además, si el conjunto $D$ no es continuo se puede llegar a obtener predicciones carentes de sentido, y se considera $D$ fijo pues los puntos en el espacio se seleccionan a conveniencia o bajo un esquema de muestreo probabilístico \cite{Ramon}.
+Es el conjunto de métodos aplicados a datos espaciales, donde las ubicaciones espaciales $s$ provienen de un conjunto continuo y fijo $D \subset \mathbb{R}^d$; cabe resaltar que el propósito de la geoestadística es la interpolación. Además, si el conjunto $D$ no es continuo se puede llegar a obtener predicciones carentes de sentido, y se considera $D$ fijo pues los puntos en el espacio se seleccionan a conveniencia o bajo un esquema de muestreo probabilístico [@Ramon].
 
 ### Datos de Área
 
-En este tipo de datos las ubicaciones espaciales pertenecen a un conjunto discreto contable y fijo $D \subset \mathbb{R}^d$. Las ubicaciones pueden estar espaciadas regular o irregularmente, usualmente son irregulares pues sus separaciones no siguen un patrón predecible.\cite{Cressi}.
+En este tipo de datos las ubicaciones espaciales pertenecen a un conjunto discreto contable y fijo $D \subset \mathbb{R}^d$. Las ubicaciones pueden estar espaciadas regular o irregularmente, usualmente son irregulares pues sus separaciones no siguen un patrón predecible.[@Cressi].
 
 ### Patrones Puntuales
 
-En este caso, las ubicaciones espaciales pertenecen a un conjunto discreto o continuo y aleatorio $D\subset \mathbb{R}^d$. Con este tipo de dato se realizan análisis con el propósito de determinar si la distribución de las mediciones en la región es aleatoria, agregada o uniforme \cite{Ramon}.
+En este caso, las ubicaciones espaciales pertenecen a un conjunto discreto o continuo y aleatorio $D\subset \mathbb{R}^d$. Con este tipo de dato se realizan análisis con el propósito de determinar si la distribución de las mediciones en la región es aleatoria, agregada o uniforme [@Ramon].
 
 ### Datos Georreferenciados
 
-En este caso, las variables de interés tienen asociadas las coordenadas de las ubicaciones donde fueron medidas, las que pueden ser geográficas, planas o cartesianas \cite{Ramon}.
+En este caso, las variables de interés tienen asociadas las coordenadas de las ubicaciones donde fueron medidas, las que pueden ser geográficas, planas o cartesianas [@Ramon].
 
 ## Geoestadística
 
-La palabra geoestadística fue establecida por Hart en el año de 1954. El significado de esta palabra se lo puede deducir a partir de su prefijo geo, que hace referencia a la tierra; por lo tanto, la geoestadística es una rama de la estadística enfocada en el análisis y la modelización de la variabilidad espacial de fenómenos que ocurren dentro de una zona geográfica; además, es considerada como una disciplina híbrida entre Geología, Matemática, Estadística y Minería de datos \cite{Cressi}.
+La palabra geoestadística fue establecida por Hart en el año de 1954. El significado de esta palabra se lo puede deducir a partir de su prefijo geo, que hace referencia a la tierra; por lo tanto, la geoestadística es una rama de la estadística enfocada en el análisis y la modelización de la variabilidad espacial de fenómenos que ocurren dentro de una zona geográfica; además, es considerada como una disciplina híbrida entre Geología, Matemática, Estadística y Minería de datos [@Cressi].
 
 ### Variable Regionalizada
 
 Una variable regionalizada es un proceso estocástico con dominio continuo contenido en un espacio euclidiano d-dimensional $\{Z(s):s\in D\subset \mathbb{R}^d\}$.
 
-En el caso de que las mediciones sean realizadas en una superficie; es decir, $d=2$, $Z(s)$ puede asociarse a la variable aleatoria ligada a ese punto del plano, $s$ representa las coordenadas geográficas y $Z$ la variable en cada una de ellas. La medición de esta variable aleatoria puede representar la magnitud de una variable ambiental medida en un conjunto de coordenadas en la región de estudio \cite{Ramon}.
+En el caso de que las mediciones sean realizadas en una superficie; es decir, $d=2$, $Z(s)$ puede asociarse a la variable aleatoria ligada a ese punto del plano, $s$ representa las coordenadas geográficas y $Z$ la variable en cada una de ellas. La medición de esta variable aleatoria puede representar la magnitud de una variable ambiental medida en un conjunto de coordenadas en la región de estudio [@Ramon].
 
-Un proceso estocástico espacial se caracteriza por su distribución de probabilidad de dimensión finita; es decir, la distribución de probabilidad conjunta de un conjunto de variables $Z(s_1),...,Z(s_k)$ para todo $k \in \mathbb{N}$ y para todos los puntos $s_1,...s_k \in D$ \cite{marta}.
+Un proceso estocástico espacial se caracteriza por su distribución de probabilidad de dimensión finita; es decir, la distribución de probabilidad conjunta de un conjunto de variables $Z(s_1),...,Z(s_k)$ para todo $k \in \mathbb{N}$ y para todos los puntos $s_1,...s_k \in D$ [@marta].
 
 ### Función de Distribución Conjunta
 
@@ -81,9 +84,11 @@ La esperanza o el momento de primer orden de un campo aleatorio o proceso estoc�
 E[Z(s)]=\mu(s)\quad\text{donde}\quad \mu(s_i)=E(Z(s_i))\ i=1,...,k    
 \end{align*}
 ```
-En cada sitio $s$ dado, $\mu(s)$ representa la media alrededor de la cual se distribuyen los valores tomados por las realizaciones de la funciones aleatoria \cite{Ramon}. Si la esperanza del campo aleatorio varía con la ubicación espacial, se le conoce como deriva o \textit{drift} del campo aleatorio.
+En cada sitio $s$ dado, $\mu(s)$ representa la media alrededor de la cual se distribuyen los valores tomados por las realizaciones de la funciones aleatoria [@Ramon]. Si la esperanza del campo aleatorio varía con la ubicación espacial, se le conoce como deriva o *drift* del campo aleatorio.
 
 En geoestadística existen tres elementos de segundo orden, los cuales son: varianza, convarianza y variograma.
+
+**EJEMPLO DE MEDIA CON CALCIO, AQUIFER, NITRATO(MARTA)**
 
 ### Función de varianza
 
@@ -94,6 +99,8 @@ La varianza de un campo aleatorio o proceso estocástico espacial $Z(s)$ respect
   V(s)=\sigma^2(s)=Var[Z(s)]=E[(Z(s)-\mu(s))^2]\quad \text{donde} \quad V(s_i)=\sigma^2(s_i)=V(Z(s_i))\ i=1,...,k
 \end{align*}
 ```
+**EJEMPLO DE VARIANZA CON CALCIO, AQUIFER, NITRATO(MARTA)**
+
 ### Función de Covarianza
 
 Sean $Z(s_i)$ y $Z(s_j)$ dos variables aleatorias de un proceso estocástico espacial, la covarianza es una función de separación espacial de $s_i$ y $s_j$ y está definida por:
@@ -113,6 +120,8 @@ Nótese que:
   C(s,s)=C(0)=\sigma^2(s)  
 \end{align*}
 ```
+**EJEMPLO DE COVARIANZA CON CALCIO, AQUIFER, NITRATO(MARTA)**
+
 ### Función de correlación o Correlograma
 
 La correlación lineal de dos variables aleatorias de un proceso estocástico espacial $Z(s_i)$ y $Z(s_j)$, está definida por:
@@ -131,9 +140,11 @@ El semi-variograma entre dos variables aleatorias de un proceso estocástico esp
   \gamma(s_i,s_j)=\gamma(s_i-s_j)= \frac{1}{2} V[Z(s_i)-Z(s_j)], \ \forall s_i,s_j \in D 
 \end{align*}
 ```
+**EJEMPLO DE VARIOG CON CALCIO, AQUIFER, NITRATO(MARTA)**
+
 ### Estacionariedad de Funciones Aleatorias
 
-Una variable aleatoria regionalizada vista como una realización de un proceso estocástico espacial o función aleatoria $\{Z(s):s\in D\}$, probabilísticamente adquiere sentido cuando es posible inferir toda o parte de la ley de probabilidad del proceso estocástico o campo aleatorio. Es claro que inferir la ley de probabilidad cuando solo se tiene una realización del proceso estocástico espacial o función aleatorio sería imposible; para poder hacer inferencia consistente, se necesitan de varias realizaciones, pero en la realidad solo existe una, inclusive solo una parte de las realizaciones está disponible en las ubicaciones de la muestra; para dar solución a este problema, se introduce el supuesto de estacionariedad, que significa que la ley de probabilidad espacial del proceso estocástico espacial o función aleatoria, o parte de este, es invariante respecto a traslaciones; es decir, las propiedades probabilísticas de un conjunto de observaciones no dependen de las ubicaciones donde fueron medidas, solo dependen de su separación; además, como se mencionó, las realizaciones no son independientes \cite{montero}. Así, se distinguen tres tipos de estacionariedad:
+Una variable aleatoria regionalizada vista como una realización de un proceso estocástico espacial o función aleatoria $\{Z(s):s\in D\}$, probabilísticamente adquiere sentido cuando es posible inferir toda o parte de la ley de probabilidad del proceso estocástico o campo aleatorio. Es claro que inferir la ley de probabilidad cuando solo se tiene una realización del proceso estocástico espacial o función aleatorio sería imposible; para poder hacer inferencia consistente, se necesitan de varias realizaciones, pero en la realidad solo existe una, inclusive solo una parte de las realizaciones está disponible en las ubicaciones de la muestra; para dar solución a este problema, se introduce el supuesto de estacionariedad, que significa que la ley de probabilidad espacial del proceso estocástico espacial o función aleatoria, o parte de este, es invariante respecto a traslaciones; es decir, las propiedades probabilísticas de un conjunto de observaciones no dependen de las ubicaciones donde fueron medidas, solo dependen de su separación; además, como se mencionó, las realizaciones no son independientes [@montero]. Así, se distinguen tres tipos de estacionariedad:
 
 -   Estacionariedad fuerte o de primer orden.
 -   Estacionariedad débil o de segundo orden.
@@ -141,22 +152,24 @@ Una variable aleatoria regionalizada vista como una realización de un proceso e
 
 #### Estacionariedad Fuerte o de primer orden {.unnumbered}
 
-Este supuesto se refiere a que el proceso alcanza un estado de equilibrio. Formalmente, una variable regionalizada es estacionaria si su función de distribución no varía con la traslación del vector h; esto es, si para:
+Este supuesto se refiere a que el proceso alcanza un estado de equilibrio. Formalmente, una variable regionalizada es estacionaria si su función de distribución no varía con la traslación del vector $\textbf{h}$; esto es, si para:
 
 ```{=tex}
 \begin{align*}
     Z(s)&=[Z(s_1),...,Z(s_n)]^{'} \\ \\
-    Z(s+h)&=[Z(s_{1} +h),...,Z(s_{n} +h )]^{'}
+    Z(s+\textbf{h})&=[Z(s_{1} +\textbf{h}),...,Z(s_{n} + \textbf{h} )]^{'}
 \end{align*}
 ```
 se tiene que:
 
 ```{=tex}
 \begin{align*}
-  F_{Z_1,...,Z_n}(s_1,...,s_n)=F_{Z_1,...,Z_n}((s_1+h),...,(s_n+h))  
+  F_{Z_1,...,Z_n}(s_1,...,s_n)=F_{Z_1,...,Z_n}((s_1+\textbf{h}),...,(s_n+\textbf{h}))  
 \end{align*}
 ```
-Nótese que esta condición es muy restrictiva, por lo que normalmente se relaja a condiciones de segundo orden, las que limitan el supuesto de estacionariedad a los dos primeros momentos del proceso estocástico o campo aleatorio \cite{montero}.
+Nótese que esta condición es muy restrictiva, por lo que normalmente se relaja a condiciones de segundo orden, las que limitan el supuesto de estacionariedad a los dos primeros momentos del proceso estocástico o campo aleatorio [@montero].
+
+**EJEMPLOS (MARTA)??**
 
 #### Estacionariedad de Segundo Orden {.unnumbered}
 
@@ -170,35 +183,36 @@ Sea $\{Z(s): s\in D \}$ un proceso estocástico o campo aleatorio, se dice débi
       \end{align*}
     ```
 
--   La covarianza existe para todo par de variables aleatorias, $Z(s)$ y $Z(s+h)$, y solo depende del vector de separación $h$ entre las ubicaciones $s$ y $s+h$; es decir, depende de la dirección y la distancia de separación, y no de sus ubicaciones absolutas y se tiene que:
+-   La covarianza existe para todo par de variables aleatorias, $Z(s)$ y $Z(s+\textbf{h})$, y solo depende del vector de separación $\textbf{h}$ entre las ubicaciones $s$ y $s+\textbf{h}$; es decir, depende de la dirección y la distancia de separación, y no de sus ubicaciones absolutas y se tiene que:
 
-    ```{=tex}
+    $$
     \begin{align*}
-        Cov(Z(s),Z(s+h))=C(h),\forall s\in D \ y\ h  
+        Cov(Z(s),Z(s+\textbf{h}))=C(h),\forall s\in D \ y\ h  
       \end{align*}
-    ```
-    
-    La estacionariedad de la covarianza implica que la varianza $Var(Z(s))$ existe, es finita y no depende de $s$; es decir:
+    $$
 
-    ```{=tex}
-    \begin{align*}
-        Var(Z(s))=\sigma^2(s)=C(s,s)=C(s-s)=C(0)=\sigma^2  
-    \end{align*}
-    ```
+La estacionariedad de la covarianza implica que la varianza $Var(Z(s))$ existe, es finita y no depende de $s$; es decir:
 
+```{=tex}
+\begin{align*}
+        Var(Z(s))&=\sigma^2(s)=C(s,s)=C(s-s)=C(0)=\sigma^2  
+\end{align*}
+```
 La estacionariedad de segundo orden implica la siguiente relación entre entre la función de semivarianza y la de autocovarianza:
 
 ```{=tex}
 \begin{align*}
-    \gamma(h)&=\frac{1}{2}V(Z(s+h)-Z(s)), \quad \text{con} \ \gamma(h)=\gamma(s+h,s)\\
-&=\frac{1}{2}(V(Z(s+h))+V(Z(s))+2C(Z(s+h),Z(s)))\\
+    \gamma(h)&=\frac{1}{2}V(Z(s+\textbf{h})-Z(s)), \quad \text{con} \ \gamma(h)=\gamma(s+\textbf{h},s)\\
+&=\frac{1}{2}(V(Z(s+\textbf{h}))+V(Z(s))+2C(Z(s+\textbf{h}),Z(s)))\\
 &=\frac{1}{2}(C(0)+C(0)+2C(h))\\
 &=C(0)-C(h)
 \end{align*}
 ```
 Nótese que si un proceso estocástico o campo aleatorio es estacionario de segundo orden, entonces también será un proceso estocástico estacionariamente fuerte; sin embargo, esto no ocurre en el sentido contrario.
 
-Se debe tener en cuenta que la estacionariedad de segundo orden implica la existencia de la varianza del proceso estocástico o campo aleatorio. Existen fenómenos con varianza infinita lo que imposibilita su modelización utilizando procesos de este tipo. Sin embargo, existen casos en los que los incrementos, $Z(s+h)-Z(s)$, tienen varianza finita y que además son un proceso estacionario de segundo orden; este tipo de proceso estocástico o campo aleatorio se conoce como un proceso con estacionariedad intrínseca \cite{montero}.
+Se debe tener en cuenta que la estacionariedad de segundo orden implica la existencia de la varianza del proceso estocástico o campo aleatorio. Existen fenómenos con varianza infinita lo que imposibilita su modelización utilizando procesos de este tipo. Sin embargo, existen casos en los que los incrementos, $Z(s+\textbf{h})-Z(s)$, tienen varianza finita y que además son un proceso estacionario de segundo orden; este tipo de proceso estocástico o campo aleatorio se conoce como un proceso con estacionariedad intrínseca [@montero].
+
+**EJEMPLOS (MARTA)??**
 
 #### Estacionariedad Intrínseca {.unnumbered}
 
@@ -206,37 +220,45 @@ Sea $\{Z(s): s\in D\}$ un proceso estocástico o campo aleatorio; se dice que es
 
 -   $Z(s)$ tiene esperanza finita y constante para todo punto en el domino, lo cual implica que la esperanza de los incrementos sea cero.
 
-    $$E(Z(s+h)-Z(s))=0$$
+    $$E(Z(s+\textbf{h})-Z(s))=0$$
 
--   Para cualquier vector $h$, la varianza del incremento está definida y es una función única de la distancia.
+-   Para cualquier vector $\textbf{h}$, la varianza del incremento está definida y es una función única de la distancia.
 
-    $$V(Z(s+h)-Z(s))=E(Z(s+h)-Z(s))^2=2\gamma(h)$$
+    $$V(Z(s+\textbf{h})-Z(s))=E(Z(s+\textbf{h})-Z(s))^2=2\gamma(h)$$
+
+**EJEMPLOS (MARTA)??**
 
 ### No estacionariedad de Funciones Aleatorias
 
 Sea $\{Z(s): s\in D\}$ un proceso estocástico o campo aleatorio para el cual la media y/o la función de covarianza depende de la ubicación espacial; es decir, no son traslacionalmente invariantes; se dice que $Z(s)$ es una función aleatoria no estacionaria.
 
-Cuando el proceso estocástico o campo aleatorio $\{Z(s): s\in D\}$ tiene media no constante y varia con la ubicación espacial, y sus incrementos de primer orden $Z(s+h)-Z(s)$ son no estacionarios, se dice que la función aleatoria es no intrínseca \cite{montero}.
+Cuando el proceso estocástico o campo aleatorio $\{Z(s): s\in D\}$ tiene media no constante y varia con la ubicación espacial, y sus incrementos de primer orden $Z(s+\textbf{h})-Z(s)$ son no estacionarios, se dice que la función aleatoria es no intrínseca [@montero].
+
+**EJEMPLOS (BUSCAR)??**
 
 ### Isotropía
 
-Identificar la estacionariedad en un campo temporal es fácil, ya que solo existe una dirección de variación. Por otro lado, en el campo espacial existen múltiples direcciones, por lo que se debe asumir que el fenómeno es estacionario en todas ellas. Cuando la esperanza de la variable cambie respecto a las direcciones o cuando la covarianza o correlación dependan del sentido en el que se determinen, entonces se dirá que no se tiene estacionariedad \cite{Ramon}.
+Identificar la estacionariedad en un campo temporal es fácil, ya que solo existe una dirección de variación. Por otro lado, en el campo espacial existen múltiples direcciones, por lo que se debe asumir que el fenómeno es estacionario en todas ellas. Cuando la esperanza de la variable cambie respecto a las direcciones o cuando la covarianza o correlación dependan del sentido en el que se determinen, entonces se dirá que no se tiene estacionariedad [@Ramon].
 
-Ahora bien, si $C(h)$ y/o $\gamma(h)$, son funciones únicas de la magnitud $||h||$
+Ahora bien, si $C(h)$ y/o $\gamma(h)$, son funciones únicas de la magnitud $||\textbf{h}||$
 
 ```{=tex}
 \begin{align*}
-    Cov(Z(s),Z(s+h)&= C(||h||))\\
-    \frac{1}{2} Var(Z(s+h)-Z(s))&=\gamma(||h||)
+    Cov(Z(s),Z(s+\textbf{h})&= C(||\textbf{h}||))\\
+    \frac{1}{2} Var(Z(s+\textbf{h})-Z(s))&=\gamma(||\textbf{h}||)
 \end{align*}
 ```
-el proceso posee función de covarianza y/o semivarianza isotrópica. La estacionariedad posibilita combinar pares de datos con la misma diferencia en magnitud de separación de las coordenadas, y si los vectores de diferencias tienen la posibilidad de ser reemplazados con distancias escalares, entonces el campo se dice isotrópico \cite{marta}. Si la correlación entre los datos no es dependiente de la dirección en la que esta se calcule se plantea que el fenómeno es isotrópico \cite{Ramon}; en caso opuesto un campo aleatorio que es estacionario pero no isotrópico se desenvuelve de forma distinta según las diferentes direcciones del espacio; por lo cual, no es suficiente conocer cuánto permanecen distanciadas las ubicaciones, sino además es necesario conocer la orientación de esa distancia; a dichos campos se los conoce como campos aleatorios anisotrópicos \cite{marta}.
+el proceso posee función de covarianza y/o semivarianza isotrópica. La estacionariedad posibilita combinar pares de datos con la misma diferencia en magnitud de separación de las coordenadas, y si los vectores de diferencias tienen la posibilidad de ser reemplazados con distancias escalares, entonces el campo se dice isotrópico [@marta]. Si la correlación entre los datos no es dependiente de la dirección en la que esta se calcule se plantea que el fenómeno es isotrópico [@Ramon]; en caso opuesto un campo aleatorio que es estacionario pero no isotrópico se desenvuelve de forma distinta según las diferentes direcciones del espacio; por lo cual, no es suficiente conocer cuánto permanecen distanciadas las ubicaciones, sino además es necesario conocer la orientación de esa distancia; a dichos campos se los conoce como campos aleatorios anisotrópicos [@marta].
+
+**EJEMPLOS AQUIFER (SIN TRENDS)**
 
 ### Anisotropía
 
+Buscar teoría y poner lo de las tranformaciones con funciones trigonométricas
+
 ### Correlación Espacial
 
-El análisis estructural es la primera etapa en el desarrollo de un análisis geoestadístico; a partir de este se puede expresar la estructura de dependencia espacial o correlación que existe entre los datos medidos de una variable mediante funciones como el variograma y/o covariograma \cite{Ramon}.
+El análisis estructural es la primera etapa en el desarrollo de un análisis geoestadístico; a partir de este se puede expresar la estructura de dependencia espacial o correlación que existe entre los datos medidos de una variable mediante funciones como el variograma y/o covariograma [@Ramon].
 
 #### Covariograma {.unnumbered}
 
@@ -245,7 +267,7 @@ Como se definió anteriormente, la función de covarianza de un proceso estocás
 ```{=tex}
 \begin{align*}
     C(s_i,s_j)&=C(Z(s_i),Z(s_j))\\
-    &= E((Z(s_i)-\mu(s_i)) (Z(s_j)-\mu(s_j))),\ \forall s_i,s_j\in D
+    &= E[(Z(s_i)-\mu(s_i)) (Z(s_j)-\mu(s_j))],\ \forall s_i,s_j\in D
 \end{align*}
 ```
 Bajo la hipótesis de estacionariedad de segundo orden, la función de covarianza tiene las siguientes propiedades:
@@ -254,12 +276,11 @@ Bajo la hipótesis de estacionariedad de segundo orden, la función de covarianz
 
     ```{=tex}
     \begin{align*}
-        C(h)=E((Z(s+h)-\mu)(Z(s)-\mu)),\ \forall s,s+h \in D\subset \mathbb{R}^d  
+        C(h)=E[(Z(s+\textbf{h})-\mu)(Z(s)-\mu)],\ \forall s,s+\textbf{h} \in D\subset \mathbb{R}^d  
       \end{align*}
     ```
-    
-    donde $\mu$ es la media constante del proceso estocástico espacial o campo aleatorio. El covariograma muestra el comportamiento de la correlación entre $Z(s)$ y $Z(s+h)$.
-    Cuando la función de covarianza solo depende de la distancia entre las ubicaciones $s$ y $s+h$ se conoce como **proceso isotrópico**. Cuando depende de la distancia y de la dirección del vector de separación h se conoce como un **proceso anisotrópico**.
+
+donde $\mu$ es la media constante del proceso estocástico espacial o campo aleatorio. El covariograma muestra el comportamiento de la correlación entre $Z(s)$ y $Z(s+\textbf{h})$. Cuando la función de covarianza solo depende de la distancia entre las ubicaciones $s$ y $s+\textbf{h}$ se conoce como **proceso isotrópico**. Cuando depende de la distancia y de la dirección del vector de separación $\textbf{h}$ se conoce como un **proceso anisotrópico**.
 
 -   Está acotado por la varianza del proceso estocástico espacial o campo aleatorio en el origen; es decir:
 
@@ -277,15 +298,14 @@ Bajo la hipótesis de estacionariedad de segundo orden, la función de covarianz
       \end{align*}
     ```
 
--   Es una función definida positiva, en términos de diferencia entre coordenadas $s_i-s_j=h$:
+-   Es una función definida positiva, en términos de diferencia entre coordenadas $s_i-s_j=\textbf{h}$:
 
     ```{=tex}
     \begin{align*}
         \sum_{i=1}^n \sum_{j=1}^n\lambda_i \lambda_j C(s_i-s_j)\geq 0,\forall n\in \mathbb{N}^*,\forall \lambda_1,...,\lambda_n \in \mathbb{R}, \forall s_1,...,s_n\in D \subset \mathbb{R}^d  
       \end{align*}
     ```
-    
-    Esta condición es la más importante y necesaria para que una función de covarianza esté bien definida \cite{montero}.
+    Esta condición es la más importante y necesaria para que una función de covarianza esté bien definida [@montero].
 
 -   Si $C_k(h),\forall k \in \mathbb{N}$ son funciones de covarianza en $\mathbb{R}^d$ y:
 
@@ -302,7 +322,7 @@ Bajo la hipótesis de estacionariedad de segundo orden, la función de covarianz
 
 #### Semivariograma {.unnumbered}
 
-El semivariograma es el instrumento más usado para describir la dependencia espacial de variables regionalizadas, pues este cubre un mayor espectro de estas variables en comparación de la función de covarianza, incluyendo la estacionariedad intrínseca de funciones aleatorias, en donde la covarianza no puede ser definida \cite{montero}.
+El semivariograma es el instrumento más usado para describir la dependencia espacial de variables regionalizadas, pues este cubre un mayor espectro de estas variables en comparación de la función de covarianza, incluyendo la estacionariedad intrínseca de funciones aleatorias, en donde la covarianza no puede ser definida [@montero].
 
 Como se definió anteriormente, el semivariograma está dado por:
 
@@ -315,10 +335,10 @@ Bajo el supuesto de estacionariedad de segundo orden o de hipótesis intrínseca
 
 ```{=tex}
 \begin{align*}
-  \gamma(h)=\frac{1}{2}Var(Z(s+h)-Z(s))=\frac{1}{2}E((Z(s+h)-Z(s))^2)  
+  \gamma(h)=\frac{1}{2}Var(Z(s+\textbf{h})-Z(s))=\frac{1}{2}E((Z(s+\textbf{h})-Z(s))^2)  
 \end{align*}
 ```
-la cual muestra como la disimilitud entre $Z(s+h)$ y $Z(s)$ se desenvuelve con la distancia $h$.
+la cual muestra como la disimilitud entre $Z(s+\textbf{h})$ y $Z(s)$ se desenvuelve con la distancia $h$.
 
 Como se vio anteriormente, bajo el supuesto de estacionariedad de segundo orden, el semivariograma y el covariograma verifican la siguiente relación:
 
@@ -327,7 +347,7 @@ Como se vio anteriormente, bajo el supuesto de estacionariedad de segundo orden,
   C(h)=C(0)-\gamma(h)  
 \end{align*}
 ```
-En la práctica se utiliza el semivariograma en lugar del covariograma puesto que este no necesita conocer la media de la función aleatoria \cite{montero}.
+En la práctica se utiliza el semivariograma en lugar del covariograma puesto que este no necesita conocer la media de la función aleatoria [@montero].
 
 Para que una función de semivariograma sea válido necesita verificar las siguientes propiedades teóricas:
 
@@ -365,15 +385,15 @@ Para que una función de semivariograma sea válido necesita verificar las sigui
       \end{align*}
     ```
 
-El semivariograma de un proceso estocástico espacial estacionario de segundo orden depende de los siguientes parámetros (ver Figura \ref{fig:pvar} ):
+El semivariograma de un proceso estocástico espacial estacionario de segundo orden depende de los siguientes parámetros (ver Figura \@ref(fig:pvar) ):
 
 -   Silla: Es la asíntota superior del semivariograma. Solamente los procesos estacionarios de segundo orden tienen silla; en estos casos la silla es de $C(0)=\sigma^2$.
 
--   Rango: Es la distancia sobre la cual los puntos ya no ejercen influencia sobre otros; es decir, son independientes. Los puntos que se encuentran separados por una distancia menor o igual al rango se consideran espacialmente correlacionados, mientras que los puntos separados por una distancia mayor se consideran independientes \cite{marta}.
+-   Rango: Es la distancia sobre la cual los puntos ya no ejercen influencia sobre otros; es decir, son independientes. Los puntos que se encuentran separados por una distancia menor o igual al rango se consideran espacialmente correlacionados, mientras que los puntos separados por una distancia mayor se consideran independientes [@marta].
 
 -   Efecto Pepita: Es una discontinuidad en el origen, $\gamma(h)\to c_0$ cuando $h\to 0$.
 
-    Existen dos causas principales para que se produzca este efecto. La primera es la existencia de error de medición (\textit{EM}); sucede una vez que no es viable repetir una medición en la ubicación $s$ sin error, evidenciando su variabilidad. La segunda causa es el efecto de micro-escala (\textit{MS}); el cual se produce ya que existe un proceso espacial que opera a distancias más pequeñas de las que fueron consideradas en el muestreo. Si \textit{ES} y \textit{MS} son diferentes de cero, el semivariograma presentará una discontinuidad puntual en el origen, conocido como efecto pepita y representado de la siguiente manera \cite{marta}:
+    Existen dos causas principales para que se produzca este efecto. La primera es la existencia de error de medición (\textit{EM}); sucede una vez que no es viable repetir una medición en la ubicación $s$ sin error, evidenciando su variabilidad. La segunda causa es el efecto de micro-escala (\textit{MS}); el cual se produce ya que existe un proceso espacial que opera a distancias más pequeñas de las que fueron consideradas en el muestreo. Si \textit{ES} y \textit{MS} son diferentes de cero, el semivariograma presentará una discontinuidad puntual en el origen, conocido como efecto pepita y representado de la siguiente manera [@marta]:
 
 ```{=tex}
 \begin{align*}
@@ -391,23 +411,20 @@ La relación entre el covariograma y el semivariograma se modifica para tomar en
     c_0+c_p & si \ h=0 \end{matrix}\right. 
 \end{align*}
 ```
-donde $\gamma'(h)$ es el modelo de variograma, $c_p$ es la silla parcial y $c_0$ es el efecto pepita \cite{marta}.
+donde $\gamma'(h)$ es el modelo de variograma, $c_p$ es la silla parcial y $c_0$ es el efecto pepita [@marta].
 
-```{=tex}
-\begin{figure}[H]
-\centering
-\includegraphics[width=13cm,height=7cm]{figuras/otros/variograma_partes.PNG}
-\caption{Partes de un variograma}
-\label{fig:pvar}
-\end{figure}
-```
 A partir de este punto se omitirá el prefijo "semi'' y se tratará al semi-variograma solo por variograma.
+
+```{r pvar, fig.cap="Partes de un variograma",echo=FALSE}
+#options(knitr.graphics.auto_pdf = TRUE)
+knitr::include_graphics("figuras/otros/variograma_partes.PNG")
+```
 
 ## Variograma
 
-En la práctica, se trabaja con las realizaciones del proceso estocástico o campo aleatorio en estudio; es decir, se cuenta con un conjunto de datos georeferenciados en un dominio dado. Utilizando estos datos, se puede inferir la estructura de dependencia espacial del fenómeno \cite{montero}.
+En la práctica, se trabaja con las realizaciones del proceso estocástico o campo aleatorio en estudio; es decir, se cuenta con un conjunto de datos georeferenciados en un dominio dado. Utilizando estos datos, se puede inferir la estructura de dependencia espacial del fenómeno [@montero].
 
-Por lo general, la descripción de la distribución espacial se limita a los primeros momentos. La esperanza o el momento de primer orden involucra un solo sitio a la vez y no proporciona información sobre la dependencia espacial. Por otro lado, la covarianza, correlograma y variograma o momentos de segundo orden están definidos mediante un par ubicaciones; así, estos momentos proporcionan información de la continuidad y dependencia espacial de la variable regionalizada \cite{emery}.
+Por lo general, la descripción de la distribución espacial se limita a los primeros momentos. La esperanza o el momento de primer orden involucra un solo sitio a la vez y no proporciona información sobre la dependencia espacial. Por otro lado, la covarianza, correlograma y variograma o momentos de segundo orden están definidos mediante un par ubicaciones; así, estos momentos proporcionan información de la continuidad y dependencia espacial de la variable regionalizada [@emery].
 
 ### Disimilitud contra Separación
 
@@ -418,42 +435,38 @@ La variabilidad de una variable regionalizada $Z(s)$, se mide en diferentes esca
   \hat{\gamma}(s_1,s_2)=\frac{(z_{s1}-z_{s2})^2}{2}  
 \end{align*}
 ```
-Los dos puntos $s_1$ y $s_2$ en el espacio geográfico pueden unirse por un vector $h=s_1-s_2$ como se muestra en la Figura \ref{fig:distanciah}.
+Los dos puntos $s_1$ y $s_2$ en el espacio geográfico pueden unirse por un vector $h=s_1-s_2$ como se muestra en la Figura \@ref(fig:distanciah).
 
-```{=tex}
-\begin{figure}[H]
-\centering
-\includegraphics[width=6cm,height=3cm]{figuras/otros/distancia_h.png}
-\caption{Distancia}
-\label{fig:distanciah}
-\end{figure}
+
+```{r distanciah, fig.cap="Distancia",echo=FALSE}
+#options(knitr.graphics.auto_pdf = TRUE)
+knitr::include_graphics("figuras/otros/distancia_h.png")
 ```
-Si $\hat{\gamma}$ es dependiente de la separación y orientación del par de ubicaciones descritos por el vector $h$, se tiene que \cite{hans}:
+
+Si $\hat{\gamma}$ es dependiente de la separación y orientación del par de ubicaciones descritos por el vector $\textbf{h}$, se tiene que [@hans]:
 
 ```{=tex}
 \begin{align*}
-  \hat{\gamma}(h)=\frac{1}{2}(z(s_1+h)-z(s_1))^2  
+  \hat{\gamma}(h)=\frac{1}{2}(z(s_1+\textbf{h})-z(s_1))^2  
 \end{align*}
 ```
-La disimilitud es simétrica con respecto de $h$, pues es una cantidad al cuadrado, por lo que, su representación será mostrada utilizando todos los pares de datos de la muestra en el conjunto $D$. El gráfico de la disimilitud $\hat{\gamma}$ contra la separación espacial absoluta $h$, es llamado nube del variograma \cite{hans}.
+La disimilitud es simétrica con respecto de $h$, pues es una cantidad al cuadrado, por lo que, su representación será mostrada utilizando todos los pares de datos de la muestra en el conjunto $D$. El gráfico de la disimilitud $\hat{\gamma}$ contra la separación espacial absoluta $h$, es llamado nube del variograma [@hans].
 
-La disimilitud con frecuencia se incrementa con la distancia, pues los puntos cercanos tienden a ser similares \cite{hans} (ver Figura \ref{varcloud}).
+La disimilitud con frecuencia se incrementa con la distancia, pues los puntos cercanos tienden a ser similares [@hans] (ver Figura \@ref(fig:varcloud) ).
 
-```{=tex}
-\begin{figure}[H]
-\centering
-\includegraphics[width=10cm,height=5cm]{figuras/otros/var_cloud.png}
-\caption{Disimilitud respecto de $h$.}
-\label{varcloud}
-\end{figure}
+
+```{r varcloud, fig.cap="Disimilitud respecto de h.",echo=FALSE}
+#options(knitr.graphics.auto_pdf = TRUE)
+knitr::include_graphics("figuras/otros/var_cloud.png")
 ```
+
 ### Variograma Empírico
 
-Teniendo en cuenta que el variograma $\gamma(h)$ es la varianza de la variable de incrementos $Z(s+h)-Z(s)$, el estimador clásico se basa en la estimación de esta varianza mediante el método de momentos y está definido para un vector de separación $h$ de la siguiente manera:
+Teniendo en cuenta que el variograma $\gamma(h)$ es la varianza de la variable de incrementos $Z(s+\textbf{h})-Z(s)$, el estimador clásico se basa en la estimación de esta varianza mediante el método de momentos y está definido para un vector de separación $\textbf{h}$ de la siguiente manera:
 
 ```{=tex}
 \begin{align*}
-  \hat{\gamma}(h)=\frac{1}{2|N(h)|}\sum_{N(h)}(Z(s+h)-Z(s))^2, \ h\in \mathbb{R}^d  
+  \hat{\gamma}(h)=\frac{1}{2|N(h)|}\sum_{N(h)}(Z(s+\textbf{h})-Z(s))^2, \ \textbf{h}\in \mathbb{R}^d  
 \end{align*}
 ```
 donde:
@@ -465,7 +478,7 @@ donde:
 ```
 siendo $N(h)$ el conjunto de todos los pares de ubicaciones cuya separación corresponde a un vector $h$ y $|N(h)|$ es la cardinalidad de $N(h)$. Nótese que $N(-h)\neq N(h)$, aunque $\hat{\gamma}(-h)=\hat{\gamma}(h)$, y la media $\mu$ no necesita ser estimada.
 
-Al ser un estimador de la varianza muestral es sensible a datos atípicos; es por ello que \cite{Cressi} propuso estimadores resistentes a datos atípicos, asumiendo normalidad marginal del campo aleatorio \cite{marta}; sin embargo, la diferencia entre estos estimadores es pequeña \cite{Cressi}.
+Al ser un estimador de la varianza muestral es sensible a datos atípicos; es por ello que [@Cressi] propuso estimadores resistentes a datos atípicos, asumiendo normalidad marginal del campo aleatorio [@marta]; sin embargo, la diferencia entre estos estimadores es pequeña [@Cressi].
 
 #### Tolerancia en los parámetros de cálculo {.unnumbered}
 
@@ -478,21 +491,18 @@ En la práctica, los datos están distribuidos irregularmente en el dominio espa
 ```
 donde $N^+=\{(s_i,s_j): s_i-s_j\in T(h)\}=\displaystyle \bigcup_{h^{'}\in T(h)}N(h')$
 
-Siendo $T(h)$ una región de tolerancia alrededor de $h$; es decir, $T(h)=[h-\Delta h,h+\Delta h]$ en el caso unidiminesional. En el caso de dimensión dos o tres, existen tolerancias sobre la longitud de $h$ y sobre su orientación \cite{emery} (véase Figura \ref{fig:reg_tol}):
+Siendo $T(h)$ una región de tolerancia alrededor de $h$; es decir, $T(h)=[h-\Delta h,h+\Delta h]$ en el caso unidiminesional. En el caso de dimensión dos o tres, existen tolerancias sobre la longitud de $h$ y sobre su orientación [@emery] (véase Figura \@ref(fig:regtol)):
 
-```{=tex}
-\begin{figure}[H]
-\centering
-\includegraphics[width=10cm,height=5cm]{figuras/otros/tolerancia.png}
-\caption{Región de tolerancia $T(h)$ alrededor del vector $h$.}
-\label{fig:reg_tol}
-\end{figure}
+```{r regtol, fig.cap="Región de tolerancia $T(h)$ alrededor del vector $h$",echo=FALSE}
+#options(knitr.graphics.auto_pdf = TRUE)
+knitr::include_graphics("figuras/otros/tolerancia.png")
 ```
-El ancho de banda limita la división del cono de tolerancia a una expansión máxima. En el espacio de tres dimensiones, se introducen dos anchos de banda, horizontal y vertical \cite{emery}.
+
+El ancho de banda limita la división del cono de tolerancia a una expansión máxima. En el espacio de tres dimensiones, se introducen dos anchos de banda, horizontal y vertical [@emery].
 
 #### Propiedades del variograma empírico {.unnumbered}
 
--   El variograma empírico $\hat{\gamma}(h)$ es un estimador insesgado del variograma teórico \cite{montero}:
+-   El variograma empírico $\hat{\gamma}(h)$ es un estimador insesgado del variograma teórico [@montero]:
 
     ```{=tex}
     \begin{align*}
@@ -508,8 +518,9 @@ El ancho de banda limita la división del cono de tolerancia a una expansión m�
       \end{align*}
     ```
     A medida que más alta sea dicha varianza, más susceptible es el variograma empírico de fluctuar en torno a su valor esperado, y más difícil se vuelve la inferencia estadística.
-    
-    Los principales factores que influyen en la varianza relativa son \cite{emery}:
+
+    Los principales factores que influyen en la varianza relativa son [@emery]:
+
     -   Norma del vector $h$: la varianza relativa crece cuando la distancia aumenta.
     -   La irregularidad de la malla de muestreo, tiene la posibilidad de causar grandes variaciones en el cálculo del variograma empírico, incluso a distancias pequeñas.
     -   A medida que más reducido es el número de pares de datos, más grandes son las variaciones.
@@ -522,38 +533,35 @@ El ancho de banda limita la división del cono de tolerancia a una expansión m�
         \bar{\gamma}^+(h)=\frac{1}{2|N^+(h)|}\sum_{N^+(h)}(Z(s+h)-Z(s))^2  
       \end{align*}
     ```
-    donde: $|N^+(h)|=\{(s_i,s_j): s_i-s_j \thickapprox h\}$ \cite{montero}.
+    donde: $|N^+(h)|=\{(s_i,s_j): s_i-s_j \thickapprox h\}$ [@montero].
 
--   Si el variograma presenta comportamiento anisotrópico es necesario realizar transformaciones de las coordenadas que permitan obtener variables regionalizadas anistrópicas a partir de los modelos isotrópicos \cite{hans}.
+-   Si el variograma presenta comportamiento anisotrópico es necesario realizar transformaciones de las coordenadas que permitan obtener variables regionalizadas anistrópicas a partir de los modelos isotrópicos [@hans].
 
 #### Nube variográfica {.unnumbered}
 
-Teniendo presente que bajo el supuesto de estacionariedad, los valores $\hat{\gamma}(s_i,s_j)$ son estimadores insesgados de los valores que corresponden $\gamma(s_i,s_j)$. La recopilación de pares de distancias y sus correspondientes valores de variograma, $\{(h,\gamma(h)): h=s_i-s_j\}$, es conocido como variograma empírico y su gráfico como nube variográfica. Para mejorar la conducta del variograma empírico como un estimador del variograma teórico $\gamma(h)$ es necesario aplicar un tipo de suavización, puesto que se espera que la función $\gamma(h)$ varíe suavemente en función de $h$, por lo cual se disminuye la varianza sin añadir sesgo llevando a cabo un promedio de los valores de $\hat{\gamma}$ sobre rangos o \textit{bins} adecuados de distancia entre puntos $s_i,s_j$ \cite{peter}.
+Teniendo presente que bajo el supuesto de estacionariedad, los valores $\hat{\gamma}(s_i,s_j)$ son estimadores insesgados de los valores que corresponden $\gamma(s_i,s_j)$. La recopilación de pares de distancias y sus correspondientes valores de variograma, $\{(h,\gamma(h)): h=s_i-s_j\}$, es conocido como variograma empírico y su gráfico como nube variográfica. Para mejorar la conducta del variograma empírico como un estimador del variograma teórico $\gamma(h)$ es necesario aplicar un tipo de suavización, puesto que se espera que la función $\gamma(h)$ varíe suavemente en función de $h$, por lo cual se disminuye la varianza sin añadir sesgo llevando a cabo un promedio de los valores de $\hat{\gamma}$ sobre rangos o \textit{bins} adecuados de distancia entre puntos $s_i,s_j$ [@peter].
 
-Si el diseño de muestreo es una grilla regular la suavización puede ser lograda sin introducir sesgo, simplemente promediando todos los valores $\hat{\gamma}(h)$ para cada $h$ diferente. Sin embargo, si el diseño es irregular, para un rango de ancho $m$ se define un variograma $\gamma_k$, para un entero positivo $k$, como el promedio de todos los $\hat{\gamma}(h)$ para el cual la respectiva distancia $h$ satisfaga $(k-1)m<h\leq km$; entonces, $\gamma_k$ es aproximadamente una estimación insesgada de $\gamma(h_k)$; por conveniencia se adopta $h_k=(k-0.5)m$, que es el punto medio del intervalo respectivo \cite{peter}.
+Si el diseño de muestreo es una grilla regular la suavización puede ser lograda sin introducir sesgo, simplemente promediando todos los valores $\hat{\gamma}(h)$ para cada $h$ diferente. Sin embargo, si el diseño es irregular, para un rango de ancho $m$ se define un variograma $\gamma_k$, para un entero positivo $k$, como el promedio de todos los $\hat{\gamma}(h)$ para el cual la respectiva distancia $h$ satisfaga $(k-1)m<h\leq km$; entonces, $\gamma_k$ es aproximadamente una estimación insesgada de $\gamma(h_k)$; por conveniencia se adopta $h_k=(k-0.5)m$, que es el punto medio del intervalo respectivo [@peter].
 
-```{=tex}
-\begin{figure}[H]
- \centering
-  \subfloat[Nube variográfica.]{
-   \label{f:gato}
-    \includegraphics[width=0.5\textwidth]{figuras/otros/cloud_variogram.png}}
-  \subfloat[Bin variograma]{
-   \label{f:tigre}
-    \includegraphics[width=0.5\textwidth]{figuras/otros/bin_variogram.png}}
- \caption{Variogramas}
- \label{var_cloud}
-\end{figure}
+```{r varcloud1, fig.cap="Nube variográfica",echo=FALSE}
+#options(knitr.graphics.auto_pdf = TRUE)
+knitr::include_graphics("figuras/otros/cloud_variogram.png")
 ```
+```{r varcloud2, fig.cap="Bin variograma",echo=FALSE}
+#options(knitr.graphics.auto_pdf = TRUE)
+knitr::include_graphics("figuras/otros/bin_variogram.png")
+```
+ 
+
 ### Estimación del variograma (Ejemplos)\*
 
-Se sabe que no se puede utilizar de manera directa el variograma emprírico, puesto que está definido para ciertas distancias y direcciones. Por otro lado, debido a los parámetros de tolerancia, está sujeto a aproximaciones, puesto que en el proceso de cálculo se utiliza un número limitado de datos. Para dar solución a esto, se ajusta un modelo teórico de variograma a partir del variograma empírico, siendo esta etapa la más significativa de todo análisis geoestadístico, puesto que nos da información de la continuidad espacial de la variable en estudio \cite{emery}.
+Se sabe que no se puede utilizar de manera directa el variograma emprírico, puesto que está definido para ciertas distancias y direcciones. Por otro lado, debido a los parámetros de tolerancia, está sujeto a aproximaciones, puesto que en el proceso de cálculo se utiliza un número limitado de datos. Para dar solución a esto, se ajusta un modelo teórico de variograma a partir del variograma empírico, siendo esta etapa la más significativa de todo análisis geoestadístico, puesto que nos da información de la continuidad espacial de la variable en estudio [@emery].
 
-Una función de variograma teórico es ajustada a la sucesión de disimilitudes medias; nótese que este ajuste involucra una interpretación del comportamiento en el origen y el comportamiento para largas distancias, más allá del rango del variograma empírico. El ajuste puede llevarse a cabo de manera empírica mediante criterio experto, puesto que en la mayoría de casos prácticos no es fundamental el que tan bien la función de variograma se ajuste a la secuencia de puntos; lo más relevante es el tipo de continuidad que se asume para la variable regionalizada y la hipótesis de estacionariedad asociada al proceso estocástico espacial o campo aleatorio; estas suposiciones sirven de guía en la selección de una función de variograma teórico \cite{hans}.
+Una función de variograma teórico es ajustada a la sucesión de disimilitudes medias; nótese que este ajuste involucra una interpretación del comportamiento en el origen y el comportamiento para largas distancias, más allá del rango del variograma empírico. El ajuste puede llevarse a cabo de manera empírica mediante criterio experto, puesto que en la mayoría de casos prácticos no es fundamental el que tan bien la función de variograma se ajuste a la secuencia de puntos; lo más relevante es el tipo de continuidad que se asume para la variable regionalizada y la hipótesis de estacionariedad asociada al proceso estocástico espacial o campo aleatorio; estas suposiciones sirven de guía en la selección de una función de variograma teórico [@hans].
 
 #### Comportamiento en el origen {.unnumbered}
 
-Si las distancias son cercanas a cero; es decir, la variable regionalizada es regular en el espacio, más regular será el variograma en el origen. Generalmente, se suelen diferenciar tres tipos de comportamiento para el variograma en el origen (ver Figura \ref{var_comp}) \cite{emery}:
+Si las distancias son cercanas a cero; es decir, la variable regionalizada es regular en el espacio, más regular será el variograma en el origen. Generalmente, se suelen diferenciar tres tipos de comportamiento para el variograma en el origen (ver Figura \@ref(fig:varcomp)) [@emery]:
 
 -   Parabólico: Corresponde a una variable regionalizada bastante regular en el espacio.
 
@@ -561,77 +569,54 @@ Si las distancias son cercanas a cero; es decir, la variable regionalizada es re
 
 -   Discontinuo: Corresponde a una variable regionalizada más errática; es decir, con discontinuidades en la distribución espacial de sus valores. La diferencia entre dos datos bastante cercanos es grande, lo que provoca el efecto pepita.
 
-```{=tex}
-\begin{figure}[H]
-\centering
-\includegraphics[width=15cm,height=8cm]{figuras/otros/var_comp.png}
-\caption{Comportamientos del variograma en el origen.}
-\label{var_comp}
-\end{figure}
+```{r varcomp, fig.cap="Comportamientos del variograma en el origen.",echo=FALSE}
+#options(knitr.graphics.auto_pdf = TRUE)
+knitr::include_graphics("figuras/otros/var_comp.png")
 ```
+
 #### Comportamiento para distancias muy grades {.unnumbered}
 
 El variograma habitualmente crece a partir del origen y se estabiliza a partir de una distancia $\phi$, alrededor de una silla $\sigma^2$; en este caso se conoce que esa silla es igual a la varianza a priori $C(0)=\sigma^2$.
 
-Como se vio anteriormente, las variables aleatorias $Z(s)$ y $Z(s+h)$ están correlacionadas, si la longitud del vector de separación $h$ es inferior a la distancia $\phi$ o alcance; más allá de $|h|=\phi$, el variograma es constante e igual a su silla, y las variables $Z(s)$ y $Z(s+h)$ son independientes. Los variogramas con silla, se denominan \textit{modelos de transición} (ver Figura \ref{var_sill}) \cite{emery}.
+Como se vio anteriormente, las variables aleatorias $Z(s)$ y $Z(s+h)$ están correlacionadas, si la longitud del vector de separación $h$ es inferior a la distancia $\phi$ o alcance; más allá de $|h|=\phi$, el variograma es constante e igual a su silla, y las variables $Z(s)$ y $Z(s+h)$ son independientes. Los variogramas con silla, se denominan \textit{modelos de transición} (ver Figura \@ref(fig:varsill)) [@emery].
 
-```{=tex}
-\begin{figure}[H]
-\centering
-\includegraphics[width=10cm,height=5cm]{figuras/otros/vari_sill.png}
-\caption{Lado izquierdo: Variograma con silla y alcance. Lado derecho: Variograma sin silla y  alcance.}
-\label{var_sill}
-\end{figure}
+```{r varsill, fig.cap="Lado izquierdo: Variograma con silla y alcance. Lado derecho: Variograma sin silla y  alcance.",echo=FALSE}
+#options(knitr.graphics.auto_pdf = TRUE)
+knitr::include_graphics("figuras/otros/vari_sill.png")
 ```
-Existen casos en los cuales el variograma crece infinitamente una vez la distancia se incrementa y no posee ni silla ni rango; en este caso, la varianza es infinita $C(0)=\infty$ y no existe la función de covarianza ni el correlograma. Cuando se tiene ausencia de silla, es posible que sea una consecuencia del efecto de micro-escala \cite{emery}.
+
+Existen casos en los cuales el variograma crece infinitamente una vez la distancia se incrementa y no posee ni silla ni rango; en este caso, la varianza es infinita $C(0)=\infty$ y no existe la función de covarianza ni el correlograma. Cuando se tiene ausencia de silla, es posible que sea una consecuencia del efecto de micro-escala [@emery].
 
 ### Criterios para la estimación y ajuste del variograma
 
 #### Tendencia: {.unnumbered}
 
-Es fundamental verificar que los datos no presenten tendencia, puesto que cuando la media del proceso $\mu(s)$ no es constante; es decir, el proceso no es estacionario, el variograma empírico calculado a partir de las observaciones es erróneo; este comportamiento de tendencia se puede comprobar mediante un gráfico de dispersión de la variable de respuesta frente a cada coordenada espacial (ver Figura \ref{coord_trend}). En caso de que se evidencie tendencia se sugiere que se incluya un modelo de superficie de tendencia para la media que varía espacialmente, cuando una superficie de tendencia es incluida en el modelo, las dos coordenadas espaciales deben contribuir en este, puesto que la orientación de la región de estudio es arbitraria. En la práctica; al trabajar con datos geográficos de gran escala, se puede esperar que ciertas variables relacionadas a un ambiente físico muestren dependencia en la latitud \cite{peter}.
+Es fundamental verificar que los datos no presenten tendencia, puesto que cuando la media del proceso $\mu(s)$ no es constante; es decir, el proceso no es estacionario, el variograma empírico calculado a partir de las observaciones es erróneo; este comportamiento de tendencia se puede comprobar mediante un gráfico de dispersión de la variable de respuesta frente a cada coordenada espacial (ver Figura \@ref(fig:coordtrend)). En caso de que se evidencie tendencia se sugiere que se incluya un modelo de superficie de tendencia para la media que varía espacialmente, cuando una superficie de tendencia es incluida en el modelo, las dos coordenadas espaciales deben contribuir en este, puesto que la orientación de la región de estudio es arbitraria. En la práctica; al trabajar con datos geográficos de gran escala, se puede esperar que ciertas variables relacionadas a un ambiente físico muestren dependencia en la latitud [@peter].
 
-```{=tex}
-\begin{figure}[H]
-\centering
-\includegraphics[width=10cm,height=5cm]{figuras/otros/coord_trend.png}
-\caption{Tendencia de los valores con respecto a las coordenadas.}
-\label{coord_trend}
-\end{figure}
-```
-Cuando la función de media no es constante, el variograma empírico atribuye de manera errónea la variación inducida por esta a la estructura de convarianza de gran escala en el proceso no observado $Z(s)$. Una solución es estimar $\mu(s)$ mediante un modelo de superficie de tendencia o, si la información de la covariable está disponible, mediante un modelo general de regresión, y utilizar los residuos $R_i=Z_i-\hat{\mu}(s_i)$ en lugar de las observaciones para el cálculo del variograma empírico \cite{peter}. Este comportamiento se puede visualizar en la Figura \ref{rcoord_trend}.
 
-```{=tex}
-\begin{figure}[H]
-\centering
-\includegraphics[width=10cm,height=5cm]{figuras/otros/rcoord_trend.png}
-\caption{Tendencia de los residuos con respecto a las coordenadas.}
-\label{rcoord_trend}
-\end{figure}
+```{r coordtrend, echo=FALSE, fig.cap="Tendencia"}
+knitr::include_graphics("figuras/otros/coord_trend.png")
 ```
+Cuando la función de media no es constante, el variograma empírico atribuye de manera errónea la variación inducida por esta a la estructura de convarianza de gran escala en el proceso no observado $Z(s)$. Una solución es estimar $\mu(s)$ mediante un modelo de superficie de tendencia o, si la información de la covariable está disponible, mediante un modelo general de regresión, y utilizar los residuos $R_i=Z_i-\hat{\mu}(s_i)$ en lugar de las observaciones para el cálculo del variograma empírico [@peter]. Este comportamiento se puede visualizar en la Figura \@ref(fig:rcoordtrend).
+
+```{r rcoordtrend, echo=FALSE, fig.cap="Tendencia"}
+knitr::include_graphics("figuras/otros/rcoord_trend.png")
+```
+
 #### Establecer la variable correcta: {.unnumbered}
 
-En la estimación del variograma influye la distribución de los datos, pues estos pueden estar sesgados o tener valores extremos altos o bajos y por tanto su variograma calculado suele presentar un comportamiento errático. Para abordar este problema es recomendable transformar los datos a un espacio Normal o Gaussiano \cite{garten}. Ver Figura \ref{den_var}.
+En la estimación del variograma influye la distribución de los datos, pues estos pueden estar sesgados o tener valores extremos altos o bajos y por tanto su variograma calculado suele presentar un comportamiento errático. Para abordar este problema es recomendable transformar los datos a un espacio Normal o Gaussiano [@garten]. Ver Figura \@ref(fig:denvar).
 
-```{=tex}
-\begin{figure}[H]
-\centering
-\includegraphics[width=10cm,height=5cm]{figuras/otros/den_var.png}
-\caption{Arriba: Variograma empírico calculado a partir de los datos originales. Abajo: Variograma empírico calculado a partir de los residuos.}
-\label{den_var}
-\end{figure}
+```{r denvar, echo=FALSE, fig.cap="Arriba: Variograma empírico calculado a partir de los datos originales. Abajo: Variograma empírico calculado a partir de los residuos."}
+knitr::include_graphics("figuras/otros/den_var.png")
 ```
 #### Verificación de isotropía: {.unnumbered}
 
-Como bien se conoce, se debe verificar la estacionariedad de los datos, puesto que este influye de manera directa en la estimación del variograma empírico; teniendo en cuenta que un proceso espacial puede estar definido en varias direcciones, este criterio se debe verificar para todas estas. No obstante, en la práctica la isotropía se estudia por medio del cálculo de funciones de autocovariaza o de semivarianza muestrales en algunas direcciones que habitualmente son: $0^o,45^o, 90^o$ y $135^o$, ver Figura. \ref{iso_dir}.
+Como bien se conoce, se debe verificar la estacionariedad de los datos, puesto que este influye de manera directa en la estimación del variograma empírico; teniendo en cuenta que un proceso espacial puede estar definido en varias direcciones, este criterio se debe verificar para todas estas. No obstante, en la práctica la isotropía se estudia por medio del cálculo de funciones de autocovariaza o de semivarianza muestrales en algunas direcciones que habitualmente son: $0^o,45^o, 90^o$ y $135^o$, ver Figura. \@ref(fig:isodir).
 
-```{=tex}
-\begin{figure}[H]
-\centering
-\includegraphics[width=10cm,height=5cm]{figuras/otros/iso_dir.png}
-\caption{Comportamiento del variograma direccional.}
-\label{iso_dir}
-\end{figure}
+
+```{r isodir, echo=FALSE, fig.cap="Comportamiento", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/iso_dir.png")
 ```
 Con la verificación de los puntos anteriores, se procede al cálculo del variograma empírico y su posterior ajuste de un modelo teórico por medio de los métodos que se exponen a continuación.
 
@@ -658,7 +643,7 @@ El elemento $i,j$ de la matriz $\Sigma(\theta)$ corresponde a la covarianza espa
   Cov(Z(s_i),Z(s_j);\theta))=C(s_i-s_j;\theta)=C(h;\theta)  
 \end{align*}
 ```
-El estimador $\hat{\theta}$ es sesgado pero asintóticamente eficiente; no obstante, al trabajar con una muestra grande se debe tener en consideración que debido a su conducta iterativa, se realizarán grandes cantidades de operaciones computacionales debido al cálculo del determinante y de la inversa de la matriz de covarianza \cite{marta}.
+El estimador $\hat{\theta}$ es sesgado pero asintóticamente eficiente; no obstante, al trabajar con una muestra grande se debe tener en consideración que debido a su conducta iterativa, se realizarán grandes cantidades de operaciones computacionales debido al cálculo del determinante y de la inversa de la matriz de covarianza [@marta].
 
 #### Estimador REML {.unnumbered}
 
@@ -675,7 +660,7 @@ el negativo de la función de logverosímil queda:
    L(\theta)=\frac{n}{2}\log(2\pi)+\frac{1}{2} \log|A'\Sigma(\theta) A|+\frac{1}{2}Z'(A'\Sigma(\theta) A)^{-1} A'Z 
 \end{align*}
 ```
-Esta función es dependiente únicamente de $\theta$; de esta manera este método no usa la modelización de la superficie de tendencia, sino que se basa directamente en un vector de incrementos de media 0. No obstante, pese a minimizar el sesgo en las estimaciones de $\theta$, aun interviene un costo computacional elevado \cite{marta}.
+Esta función es dependiente únicamente de $\theta$; de esta manera este método no usa la modelización de la superficie de tendencia, sino que se basa directamente en un vector de incrementos de media 0. No obstante, pese a minimizar el sesgo en las estimaciones de $\theta$, aun interviene un costo computacional elevado [@marta].
 
 #### Verosimilitud Compuesta (CL) {.unnumbered}
 
@@ -704,7 +689,7 @@ Así, los valores estimados de $\hat{\theta}$ se determinan resolviendo el sigui
    CS(\theta)=\sum_{i=1}^{n} \nabla\log(Z(s_i);\theta)=0  
 \end{align*}
 ```
-Una de las razones principales para usar las funciones de verosimilitudes marginales es que aunque al inicio no se cumpla el supuesto requerido, es posible aproximarse a este por medio de alguna transformación \cite{marta}.
+Una de las razones principales para usar las funciones de verosimilitudes marginales es que aunque al inicio no se cumpla el supuesto requerido, es posible aproximarse a este por medio de alguna transformación [@marta].
 
 #### Mínimos cuadrados ponderados {.unnumbered}
 
@@ -736,13 +721,13 @@ Para las ubicaciones $i,j=1,...,n$, que producen los primeros $k$ rezagos espaci
   (Z(s+h)-Z(s))^2\approx 2\gamma(h)\chi_1^2   
 \end{align*}
 ```
-El inconveniente que presenta este método es la necesidad de definir clases de rezagos para realizar una estimación empírica de la covarianza o del variograma, pues si no se poseen muchos datos la cantidad de estos en cada una de las clases disminuye, de tal forma que para los primeros rezagos se pueden tener suficientes datos para la estimación de cada $\hat{\gamma}(h_k)$; sin embargo, para los últimos rezagos podrían no existir suficientes datos para la estimación \cite{marta}.
+El inconveniente que presenta este método es la necesidad de definir clases de rezagos para realizar una estimación empírica de la covarianza o del variograma, pues si no se poseen muchos datos la cantidad de estos en cada una de las clases disminuye, de tal forma que para los primeros rezagos se pueden tener suficientes datos para la estimación de cada $\hat{\gamma}(h_k)$; sin embargo, para los últimos rezagos podrían no existir suficientes datos para la estimación [@marta].
 
 #### Modelo lineal de regionalización {.unnumbered}
 
 En la práctica, puede suceder que el variograma empírico no presente una apariencia o forma simple de ser modelizado por un modelo teórico; no obstante, esto no es un inconveniente, puesto que existe la posibilidad de combinar modelos teóricos de variograma, obteniendo nuevos modelos más complejos.
 
-Teniendo presente que un fenómeno regionalizado podría ser considerado como la suma de diversos subfenómenos independientes, el modelo lineal de regionalización construye un campo aleatorio $Z(s)$ como una combinación lineal de $L$ campos aleatorios independientes, cada uno con media 0 y función de covarianza $C_l(h)$, mutuamente independientes \cite{marta}.
+Teniendo presente que un fenómeno regionalizado podría ser considerado como la suma de diversos subfenómenos independientes, el modelo lineal de regionalización construye un campo aleatorio $Z(s)$ como una combinación lineal de $L$ campos aleatorios independientes, cada uno con media 0 y función de covarianza $C_l(h)$, mutuamente independientes [@marta].
 
 Así, sea $Y_l$ un subcampo aleatorio de $Z$ para todo $l=1,...,L$, se tiene que:
 
@@ -800,15 +785,17 @@ Entonces,
    \gamma(h)=\frac{1}{2} E[Z(s+h)-Z(s)]^2=\sum_{l=0}^Lb_l\gamma'_l(h) 
 \end{align*}
 ```
-con $b_l=(a_l)^2\geq 0$, donde $b_l$ es la contribución en varianza del correspondiente variograma $\gamma'_l(h)$ \cite{marta}.
+con $b_l=(a_l)^2\geq 0$, donde $b_l$ es la contribución en varianza del correspondiente variograma $\gamma'_l(h)$ [@marta].
+
+**GRAFICOSY EJEMPLOS**
 
 ### Modelos teóricos de variograma
 
 En esta sección se presentan las funciones de variograma más comunes, que se definen para el caso isotrópico de funciones aleatorias. Para la representación gráfica de la función de variograma se hace uso de la relación $\gamma(h)=C(0)-C(h)$. Estas funciones se pueden clasificar de la siguiente manera:
 
-- Variogramas con silla o variogramas de transición.
-- Variogramas con silla y efecto hueco.
-- Variogramas sin silla.
+-   Variogramas con silla o variogramas de transición.
+-   Variogramas con silla y efecto hueco.
+-   Variogramas sin silla.
 
 #### Variogramas con silla {.unnumbered}
 
@@ -826,13 +813,9 @@ con $\theta=(\sigma^2,\phi)$, donde $\sigma^2=C(0)$ es el valor del variograma d
 
 Este variograma presenta un comportamiento lineal cerca del origen, lo cual sugiere continuidad pero con cierto grado de irregularidad en el proceso estocástico espacial o campo aleatorio. Sin embargo, referente a su comportamiento en distancias largas, alcanza su silla en $||h||=\phi$. El uso habitual de este modelo en la práctica es gracias a su rango bien definido, su representación polinomial simple y su validez en $\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3$. La principal razón para el uso de este es que se comporta de forma casi lineal hasta que alcanza su silla, y presenta estabilidad en una gran variedad de observaciones.
 
-```{=tex}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm,height=5cm]{figuras/otros/sph_var.png}
-    \caption{Izquierda: Variable regionalizada. Derecha: Variograma esférico.}
-    \label{sph_var}
-\end{figure}
+
+```{r sphvar, echo=FALSE, fig.cap="Izquierda: Variable regionalizada. Derecha: Variograma esférico.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/sph_var.png")
 ```
 **Modelo de efecto pepita puro**
 
@@ -848,13 +831,9 @@ con $\theta=\sigma^2$.
 
 Se debe tener en cuenta que el modelo esférico corresponde a una función aleatoria continua, mientras que el modelo de efecto pepita puro, a una discontinuidad.
 
-```{=tex}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=10cm,height=5cm]{figuras/otros/pepita_var.png}
-    \caption{Izquierda: Variable regionalizada. Derecha: Variograma pepita puro.}
-    \label{sph_var}
-\end{figure}
+
+```{r  echo=FALSE, fig.cap="Izquierda: Variable regionalizada. Derecha: Variograma pepita puro.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/pepita_var.png")
 ```
 **Modelo exponencial**
 
@@ -867,13 +846,8 @@ Este modelo es válido en $\mathbb{R}^d,\ d\geq 1$, y está definido por:
 ```
 El modelo exponencial refleja un comportamiento lineal cerca del origen, lo cual indica continuidad pero con un cierto grado de irregularidad en la función aleatoria. Por otro lado, en cuanto a su comportamiento en largas distancias, este alcanza su silla solo asintóticamente cuando $||h||\to \infty$. El valor del rango es igual a la distancia para el cual el variograma toma un valor igual al $95\%$ de la silla.
 
-```{=tex}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm,height=5cm]{figuras/otros/exp_var.png}
-    \caption{Izquierda: Variable regionalizada. Derecha: Variograma exponencial.}
-    \label{exp_var}
-\end{figure}
+```{r  echo=FALSE, fig.cap="Izquierda: Variable regionalizada. Derecha: Variograma exponencial.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/exp_var.png")
 ```
 **Modelo Gaussiano**
 
@@ -886,13 +860,9 @@ Este modelo es válido en $\mathbb{R}^d,\ d\geq 1$, y está definido por:
 ```
 La principal característica de este modelo es su forma parabólica cerca al origen; la dependencia espacial se desvanece solo en una distancia que tiende a infinito; por consiguiente, este modelo es considerado poco realista en la práctica.
 
-```{=tex}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm,height=5cm]{figuras/otros/gau_var.png}
-    \caption{Izquierda: Variable regionalizada. Derecha: Variograma Gaussiano.}
-    \label{gau_var}
-\end{figure}
+
+```{r gauvar, echo=FALSE, fig.cap="Izquierda: Variable regionalizada. Derecha: Variograma Gaussiano.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/gau_var.png")
 ```
 **Modelo Cúbico**
 
@@ -906,13 +876,9 @@ Este modelo es válido en $\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3$; generalmente
 ```
 con $\theta=(\sigma^2,\phi)$.
 
-```{=tex}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm,height=5cm]{figuras/otros/cub_var.png}
-    \caption{Izquierda: Variable regionalizada. Derecha: Variograma cúbico.}
-    \label{cub_var}
-\end{figure}
+
+```{r cubvar, echo=FALSE, fig.cap="Izquierda: Variable regionalizada. Derecha: Variograma cúbico.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/cub_var.png")
 ```
 **Modelo Estable**
 
@@ -925,13 +891,9 @@ Este modelo es válido en $\mathbb{R}^d,\ d\geq1$ y está definido por:
 ```
 Notar que para $\alpha=1$, se obtiene el modelo exponencial y con $\alpha=2$, se convierte en un modelo Gaussiano.
 
-```{=tex}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm,height=5cm]{figuras/otros/estable_var.png}
-    \caption{Izquierda: Variable regionalizada. Derecha: Variograma estable.}
-    \label{estable_var}
-\end{figure}
+
+```{r establevar, echo=FALSE, fig.cap="Izquierda: Variable regionalizada. Derecha: Variograma estable.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/estable_var.png")
 ```
 **Modelo de Cauchy Generalizado**
 
@@ -946,13 +908,9 @@ Si $\alpha=1$ es conocido como el modelo de Cauchy.
 
 Este modelo muestra un comportamiento parabólico cerca del origen y si $\alpha<2$ alcanza la silla lentamente.
 
-```{=tex}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm,height=5cm]{figuras/otros/caugen_var.png}
-    \caption{Izquierda: Variable regionalizada. Derecha: Variograma Cauchy generalizado.}
-    \label{caugen_var}
-\end{figure}
+
+```{r caugenvar, echo=FALSE, fig.cap="Izquierda: Variable regionalizada. Derecha: Variograma Cauchy generalizado.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/caugen_var.png")
 ```
 **Modelo de K-Bessel o Matérn**
 
@@ -972,16 +930,11 @@ donde $K_\alpha$ es la función de Bessel modificada de segundo tipo de orden $\
 ```
 El modelo K-Bessel puede tener cualquier tipo de comportamiento cerca del origen. Para $\alpha=1/2$, se obtiene el modelo exponencial.
 
-```{=tex}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm,height=5cm]{figuras/otros/mat_var.png}
-    \caption{Izquierda: Variable regionalizada. Derecha: Variograma Matérn.}
-    \label{mat_var}
-\end{figure}
-```
 
-#### Variogramas con efecto hueco {-}
+```{r matvar, echo=FALSE, fig.cap="Izquierda: Variable regionalizada. Derecha: Variograma Matérn.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/mat_var.png")
+```
+#### Variogramas con efecto hueco {.unnumbered}
 
 En la práctica la dependencia espacial puede no crecer monótonamente, incluso esta podría ser negativa o presentar alternaciones entre dependencia espacial positiva y negativa. Estos modelos se llaman \textit{modelos de efecto hueco} y se utilizan para definir oscilaciones que involucran un significado físico. Presentan un comportamiento lineal o parabólico cerca del origen, pueden tener o no tener silla, y pueden ser o no periódicos o pseduperiódicos.
 
@@ -1003,13 +956,9 @@ donde $\alpha$ es el parámetro de forma, $\phi$ es el parámetro de escala, $\G
 ```
 y es válido para $\mathbb{R}^d, d\leq 2(\alpha+1)$.\\
 
-```{=tex}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm,height=5cm]{figuras/otros/bes_var.png}
-    \caption{Izquierda: Variable regionalizada. Derecha: Variograma J-Bessel.}
-    \label{bes_var}
-\end{figure}
+
+```{r besvar, echo=FALSE, fig.cap="Izquierda: Variable regionalizada. Derecha: Variograma J-Bessel.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/bes_var.png")
 ```
 **Modelo seno cardinal**
 
@@ -1021,17 +970,10 @@ Este modelo es una particularización del modelo J-Bessel para $\alpha=1/2$, y e
 \end{align*}
 ```
 
-
-```{=tex}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=10cm,height=5cm]{figuras/otros/sin_var.png}
-    \caption{Izquierda: Variable regionalizada. Derecha: Variograma seno cardinal.}
-    \label{sin_var}
-\end{figure}
+```{r sinvar, echo=FALSE, fig.cap="Izquierda: Variable regionalizada. Derecha: Variograma seno cardinal.", fig.height=5, fig.width=10}
+knitr::include_graphics("figuras/otros/sin_var.png")
 ```
-
-#### Variogramas sin silla {-}
+#### Variogramas sin silla {.unnumbered}
 
 Estos modelos corresponden a procesos estocásticos espaciales o campos aleatorios que son intrínsecamente estacionarios, pero no son estacionarios de segundo orden. Estos modelos son no acotados y corresponden a un proceso estocástico espacial o campo aleatorio con capacidad ilimitada para la dispersión espacial y, por consiguiente, ni su covarianza, ni su varianza pueden ser definidas.
 
@@ -1041,26 +983,17 @@ Este modelo es válido en $\mathbb{R}^d,d\geq 1$ y está definido por:
 
 $$
           \gamma(||h||)=(||h||)^\alpha,\quad  0<\alpha<2, 
-$$  
-  Este variograma no posee ni silla ni rango, sino que crece indefinidamente. Si $\alpha$ es cercano a cero, se dice que es un variograma de efecto pepita, si $\alpha$ es cercano a dos tiene un comportamiento parabólico y si $\alpha$ es igual a uno presenta un comportamiento lineal. Para $\alpha\geq 2$ la condición $\lim_{h\to \infty}\frac{\gamma||h||}{h^2}=0$ no se satisface; es decir, el modelo no es intrínsecamente estacionario.
+$$
 
-    ```{=tex}
-    \begin{figure}[H]
-          \centering
-          \includegraphics[width=10cm,height=5cm]{figuras/otros/pow_var.png}
-          \caption{Izquierda: Variable regionalizada. Derecha: Variograma potencia.}
-          \label{pow_var}
-    \end{figure}
-    ```
+Este variograma no posee ni silla ni rango, sino que crece indefinidamente. Si $\alpha$ es cercano a cero, se dice que es un variograma de efecto pepita, si $\alpha$ es cercano a dos tiene un comportamiento parabólico y si $\alpha$ es igual a uno presenta un comportamiento lineal. Para $\alpha\geq 2$ la condición $\lim_{h\to \infty}\frac{\gamma||h||}{h^2}=0$ no se satisface; es decir, el modelo no es intrínsecamente estacionario.
 
 **Modelo lineal**
 
-  Este modelo es un caso especial del modelo potencia si $\alpha=1$, y está asociado con la estacionariedad intrínseca, pero no con la estacionariedad de segundo orden y está definido por:
+Este modelo es un caso especial del modelo potencia si $\alpha=1$, y está asociado con la estacionariedad intrínseca, pero no con la estacionariedad de segundo orden y está definido por:
 
 $$
           \gamma(||h||)=\left \{ \begin{matrix} 0 & si\ ||h||=0\\ ||h|| & si\ ||h||>0 \end{matrix}\right.  
 $$
-
 
 ### Caso Multivariante (Ejemplos)
 
@@ -1070,7 +1003,7 @@ El variograma multivariado fue formalizado en 1991 como una aplicación a proces
 
     ```{=latex}
     \begin{align*}
-          K(h)&=E[(Z(s)-\bm{\mu})M(Z(s+h)-\bm{\mu}){'}]
+          K(h)&=E[(Z(s)-\boldsymbol \mu)M(Z(s+\textbf{h})-\boldsymbol \mu){'}]
       \end{align*}
     ```
 
@@ -1078,11 +1011,11 @@ El variograma multivariado fue formalizado en 1991 como una aplicación a proces
 
     ```{=tex}
     \begin{align*}
-          \Gamma(h)=E[(Z(s)-Z(s+h))M(Z(s)-Z(s+h))']
+          \Gamma(h)=E[(Z(s)-Z(s+\textbf{h}))M(Z(s)-Z(s+\textbf{h}))']
       \end{align*}
     ```
 
-donde $Z(s)$ es un vector fila de $p$ procesos estocásticos espaciales o campos aleatorios estacionarios de segundo orden, $\bm{\mu}=E[Z(s)]$ y $M$ es una matriz simétrica definida positiva de tamaño $p\times p$ utilizada como métrica en el cálculo de similaridades \cite{borou}.
+donde $Z(s)$ es un vector fila de $p$ procesos estocásticos espaciales o campos aleatorios estacionarios de segundo orden, $\boldsymbol \mu=E[Z(s)]$ y $M$ es una matriz simétrica definida positiva de tamaño $p\times p$ utilizada como métrica en el cálculo de similaridades [@borou].
 
 Asumiendo estacionariedad de segundo orden, la función de autocovarianza multivariada está relacionada con el variograma multivariado por medio de:
 
@@ -1093,7 +1026,7 @@ Asumiendo estacionariedad de segundo orden, la función de autocovarianza multiv
 ```
 donde $\Gamma(\infty)$ es la silla del variograma multivariado. Si $\Gamma(0)=0$ entonces $K(0)=\Gamma(h)$.
 
-El variograma multivariado representa la esperanza matemática de una medida de disimilitud cuadrática, y la función de autocovarianza multivariada representa la esperanza matemática de una medida de similaridad multivariante \cite{borou}.
+El variograma multivariado representa la esperanza matemática de una medida de disimilitud cuadrática, y la función de autocovarianza multivariada representa la esperanza matemática de una medida de similaridad multivariante [@borou].
 
 La estimación del variograma multivariado se realiza promediando las disimilitudes multivariadas al cuadrado, de forma similar al variograma tradicional; es decir:
 
@@ -1102,7 +1035,7 @@ La estimación del variograma multivariado se realiza promediando las disimilitu
     \Gamma^*(h)=\frac{1}{2|N(h)|}\sum_{N(h)}d_{ij}^2
 \end{align*}
 ```
-donde $d_{ij}$ es la disimilitud entre las muestras $i$ y $j$ calculadas con una métrica dada y $N(h)$ como se definió anteriormente \cite{borou}.
+donde $d_{ij}$ es la disimilitud entre las muestras $i$ y $j$ calculadas con una métrica dada y $N(h)$ como se definió anteriormente [@borou].
 
 Ahora bien, para realizar el ajuste de los modelos teóricos de variogramas y variogramas cruzados, se utiliza el Modelo Lineal de Coregionalización.
 
@@ -1186,14 +1119,15 @@ Se definen matricialmete el variograma empírico y variograma teórico multivari
     \Gamma(h)&=\left[\gamma_{ij}(h)\right]=\sum_kB_k\gamma_k(h)
 \end{align*}
 ```
-el criterio de bondad de ajuste es la suma de cuadrados ponderados (SCP) de todos los términos de la matriz de errores $\hat{\Gamma}(h)-\Gamma(h)$ y se suman sobre el conjunto de retardos $J$ utilizados para el ajuste; es decir:%, específicamente es la norma Euclideana:
+
+el criterio de bondad de ajuste es la suma de cuadrados ponderados (SCP) de todos los términos de la matriz de errores $\hat{\Gamma}(h)-\Gamma(h)$ y se suman sobre el conjunto de retardos $J$ utilizados para el ajuste; es decir:
 
 ```{=tex}
 \begin{align*}
-    SCP=\sum_{k\in J}w(h)\text{traza}\left\{ \left[V(\hat{\Gamma}(h)-\Gamma(h))\right]^2\right\}
+    SCP=\sum_{k\in J}w(h)\text{traza}\left\{ \left[V^{*}(\hat{\Gamma}(h)-\Gamma(h))\right]^2\right\}
 \end{align*}
 ```
-Los ponderadores $w(h)$ son positivos y usualmente iguales al número de pares utilizados para la estimación del variograma en el retardo $h$. La matriz $V$ es definida positiva y diseñada para equilibrar la influencia de las variables; por lo general es la diagonal de la matriz o inversa de la matriz de varianzas o la matriz identidad. La idea es minimizar el criterio optimizando un $B_k$ a la vez y repitiendo esto hasta que no haya mejora alguna. El residuo para el ajuste actual menos el $k-$ésimo término es:
+Los ponderadores $w(h)$ son positivos y usualmente iguales al número de pares utilizados para la estimación del variograma en el retardo $h$. La matriz $V^{*}$ es definida positiva y diseñada para equilibrar la influencia de las variables; por lo general es la diagonal de la matriz o inversa de la matriz de varianzas o la matriz identidad. La idea es minimizar el criterio optimizando un $B_k$ a la vez y repitiendo esto hasta que no haya mejora alguna. El residuo para el ajuste actual menos el $k-$ésimo término es:
 
 ```{=tex}
 \begin{align*}
@@ -1204,10 +1138,10 @@ En ausencia de restricción de positividad, el ajuste óptimo de $d\Gamma_k$ por
 
 ```{=tex}
 \begin{align*}
-    \frac{\partial SCP}{\partial B_k}=-2V\left[ \sum_{h\in J}w(h)\gamma_k(h)\left(d\Gamma_k(h)-\gamma_k(h)B_k\right)\right]V=0
+    \frac{\partial SCP}{\partial B_k}=-2V^{*}\left[ \sum_{h\in J}w(h)\gamma_k(h)\left(d\Gamma_k(h)-\gamma_k(h)B_k\right)\right]V^{*}=0
 \end{align*}
 ```
-Como $V$ es no singular se tiene que:
+Como $V^{*}$ es no singular se tiene que:
 
 ```{=tex}
 \begin{align*}
@@ -1221,14 +1155,14 @@ donde
     \alpha_k&=\sum_{h\in J}w(h)\gamma_k(h)^2
 \end{align*}
 ```
-La solución restringida $B_k^{+} \geq 0$ es la matriz definida positiva cercana a $B_k$ de acuerdo a la norma definida por $V$. Dado que es simétrica, la matriz $B_k$ tiene descomposición de la siguiente forma
+La solución restringida $B_k^{+} \geq 0$ es la matriz definida positiva cercana a $B_k$ de acuerdo a la norma definida por $V^{*}$. Dado que es simétrica, la matriz $B_k$ tiene descomposición de la siguiente forma
 
 ```{=tex}
 \begin{align*}
-    B_k=U_k\nabla_k U_k^{'}\quad \text{con} \quad U_k^{'}VU_k=I_p
+    B_k=U_k\nabla_k U_k^{'}\quad \text{con} \quad U_k^{'}V^{*}U_k=I_p
 \end{align*}
 ```
-donde $U_k$ es una matriz de vectores propios de $B_kV$ y $\nabla_k$ es la matriz diagonal de sus valores propios.
+donde $U_k$ es una matriz de vectores propios de $B_kV^{*}$ y $\nabla_k$ es la matriz diagonal de sus valores propios.
 
 Por tanto, la solución restringida es
 
@@ -1237,11 +1171,219 @@ Por tanto, la solución restringida es
     B_k^{'}=U_k\nabla_k^{+}U_k^{'}
 \end{align*}
 ```
-donde $\nabla_k^{+}$ es la matriz $\nabla_k$ en el cual los valores propios negativos son reemplazados por ceros. Este algoritmo iterativo siempre converge y la solución no depende del punto de partida \cite{peter}.
+donde $\nabla_k^{+}$ es la matriz $\nabla_k$ en el cual los valores propios negativos son reemplazados por ceros. Este algoritmo iterativo siempre converge y la solución no depende del punto de partida [@peter].
 
-## Geoestadística espacio-temporal
+## Geoestadística Espacio Temporal
 
-### TS\*(apéndice)
+A través de la geoestadística se han estudiado los campos aleatorios en la naturaleza; sin embargo, existen ramas de la ciencia que presentan aplicaciones prácticas como las ciencias sociales, monitorización de contaminación ambiental, climatología, geología, biología, medicina, arqueología y cualquier otro campo de la ciencia que estudie fenómenos que ocurren tanto en espacio como en tiempo [@montero]. Al considerar la evolución conjunta del proceso espacio-temporal, en lugar de solo considerar su distribución espacial para un determinado instante de tiempo (proceso puramente espacial) o la evolución temporal del proceso sobre una localización determinada (proceso puramente temporal), se obtendrá grandes beneficios en la modelización y predicción de un fenómeno en estudio [@gst_casal].Es así que considerar ambos elementos por separado nos llevaría a una pérdida de información. En este sentido, la geoestadística espacio-temporal ofrece las herramientas adecuadas para este tipo de estudios.Es por ello que la demanda de modelos covariográficos que describen la evolución de procesos en espacio-tiempo se hace cada vez más notoria.
+
+Los métodos geoestadísticos y espacio-temporales utilizan distancias euclídeas o espacio temporales, por tanto se consideran los métdos basados en distancias para el cáclculo entre las observaciones que junto la información proporcionada por el variograma permitirá la generación de mejores pronósticos [@gst_casal]. Por otro lado se debe considerar que en el campo espacio-tiempo también se trabaja con grandes volúmenes de datos debido a la resolución espacial y periodicidad temporal, lo que conlleva al uso de métodos computacionales intensivos.
+
+### Conceptos
+
+Se puede considerar a cada ubicación espacio-temporal como un punto en $\mathbb{R}^d \times \mathbb{R}$, con $\mathbb{R}^d$ siendo el espacio euclidiano $d-$dimensional y $\mathbb{R}$ la dimensión del tiempo. Notemos que ni las escalas ni las unidades de distancia en el tiempo y el espacio son generalmente comparables. Por lo que la dificultad principal en el análisis de procesos espacio-temporales recae en la elección de un modelo de covarianza válido que se ajuste a las observaciones. Bajo hipótesis de regularidad se podrán analizar las observaciones separadas por un vector de distancia espacio temporal $(\textbf{h},u)$ [@gespt_cas].
+
+El objetivo de esta sección es introducir aquellos conceptos más relevantes en el análisis de procesos estocásticos espacio-temporales. Muchos de los conceptos tratados serán generalizaciones del caso espacial que se han visto en el capítulo **X**.
+
+#### Proceso Espacio Temporal {.unnumbered}
+
+Sea $Z$ la variable aleatoria de interés, $s$ su ubicación espacial y $t$ el tiempo de ocurrencia. Un proceso espacio-temporal es un proceso estocástico
+
+$$\{Z(s,t):(s,t) \in D \times D' \}$$
+
+donde el conjunto $D \subset \mathbb{R}^d$ es el conjunto de todas las ubicaciones espaciales y el conjunto $D' \subset \mathbb{R}$ es el conjunto de todos los instantes de tiempo. Los conjuntos $D$ y $D'$ pueden ser continuos o discretos, fijos o aleatorios [@marta].
+
+Siguiendo los conceptos clásicos de geoestadística, la distribución del proceso espacio-temporal es modelado como una distribucín Gaussiana. Esta distribución será caracterizada definiendo su momento de primer orden y su momento de segundo orden, es decir, su esperanza y función de covarianza [@montero].
+
+#### Propiedad de regularidad {.unnumbered}
+
+Un campo aleatorio $Z(s,t)$ en $\mathbb{R}^d\times \mathbb{R}$ cumple la propiedad de regularidad si:
+
+$$
+\begin{align*}
+V(Z(s,t))<\infty, \forall (s,t) \in \mathbb{R}^d\times \mathbb{R}
+\end{align*}
+$$ que a su vez asegura la existencia de los dos primeros momentos.
+
+#### Campo aleatorio Gaussiano {.unnumbered}
+
+Un campo aleatorio $Z(s,t)$ se dice Gaussiano si el vector aleatorio $\textbf{Z}=(Z(s_1,t_1),...,Z(s_n,t_n))$ para cualquier conjunto de ubicaciones espacio-temporales ${(s_1,t_1),...,(s_n,t_n)}$, sigue una distribución Gaussiana multivariante.
+
+#### Función de media {.unnumbered}
+
+La media de un campo aleatorio espacio-temporal está definido por la función
+
+$$
+  \begin{align*}
+  E[Z(s,t)]=\mu(s,t)
+  \end{align*}
+$$
+
+#### Función de covarianza {.unnumbered}
+
+Para cualquier para de puntos espacio-temporales, la covarianza de un campo aleatorio espacio temporal está definido por la función
+
+$$
+\begin{align*}
+C[(s_i,t_i),(s_j,t_j)]=C[Z(s_i,t_i),Z(s_j,t_j)]
+\end{align*}
+$$
+
+#### Estacionariedad fuerte o estricta {.unnumbered}
+
+Un campo aleatorio $Z(s,t)$ es estrictamente estacionario si su distribución de probabilidad es traslacionalmente invariante. Es decir que, para dos vectores $\boldsymbol{h}$ y $u$
+
+$$
+\begin{align*}
+Z(s,t)&=[Z(s_1,t_1), Z(s_2,t_2),...,Z(s_n,t_n)]^{'}
+\end{align*}
+$$ y
+
+$$
+\begin{align*}
+Z(s+\boldsymbol h,t+u)&=[Z(s_1+\boldsymbol h,t_1+u), Z(s_2+\boldsymbol h,t_2+u),...,Z(s_n+\boldsymbol h,t_n+u)]^{'}
+\end{align*}
+$$ Tienen la misma función de distribución multivariante, es decir
+
+$$
+\begin{align*}
+F_{Z_1,...,Z_n}[(s_1,t_1),...,(s_n,t_n)]&= F_{Z_1,...,Z_n}[(s_1+\boldsymbol h,t_1+ u),...,(s_n+\boldsymbol h,t_n+u)]
+\end{align*}
+$$
+
+#### Estacionariedad de segundo orden {.unnumbered}
+
+Un campo aleatorio $Z(s,t)$ es estacionario de segundo orden si tiene media constante y la función de covarianza depende solo de $\boldsymbol h$ y $\boldsymbol \mu$, es decir
+
+$$
+\begin{align*}
+E[Z(s,t)]&=\mu(s,t)=\mu,\quad \forall (s,t)\in \mathbb{R}^2\times \mathbb{R} \\
+C[Z(s_i,t_i),Z(s_j,t_j)]&=C(\boldsymbol h, u), \quad \forall(s,t) \in \mathbb{R}^2 \times \mathbb{R}
+\end{align*}
+$$
+
+#### Estacionariedad intrínseca {.unnumbered}
+
+Un campo aleatorio espacio-temporal $Z(s,t)$ es intrínsecamente estacionario si el proceso de incrementos $Z(s+\boldsymbol h,t+u)-Z(s,t)$ es estacionario de segundo orden en espacio-tiempo para cualquier $(\boldsymbol h,t)$ fijo.
+
+#### Función de covarianza estacionaria espacial {.unnumbered}
+
+Un campo aleatorio espacio-temporal $Z(s,t)$ tiene función de covarianza estacionaria espacial si, para cualquier par de puntos $(s_i,t_i),\ (s_j,t_j) \in \mathbb{R}^d \times \mathbb{R}$ la función de covarianza $C[(s_i,t_i),(s_j,t_j)]$ solo depende de la distancia entre las ubicaciones $(s_i-s_j)$ y los tiempos $t_i,\ t_j$.
+
+#### Función de covarianza estacionaria temporal {.unnumbered}
+
+Un campo aleatorio espacio-temporal $Z(s,t)$ tiene función de covarianza estacionaria espacial si, para cualquier par de puntos $(s_i,t_i),\ (s_j,t_j) \in \mathbb{R}^d \times \mathbb{R}$ la función de covarianza $C[(s_i,t_i),(s_j,t_j)]$ solo depende de la distancia entre los tiempos $(t_i-t_j)$ y de las ubicaciones espaciales $s_i,\ s_j$.
+
+#### Función de covarianza estacionaria espacio-temporal {.unnumbered}
+
+Si el campo aleatorio $Z(s,t)$ tiene función de covarianza en términos de espacio y de tiempo, entonces se dice que tiene función de covarianza estacionaria y puede ser expresada de la siguiente forma
+
+$$
+\begin{align*}
+C[(s_i,t_i),(s_j,t_j)]=C[\boldsymbol h,u]
+\end{align*}
+$$ donde $\boldsymbol h=s_i-s_j$ y $u=t_i-t_j$ son las distancias en espacio y en tiempo respectivamente.
+
+Si un proceso espacio-temporal tiene función de covarianza estacionaria, entonces su varianza no depende de la ubicación espaio-temporal, pues
+
+$$
+\begin{align*}
+Var(Z(s,t))=C(\boldsymbol 0,0)=\sigma^2,\ \forall (s,t) \in \mathbb{R}^d \times \mathbb{R}
+\end{align*}
+$$ donde $C(\boldsymbol 0,0) \geq 0$ se conoce como la varianza a priori del proceso.
+
+#### Función de covarianza separable {.unnumbered}
+
+Un campo aleatorio $Z(s,t)$ tiene función de covarianza separable si tiene función de covarianza puramente espacial $C_s(s_i,s_j)$ y función de covarianza puramente temporal $C_t(t_i,t_j)$ tal que
+
+$$
+\begin{align}
+C[(s_i,t_i),(s_j,t_j)]&=C_s(s_i,s_j)C_t(t_i,t_j) 
+(\#eq:separ)
+\end{align}
+$$ para cualquier par de puntos espacio-temporales $(s_i,t_i),\ (s_j,t_j)\in \mathbb{R}^d\times \mathbb{R}$. Si esta descomposición no es posible , la función de covarianza se llamará **no separable**.
+
+Al descomponer la covarianza de acuerdo con \@ref(eq:separ) permite mayor eficiencia en términos computacionales. Es por esto que los modelos separables han sido ampliamente utilizados en aplicaciones geoestadísticas, inclusive en situaciones donde esta hipótesis no se justifica por la naturaleza del proceso bajo análisis.
+
+
+
+#### Función de covarianza simétrica {.unnumbered}
+
+Un campo aleatorio espacio-temporal $Z(s,t)$ tiene función de covarianza simétrica si para cualquier par de puntos espacio-temporales $(s_i,t_i),\ (s_j,t_j)\in \mathbb{R}^d \times \mathbb{R}$ se tiene que
+
+$$
+C[(s_i,t_i),(s_j,t_j)]=C[(s_i,t_j),(s_j,t_i)]
+$$
+
+Nótese que la separabilidad es un caso particular de la propiedad de simetría.
+
+En el caso de tener función de covarianza espacio-temporal estacionaria, $\forall (\boldsymbol h,u)\in \mathbb{R}^d \times \mathbb{R}$ la propiedad de simetría se puede representar de la siguiente manera 
+
+$$
+\begin{align*}
+C(\boldsymbol h, u)&=C(\boldsymbol h,-u)\\
+&=C(-\boldsymbol h, u)\\
+&=C(-\boldsymbol h, -u)
+\end{align*}
+$$
+#### Función de covarianza espacialmente isotrópica {.unnumbered}
+
+Un campo aleatorio espacio-temporal $Z(s,t)$ tiene función de covarianza espacialmente isotrópica si 
+
+$$
+\begin{align*}
+C(\boldsymbol h,u)=C(||\boldsymbol h||,u), \ \forall(s,t) \in \mathbb{R}^d \times \mathbb{R}
+\end{align*}
+$$
+
+#### Función de covarianza temporalmente isotrópica {.unnumbered}
+
+Un campo aleatorio espacio-temporal $Z(s,t)$ tiene función de covarianza temporalmente isotrópica si 
+
+$$
+\begin{align*}
+C(\boldsymbol h,u)=C(\boldsymbol h,|u|), \ \forall(s,t) \in \mathbb{R}^d \times \mathbb{R}
+\end{align*}
+$$
+
+Nótese que si la función de covarianza de un campo aleatorio espacio-temporal es estacionaria con respecto a espacio y tiempo, entonces es simétrica [@montero].
+
+
+
+Al igual que en el caso de la geoestadística clásica, es frecuente el uso del variograma para la modelización de la estructura espacio-temporal de un campo aleatorio.
+
+#### Variograma espacio-temporal {.unnumbered}
+
+La función de variograma espacio-temporal está definido de la siguiente forma
+
+$$
+\begin{align*}
+\gamma[(s_i,t_i),(s_j,t_j)]&=\frac{1}{2}V[Z(s_i,t_i)-Z(s_j,t_j)]
+\end{align*}
+$$
+En el caso de un campo aleatorio con media constante se tiene que
+
+$$
+\begin{align*}
+\gamma[(s_i,t_i),(s_j,t_j)]&=\frac{1}{2}E[Z(s_i,t_i)-Z(s_j,t_j)]^2
+\end{align*}
+$$
+Siempre que sea posible definir la función de covarianza y la función de variograma, estas estarán relacionadas de acuerdo a lo siguiente
+
+$$
+\begin{align*}
+\gamma[(s_i,t_i),(s_j,t_j)]&=\frac{1}{2}V
+\end{align*}
+$$
+
+montero 175
+nuestro 11
+sherman 127 
+wikle para ejemplos de R pg 46 
+g_esp_tiempo pg 49 y 
+apoyo c01 pg 12 
+apoyo 2 martha pg69
+
 
 ### Modelos separables
 
