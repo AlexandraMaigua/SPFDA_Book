@@ -28,19 +28,31 @@ h3:anisotropía Anisotropía
 h3:correlación-espacial Correlación Espacial
 h4:covariograma Covariograma
 h4:semivariograma Semivariograma
+fig:pvar Partes de un variograma
 h2:variograma Variograma
 h3:disimilitud-contra-separación Disimilitud contra Separación
+fig:distanciah Distancia
+fig:varcloud Disimilitud respecto de h.
 h3:variograma-empírico Variograma Empírico
 h4:tolerancia-en-los-parámetros-de-cálculo Tolerancia en los parámetros de cálculo
+fig:regtol Región de tolerancia $T(\textbf{h})$ alrededor del vector $\textbf{h}$
 h4:propiedades-del-variograma-empírico Propiedades del variograma empírico
 h4:nube-variográfica Nube variográfica
+fig:varcloud1 Nube variográfica
+fig:varcloud2 Bin variograma
 h3:estimación-del-variograma-ejemplos Estimación del variograma (Ejemplos)*
 h4:comportamiento-en-el-origen Comportamiento en el origen
+fig:varcomp Comportamientos del variograma en el origen.
 h4:comportamiento-para-distancias-muy-grades Comportamiento para distancias muy grades
+fig:varsill Lado izquierdo: Variograma con silla y alcance. Lado derecho: Variograma sin silla y  alcance.
 h3:criterios-para-la-estimación-y-ajuste-del-variograma Criterios para la estimación y ajuste del variograma
 h4:tendencia Tendencia:
+fig:coordtrend Tendencia
+fig:rcoordtrend Tendencia
 h4:establecer-la-variable-correcta Establecer la variable correcta:
+fig:denvar Arriba: Variograma empírico calculado a partir de los datos originales. Abajo: Variograma empírico calculado a partir de los residuos.
 h4:verificación-de-isotropía Verificación de isotropía:
+fig:isodir Comportamiento
 h3:métodos-de-estimación-teórica-más-utilizados Métodos de estimación teórica más utilizados
 h4:estimador-reml Estimador REML
 h4:verosimilitud-compuesta-cl Verosimilitud Compuesta (CL)
@@ -48,13 +60,37 @@ h4:mínimos-cuadrados-ponderados Mínimos cuadrados ponderados
 h4:modelo-lineal-de-regionalización Modelo lineal de regionalización
 h3:modelos-teóricos-de-variograma Modelos teóricos de variograma
 h4:variogramas-con-silla Variogramas con silla
+fig:sphvar Izquierda: Variable regionalizada. Derecha: Variograma esférico.
+fig:gauvar Izquierda: Variable regionalizada. Derecha: Variograma Gaussiano.
+fig:cubvar Izquierda: Variable regionalizada. Derecha: Variograma cúbico.
+fig:establevar Izquierda: Variable regionalizada. Derecha: Variograma estable.
+fig:caugenvar Izquierda: Variable regionalizada. Derecha: Variograma Cauchy generalizado.
+fig:matvar Izquierda: Variable regionalizada. Derecha: Variograma Matérn.
 h4:variogramas-con-efecto-hueco Variogramas con efecto hueco
+fig:besvar Izquierda: Variable regionalizada. Derecha: Variograma J-Bessel.
+fig:sinvar Izquierda: Variable regionalizada. Derecha: Variograma seno cardinal.
 h4:variogramas-sin-silla Variogramas sin silla
 h3:caso-multivariante-ejemplos Caso Multivariante (Ejemplos)
 h4:modelo-lineal-de-coregionalización-mlc Modelo lineal de coregionalización (MLC)
 h4:ajuste-del-mlc Ajuste del MLC
-h2:geoestadística-espacio-temporal Geoestadística espacio-temporal
-h3:tsapéndice TS*(apéndice)
+h2:geoestadística-espacio-temporal Geoestadística Espacio Temporal
+h3:conceptos Conceptos
+h4:proceso-espacio-temporal-1 Proceso Espacio Temporal
+h4:propiedad-de-regularidad Propiedad de regularidad
+h4:campo-aleatorio-gaussiano Campo aleatorio Gaussiano
+h4:función-de-media-1 Función de media
+h4:función-de-covarianza-1 Función de covarianza
+h4:estacionariedad-fuerte-o-estricta Estacionariedad fuerte o estricta
+h4:estacionariedad-de-segundo-orden-1 Estacionariedad de segundo orden
+h4:estacionariedad-intrínseca-1 Estacionariedad intrínseca
+h4:función-de-covarianza-estacionaria-espacial Función de covarianza estacionaria espacial
+h4:función-de-covarianza-estacionaria-temporal Función de covarianza estacionaria temporal
+h4:función-de-covarianza-estacionaria-espacio-temporal Función de covarianza estacionaria espacio-temporal
+h4:función-de-covarianza-separable Función de covarianza separable
+h4:función-de-covarianza-simétrica Función de covarianza simétrica
+h4:función-de-covarianza-espacialmente-isotrópica Función de covarianza espacialmente isotrópica
+h4:función-de-covarianza-temporalmente-isotrópica Función de covarianza temporalmente isotrópica
+h4:variograma-espacio-temporal Variograma espacio-temporal
 h3:modelos-separables Modelos separables
 h3:modelos-no-separables Modelos no separables
 h3:estimación-del-variograma-espacio-temporal-ejemplos Estimación del variograma espacio-temporal (Ejemplos)
