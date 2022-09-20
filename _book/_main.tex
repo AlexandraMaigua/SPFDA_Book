@@ -61,7 +61,9 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
-\usepackage{bm}
+\usepackage{amsmath}
+\usepackage[utf8x]{inputenc}
+\usepackage{natbib}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -78,7 +80,7 @@
 
 \title{Clusterización Funcional Espacial}
 \author{Nosotros}
-\date{2022-09-09}
+\date{2022-09-20}
 
 \begin{document}
 \maketitle
@@ -90,8 +92,6 @@
 \hypertarget{prefacio}{%
 \chapter*{Prefacio}\label{prefacio}}
 \addcontentsline{toc}{chapter}{Prefacio}
-
-\bm{P}
 
 La dependencia espacial en datos medio ambientales es un criterio influyente en procesos de agrupación, dado que los resultados obtenidos brindan información relevante. Como los métodos clásicos no consideran la dependencia espacial, al considerar esta estructura se producen resultados inesperados, proporcionando agrupaciones de curvas que pueden no ser similares en forma y/o comportamiento. En este trabajo se realiza la agrupación mediante el método k-medias modificado para datos funcionales correlacionados espacialmente aplicado a datos del Índice de Vegetación de Diferencia Normalizada (NDVI) de los páramos del Ecuador. Para esto se implementan índices de calidad que permitan obtener el número adecuado de grupos. Con base en la metodología desarrollada en el método de clasificación jerárquico para datos funcionales con correlación espacial, y dado que los datos funcionales pertenecen al espacio de Hilbert de funciones cuadrado-integrables; se desarrolla el análisis considerando la distancia entre curvas a través de la norma \(\mathcal{L}^2\), obteniendo una representación reducida de los datos a través de una base finita de tipo Fourier. Luego, se calcula el variograma empírico y se ajusta a un modelo teórico para así ponderar la matriz de distancia entre las curvas por el trazo-variograma y variograma multivariado calculado con los coeficientes de las funciones base, y esta matriz se utiliza para la agrupación de datos funcionales correlacionados espacialmente. Para la validación del método se realizaron varios escenarios de simulación, obteniéndose buenos resultados de correcta clasificación y se complementa con un caso de aplicación a datos del NDVI, donde se obtuvieron cinco regiones distribuidas latitudinalmente.
 
@@ -144,7 +144,9 @@ Según \citep{GeoJean}, una función aleatoria es llamada proceso estocástico c
 
 Sea \(Z\) la variable aleatoria de interés y \(s\) su ubicación espacia. El proceso espacial es el proceso estocástico
 
-\[\{Z(s):s \in D\}\]
+\begin{align}
+\{Z(s):s \in D\}
+\end{align}
 
 donde \(D \subset \mathbb{R}^d\) es el conjunto formado por todas las ubicaciones espaciales \citep{marta}.
 
@@ -153,7 +155,9 @@ donde \(D \subset \mathbb{R}^d\) es el conjunto formado por todas las ubicacione
 
 Sea \(Z\) la variable aleatoria de interés y \(t\) el tiempo. El proceso temporal es el proceso estocástico
 
-\[\{Z(t):t \in D\}\]
+\begin{align}
+\{Z(t):t \in D\}
+\end{align}
 
 donde \(D \subset \mathbb{R}\) es el conjunto formado por todos los instantes de tiempo \citep{marta}.
 
@@ -162,7 +166,9 @@ donde \(D \subset \mathbb{R}\) es el conjunto formado por todos los instantes de
 
 Sea \(Z\) la variable aleatoria de interés, \(s\) su ubicación espacial y \(t\) el tiempo de ocurrencia. Un proceso espacio-temporal es un proceso estocástico
 
-\[\{Z(s,t):(s,t) \in D \times D' \}\]
+\begin{align}
+\{Z(s,t):(s,t) \in D \times D' \}
+\end{align}
 
 donde el conjunto \(D \subset \mathbb{R}^d\) es el conjunto de todas las ubicaciones espaciales y el conjunto \(D' \subset \mathbb{R}\) es el conjunto de todos los instantes de tiempo. Los conjuntos \(D\) y \(D'\) pueden ser continuos o discretos, fijos o aleatorios \citep{marta}.
 
@@ -210,16 +216,18 @@ Un proceso estocástico espacial se caracteriza por su distribución de probabil
 
 Considérese una función/campo aleatorio \(Z=\{Z(s):s\in D\}\) y \(k\) ubicaciones espaciales \(s_1,...,s_k \in D\). El vector aleatorio \(\{Z(s_1),...,Z(s_k)\}\) está caracterizado por su función de distribución conjunta:
 
-\[F_{s_1,...,s_k}(z_1,...,z_2)=P[Z(s_1)\leq z_1,...,Z(s_k)\leq z_k]\]
+\begin{align}
+F_{s_1,...,s_k}(z_1,...,z_2)=P[Z(s_1)\leq z_1,...,Z(s_k)\leq z_k]
+\end{align}
 
 \hypertarget{funciuxf3n-de-media}{%
 \subsection{Función de Media}\label{funciuxf3n-de-media}}
 
 La esperanza o el momento de primer orden de un campo aleatorio o proceso estocástico espacial \(Z(s)\), es una función no aleatoria de \(s\)
 
-\begin{align*}
+\begin{align}
 E[Z(s)]=\mu(s)\quad\text{donde}\quad \mu(s_i)=E(Z(s_i))\ i=1,...,k    
-\end{align*}
+\end{align}
 
 En cada sitio \(s\) dado, \(\mu(s)\) representa la media alrededor de la cual se distribuyen los valores tomados por las realizaciones de la funciones aleatoria \citep{Ramon}. Si la esperanza del campo aleatorio varía con la ubicación espacial, se le conoce como deriva o \emph{drift} del campo aleatorio.
 
@@ -232,9 +240,9 @@ En geoestadística existen tres elementos de segundo orden, los cuales son: vari
 
 La varianza de un campo aleatorio o proceso estocástico espacial \(Z(s)\) respecto a \(\mu(s)\), está definida por:
 
-\begin{align*}
+\begin{align}
   V(s)=\sigma^2(s)=Var[Z(s)]=E[(Z(s)-\mu(s))^2]\quad \text{donde} \quad V(s_i)=\sigma^2(s_i)=V(Z(s_i))\ i=1,...,k
-\end{align*}
+\end{align}
 
 \textbf{EJEMPLO DE VARIANZA CON CALCIO, AQUIFER, NITRATO(MARTA)}
 
@@ -243,18 +251,18 @@ La varianza de un campo aleatorio o proceso estocástico espacial \(Z(s)\) respe
 
 Sean \(Z(s_i)\) y \(Z(s_j)\) dos variables aleatorias de un proceso estocástico espacial, la covarianza es una función de separación espacial de \(s_i\) y \(s_j\) y está definida por:
 
-\begin{align*}
+\begin{align}
   C(s_i,s_j)&=C(s_i-s_j)\\ \\
   C(s_i,s_j)&=C(Z(s_i),Z(s_j))\\ \\
   C(s_i,s_j)&=E[(Z(s_i)-\mu(s_j))(Z(s_j)-\mu(s_j))]\\ \\
   C(s_i,s_j)&=E[Z(s_i)Z(s_j)]-\mu(s_i)\mu(s_j)
-\end{align*}
+\end{align}
 
 Nótese que:
 
-\begin{align*}
+\begin{align}
   C(s,s)=C(0)=\sigma^2(s)  
-\end{align*}
+\end{align}
 
 \textbf{EJEMPLO DE COVARIANZA CON CALCIO, AQUIFER, NITRATO(MARTA)}
 
@@ -263,18 +271,18 @@ Nótese que:
 
 La correlación lineal de dos variables aleatorias de un proceso estocástico espacial \(Z(s_i)\) y \(Z(s_j)\), está definida por:
 
-\begin{align*}
+\begin{align}
   \rho(s_i,s_j)=\frac{C(s_i,s_j)}{\sigma(s_i)\sigma(s_j)}  
-\end{align*}
+\end{align}
 
 \hypertarget{funciuxf3n-de-semi-variograma}{%
 \subsection{Función de semi-variograma}\label{funciuxf3n-de-semi-variograma}}
 
 El semi-variograma entre dos variables aleatorias de un proceso estocástico espacial \(Z(s_i)\) y \(Z(s_j)\) está dado por:
 
-\begin{align*}
+\begin{align}
   \gamma(s_i,s_j)=\gamma(s_i-s_j)= \frac{1}{2} V[Z(s_i)-Z(s_j)], \ \forall s_i,s_j \in D 
-\end{align*}
+\end{align}
 
 \textbf{EJEMPLO DE VARIOG CON CALCIO, AQUIFER, NITRATO(MARTA)}
 
@@ -299,16 +307,16 @@ Una variable aleatoria regionalizada vista como una realización de un proceso e
 
 Este supuesto se refiere a que el proceso alcanza un estado de equilibrio. Formalmente, una variable regionalizada es estacionaria si su función de distribución no varía con la traslación del vector \(\textbf{h}\); esto es, si para:
 
-\begin{align*}
+\begin{align}
     Z(s)&=[Z(s_1),...,Z(s_n)]^{'} \\ \\
     Z(s+\textbf{h})&=[Z(s_{1} +\textbf{h}),...,Z(s_{n} + \textbf{h} )]^{'}
-\end{align*}
+\end{align}
 
 se tiene que:
 
-\begin{align*}
+\begin{align}
   F_{Z_1,...,Z_n}(s_1,...,s_n)=F_{Z_1,...,Z_n}((s_1+\textbf{h}),...,(s_n+\textbf{h}))  
-\end{align*}
+\end{align}
 
 Nótese que esta condición es muy restrictiva, por lo que normalmente se relaja a condiciones de segundo orden, las que limitan el supuesto de estacionariedad a los dos primeros momentos del proceso estocástico o campo aleatorio \citep{montero}.
 
@@ -324,33 +332,31 @@ Sea \(\{Z(s): s\in D \}\) un proceso estocástico o campo aleatorio, se dice dé
 \item
   La esperanza existe, es constante a través del dominio \(D\), y no depende de la ubicación \(s\); es decir:
 
-  \begin{align*}
+  \begin{align}
       E(Z(s))=\mu(s)=\mu  
-    \end{align*}
+    \end{align}
 \item
   La covarianza existe para todo par de variables aleatorias, \(Z(s)\) y \(Z(s+\textbf{h})\), y solo depende del vector de separación \(\textbf{h}\) entre las ubicaciones \(s\) y \(s+\textbf{h}\); es decir, depende de la dirección y la distancia de separación, y no de sus ubicaciones absolutas y se tiene que:
 
-  \[
-  \begin{align*}
-      Cov(Z(s),Z(s+\textbf{h}))=C(h),\forall s\in D \ y\ h  
-    \end{align*}
-  \]
+  \begin{align}
+      Cov(Z(s),Z(s+\textbf{h}))=C(\textbf{h}),\forall s\in D \ y\ \textbf{h}\in \mathbb{R}^d  
+    \end{align}
 \end{itemize}
 
 La estacionariedad de la covarianza implica que la varianza \(Var(Z(s))\) existe, es finita y no depende de \(s\); es decir:
 
-\begin{align*}
+\begin{align}
         Var(Z(s))&=\sigma^2(s)=C(s,s)=C(s-s)=C(0)=\sigma^2  
-\end{align*}
+\end{align}
 
 La estacionariedad de segundo orden implica la siguiente relación entre entre la función de semivarianza y la de autocovarianza:
 
-\begin{align*}
-    \gamma(h)&=\frac{1}{2}V(Z(s+\textbf{h})-Z(s)), \quad \text{con} \ \gamma(h)=\gamma(s+\textbf{h},s)\\
+\begin{align}
+    \gamma(\textbf{h})&=\frac{1}{2}V(Z(s+\textbf{h})-Z(s)), \quad \text{con} \ \gamma(\textbf{h})=\gamma(s+\textbf{h},s)\\
 &=\frac{1}{2}(V(Z(s+\textbf{h}))+V(Z(s))+2C(Z(s+\textbf{h}),Z(s)))\\
-&=\frac{1}{2}(C(0)+C(0)+2C(h))\\
-&=C(0)-C(h)
-\end{align*}
+&=\frac{1}{2}(C(0)+C(0)+2C(\textbf{h}))\\
+&=C(0)-C(\textbf{h})
+\end{align}
 
 Nótese que si un proceso estocástico o campo aleatorio es estacionario de segundo orden, entonces también será un proceso estocástico estacionariamente fuerte; sin embargo, esto no ocurre en el sentido contrario.
 
@@ -368,11 +374,11 @@ Sea \(\{Z(s): s\in D\}\) un proceso estocástico o campo aleatorio; se dice que 
 \item
   \(Z(s)\) tiene esperanza finita y constante para todo punto en el domino, lo cual implica que la esperanza de los incrementos sea cero.
 
-  \[E(Z(s+\textbf{h})-Z(s))=0\]
+  E(Z(s+\textbf{h})-Z(s))=0
 \item
   Para cualquier vector \(\textbf{h}\), la varianza del incremento está definida y es una función única de la distancia.
 
-  \[V(Z(s+\textbf{h})-Z(s))=E(Z(s+\textbf{h})-Z(s))^2=2\gamma(h)\]
+  V(Z(s+\textbf{h})-Z(s))=E(Z(s+\textbf{h})-Z(s))\^{}2=2\gamma(\textbf{h})
 \end{itemize}
 
 \textbf{EJEMPLOS (MARTA)??}
@@ -391,12 +397,12 @@ Cuando el proceso estocástico o campo aleatorio \(\{Z(s): s\in D\}\) tiene medi
 
 Identificar la estacionariedad en un campo temporal es fácil, ya que solo existe una dirección de variación. Por otro lado, en el campo espacial existen múltiples direcciones, por lo que se debe asumir que el fenómeno es estacionario en todas ellas. Cuando la esperanza de la variable cambie respecto a las direcciones o cuando la covarianza o correlación dependan del sentido en el que se determinen, entonces se dirá que no se tiene estacionariedad \citep{Ramon}.
 
-Ahora bien, si \(C(h)\) y/o \(\gamma(h)\), son funciones únicas de la magnitud \(||\textbf{h}||\)
+Ahora bien, si \(C(\textbf{h})\) y/o \(\gamma(\textbf{h})\), son funciones únicas de la magnitud \(h=||\textbf{h}||\)
 
-\begin{align*}
-    Cov(Z(s),Z(s+\textbf{h})&= C(||\textbf{h}||))\\
-    \frac{1}{2} Var(Z(s+\textbf{h})-Z(s))&=\gamma(||\textbf{h}||)
-\end{align*}
+\begin{align}
+    Cov(Z(s),Z(s+\textbf{h})&= C(||\textbf{h}||)= C(h)\\
+    \frac{1}{2} Var(Z(s+\textbf{h})-Z(s))&=\gamma(||\textbf{h}||)=\gamma(h)
+\end{align}
 
 el proceso posee función de covarianza y/o semivarianza isotrópica. La estacionariedad posibilita combinar pares de datos con la misma diferencia en magnitud de separación de las coordenadas, y si los vectores de diferencias tienen la posibilidad de ser reemplazados con distancias escalares, entonces el campo se dice isotrópico \citep{marta}. Si la correlación entre los datos no es dependiente de la dirección en la que esta se calcule se plantea que el fenómeno es isotrópico \citep{Ramon}; en caso opuesto un campo aleatorio que es estacionario pero no isotrópico se desenvuelve de forma distinta según las diferentes direcciones del espacio; por lo cual, no es suficiente conocer cuánto permanecen distanciadas las ubicaciones, sino además es necesario conocer la orientación de esa distancia; a dichos campos se los conoce como campos aleatorios anisotrópicos \citep{marta}.
 
@@ -418,20 +424,20 @@ El análisis estructural es la primera etapa en el desarrollo de un análisis ge
 
 Como se definió anteriormente, la función de covarianza de un proceso estocástico espacial o campo aleatorio esta dada por:
 
-\begin{align*}
+\begin{align}
     C(s_i,s_j)&=C(Z(s_i),Z(s_j))\\
     &= E[(Z(s_i)-\mu(s_i)) (Z(s_j)-\mu(s_j))],\ \forall s_i,s_j\in D
-\end{align*}
+\end{align}
 
 Bajo la hipótesis de estacionariedad de segundo orden, la función de covarianza tiene las siguientes propiedades:
 
 \begin{itemize}
 \item
-  Solo depende del vector de separación \(h\) entre las ubicaciones espaciales:
+  Solo depende del vector de separación \(\textbf{h}\) entre las ubicaciones espaciales:
 
-  \begin{align*}
+  \begin{align}
       C(h)=E[(Z(s+\textbf{h})-\mu)(Z(s)-\mu)],\ \forall s,s+\textbf{h} \in D\subset \mathbb{R}^d  
-    \end{align*}
+    \end{align}
 \end{itemize}
 
 donde \(\mu\) es la media constante del proceso estocástico espacial o campo aleatorio. El covariograma muestra el comportamiento de la correlación entre \(Z(s)\) y \(Z(s+\textbf{h})\). Cuando la función de covarianza solo depende de la distancia entre las ubicaciones \(s\) y \(s+\textbf{h}\) se conoce como \textbf{proceso isotrópico}. Cuando depende de la distancia y de la dirección del vector de separación \(\textbf{h}\) se conoce como un \textbf{proceso anisotrópico}.
@@ -440,31 +446,31 @@ donde \(\mu\) es la media constante del proceso estocástico espacial o campo al
 \item
   Está acotado por la varianza del proceso estocástico espacial o campo aleatorio en el origen; es decir:
 
-  \begin{align*}
+  \begin{align}
       |C(h)|\leq C(0)=Var(Z(s))  
-    \end{align*}
+    \end{align}
 \item
   Es una función par; es decir:
 
-  \begin{align*}
+  \begin{align}
       C(h)=C(-h)  
-    \end{align*}
+    \end{align}
 \item
   Es una función definida positiva, en términos de diferencia entre coordenadas \(s_i-s_j=\textbf{h}\):
 
-  \begin{align*}
+  \begin{align}
       \sum_{i=1}^n \sum_{j=1}^n\lambda_i \lambda_j C(s_i-s_j)\geq 0,\forall n\in \mathbb{N}^*,\forall \lambda_1,...,\lambda_n \in \mathbb{R}, \forall s_1,...,s_n\in D \subset \mathbb{R}^d  
-    \end{align*}
+    \end{align}
 
   Esta condición es la más importante y necesaria para que una función de covarianza esté bien definida \citep{montero}.
 \item
-  Si \(C_k(h),\forall k \in \mathbb{N}\) son funciones de covarianza en \(\mathbb{R}^d\) y:
+  Si \(C_k(\textbf{h}),\forall k \in \mathbb{N}\) son funciones de covarianza en \(\mathbb{R}^d\) y:
 
-  \begin{align*}
-      \lim_{k\to \infty}C_{k}(h)=C(h),\forall h \in \mathbb{R}^d  
-    \end{align*}
+  \begin{align}
+      \lim_{k\to \infty}C_{k}(\textbf{h})=C(\textbf{h}),\forall h \in \mathbb{R}^d  
+    \end{align}
 
-  entonces, \(C(h)\) es una función de covarianza en \(\mathbb{R}^d\), teniendo en cuenta que este límite existe \(\forall h\).
+  entonces, \(C(\textbf{h})\) es una función de covarianza en \(\mathbb{R}^d\), teniendo en cuenta que este límite existe \(\forall \textbf{h}\).
 \item
   Toda combinación lineal de funciones de covarianza con coeficientes positivos, también es una función de covarianza.
 \item
@@ -479,23 +485,23 @@ El semivariograma es el instrumento más usado para describir la dependencia esp
 
 Como se definió anteriormente, el semivariograma está dado por:
 
-\begin{align*}
+\begin{align}
   \gamma(s_i-s_j)=\frac{1}{2}Var(Z(s_i)-Z(s_j)),\forall s_i,s_j \in D  
-\end{align*}
+\end{align}
 
 Bajo el supuesto de estacionariedad de segundo orden o de hipótesis intrínseca (sin media/drift), se escribe como:
 
-\begin{align*}
+\begin{align}
   \gamma(h)=\frac{1}{2}Var(Z(s+\textbf{h})-Z(s))=\frac{1}{2}E((Z(s+\textbf{h})-Z(s))^2)  
-\end{align*}
+\end{align}
 
 la cual muestra como la disimilitud entre \(Z(s+\textbf{h})\) y \(Z(s)\) se desenvuelve con la distancia \(h\).
 
 Como se vio anteriormente, bajo el supuesto de estacionariedad de segundo orden, el semivariograma y el covariograma verifican la siguiente relación:
 
-\begin{align*}
+\begin{align}
   C(h)=C(0)-\gamma(h)  
-\end{align*}
+\end{align}
 
 En la práctica se utiliza el semivariograma en lugar del covariograma puesto que este no necesita conocer la media de la función aleatoria \citep{montero}.
 
@@ -507,27 +513,27 @@ Para que una función de semivariograma sea válido necesita verificar las sigui
 \item
   Es una función par; es decir:
 
-  \begin{align*}
+  \begin{align}
       \gamma(h)=\gamma(-h)  
-    \end{align*}
+    \end{align}
 \item
   Siempre toma valores mayores o iguales que cero:
 
-  \begin{align*}
+  \begin{align}
       \gamma(h)\geq 0  
-    \end{align*}
+    \end{align}
 \item
   Bajo estacionariedad intrínseca, es una función condicionalmente negativa; es decir:
 
-  \begin{align*}
+  \begin{align}
       \sum_{i=1}^n \sum_{j=1}^n\lambda_i \lambda_j \gamma(s_i-s_j)\leq 0,\forall n\in \mathbb{N}^*,\forall \lambda_1,...,\lambda_n \in \mathbb{R}:\sum_{i=1}^n\lambda_i=0, \forall s_1,...,s_n \in D \subset \mathbb{R}^d  
-    \end{align*}
+    \end{align}
 \item
   El semivariograma de una proceso estocástico o campo aleatorio estacionario de segundo orden es finito; es decir, su comportamiento tiende a una línea horizontal a medida que se incrementa la separación de las coordenadas; sin embargo, el de una función aleatoria intrínsecamente estacionaria sin media o \textit{drift} puede crecer al infinito; es decir, el semivariograma no se estabiliza; en este caso el semivariograma puede ser al menos intrínsecamente estacionario si crece más lento que una ecuación de segundo grado; es decir:
 
-  \begin{align*}
+  \begin{align}
       \lim_{|h|\to \infty}\frac{\gamma(h)}{|h|^2}=0  
-    \end{align*}
+    \end{align}
 \end{itemize}
 
 El semivariograma de un proceso estocástico espacial estacionario de segundo orden depende de los siguientes parámetros (ver Figura \ref{fig:pvar} ):
@@ -540,12 +546,12 @@ El semivariograma de un proceso estocástico espacial estacionario de segundo or
 \item
   Efecto Pepita: Es una discontinuidad en el origen, \(\gamma(h)\to c_0\) cuando \(h\to 0\).
 
-  Existen dos causas principales para que se produzca este efecto. La primera es la existencia de error de medición (\textit{EM}); sucede una vez que no es viable repetir una medición en la ubicación \(s\) sin error, evidenciando su variabilidad. La segunda causa es el efecto de micro-escala (\textit{MS}); el cual se produce ya que existe un proceso espacial que opera a distancias más pequeñas de las que fueron consideradas en el muestreo. Si \textit{ES} y \textit{MS} son diferentes de cero, el semivariograma presentará una discontinuidad puntual en el origen, conocido como efecto pepita y representado de la siguiente manera \citep{marta}:
+  Existen dos causas principales para que se produzca este efecto. La primera es la existencia de error de medición (\emph{EM}); sucede una vez que no es viable repetir una medición en la ubicación \(s\) sin error, evidenciando su variabilidad. La segunda causa es el efecto de micro-escala (\emph{MS}); el cual se produce ya que existe un proceso espacial que opera a distancias más pequeñas de las que fueron consideradas en el muestreo. Si \emph{ES} y \emph{MS} son diferentes de cero, el semivariograma presentará una discontinuidad puntual en el origen, conocido como efecto pepita y representado de la siguiente manera \citep{marta}:
 \end{itemize}
 
-\begin{align*}
+\begin{align}
         c_0=\sigma^2_{EM}+\sigma_{MS}^2  
-  \end{align*}
+  \end{align}
 
 \begin{itemize}
 \tightlist
@@ -555,11 +561,11 @@ El semivariograma de un proceso estocástico espacial estacionario de segundo or
 
 La relación entre el covariograma y el semivariograma se modifica para tomar en cuenta el efecto pepita de la siguiente manera:
 
-\begin{align*}
+\begin{align}
     \gamma(h) &= c_0+c_{p}\gamma'(h)\\
     C(h) &= \left \{ \begin{matrix} c_p(1-\gamma'(h)) & si \ h>0\\ 
     c_0+c_p & si \ h=0 \end{matrix}\right. 
-\end{align*}
+\end{align}
 
 donde \(\gamma'(h)\) es el modelo de variograma, \(c_p\) es la silla parcial y \(c_0\) es el efecto pepita \citep{marta}.
 
@@ -581,11 +587,11 @@ Por lo general, la descripción de la distribución espacial se limita a los pri
 
 La variabilidad de una variable regionalizada \(Z(s)\), se mide en diferentes escalas y se calcula a través de la disimilitud entre los valores \(z_{s1}\) y \(z_{s2}\) ubicados en los puntos \(s_1\) y \(s_2\) del domino espacial \(D\). La medida de disimilitud \(\hat{\gamma}\) de estos valores está dada por:
 
-\begin{align*}
+\begin{align}
   \hat{\gamma}(s_1,s_2)=\frac{(z_{s1}-z_{s2})^2}{2}  
-\end{align*}
+\end{align}
 
-Los dos puntos \(s_1\) y \(s_2\) en el espacio geográfico pueden unirse por un vector \(h=s_1-s_2\) como se muestra en la Figura \ref{fig:distanciah}.
+Los dos puntos \(s_1\) y \(s_2\) en el espacio geográfico pueden unirse por un vector \(\textbf{h}=s_1-s_2\) como se muestra en la Figura \ref{fig:distanciah}.
 
 \begin{figure}
 \includegraphics[width=17.78in]{figuras/otros/distancia_h} \caption{Distancia}\label{fig:distanciah}
@@ -593,9 +599,9 @@ Los dos puntos \(s_1\) y \(s_2\) en el espacio geográfico pueden unirse por un 
 
 Si \(\hat{\gamma}\) es dependiente de la separación y orientación del par de ubicaciones descritos por el vector \(\textbf{h}\), se tiene que \citep{hans}:
 
-\begin{align*}
+\begin{align}
   \hat{\gamma}(h)=\frac{1}{2}(z(s_1+\textbf{h})-z(s_1))^2  
-\end{align*}
+\end{align}
 
 La disimilitud es simétrica con respecto de \(h\), pues es una cantidad al cuadrado, por lo que, su representación será mostrada utilizando todos los pares de datos de la muestra en el conjunto \(D\). El gráfico de la disimilitud \(\hat{\gamma}\) contra la separación espacial absoluta \(h\), es llamado nube del variograma \citep{hans}.
 
@@ -608,19 +614,19 @@ La disimilitud con frecuencia se incrementa con la distancia, pues los puntos ce
 \hypertarget{variograma-empuxedrico}{%
 \subsection{Variograma Empírico}\label{variograma-empuxedrico}}
 
-Teniendo en cuenta que el variograma \(\gamma(h)\) es la varianza de la variable de incrementos \(Z(s+\textbf{h})-Z(s)\), el estimador clásico se basa en la estimación de esta varianza mediante el método de momentos y está definido para un vector de separación \(\textbf{h}\) de la siguiente manera:
+Teniendo en cuenta que el variograma \(\gamma(\textbf{h})\) es la varianza de la variable de incrementos \(Z(s+\textbf{h})-Z(s)\), el estimador clásico se basa en la estimación de esta varianza mediante el método de momentos y está definido para un vector de separación \(\textbf{h}\) de la siguiente manera:
 
-\begin{align*}
-  \hat{\gamma}(h)=\frac{1}{2|N(h)|}\sum_{N(h)}(Z(s+\textbf{h})-Z(s))^2, \ \textbf{h}\in \mathbb{R}^d  
-\end{align*}
+\begin{align}
+  \hat{\gamma}(\textbf{h})=\frac{1}{2|N(\textbf{h})|}\sum_{N(\textbf{h})}(Z(s+\textbf{h})-Z(s))^2, \ \textbf{h}\in \mathbb{R}^d  
+\end{align}
 
 donde:
 
-\begin{align*}
-  N(h)=\{(s_i,s_j):s_i-s_j=h, i,j=1,...,n\}  
-\end{align*}
+\begin{align}
+  N(\textbf{h})=\{(s_i,s_j):s_i-s_j=\textbf{h}, i,j=1,...,n\}  
+\end{align}
 
-siendo \(N(h)\) el conjunto de todos los pares de ubicaciones cuya separación corresponde a un vector \(h\) y \(|N(h)|\) es la cardinalidad de \(N(h)\). Nótese que \(N(-h)\neq N(h)\), aunque \(\hat{\gamma}(-h)=\hat{\gamma}(h)\), y la media \(\mu\) no necesita ser estimada.
+siendo \(N(\textbf{h})\) el conjunto de todos los pares de ubicaciones cuya separación corresponde a un vector \(\textbf{h}\) y \(|N(\textbf{h})|\) es la cardinalidad de \(N(\textbf{h})\). Nótese que \(N(-\textbf{h})\neq N(\textbf{h})\), aunque \(\hat{\gamma}(-\textbf{h})=\hat{\gamma}(\textbf{h})\), y la media \(\mu\) no necesita ser estimada.
 
 Al ser un estimador de la varianza muestral es sensible a datos atípicos; es por ello que \citep{Cressi} propuso estimadores resistentes a datos atípicos, asumiendo normalidad marginal del campo aleatorio \citep{marta}; sin embargo, la diferencia entre estos estimadores es pequeña \citep{Cressi}.
 
@@ -628,18 +634,18 @@ Al ser un estimador de la varianza muestral es sensible a datos atípicos; es po
 \subsubsection*{Tolerancia en los parámetros de cálculo}\label{tolerancia-en-los-paruxe1metros-de-cuxe1lculo}}
 \addcontentsline{toc}{subsubsection}{Tolerancia en los parámetros de cálculo}
 
-En la práctica, los datos están distribuidos irregularmente en el dominio espacial \(D\), por lo que el número de pares \(|N(h)|\) que se utilizan en el cálculo del variograma empírico, \(\hat{\gamma}(h)\) para un vector \(h\) dado, es por lo general escaso; dando como resultado una estimación del variograma empírico errónea, provocando que sea imposible de interpretarlo y modelarlo. Para corregir esto, se suelen añadir algunas tolerancias de cálculo sobre las distancias y direcciones, teniendo así que:
+En la práctica, los datos están distribuidos irregularmente en el dominio espacial \(D\), por lo que el número de pares \(|N(\textbf{h})|\) que se utilizan en el cálculo del variograma empírico, \(\hat{\gamma}(\textbf{h})\) para un vector \(\textbf{h}\) dado, es por lo general escaso; dando como resultado una estimación del variograma empírico errónea, provocando que sea imposible de interpretarlo y modelarlo. Para corregir esto, se suelen añadir algunas tolerancias de cálculo sobre las distancias y direcciones, teniendo así que:
 
-\begin{align*}
-  \hat{\gamma^+}(h)=\frac{1}{2|N^+(h)|}\sum_{N^+(h)}(Z(s+h)-Z(s))^2  
-\end{align*}
+\begin{align}
+  \hat{\gamma^+}(\textbf{h})=\frac{1}{2|N^+(\textbf{h})|}\sum_{N^+(\textbf{h})}(Z(s+\textbf{h})-Z(s))^2  
+\end{align}
 
-donde \(N^+=\{(s_i,s_j): s_i-s_j\in T(h)\}=\displaystyle \bigcup_{h^{'}\in T(h)}N(h')\)
+donde \(N^+=\{(s_i,s_j): s_i-s_j\in T(\textbf{h})\}=\displaystyle \bigcup_{\textbf{h}^{'}\in T(\textbf{h})}N(\textbf{h}')\)
 
-Siendo \(T(h)\) una región de tolerancia alrededor de \(h\); es decir, \(T(h)=[h-\Delta h,h+\Delta h]\) en el caso unidiminesional. En el caso de dimensión dos o tres, existen tolerancias sobre la longitud de \(h\) y sobre su orientación \citep{emery} (véase Figura \ref{fig:regtol}):
+Siendo \(T(\textbf{h})\) una región de tolerancia alrededor de \(\textbf{h}\); es decir, \(T(\textbf{h})=[\textbf{h}-\Delta \textbf{h},\textbf{h}+\Delta \textbf{h}]\) en el caso unidiminesional. En el caso de dimensión dos o tres, existen tolerancias sobre la longitud de \(\textbf{h}\) y sobre su orientación \citep{emery} (véase Figura \ref{fig:regtol}):
 
 \begin{figure}
-\includegraphics[width=17.78in]{figuras/otros/tolerancia} \caption{Región de tolerancia $T(h)$ alrededor del vector $h$}\label{fig:regtol}
+\includegraphics[width=17.78in]{figuras/otros/tolerancia} \caption{Región de tolerancia $T( extbf{h})$ alrededor del vector $   extbf{h}$}\label{fig:regtol}
 \end{figure}
 
 El ancho de banda limita la división del cono de tolerancia a una expansión máxima. En el espacio de tres dimensiones, se introducen dos anchos de banda, horizontal y vertical \citep{emery}.
@@ -650,17 +656,17 @@ El ancho de banda limita la división del cono de tolerancia a una expansión m�
 
 \begin{itemize}
 \item
-  El variograma empírico \(\hat{\gamma}(h)\) es un estimador insesgado del variograma teórico \citep{montero}:
+  El variograma empírico \(\hat{\gamma}(\textbf{h})\) es un estimador insesgado del variograma teórico \citep{montero}:
 
-  \begin{align*}
-      E(\hat{\gamma}(h))=\gamma(h)  
-    \end{align*}
+  \begin{align}
+      E(\hat{\gamma}(\textbf{h}))=\gamma(\textbf{h})  
+    \end{align}
 \item
   La varianza relativa es un indicador de robustez:
 
-  \begin{align*}
-      \frac{Var(\hat{\gamma}(h))}{(\gamma(h))^2}  
-    \end{align*}
+  \begin{align}
+      \frac{Var(\hat{\gamma}(\textbf{h}))}{(\gamma(\textbf{h}))^2}  
+    \end{align}
 
   A medida que más alta sea dicha varianza, más susceptible es el variograma empírico de fluctuar en torno a su valor esperado, y más difícil se vuelve la inferencia estadística.
 
@@ -669,7 +675,7 @@ El ancho de banda limita la división del cono de tolerancia a una expansión m�
   \begin{itemize}
   \tightlist
   \item
-    Norma del vector \(h\): la varianza relativa crece cuando la distancia aumenta.
+    Norma del vector \(\textbf{h}\): la varianza relativa crece cuando la distancia aumenta.
   \item
     La irregularidad de la malla de muestreo, tiene la posibilidad de causar grandes variaciones en el cálculo del variograma empírico, incluso a distancias pequeñas.
   \item
@@ -680,11 +686,11 @@ El ancho de banda limita la división del cono de tolerancia a una expansión m�
 \item
   Las direcciones de cálculo del variograma empírico deben tener en consideración la anisotropía de la variable regionalizada; en la situación de isotropía, donde los variogramas direccionales son semejantes, se puede tener en cuenta un variograma omnidireccional, determinado por:
 
-  \begin{align*}
-      \bar{\gamma}^+(h)=\frac{1}{2|N^+(h)|}\sum_{N^+(h)}(Z(s+h)-Z(s))^2  
-    \end{align*}
+  \begin{align}
+      \bar{\gamma}^+(h)=\frac{1}{2|N^+(\textbf{h})|}\sum_{N^+(\textbf{h})}(Z(s+\textbf{h})-Z(s))^2  
+    \end{align}
 
-  donde: \(|N^+(h)|=\{(s_i,s_j): s_i-s_j \thickapprox h\}\) \citep{montero}.
+  donde: \(|N^+(\textbf{h})|=\{(s_i,s_j): s_i-s_j \thickapprox \textbf{h}\}\) \citep{montero}.
 \item
   Si el variograma presenta comportamiento anisotrópico es necesario realizar transformaciones de las coordenadas que permitan obtener variables regionalizadas anistrópicas a partir de los modelos isotrópicos \citep{hans}.
 \end{itemize}
@@ -693,9 +699,9 @@ El ancho de banda limita la división del cono de tolerancia a una expansión m�
 \subsubsection*{Nube variográfica}\label{nube-variogruxe1fica}}
 \addcontentsline{toc}{subsubsection}{Nube variográfica}
 
-Teniendo presente que bajo el supuesto de estacionariedad, los valores \(\hat{\gamma}(s_i,s_j)\) son estimadores insesgados de los valores que corresponden \(\gamma(s_i,s_j)\). La recopilación de pares de distancias y sus correspondientes valores de variograma, \(\{(h,\gamma(h)): h=s_i-s_j\}\), es conocido como variograma empírico y su gráfico como nube variográfica. Para mejorar la conducta del variograma empírico como un estimador del variograma teórico \(\gamma(h)\) es necesario aplicar un tipo de suavización, puesto que se espera que la función \(\gamma(h)\) varíe suavemente en función de \(h\), por lo cual se disminuye la varianza sin añadir sesgo llevando a cabo un promedio de los valores de \(\hat{\gamma}\) sobre rangos o \textit{bins} adecuados de distancia entre puntos \(s_i,s_j\) \citep{peter}.
+Teniendo presente que bajo el supuesto de estacionariedad, los valores \(\hat{\gamma}(s_i,s_j)\) son estimadores insesgados de los valores que corresponden \(\gamma(s_i,s_j)\). La recopilación de pares de distancias y sus correspondientes valores de variograma, \(\{(\textbf{h},\gamma(\textbf{h})): \textbf{h}=s_i-s_j\}\), es conocido como variograma empírico y su gráfico como nube variográfica. Para mejorar la conducta del variograma empírico como un estimador del variograma teórico \(\gamma(\textbf{h})\) es necesario aplicar un tipo de suavización, puesto que se espera que la función \(\gamma(\textbf{h})\) varíe suavemente en función de \(\textbf{h}\), por lo cual se disminuye la varianza sin añadir sesgo llevando a cabo un promedio de los valores de \(\hat{\gamma}\) sobre rangos o \textit{bins} adecuados de distancia entre puntos \(s_i,s_j\) \citep{peter}.
 
-Si el diseño de muestreo es una grilla regular la suavización puede ser lograda sin introducir sesgo, simplemente promediando todos los valores \(\hat{\gamma}(h)\) para cada \(h\) diferente. Sin embargo, si el diseño es irregular, para un rango de ancho \(m\) se define un variograma \(\gamma_k\), para un entero positivo \(k\), como el promedio de todos los \(\hat{\gamma}(h)\) para el cual la respectiva distancia \(h\) satisfaga \((k-1)m<h\leq km\); entonces, \(\gamma_k\) es aproximadamente una estimación insesgada de \(\gamma(h_k)\); por conveniencia se adopta \(h_k=(k-0.5)m\), que es el punto medio del intervalo respectivo \citep{peter}.
+Si el diseño de muestreo es una grilla regular la suavización puede ser lograda sin introducir sesgo, simplemente promediando todos los valores \(\hat{\gamma}(\textbf{h})\) para cada \(\textbf{h}\) diferente. Sin embargo, si el diseño es irregular, para un rango de ancho \(m\) se define un variograma \(\gamma_k\), para un entero positivo \(k\), como el promedio de todos los \(\hat{\gamma}(\textbf{h})\) para el cual la respectiva distancia \(h\) satisfaga \((k-1)m<h\leq km\); entonces, \(\gamma_k\) es aproximadamente una estimación insesgada de \(\gamma(h_k)\); por conveniencia se adopta \(h_k=(k-0.5)m\), que es el punto medio del intervalo respectivo \citep{peter}.
 
 \begin{figure}
 \includegraphics[width=17.78in]{figuras/otros/cloud_variogram} \caption{Nube variográfica}\label{fig:varcloud1}
@@ -736,7 +742,7 @@ Si las distancias son cercanas a cero; es decir, la variable regionalizada es re
 
 El variograma habitualmente crece a partir del origen y se estabiliza a partir de una distancia \(\phi\), alrededor de una silla \(\sigma^2\); en este caso se conoce que esa silla es igual a la varianza a priori \(C(0)=\sigma^2\).
 
-Como se vio anteriormente, las variables aleatorias \(Z(s)\) y \(Z(s+h)\) están correlacionadas, si la longitud del vector de separación \(h\) es inferior a la distancia \(\phi\) o alcance; más allá de \(|h|=\phi\), el variograma es constante e igual a su silla, y las variables \(Z(s)\) y \(Z(s+h)\) son independientes. Los variogramas con silla, se denominan \textit{modelos de transición} (ver Figura \ref{fig:varsill}) \citep{emery}.
+Como se vio anteriormente, las variables aleatorias \(Z(s)\) y \(Z(s+\textbf{h})\) están correlacionadas, si la longitud del vector de separación \(\textbf{h}\) es inferior a la distancia \(\phi\) o alcance; más allá de \(|h|=\phi\), el variograma es constante e igual a su silla, y las variables \(Z(s)\) y \(Z(s+\textbf{h})\) son independientes. Los variogramas con silla, se denominan \textit{modelos de transición} (ver Figura \ref{fig:varsill}) \citep{emery}.
 
 \begin{figure}
 \includegraphics[width=17.78in]{figuras/otros/vari_sill} \caption{Lado izquierdo: Variograma con silla y alcance. Lado derecho: Variograma sin silla y  alcance.}\label{fig:varsill}
@@ -790,21 +796,21 @@ Con la verificación de los puntos anteriores, se procede al cálculo del variog
 
 Los parámetros de la función de covarianza pueden ser estimados por medio de los métodos de Máxima Verosimilitud (ML) y Máxima Verosimilitud restringida (REML), los cuales requieren la especificación de la distribución del vector \(Z=(Z(s_1),...,Z(s_n))\); generalmente, se asume normalidad multivariada. Para el caso ML, se tiene que:
 
-\begin{align*}
+\begin{align}
   Z\sim N_n(X\beta,\Sigma(\theta))  
-\end{align*}
+\end{align}
 
 donde \(\Sigma(\theta)=Cov(Z)\) es una matriz de dimensión \(n \times n\) y \(X\) es una matriz de dimensión \(n\times q\) con \(q<n\), de variables explicativas, dentro de las cuales comúnmente se encuentran las coordenadas geográficas; de donde el negativo de la función de logverosimil es:
 
-\begin{align*}
+\begin{align}
    L(\beta,\theta)=\frac{n}{2}\log(2\pi)+\frac{1}{2} \log|\Sigma(\theta|)+\frac{1}{2}(Z-X\beta)'\Sigma^{-1}(\theta)(Z-X\beta) 
-\end{align*}
+\end{align}
 
 El elemento \(i,j\) de la matriz \(\Sigma(\theta)\) corresponde a la covarianza espacial entre las variables \(Z(s_i)\) y \(Z(s_j)\); esto es:
 
-\begin{align*}
-  Cov(Z(s_i),Z(s_j);\theta))=C(s_i-s_j;\theta)=C(h;\theta)  
-\end{align*}
+\begin{align}
+  Cov(Z(s_i),Z(s_j);\theta))=C(s_i-s_j;\theta)=C(\textbf{h};\theta)  
+\end{align}
 
 El estimador \(\hat{\theta}\) es sesgado pero asintóticamente eficiente; no obstante, al trabajar con una muestra grande se debe tener en consideración que debido a su conducta iterativa, se realizarán grandes cantidades de operaciones computacionales debido al cálculo del determinante y de la inversa de la matriz de covarianza \citep{marta}.
 
@@ -814,15 +820,15 @@ El estimador \(\hat{\theta}\) es sesgado pero asintóticamente eficiente; no obs
 
 El estimador REML es una modificación del estimador ML propuesto para disminuir el sesgo, el cual reemplaza la maximización de la verosimilitud del vector \(Z\), por la del vector \(A'Z\) tal que: \(E(A'Z)=0\), donde \(A\) es una matriz de dimensión \(n\ \text{x}\ (n-p)\), de rango columna completo.
 
-Con esta modificación y dado que \begin{align*}
+Con esta modificación y dado que \begin{align}
   Var(A'Z)=A'\Sigma(\theta)A  
-\end{align*}
+\end{align}
 
 el negativo de la función de logverosímil queda:
 
-\begin{align*}
+\begin{align}
    L(\theta)=\frac{n}{2}\log(2\pi)+\frac{1}{2} \log|A'\Sigma(\theta) A|+\frac{1}{2}Z'(A'\Sigma(\theta) A)^{-1} A'Z 
-\end{align*}
+\end{align}
 
 Esta función es dependiente únicamente de \(\theta\); de esta manera este método no usa la modelización de la superficie de tendencia, sino que se basa directamente en un vector de incrementos de media 0. No obstante, pese a minimizar el sesgo en las estimaciones de \(\theta\), aun interviene un costo computacional elevado \citep{marta}.
 
@@ -834,23 +840,23 @@ El método CL que se utiliza para estimar \(\theta\), involucra la suma de compo
 
 Ahora bien, se suponen conocidas \(f(Z(s_i);\theta)\), excepto el parámetro \(\theta\); entonces:
 
-\begin{align*}
+\begin{align}
   \log(Z(s_i);\theta)=\ln(f(Z(s_i);\theta))  
-\end{align*}
+\end{align}
 
 es una función logverosímil y la función de verosimilitud compuesta está definida por:
 
-\begin{align*}
+\begin{align}
    CL(\theta)=\sum_{i=1}^{n} \log(Z(s_i);\theta)  
-\end{align*}
+\end{align}
 
 Al gradiente de CL, \(\nabla CL=CS(\theta)\), se le conoce como función de score compuesta.
 
 Así, los valores estimados de \(\hat{\theta}\) se determinan resolviendo el siguiente sistema de ecuaciones:
 
-\begin{align*}
+\begin{align}
    CS(\theta)=\sum_{i=1}^{n} \nabla\log(Z(s_i);\theta)=0  
-\end{align*}
+\end{align}
 
 Una de las razones principales para usar las funciones de verosimilitudes marginales es que aunque al inicio no se cumpla el supuesto requerido, es posible aproximarse a este por medio de alguna transformación \citep{marta}.
 
@@ -860,29 +866,29 @@ Una de las razones principales para usar las funciones de verosimilitudes margin
 
 Este método utiliza la matriz de ponderación \(W(\theta)\) y suele ser expresado en términos del variograma o de la covarianza, gracias a su equivalencia en procesos estacionarios de segundo orden. Para el caso espacio-temporal, se estima \(\theta\) para un variograma minimizando la siguiente expresión:
 
-\begin{align*}
+\begin{align}
   (2\hat{\gamma}-2\gamma(\theta))'W^{-1}(\theta)(2\hat{\gamma}-2\gamma(\theta))  
-\end{align*}
+\end{align}
 
 donde la matriz de ponderación \(W(\theta)\) está dada por:
 
-\begin{align*}
-  W(\theta)=Diag(Var(2\hat{\gamma}(h_k)))\approx Diag\left(\frac{2(2\gamma(h_k|\theta))^2}{N(h_k)}\right)  
-\end{align*}
+\begin{align}
+  W(\theta)=Diag(Var(2\hat{\gamma}(\textbf{h}_k)))\approx Diag\left(\frac{2(2\gamma(\textbf{h}_k|\theta))^2}{N(\textbf{h}_k)}\right)  
+\end{align}
 
 con:
 
-\begin{align*}
-  N(h_k)=\{(i,j):s_i-s_j=h_k\}  
-\end{align*}
+\begin{align}
+  N(\textbf{h}_k)=\{(i,j):s_i-s_j=\textbf{h}_k\}  
+\end{align}
 
-Para las ubicaciones \(i,j=1,...,n\), que producen los primeros \(k\) rezagos espaciales \(k=1,...,K\); generalmente se utilizan los rezagos espaciales hasta la mitad de la distancia máxima entre cualquier par de ubicaciones, debido a que para ubicaciones bastante separadas disminuye notoriamente la cantidad de puntos incluidos en la estimación del variograma. La aproximación de \(Var(2\hat{\gamma}(h_k|\theta))\), se obtiene bajo el supuesto de que \(Z(s)\sim N(\mu;\sigma^2), \forall s\in \mathbb{R}^d\), y que por consiguiente:
+Para las ubicaciones \(i,j=1,...,n\), que producen los primeros \(k\) rezagos espaciales \(k=1,...,K\); generalmente se utilizan los rezagos espaciales hasta la mitad de la distancia máxima entre cualquier par de ubicaciones, debido a que para ubicaciones bastante separadas disminuye notoriamente la cantidad de puntos incluidos en la estimación del variograma. La aproximación de \(Var(2\hat{\gamma}(\textbf{h}_k|\theta))\), se obtiene bajo el supuesto de que \(Z(s)\sim N(\mu;\sigma^2), \forall s\in \mathbb{R}^d\), y que por consiguiente:
 
-\begin{align*}
-  (Z(s+h)-Z(s))^2\approx 2\gamma(h)\chi_1^2   
-\end{align*}
+\begin{align}
+  (Z(s+\textbf{h})-Z(s))^2\approx 2\gamma(\textbf{h})\chi_1^2   
+\end{align}
 
-El inconveniente que presenta este método es la necesidad de definir clases de rezagos para realizar una estimación empírica de la covarianza o del variograma, pues si no se poseen muchos datos la cantidad de estos en cada una de las clases disminuye, de tal forma que para los primeros rezagos se pueden tener suficientes datos para la estimación de cada \(\hat{\gamma}(h_k)\); sin embargo, para los últimos rezagos podrían no existir suficientes datos para la estimación \citep{marta}.
+El inconveniente que presenta este método es la necesidad de definir clases de rezagos para realizar una estimación empírica de la covarianza o del variograma, pues si no se poseen muchos datos la cantidad de estos en cada una de las clases disminuye, de tal forma que para los primeros rezagos se pueden tener suficientes datos para la estimación de cada \(\hat{\gamma}(\textbf{h}_k)\); sin embargo, para los últimos rezagos podrían no existir suficientes datos para la estimación \citep{marta}.
 
 \hypertarget{modelo-lineal-de-regionalizaciuxf3n}{%
 \subsubsection*{Modelo lineal de regionalización}\label{modelo-lineal-de-regionalizaciuxf3n}}
@@ -894,34 +900,34 @@ Teniendo presente que un fenómeno regionalizado podría ser considerado como la
 
 Así, sea \(Y_l\) un subcampo aleatorio de \(Z\) para todo \(l=1,...,L\), se tiene que:
 
-\begin{align*}
+\begin{align}
   Z(s)=\sum_{l=0}^{L}a_lY_l(s)+\mu
-\end{align*}
+\end{align}
 
 con:
 
-\begin{align*}
+\begin{align}
     E(Z(s))&=\mu\\
     E(Y_l(s))&=0\\
-    Cov(Y_l(s),Y_{l'}(s+h))&= \left \{ \begin{matrix} C_l(h) & si \ l=l'
+    Cov(Y_l(s),Y_{l'}(s+\textbf{h}))&= \left \{ \begin{matrix} C_l(h) & si \ l=l'
 \\ 0 & en\ otro\ caso.
 \end{matrix}\right.  
-\end{align*}
+\end{align}
 
 Esto implica que la función de covarianza de \(Z(s)\) es una combinación lineal de las \(L\) funciones \(C_l(h)\) y bajo el supuesto de independencia entre los \(Y\), se tiene que:
 
-\begin{align*}
-    C(h)&=Cov(Z(s),Z(s+h))\\
-    &= \sum_{l=0}^L\sum_{l'=0}^L Cov((Y_l(s),Y_{l'}(s+h))) \\
+\begin{align}
+    C(h)&=Cov(Z(s),Z(s+\textbf{h}))\\
+    &= \sum_{l=0}^L\sum_{l'=0}^L Cov((Y_l(s),Y_{l'}(s+\textbf{h}))) \\
     &=\sum_{l=0}^La_la_lC_l(h)\\
     &=\sum_{l=0}^La_l^2C_l(h)
-\end{align*}
+\end{align}
 
 por lo tanto, el modelo de convarianza \(C(h)\) es:
 
-\begin{align*}
+\begin{align}
   C(h)=\sum_{l=0}^Lb_lC_l(h),\ con\ b_l=a_l^2\geq 0  
-\end{align*}
+\end{align}
 
 De esta forma, como \(b_l>0\) es siempre positivo, y es la silla del modelo básico de covarianza \(C_l(h)\). Las condiciones suficientes para que \(C(h)\) sea un modelo válido de covarianza son:
 
@@ -935,17 +941,17 @@ De esta forma, como \(b_l>0\) es siempre positivo, y es la silla del modelo bás
 
 En términos de variogramas, se tiene que:
 
-\begin{align*}
-  E\left[ (Y_l(s)-Y_l(s+h))(Y_{l'}(s)-Y_{l'}(s+h))  \right]=\left \{ \begin{matrix} \gamma'_l(h) & si\ l=l'\\ 
+\begin{align}
+  E\left[ (Y_l(s)-Y_l(s+\textbf{h}))(Y_{l'}(s)-Y_{l'}(s+\textbf{h}))  \right]=\left \{ \begin{matrix} \gamma'_l(h) & si\ l=l'\\ 
 0 & en\ otro\ caso. 
 \end{matrix}\right.    
-\end{align*}
+\end{align}
 
 Entonces,
 
-\begin{align*}
-   \gamma(h)=\frac{1}{2} E[Z(s+h)-Z(s)]^2=\sum_{l=0}^Lb_l\gamma'_l(h) 
-\end{align*}
+\begin{align}
+   \gamma(h)=\frac{1}{2} E[Z(s+\textbf{h})-Z(s)]^2=\sum_{l=0}^Lb_l\gamma'_l(h) 
+\end{align}
 
 con \(b_l=(a_l)^2\geq 0\), donde \(b_l\) es la contribución en varianza del correspondiente variograma \(\gamma'_l(h)\) \citep{marta}.
 
@@ -974,14 +980,14 @@ En esta sección se presentan las funciones de variograma más comunes, que se d
 
 Este modelo es válido solo en \(\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3\), y está definido por:
 
-\begin{align*}
-    \gamma(||h||;\theta) = \left \{ \begin{matrix} \sigma^2\left(1.5\frac{||h||}{\phi}-0.5\left(\frac{||h||}{\phi}\right)^3 \right) &  si \ ||h||\leq \phi
-\\ \sigma^2 &  si\ ||h||>\phi \end{matrix}\right. 
-\end{align*}
+\begin{align}
+    \gamma(||\textbf{h}||;\theta) = \left \{ \begin{matrix} \sigma^2\left(1.5\frac{||\textbf{h}||}{\phi}-0.5\left(\frac{||\textbf{h}||}{\phi}\right)^3 \right) &  si \ ||\textbf{h}||\leq \phi
+\\ \sigma^2 &  si\ ||\textbf{h}||>\phi \end{matrix}\right. 
+\end{align}
 
 con \(\theta=(\sigma^2,\phi)\), donde \(\sigma^2=C(0)\) es el valor del variograma donde alcanza la silla, y \(\phi\) es el rango.\textbackslash{}
 
-Este variograma presenta un comportamiento lineal cerca del origen, lo cual sugiere continuidad pero con cierto grado de irregularidad en el proceso estocástico espacial o campo aleatorio. Sin embargo, referente a su comportamiento en distancias largas, alcanza su silla en \(||h||=\phi\). El uso habitual de este modelo en la práctica es gracias a su rango bien definido, su representación polinomial simple y su validez en \(\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3\). La principal razón para el uso de este es que se comporta de forma casi lineal hasta que alcanza su silla, y presenta estabilidad en una gran variedad de observaciones.
+Este variograma presenta un comportamiento lineal cerca del origen, lo cual sugiere continuidad pero con cierto grado de irregularidad en el proceso estocástico espacial o campo aleatorio. Sin embargo, referente a su comportamiento en distancias largas, alcanza su silla en \(||\textbf{h}||=\phi\). El uso habitual de este modelo en la práctica es gracias a su rango bien definido, su representación polinomial simple y su validez en \(\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3\). La principal razón para el uso de este es que se comporta de forma casi lineal hasta que alcanza su silla, y presenta estabilidad en una gran variedad de observaciones.
 
 \begin{figure}
 \includegraphics[width=17.78in]{figuras/otros/sph_var} \caption{Izquierda: Variable regionalizada. Derecha: Variograma esférico.}\label{fig:sphvar}
@@ -991,10 +997,10 @@ Este variograma presenta un comportamiento lineal cerca del origen, lo cual sugi
 
 Este variograma refleja la ausencia de dependencia espacial en el proceso estocástico o campo aleatorio; este modelo puede ser visto como un caso particular del modelo esférico si \(\phi \to 0\):
 
-\begin{align*}        
-    \gamma(||h||;\theta) = \left \{ \begin{matrix} \sigma^2&  si \ ||h|| =0\\
-    0 &  si\ ||h||>0 \end{matrix}\right.
-    \end{align*}
+\begin{align}        
+    \gamma(||\textbf{h}||;\theta) = \left \{ \begin{matrix} \sigma^2&  si \ ||\textbf{h}|| =0\\
+    0 &  si\ ||\textbf{h}||>0 \end{matrix}\right.
+    \end{align}
 
 con \(\theta=\sigma^2\).
 
@@ -1008,11 +1014,11 @@ Se debe tener en cuenta que el modelo esférico corresponde a una función aleat
 
 Este modelo es válido en \(\mathbb{R}^d,\ d\geq 1\), y está definido por:
 
-\begin{align*}
-    \gamma(||h||;\theta)=\sigma^2 \left(1-\exp\left(-\frac{||h||}{\phi}\right) \right),\quad \theta=(\sigma^2,\phi)
-\end{align*}
+\begin{align}
+    \gamma(||\textbf{h}||;\theta)=\sigma^2 \left(1-\exp\left(-\frac{||\textbf{h}||}{\phi}\right) \right),\quad \theta=(\sigma^2,\phi)
+\end{align}
 
-El modelo exponencial refleja un comportamiento lineal cerca del origen, lo cual indica continuidad pero con un cierto grado de irregularidad en la función aleatoria. Por otro lado, en cuanto a su comportamiento en largas distancias, este alcanza su silla solo asintóticamente cuando \(||h||\to \infty\). El valor del rango es igual a la distancia para el cual el variograma toma un valor igual al \(95\%\) de la silla.
+El modelo exponencial refleja un comportamiento lineal cerca del origen, lo cual indica continuidad pero con un cierto grado de irregularidad en la función aleatoria. Por otro lado, en cuanto a su comportamiento en largas distancias, este alcanza su silla solo asintóticamente cuando \(||\textbf{h}||\to \infty\). El valor del rango es igual a la distancia para el cual el variograma toma un valor igual al \(95\%\) de la silla.
 
 \begin{figure}
 \includegraphics[width=17.78in]{figuras/otros/exp_var} \caption{Izquierda: Variable regionalizada. Derecha: Variograma exponencial.}\label{fig:unnamed-chunk-3}
@@ -1022,9 +1028,9 @@ El modelo exponencial refleja un comportamiento lineal cerca del origen, lo cual
 
 Este modelo es válido en \(\mathbb{R}^d,\ d\geq 1\), y está definido por:
 
-\begin{align*}
-    \gamma(||h||;\theta)=\sigma^2\left(1-\exp\left(-\frac{||h||^2}{\phi^2} \right) \right),\quad \theta=(\sigma^2,\phi)
-\end{align*}
+\begin{align}
+    \gamma(||\textbf{h}||;\theta)=\sigma^2\left(1-\exp\left(-\frac{||\textbf{h}||^2}{\phi^2} \right) \right),\quad \theta=(\sigma^2,\phi)
+\end{align}
 
 La principal característica de este modelo es su forma parabólica cerca al origen; la dependencia espacial se desvanece solo en una distancia que tiende a infinito; por consiguiente, este modelo es considerado poco realista en la práctica.
 
@@ -1036,10 +1042,10 @@ La principal característica de este modelo es su forma parabólica cerca al ori
 
 Este modelo es válido en \(\mathbb{R}^1,\mathbb{R}^2,\mathbb{R}^3\); generalmente es similar al modelo Gaussiano, puesto que también presenta un comportamiento parabólico cerca del origen. Sin embargo, este modelo alcanza una silla plana a una distancia \(\phi\), y esta definido por:
 
-\begin{align*}
-    \gamma(||h||;\theta)=\left \{ \begin{matrix} \sigma^2\left(7\frac{||h||^2}{\phi^2}-\frac{35||h||^3}{4\phi^3}+\frac{7||h||^5}{2\phi^5}-\frac{3||h||^7}{4\phi^7} \right) &  si \ 0\leq||h||\leq\phi\\
-    \sigma^2 &  si\ ||h||>\phi \end{matrix}\right.
-\end{align*}
+\begin{align}
+    \gamma(||\textbf{h}||;\theta)=\left \{ \begin{matrix} \sigma^2\left(7\frac{||\textbf{h}||^2}{\phi^2}-\frac{35||\textbf{h}||^3}{4\phi^3}+\frac{7||\textbf{h}||^5}{2\phi^5}-\frac{3||\textbf{h}||^7}{4\phi^7} \right) &  si \ 0\leq||\textbf{h}||\leq\phi\\
+    \sigma^2 &  si\ ||\textbf{h}||>\phi \end{matrix}\right.
+\end{align}
 
 con \(\theta=(\sigma^2,\phi)\).
 
@@ -1051,9 +1057,9 @@ con \(\theta=(\sigma^2,\phi)\).
 
 Este modelo es válido en \(\mathbb{R}^d,\ d\geq1\) y está definido por:
 
-\begin{align*}
-    \gamma(||h||;\theta)=\sigma^2 \left(1-\exp\left(-\left(\frac{||h||}{\phi}\right)^\alpha\right) \right),\quad 0<\alpha \leq 2,\ \theta=(\sigma^2,\phi)
-\end{align*}
+\begin{align}
+    \gamma(||\textbf{h}||;\theta)=\sigma^2 \left(1-\exp\left(-\left(\frac{||\textbf{h}||}{\phi}\right)^\alpha\right) \right),\quad 0<\alpha \leq 2,\ \theta=(\sigma^2,\phi)
+\end{align}
 
 Notar que para \(\alpha=1\), se obtiene el modelo exponencial y con \(\alpha=2\), se convierte en un modelo Gaussiano.
 
@@ -1065,9 +1071,9 @@ Notar que para \(\alpha=1\), se obtiene el modelo exponencial y con \(\alpha=2\)
 
 Este modelo es válido en \(\mathbb{R}^d,\ d\geq1\), y está definido por:
 
-\begin{align*}
-    \gamma(||h||;\theta)=\sigma^2\left(1-\frac{1}{\left(1+\left( \frac{||h||}{\phi} \right)^2\right)^\alpha} \right), \quad \theta=(\sigma^2,\phi)
-\end{align*}
+\begin{align}
+    \gamma(||\textbf{h}||;\theta)=\sigma^2\left(1-\frac{1}{\left(1+\left( \frac{||\textbf{h}||}{\phi} \right)^2\right)^\alpha} \right), \quad \theta=(\sigma^2,\phi)
+\end{align}
 
 Si \(\alpha=1\) es conocido como el modelo de Cauchy.
 
@@ -1081,15 +1087,15 @@ Este modelo muestra un comportamiento parabólico cerca del origen y si \(\alpha
 
 Este modelo es válido en \(\mathbb{R}^d,\quad d \geq 1\), y esta definido por:
 
-\begin{align*}
-    \gamma(||h||;\theta)=\sigma^2\left(1-\frac{1}{2^{\alpha-1}\Gamma(\alpha)}\left(\frac{||h||}{\phi} \right)^\alpha K_\alpha \left(\frac{||h||}{\phi} \right) \right),\quad \alpha>0,\ \theta=(\sigma^2,\phi)
-\end{align*}
+\begin{align}
+    \gamma(||\textbf{h}||;\theta)=\sigma^2\left(1-\frac{1}{2^{\alpha-1}\Gamma(\alpha)}\left(\frac{||\textbf{h}||}{\phi} \right)^\alpha K_\alpha \left(\frac{||\textbf{h}||}{\phi} \right) \right),\quad \alpha>0,\ \theta=(\sigma^2,\phi)
+\end{align}
 
 donde \(K_\alpha\) es la función de Bessel modificada de segundo tipo de orden \(\alpha\), y que está definida por:
 
-\begin{align*}
+\begin{align}
     K_\alpha (\nu) =\frac{\pi}{2\sin(\alpha \pi)}\left(\sum_{k=0}^\infty {\frac{1}{k!\Gamma(-\alpha+k+1)}\left(\frac{\nu}{2}\right)^{2k-\alpha}}-\sum_{k=0}^\infty {\frac{1}{k!\Gamma(\alpha+k+1)}\left(\frac{\nu}{2}\right)^{2k+\alpha}}\right)
-\end{align*}
+\end{align}
 
 El modelo K-Bessel puede tener cualquier tipo de comportamiento cerca del origen. Para \(\alpha=1/2\), se obtiene el modelo exponencial.
 
@@ -1107,15 +1113,15 @@ En la práctica la dependencia espacial puede no crecer monótonamente, incluso 
 
 Este modelo está definido por:
 
-\begin{align*}
-    \gamma(||h||;\theta)=\sigma^2\left(1-\left(\frac{2\phi}{||h||} \right)^{\alpha} \Gamma(\alpha+1)J_\alpha \left(\frac{||h||}{\phi} \right) \right),\quad \theta=(\sigma^2,\phi)
-\end{align*}
+\begin{align}
+    \gamma(||\textbf{h}||;\theta)=\sigma^2\left(1-\left(\frac{2\phi}{||\textbf{h}||} \right)^{\alpha} \Gamma(\alpha+1)J_\alpha \left(\frac{||\textbf{h}||}{\phi} \right) \right),\quad \theta=(\sigma^2,\phi)
+\end{align}
 
 donde \(\alpha\) es el parámetro de forma, \(\phi\) es el parámetro de escala, \(\Gamma\) es la función de Euler, y \(J_\alpha\) es la función \(J-Bessel\) del primer tipo de orden \(\alpha\) dada por:
 
-\begin{align*}
+\begin{align}
     J_\alpha (\nu) =\left(\frac{\nu}{2}\right)^2 \sum_{k=0}^\infty{{\frac{-1^k}{k!\Gamma(\alpha+k+1)}}{\left(\frac{\nu}{2}\right)^{2k}}}
-\end{align*}
+\end{align}
 
 y es válido para \(\mathbb{R}^d, d\leq 2(\alpha+1)\).\textbackslash{}
 
@@ -1127,9 +1133,9 @@ y es válido para \(\mathbb{R}^d, d\leq 2(\alpha+1)\).\textbackslash{}
 
 Este modelo es una particularización del modelo J-Bessel para \(\alpha=1/2\), y es uno de los pocos modelos de efecto hueco válidos en \(\mathbb{R}^3\), y está definido por:
 
-\begin{align*}
-    \gamma(||h||;\theta)=\sigma^2 \left(1-\frac{\phi}{||h||}\sin\left(\frac{||h||}{\phi} \right)  \right),\quad \theta=(\sigma^2,\phi)
-\end{align*}
+\begin{align}
+    \gamma(||\textbf{h}||;\theta)=\sigma^2 \left(1-\frac{\phi}{||\textbf{h}||}\sin\left(\frac{||\textbf{h}||}{\phi} \right)  \right),\quad \theta=(\sigma^2,\phi)
+\end{align}
 
 \begin{figure}
 \includegraphics[width=17.78in]{figuras/otros/sin_var} \caption{Izquierda: Variable regionalizada. Derecha: Variograma seno cardinal.}\label{fig:sinvar}
@@ -1145,19 +1151,19 @@ Estos modelos corresponden a procesos estocásticos espaciales o campos aleatori
 
 Este modelo es válido en \(\mathbb{R}^d,d\geq 1\) y está definido por:
 
-\[
-          \gamma(||h||)=(||h||)^\alpha,\quad  0<\alpha<2, 
-\]
+\begin{verbatim}
+      \gamma(||\textbf{h}||)=(||\textbf{h}||)^\alpha,\quad  0<\alpha<2, 
+\end{verbatim}
 
-Este variograma no posee ni silla ni rango, sino que crece indefinidamente. Si \(\alpha\) es cercano a cero, se dice que es un variograma de efecto pepita, si \(\alpha\) es cercano a dos tiene un comportamiento parabólico y si \(\alpha\) es igual a uno presenta un comportamiento lineal. Para \(\alpha\geq 2\) la condición \(\lim_{h\to \infty}\frac{\gamma||h||}{h^2}=0\) no se satisface; es decir, el modelo no es intrínsecamente estacionario.
+Este variograma no posee ni silla ni rango, sino que crece indefinidamente. Si \(\alpha\) es cercano a cero, se dice que es un variograma de efecto pepita, si \(\alpha\) es cercano a dos tiene un comportamiento parabólico y si \(\alpha\) es igual a uno presenta un comportamiento lineal. Para \(\alpha\geq 2\) la condición \(\lim_{h\to \infty}\frac{\gamma||\textbf{h}||}{h^2}=0\) no se satisface; es decir, el modelo no es intrínsecamente estacionario.
 
 \textbf{Modelo lineal}
 
 Este modelo es un caso especial del modelo potencia si \(\alpha=1\), y está asociado con la estacionariedad intrínseca, pero no con la estacionariedad de segundo orden y está definido por:
 
-\[
-          \gamma(||h||)=\left \{ \begin{matrix} 0 & si\ ||h||=0\\ ||h|| & si\ ||h||>0 \end{matrix}\right.  
-\]
+\begin{verbatim}
+      \gamma(||\textbf{h}||)=\left \{ \begin{matrix} 0 & si\ ||\textbf{h}||=0\\ ||\textbf{h}|| & si\ ||\textbf{h}||>0 \end{matrix}\right.  
+\end{verbatim}
 
 \hypertarget{caso-multivariante-ejemplos}{%
 \subsection{Caso Multivariante (Ejemplos)}\label{caso-multivariante-ejemplos}}
@@ -1168,24 +1174,24 @@ El variograma multivariado fue formalizado en 1991 como una aplicación a proces
 \item
   Covariograma multivariado:
 
-  \begin{align*}
+  \begin{align}
         K(h)&=E[(Z(s)-\boldsymbol \mu)M(Z(s+\textbf{h})-\boldsymbol \mu){'}]
-    \end{align*}
+    \end{align}
 \item
   Variograma multivariado:
 
-  \begin{align*}
+  \begin{align}
         \Gamma(h)=E[(Z(s)-Z(s+\textbf{h}))M(Z(s)-Z(s+\textbf{h}))']
-    \end{align*}
+    \end{align}
 \end{itemize}
 
 donde \(Z(s)\) es un vector fila de \(p\) procesos estocásticos espaciales o campos aleatorios estacionarios de segundo orden, \(\boldsymbol \mu=E[Z(s)]\) y \(M\) es una matriz simétrica definida positiva de tamaño \(p\times p\) utilizada como métrica en el cálculo de similaridades \citep{borou}.
 
 Asumiendo estacionariedad de segundo orden, la función de autocovarianza multivariada está relacionada con el variograma multivariado por medio de:
 
-\begin{align*}
+\begin{align}
     K(h)=\Gamma(\infty)-\Gamma(h)
-\end{align*}
+\end{align}
 
 donde \(\Gamma(\infty)\) es la silla del variograma multivariado. Si \(\Gamma(0)=0\) entonces \(K(0)=\Gamma(h)\).
 
@@ -1193,11 +1199,11 @@ El variograma multivariado representa la esperanza matemática de una medida de 
 
 La estimación del variograma multivariado se realiza promediando las disimilitudes multivariadas al cuadrado, de forma similar al variograma tradicional; es decir:
 
-\begin{align*}
-    \Gamma^*(h)=\frac{1}{2|N(h)|}\sum_{N(h)}d_{ij}^2
-\end{align*}
+\begin{align}
+    \Gamma^*(h)=\frac{1}{2|N(\textbf{h})|}\sum_{N(\textbf{h})}d_{ij}^2
+\end{align}
 
-donde \(d_{ij}\) es la disimilitud entre las muestras \(i\) y \(j\) calculadas con una métrica dada y \(N(h)\) como se definió anteriormente \citep{borou}.
+donde \(d_{ij}\) es la disimilitud entre las muestras \(i\) y \(j\) calculadas con una métrica dada y \(N(\textbf{h})\) como se definió anteriormente \citep{borou}.
 
 Ahora bien, para realizar el ajuste de los modelos teóricos de variogramas y variogramas cruzados, se utiliza el Modelo Lineal de Coregionalización.
 
@@ -1211,50 +1217,50 @@ Para el cálculo del MLC es necesario introducir las siguientes medidas:
 \item
   \textbf{Covarianza cruzada:}
 
-  \begin{align*}
-        C_{rr'}(h)=\left[E(Z_r(s)-E(Z_r(s))) \right]\left[E(Z_{r'}(s+h)-E(Z_{r'}(s+h))) \right]
-    \end{align*}
+  \begin{align}
+        C_{rr'}(\textbf{h})=\left[E(Z_r(s)-E(Z_r(s))) \right]\left[E(Z_{r'}(s+\textbf{h})-E(Z_{r'}(s+\textbf{h}))) \right]
+    \end{align}
 \item
   \textbf{Correlación cruzada:}
 
-  \begin{align*}
-        \rho_{rr'}=\dfrac{C_{rr'}(h)}{\sigma_r \sigma_{r'}}
-    \end{align*}
+  \begin{align}
+        \rho_{rr'}=\dfrac{C_{rr'}(\textbf{h})}{\sigma_r \sigma_{r'}}
+    \end{align}
 \item
   \textbf{Variograma cruzado:}
 
-  \begin{align*}
-        \gamma_{rr'}(h)=\frac{1}{2}E\left[Z_r(s+h)-Z_r(s) \right]\left[ Z_{r'}(s+h)-Z_{r'}(s)\right]
-    \end{align*}
+  \begin{align}
+        \gamma_{rr'}(\textbf{h})=\frac{1}{2}E\left[Z_r(s+\textbf{h})-Z_r(s) \right]\left[ Z_{r'}(s+\textbf{h})-Z_{r'}(s)\right]
+    \end{align}
 \item
   \textbf{El pseudo variograma cruzado:}
 
-  \begin{align*}
-        \phi_{rr'}=\frac{1}{2}E\left[Z_r(s+h)-Z_{r'}(s) \right]^2
-    \end{align*}
+  \begin{align}
+        \phi_{rr'}=\frac{1}{2}E\left[Z_r(s+\textbf{h})-Z_{r'}(s) \right]^2
+    \end{align}
 \item
   \textbf{Co-dispersión:}
 
-  \begin{align*}
-        v_{rr'}(h)=\frac{\gamma_{rr'}(h)}{\sqrt{\gamma_{rr}(h)}\sqrt{\gamma_{r'r'}(h)} } \in [-1,1]
-    \end{align*}
+  \begin{align}
+        v_{rr'}(\textbf{h})=\frac{\gamma_{rr'}(\textbf{h})}{\sqrt{\gamma_{rr}(\textbf{h})}\sqrt{\gamma_{r'r'}(\textbf{h})} } \in [-1,1]
+    \end{align}
 \end{itemize}
 
-Al igual que en el caso univariante, el variograma cruzado posee las siguientes propiedades: es invariante bajo traslación, \(\gamma_{rr'}(0)=0\), \(\gamma_{rr'}(h)=\gamma_{rr'}(-h)\). Además, esta medida es la más utilizada en las aplicaciones geoestadísticas.
+Al igual que en el caso univariante, el variograma cruzado posee las siguientes propiedades: es invariante bajo traslación, \(\gamma_{rr'}(0)=0\), \(\gamma_{rr'}(\textbf{h})=\gamma_{rr'}(-\textbf{h})\). Además, esta medida es la más utilizada en las aplicaciones geoestadísticas.
 
-Ahora bien, sea \(\mathbb{Z}=(Z_1,...,Z_p)\) un proceso estocástico o campo aleatorio espacial multiavariante; se tiene que el MLC es una suma proporcional de modelos de covarianza o variogramas. En notación matricial donde \(C(h)=[C_{ij}(h)]\) es una matriz de covarianza de dimensión \(p\times p\) y de manera similar \(\Gamma(h)=[\Gamma_{ij}(h)]\), con
+Ahora bien, sea \(\mathbb{Z}=(Z_1,...,Z_p)\) un proceso estocástico o campo aleatorio espacial multiavariante; se tiene que el MLC es una suma proporcional de modelos de covarianza o variogramas. En notación matricial donde \(C(\textbf{h})=[C_{ij}(\textbf{h})]\) es una matriz de covarianza de dimensión \(p\times p\) y de manera similar \(\Gamma(\textbf{h})=[\Gamma_{ij}(\textbf{h})]\), con
 
-\begin{align*}
-    C(h)&=\sum_{k=1}^{L}B_kC_k(h)\\
-    \Gamma(h)&=\sum_{k=1}^LB_k\gamma_k(h)
-\end{align*}
+\begin{align}
+    C(\textbf{h})&=\sum_{k=1}^{L}B_kC_k(\textbf{h})\\
+    \Gamma(\textbf{h})&=\sum_{k=1}^LB_k\gamma_k(\textbf{h})
+\end{align}
 
 donde cada \(B_k\) se conoce como \textit{matriz de coregionalización} y:
 
-\begin{align*}
-    C_{ij}(h)&=\sum_{k=1}^Lb_k(i,j)C_k(h)\quad \forall i,j=1,...,p\\
-    \Gamma_{ij}(h)&=\sum_{k=1}^Lb_k(i,j)\gamma_k(h)\quad \forall i,j=1,...,p
-\end{align*}
+\begin{align}
+    C_{ij}(\textbf{h})&=\sum_{k=1}^Lb_k(i,j)C_k(\textbf{h})\quad \forall i,j=1,...,p\\
+    \Gamma_{ij}(\textbf{h})&=\sum_{k=1}^Lb_k(i,j)\gamma_k(\textbf{h})\quad \forall i,j=1,...,p
+\end{align}
 
 El MLC asume que todos los variogramas simples y cruzados pueden ser expresados como una combinación lineal de modelos básicos (exponencial, Gaussiano, esférico, entre otros) idénticos indexados por \(k\). Una condición suficiente para que el modelo sea válido es que cada una de las matrices \(B_k\) sean definidas positivas.
 
@@ -1270,68 +1276,68 @@ El ajuste es llevado a cabo por el algoritmo propuesto por Goulard (1989) quiene
 
 Se definen matricialmete el variograma empírico y variograma teórico multivariado como sigue:
 
-\begin{align*}
-    \hat{\Gamma(h)}&=\left[\hat{\gamma}_{ij}(h)\right]\\
-    \Gamma(h)&=\left[\gamma_{ij}(h)\right]=\sum_kB_k\gamma_k(h)
-\end{align*}
+\begin{align}
+    \hat{\Gamma(\textbf{h})}&=\left[\hat{\gamma}_{ij}(\textbf{h})\right]\\
+    \Gamma(\textbf{h})&=\left[\gamma_{ij}(\textbf{h})\right]=\sum_kB_k\gamma_k(\textbf{h})
+\end{align}
 
-el criterio de bondad de ajuste es la suma de cuadrados ponderados (SCP) de todos los términos de la matriz de errores \(\hat{\Gamma}(h)-\Gamma(h)\) y se suman sobre el conjunto de retardos \(J\) utilizados para el ajuste; es decir:
+el criterio de bondad de ajuste es la suma de cuadrados ponderados (SCP) de todos los términos de la matriz de errores \(\hat{\Gamma}(\textbf{h})-\Gamma(\textbf{h})\) y se suman sobre el conjunto de retardos \(J\) utilizados para el ajuste; es decir:
 
-\begin{align*}
-    SCP=\sum_{k\in J}w(h)\text{traza}\left\{ \left[V^{*}(\hat{\Gamma}(h)-\Gamma(h))\right]^2\right\}
-\end{align*}
+\begin{align}
+    SCP=\sum_{k\in J}w(h)\text{traza}\left\{ \left[V^{*}(\hat{\Gamma}(\textbf{h})-\Gamma(\textbf{h}))\right]^2\right\}
+\end{align}
 
 Los ponderadores \(w(h)\) son positivos y usualmente iguales al número de pares utilizados para la estimación del variograma en el retardo \(h\). La matriz \(V^{*}\) es definida positiva y diseñada para equilibrar la influencia de las variables; por lo general es la diagonal de la matriz o inversa de la matriz de varianzas o la matriz identidad. La idea es minimizar el criterio optimizando un \(B_k\) a la vez y repitiendo esto hasta que no haya mejora alguna. El residuo para el ajuste actual menos el \(k-\)ésimo término es:
 
-\begin{align*}
-    d\Gamma_k(h)=\hat{\Gamma}(h)-\sum_{u\neq k}B_u\gamma_u(h)
-\end{align*}
+\begin{align}
+    d\Gamma_k(\textbf{h})=\hat{\Gamma}(\textbf{h})-\sum_{u\neq k}B_u\gamma_u(\textbf{h})
+\end{align}
 
-En ausencia de restricción de positividad, el ajuste óptimo de \(d\Gamma_k\) por \(B_k\gamma_k(h)\) se obtiene por medio de la cancelación de la derivada de SCP en relación a \(B_k\)
+En ausencia de restricción de positividad, el ajuste óptimo de \(d\Gamma_k\) por \(B_k\gamma_k(\textbf{h})\) se obtiene por medio de la cancelación de la derivada de SCP en relación a \(B_k\)
 
-\begin{align*}
-    \frac{\partial SCP}{\partial B_k}=-2V^{*}\left[ \sum_{h\in J}w(h)\gamma_k(h)\left(d\Gamma_k(h)-\gamma_k(h)B_k\right)\right]V^{*}=0
-\end{align*}
+\begin{align}
+    \frac{\partial SCP}{\partial B_k}=-2V^{*}\left[ \sum_{h\in J}w(h)\gamma_k(\textbf{h})\left(d\Gamma_k(\textbf{h})-\gamma_k(\textbf{h})B_k\right)\right]V^{*}=0
+\end{align}
 
 Como \(V^{*}\) es no singular se tiene que:
 
-\begin{align*}
-    B_k&=\frac{1}{\alpha_k}\sum_{h\in J}w(h)\gamma_k(h)d\Gamma_k(h)\\
-\end{align*}
+\begin{align}
+    B_k&=\frac{1}{\alpha_k}\sum_{h\in J}w(h)\gamma_k(\textbf{h})d\Gamma_k(\textbf{h})\\
+\end{align}
 
 donde
 
-\begin{align*}
-    \alpha_k&=\sum_{h\in J}w(h)\gamma_k(h)^2
-\end{align*}
+\begin{align}
+    \alpha_k&=\sum_{h\in J}w(h)\gamma_k(\textbf{h})^2
+\end{align}
 
 La solución restringida \(B_k^{+} \geq 0\) es la matriz definida positiva cercana a \(B_k\) de acuerdo a la norma definida por \(V^{*}\). Dado que es simétrica, la matriz \(B_k\) tiene descomposición de la siguiente forma
 
-\begin{align*}
+\begin{align}
     B_k=U_k\nabla_k U_k^{'}\quad \text{con} \quad U_k^{'}V^{*}U_k=I_p
-\end{align*}
+\end{align}
 
 donde \(U_k\) es una matriz de vectores propios de \(B_kV^{*}\) y \(\nabla_k\) es la matriz diagonal de sus valores propios.
 
 Por tanto, la solución restringida es
 
-\begin{align*}
+\begin{align}
     B_k^{'}=U_k\nabla_k^{+}U_k^{'}
-\end{align*}
+\end{align}
 
 donde \(\nabla_k^{+}\) es la matriz \(\nabla_k\) en el cual los valores propios negativos son reemplazados por ceros. Este algoritmo iterativo siempre converge y la solución no depende del punto de partida \citep{peter}.
 
 \hypertarget{geoestaduxedstica-espacio-temporal}{%
 \section{Geoestadística Espacio Temporal}\label{geoestaduxedstica-espacio-temporal}}
 
-A través de la geoestadística se han estudiado los campos aleatorios en la naturaleza; sin embargo, existen ramas de la ciencia que presentan aplicaciones prácticas como las ciencias sociales, monitorización de contaminación ambiental, climatología, geología, biología, medicina, arqueología y cualquier otro campo de la ciencia que estudie fenómenos que ocurren tanto en espacio como en tiempo \citep{montero}. Al considerar la evolución conjunta del proceso espacio-temporal, en lugar de solo considerar su distribución espacial para un determinado instante de tiempo (proceso puramente espacial) o la evolución temporal del proceso sobre una localización determinada (proceso puramente temporal), se obtendrá grandes beneficios en la modelización y predicción de un fenómeno en estudio \citep{gst_casal}.Es así que considerar ambos elementos por separado nos llevaría a una pérdida de información. En este sentido, la geoestadística espacio-temporal ofrece las herramientas adecuadas para este tipo de estudios.Es por ello que la demanda de modelos covariográficos que describen la evolución de procesos en espacio-tiempo se hace cada vez más notoria.
+A través de la geoestadística se han estudiado los campos aleatorios en la naturaleza; sin embargo, existen ramas de la ciencia que presentan aplicaciones prácticas como las ciencias sociales, monitorización de contaminación ambiental, climatología, geología, biología, medicina, arqueología y cualquier otro campo de la ciencia que estudie fenómenos que ocurren tanto en espacio como en tiempo \citep{montero}. Al considerar la evolución conjunta del proceso espacio-temporal, en lugar de solo considerar su distribución espacial para un determinado instante de tiempo (proceso puramente espacial) o la evolución temporal del proceso sobre una localización determinada (proceso puramente temporal), se obtendrá grandes beneficios en la modelización y predicción de un fenómeno en estudio \citep{gstcasal}. Es así que considerar ambos elementos por separado nos llevaría a una pérdida de información. En este sentido, la geoestadística espacio-temporal ofrece las herramientas adecuadas para este tipo de estudios.Es por ello que la demanda de modelos covariográficos que describen la evolución de procesos en espacio-tiempo se hace cada vez más notoria.
 
-Los métodos geoestadísticos y espacio-temporales utilizan distancias euclídeas o espacio temporales, por tanto se consideran los métdos basados en distancias para el cáclculo entre las observaciones que junto la información proporcionada por el variograma permitirá la generación de mejores pronósticos \citep{gst_casal}. Por otro lado se debe considerar que en el campo espacio-tiempo también se trabaja con grandes volúmenes de datos debido a la resolución espacial y periodicidad temporal, lo que conlleva al uso de métodos computacionales intensivos.
+Los métodos geoestadísticos y espacio-temporales utilizan distancias euclídeas o espacio temporales, por tanto se consideran los métdos basados en distancias para el cálculo entre las observaciones que junto la información proporcionada por el variograma permitirá la generación de mejores pronósticos \citep{gstcasal}. Por otro lado se debe considerar que en el campo espacio-tiempo también se trabaja con grandes volúmenes de datos debido a la resolución espacial y periodicidad temporal, lo que conlleva al uso de métodos computacionales intensivos.
 
 \hypertarget{conceptos}{%
 \subsection{Conceptos}\label{conceptos}}
 
-Se puede considerar a cada ubicación espacio-temporal como un punto en \(\mathbb{R}^d \times \mathbb{R}\), con \(\mathbb{R}^d\) siendo el espacio euclidiano \(d-\)dimensional y \(\mathbb{R}\) la dimensión del tiempo. Notemos que ni las escalas ni las unidades de distancia en el tiempo y el espacio son generalmente comparables. Por lo que la dificultad principal en el análisis de procesos espacio-temporales recae en la elección de un modelo de covarianza válido que se ajuste a las observaciones. Bajo hipótesis de regularidad se podrán analizar las observaciones separadas por un vector de distancia espacio temporal \((\textbf{h},u)\) \citep{gespt_cas}.
+Se puede considerar a cada ubicación espacio-temporal como un punto en \(\mathbb{R}^d \times \mathbb{R}\), con \(\mathbb{R}^d\) siendo el espacio euclidiano \(d-\)dimensional y \(\mathbb{R}\) la dimensión del tiempo. Notemos que ni las escalas ni las unidades de distancia en el tiempo y el espacio son generalmente comparables. Por lo que la dificultad principal en el análisis de procesos espacio-temporales recae en la elección de un modelo de covarianza válido que se ajuste a las observaciones. Bajo hipótesis de regularidad se podrán analizar las observaciones separadas por un vector de distancia espacio temporal \((\textbf{h},u)\) \citep{gstcasal}.
 
 El objetivo de esta sección es introducir aquellos conceptos más relevantes en el análisis de procesos estocásticos espacio-temporales. Muchos de los conceptos tratados serán generalizaciones del caso espacial que se han visto en el capítulo \textbf{X}.
 
@@ -1341,7 +1347,7 @@ El objetivo de esta sección es introducir aquellos conceptos más relevantes en
 
 Sea \(Z\) la variable aleatoria de interés, \(s\) su ubicación espacial y \(t\) el tiempo de ocurrencia. Un proceso espacio-temporal es un proceso estocástico
 
-\[\{Z(s,t):(s,t) \in D \times D' \}\]
+\{Z(s,t):(s,t) \in D \times D' \}
 
 donde el conjunto \(D \subset \mathbb{R}^d\) es el conjunto de todas las ubicaciones espaciales y el conjunto \(D' \subset \mathbb{R}\) es el conjunto de todos los instantes de tiempo. Los conjuntos \(D\) y \(D'\) pueden ser continuos o discretos, fijos o aleatorios \citep{marta}.
 
@@ -1353,11 +1359,11 @@ Siguiendo los conceptos clásicos de geoestadística, la distribución del proce
 
 Un campo aleatorio \(Z(s,t)\) en \(\mathbb{R}^d\times \mathbb{R}\) cumple la propiedad de regularidad si:
 
-\[
-\begin{align*}
+\begin{align}
 V(Z(s,t))<\infty, \forall (s,t) \in \mathbb{R}^d\times \mathbb{R}
-\end{align*}
-\] que a su vez asegura la existencia de los dos primeros momentos.
+\end{align}
+
+que a su vez asegura la existencia de los dos primeros momentos.
 
 \hypertarget{campo-aleatorio-gaussiano}{%
 \subsubsection*{Campo aleatorio Gaussiano}\label{campo-aleatorio-gaussiano}}
@@ -1371,11 +1377,9 @@ Un campo aleatorio \(Z(s,t)\) se dice Gaussiano si el vector aleatorio \(\textbf
 
 La media de un campo aleatorio espacio-temporal está definido por la función
 
-\[
-  \begin{align*}
+\begin{align}
   E[Z(s,t)]=\mu(s,t)
-  \end{align*}
-\]
+  \end{align}
 
 \hypertarget{funciuxf3n-de-covarianza-1}{%
 \subsubsection*{Función de covarianza}\label{funciuxf3n-de-covarianza-1}}
@@ -1383,54 +1387,48 @@ La media de un campo aleatorio espacio-temporal está definido por la función
 
 Para cualquier para de puntos espacio-temporales, la covarianza de un campo aleatorio espacio temporal está definido por la función
 
-\[
-\begin{align*}
+\begin{align}
 C[(s_i,t_i),(s_j,t_j)]=C[Z(s_i,t_i),Z(s_j,t_j)]
-\end{align*}
-\]
+\end{align}
 
 \hypertarget{estacionariedad-fuerte-o-estricta}{%
 \subsubsection*{Estacionariedad fuerte o estricta}\label{estacionariedad-fuerte-o-estricta}}
 \addcontentsline{toc}{subsubsection}{Estacionariedad fuerte o estricta}
 
-Un campo aleatorio \(Z(s,t)\) es estrictamente estacionario si su distribución de probabilidad es traslacionalmente invariante. Es decir que, para dos vectores \(\boldsymbol{h}\) y \(u\)
+Un campo aleatorio \(Z(s,t)\) es estrictamente estacionario si su distribución de probabilidad es traslacionalmente invariante. Es decir que, para dos vectores \(\textbf{h}\) y \(u\)
 
-\[
-\begin{align*}
+\begin{align}
 Z(s,t)&=[Z(s_1,t_1), Z(s_2,t_2),...,Z(s_n,t_n)]^{'}
-\end{align*}
-\] y
+\end{align}
 
-\[
-\begin{align*}
-Z(s+\boldsymbol h,t+u)&=[Z(s_1+\boldsymbol h,t_1+u), Z(s_2+\boldsymbol h,t_2+u),...,Z(s_n+\boldsymbol h,t_n+u)]^{'}
-\end{align*}
-\] Tienen la misma función de distribución multivariante, es decir
+y
 
-\[
-\begin{align*}
-F_{Z_1,...,Z_n}[(s_1,t_1),...,(s_n,t_n)]&= F_{Z_1,...,Z_n}[(s_1+\boldsymbol h,t_1+ u),...,(s_n+\boldsymbol h,t_n+u)]
-\end{align*}
-\]
+\begin{align}
+Z(s+\textbf{h},t+u)&=[Z(s_1+\textbf{h},t_1+u), Z(s_2+\textbf{h},t_2+u),...,Z(s_n+\textbf{h},t_n+u)]^{'}
+\end{align}
+
+Tienen la misma función de distribución multivariante, es decir
+
+\begin{align}
+F_{Z_1,...,Z_n}[(s_1,t_1),...,(s_n,t_n)]&= F_{Z_1,...,Z_n}[(s_1+\textbf{h},t_1+ u),...,(s_n+\textbf{h},t_n+u)]
+\end{align}
 
 \hypertarget{estacionariedad-de-segundo-orden-1}{%
 \subsubsection*{Estacionariedad de segundo orden}\label{estacionariedad-de-segundo-orden-1}}
 \addcontentsline{toc}{subsubsection}{Estacionariedad de segundo orden}
 
-Un campo aleatorio \(Z(s,t)\) es estacionario de segundo orden si tiene media constante y la función de covarianza depende solo de \(\boldsymbol h\) y \(\boldsymbol \mu\), es decir
+Un campo aleatorio \(Z(s,t)\) es estacionario de segundo orden si tiene media constante y la función de covarianza depende solo de \(\textbf{h}\) y \(u\), es decir
 
-\[
-\begin{align*}
+\begin{align}
 E[Z(s,t)]&=\mu(s,t)=\mu,\quad \forall (s,t)\in \mathbb{R}^2\times \mathbb{R} \\
-C[Z(s_i,t_i),Z(s_j,t_j)]&=C(\boldsymbol h, u), \quad \forall(s,t) \in \mathbb{R}^2 \times \mathbb{R}
-\end{align*}
-\]
+C[Z(s_i,t_i),Z(s_j,t_j)]&=C(\textbf{h}, u), \quad \forall(s,t) \in \mathbb{R}^2 \times \mathbb{R}
+\end{align}
 
 \hypertarget{estacionariedad-intruxednseca-1}{%
 \subsubsection*{Estacionariedad intrínseca}\label{estacionariedad-intruxednseca-1}}
 \addcontentsline{toc}{subsubsection}{Estacionariedad intrínseca}
 
-Un campo aleatorio espacio-temporal \(Z(s,t)\) es intrínsecamente estacionario si el proceso de incrementos \(Z(s+\boldsymbol h,t+u)-Z(s,t)\) es estacionario de segundo orden en espacio-tiempo para cualquier \((\boldsymbol h,t)\) fijo.
+Un campo aleatorio espacio-temporal \(Z(s,t)\) es intrínsecamente estacionario si el proceso de incrementos \(Z(s+\textbf{h},t+u)-Z(s,t)\) es estacionario de segundo orden en espacio-tiempo para cualquier \((\textbf{h},t)\) fijo.
 
 \hypertarget{funciuxf3n-de-covarianza-estacionaria-espacial}{%
 \subsubsection*{Función de covarianza estacionaria espacial}\label{funciuxf3n-de-covarianza-estacionaria-espacial}}
@@ -1450,19 +1448,19 @@ Un campo aleatorio espacio-temporal \(Z(s,t)\) tiene función de covarianza esta
 
 Si el campo aleatorio \(Z(s,t)\) tiene función de covarianza en términos de espacio y de tiempo, entonces se dice que tiene función de covarianza estacionaria y puede ser expresada de la siguiente forma
 
-\[
-\begin{align*}
-C[(s_i,t_i),(s_j,t_j)]=C[\boldsymbol h,u]
-\end{align*}
-\] donde \(\boldsymbol h=s_i-s_j\) y \(u=t_i-t_j\) son las distancias en espacio y en tiempo respectivamente.
+\begin{align}
+C[(s_i,t_i),(s_j,t_j)]=C[\textbf{h},u]
+\end{align}
+
+donde \(\textbf{h}=s_i-s_j\) y \(u=t_i-t_j\) son las distancias en espacio y en tiempo respectivamente.
 
 Si un proceso espacio-temporal tiene función de covarianza estacionaria, entonces su varianza no depende de la ubicación espaio-temporal, pues
 
-\[
-\begin{align*}
+\begin{align}
 Var(Z(s,t))=C(\boldsymbol 0,0)=\sigma^2,\ \forall (s,t) \in \mathbb{R}^d \times \mathbb{R}
-\end{align*}
-\] donde \(C(\boldsymbol 0,0) \geq 0\) se conoce como la varianza a priori del proceso.
+\end{align}
+
+donde \(C(\boldsymbol 0,0) \geq 0\) se conoce como la varianza a priori del proceso.
 
 \hypertarget{funciuxf3n-de-covarianza-separable}{%
 \subsubsection*{Función de covarianza separable}\label{funciuxf3n-de-covarianza-separable}}
@@ -1470,12 +1468,12 @@ Var(Z(s,t))=C(\boldsymbol 0,0)=\sigma^2,\ \forall (s,t) \in \mathbb{R}^d \times 
 
 Un campo aleatorio \(Z(s,t)\) tiene función de covarianza separable si tiene función de covarianza puramente espacial \(C_s(s_i,s_j)\) y función de covarianza puramente temporal \(C_t(t_i,t_j)\) tal que
 
-\[
 \begin{align}
 C[(s_i,t_i),(s_j,t_j)]&=C_s(s_i,s_j)C_t(t_i,t_j) 
 \label{eq:separ}
 \end{align}
-\] para cualquier par de puntos espacio-temporales \((s_i,t_i),\ (s_j,t_j)\in \mathbb{R}^d\times \mathbb{R}\). Si esta descomposición no es posible , la función de covarianza se llamará \textbf{no separable}.
+
+para cualquier par de puntos espacio-temporales \((s_i,t_i),\ (s_j,t_j)\in \mathbb{R}^d\times \mathbb{R}\). Si esta descomposición no es posible , la función de covarianza se llamará \textbf{no separable}.
 
 Al descomponer la covarianza de acuerdo con \eqref{eq:separ} permite mayor eficiencia en términos computacionales. Es por esto que los modelos separables han sido ampliamente utilizados en aplicaciones geoestadísticas, inclusive en situaciones donde esta hipótesis no se justifica por la naturaleza del proceso bajo análisis.
 
@@ -1485,30 +1483,27 @@ Al descomponer la covarianza de acuerdo con \eqref{eq:separ} permite mayor efici
 
 Un campo aleatorio espacio-temporal \(Z(s,t)\) tiene función de covarianza simétrica si para cualquier par de puntos espacio-temporales \((s_i,t_i),\ (s_j,t_j)\in \mathbb{R}^d \times \mathbb{R}\) se tiene que
 
-\[
-C[(s_i,t_i),(s_j,t_j)]=C[(s_i,t_j),(s_j,t_i)]
-\]
+C{[}(s\_i,t\_i),(s\_j,t\_j){]}=C{[}(s\_i,t\_j),(s\_j,t\_i){]}
 
 Nótese que la separabilidad es un caso particular de la propiedad de simetría.
 
-En el caso de tener función de covarianza espacio-temporal estacionaria, \(\forall (\boldsymbol h,u)\in \mathbb{R}^d \times \mathbb{R}\) la propiedad de simetría se puede representar de la siguiente manera
+En el caso de tener función de covarianza espacio-temporal estacionaria, \(\forall (\textbf{h},u)\in \mathbb{R}^d \times \mathbb{R}\) la propiedad de simetría se puede representar de la siguiente manera
 
-\[
-\begin{align*}
-C(\boldsymbol h, u)&=C(\boldsymbol h,-u)\\
-&=C(-\boldsymbol h, u)\\
-&=C(-\boldsymbol h, -u)
-\end{align*}
-\]
-\#\#\#\# Función de covarianza espacialmente isotrópica \{.unnumbered\}
+\begin{align}
+C(\textbf{h}, u)&=C(\textbf{h},-u)\\
+&=C(-\textbf{h}, u)\\
+&=C(-\textbf{h}, -u)
+\end{align}
+
+\hypertarget{funciuxf3n-de-covarianza-espacialmente-isotruxf3pica}{%
+\subsubsection*{Función de covarianza espacialmente isotrópica}\label{funciuxf3n-de-covarianza-espacialmente-isotruxf3pica}}
+\addcontentsline{toc}{subsubsection}{Función de covarianza espacialmente isotrópica}
 
 Un campo aleatorio espacio-temporal \(Z(s,t)\) tiene función de covarianza espacialmente isotrópica si
 
-\[
-\begin{align*}
-C(\boldsymbol h,u)=C(||\boldsymbol h||,u), \ \forall(s,t) \in \mathbb{R}^d \times \mathbb{R}
-\end{align*}
-\]
+\begin{align}
+C(\textbf{h},u)=C(||\textbf{h}||,u), \ \forall(s,t) \in \mathbb{R}^d \times \mathbb{R}
+\end{align}
 
 \hypertarget{funciuxf3n-de-covarianza-temporalmente-isotruxf3pica}{%
 \subsubsection*{Función de covarianza temporalmente isotrópica}\label{funciuxf3n-de-covarianza-temporalmente-isotruxf3pica}}
@@ -1516,11 +1511,9 @@ C(\boldsymbol h,u)=C(||\boldsymbol h||,u), \ \forall(s,t) \in \mathbb{R}^d \time
 
 Un campo aleatorio espacio-temporal \(Z(s,t)\) tiene función de covarianza temporalmente isotrópica si
 
-\[
-\begin{align*}
-C(\boldsymbol h,u)=C(\boldsymbol h,|u|), \ \forall(s,t) \in \mathbb{R}^d \times \mathbb{R}
-\end{align*}
-\]
+\begin{align}
+C(\textbf{h},u)=C(\textbf{h},|u|), \ \forall(s,t) \in \mathbb{R}^d \times \mathbb{R}
+\end{align}
 
 Nótese que si la función de covarianza de un campo aleatorio espacio-temporal es estacionaria con respecto a espacio y tiempo, entonces es simétrica \citep{montero}.
 
@@ -1532,27 +1525,174 @@ Al igual que en el caso de la geoestadística clásica, es frecuente el uso del 
 
 La función de variograma espacio-temporal está definido de la siguiente forma
 
-\[
-\begin{align*}
+\begin{align}
 \gamma[(s_i,t_i),(s_j,t_j)]&=\frac{1}{2}V[Z(s_i,t_i)-Z(s_j,t_j)]
-\end{align*}
-\]
+\end{align}
+
 En el caso de un campo aleatorio con media constante se tiene que
 
-\[
-\begin{align*}
+\begin{align}
 \gamma[(s_i,t_i),(s_j,t_j)]&=\frac{1}{2}E[Z(s_i,t_i)-Z(s_j,t_j)]^2
-\end{align*}
-\]
+\end{align}
+
 Siempre que sea posible definir la función de covarianza y la función de variograma, estas estarán relacionadas de acuerdo a lo siguiente
 
-\[
-\begin{align*}
-\gamma[(s_i,t_i),(s_j,t_j)]&=\frac{1}{2}V
-\end{align*}
-\]
+\begin{align}
+\gamma[(s_i,t_i),(s_j,t_j)]&=\frac{1}{2}V[Z(s_i,t_i)]+\frac{1}{2}V[Z(s_j,t_j)]-C[(s_i,t_i),(s_j,t_j)]
+\label{eq:varivar}
+\end{align}
 
-montero 175
+\hypertarget{variograma-espacio-temporal-intruxednsecamente-estacionario-espacial}{%
+\subsubsection*{Variograma espacio-temporal intrínsecamente estacionario espacial}\label{variograma-espacio-temporal-intruxednsecamente-estacionario-espacial}}
+\addcontentsline{toc}{subsubsection}{Variograma espacio-temporal intrínsecamente estacionario espacial}
+
+Un campo aleatorio \(Z(s,t)\) tiene variograma intrínsecamente estacionario con respecto al espacio si, para cualquier para de puntos espacio-temporales \((s_i,t_i), \ (s_j,t_j) \in \mathbb{R}^d \times \mathbb{R}\), el variograma \(\gamma[(s_i,t_i),(s_j,t_j)]\) solo depende de \(\textbf{h}=s_i-s_j\) y los tiempos \(t_i\) y \(t_j\).
+
+\hypertarget{variograma-espacio-temporal-intruxednsecamente-estacionario-temporal}{%
+\subsubsection*{Variograma espacio-temporal intrínsecamente estacionario temporal}\label{variograma-espacio-temporal-intruxednsecamente-estacionario-temporal}}
+\addcontentsline{toc}{subsubsection}{Variograma espacio-temporal intrínsecamente estacionario temporal}
+
+Un campo aleatorio \(Z(s,t)\) tiene variograma intrínsecamente estacionario con respecto al tiempo si, para cualquier para de puntos espacio-temporales \((s_i,t_i), \ (s_j,t_j) \in \mathbb{R}^d \times \mathbb{R}\), el variograma \(\gamma[(s_i,t_i),(s_j,t_j)]\) solo depende de \(u=t_i-t_j\) y las ubicaciones \(s_i\) y \(s_j\).
+
+\hypertarget{variograma-espacio-temporal-intruxednsecamente-estacionario}{%
+\subsubsection*{Variograma espacio-temporal intrínsecamente estacionario}\label{variograma-espacio-temporal-intruxednsecamente-estacionario}}
+\addcontentsline{toc}{subsubsection}{Variograma espacio-temporal intrínsecamente estacionario}
+
+Un campo aleatorio \(Z(s,t)\) tiene variograma intrínsecamente estacionario si, su variograma es intrínsecamente estacionario en espacio y tiempo. En este caso, el variograma se puede expresar de la siguiente forma
+
+\begin{align}
+\gamma[(s_i,t_i),(s_j,t_j)]=\gamma(\textbf{h},u)
+\end{align}
+
+donde \(\textbf{h}=s_i-s_j\) y \(u=t_i-t_j\) representan la distancia en espacio y tiempo respectivamente.
+
+Dado un campo aleatorio estacionario de segundo orden \(Z(s,t)\) con función de covarianza \(C(\textbf{h},u)\), debido a \eqref{eq:varivar}, se cumple que
+
+\begin{align}
+V[Z(s_i,t_i)-Z(s_j,t_j)]&=V[Z(s_i,t_i)]+V[Z(s_j,t_j)]-2C[(s_i,t_i),(s_j,t_j)]\\
+&=2C(\textbf{0},0)-2C(s_i-s_j,t_i-t_j)
+\end{align}
+
+por tanto el campo aleatorio \(Z(s,t)\) será intrínsecamente estacionario con variograma
+
+\begin{align}
+\gamma(\textbf{h},u)=C(\textbf{0},0)-C(\textbf{h},u)
+\end{align}
+
+\hypertarget{funciuxf3n-de-correlaciuxf3n-espacio-temporal}{%
+\subsubsection*{Función de correlación espacio-temporal}\label{funciuxf3n-de-correlaciuxf3n-espacio-temporal}}
+\addcontentsline{toc}{subsubsection}{Función de correlación espacio-temporal}
+
+Sea \(Z(s,t)\) un campo aleatorio espacio-temporal estacionario de segundo orden con varianza a priori \(\sigma^2 = C(\textbf{0},0)>0\). La función de correlación se define como sigue
+
+\begin{align}
+\rho(\textbf{h},u)=\frac{C(\textbf{h},u)}{C(\textbf{0},u)}
+\end{align}
+
+si \(\rho(\textbf{h},u)\) es función de correlación en \(\mathbb{R}^d \times \mathbb{R}\), entonces sus funciones marginales \(\rho(\textbf{0},u)\) y \(\rho(\textbf{h},0)\) serán funciones de correlación espacial en \(\mathbb{R}^d\) y temporal en \(\mathbb{R}\) respectivamente.
+
+\hypertarget{propiedades-de-la-covarianza-y-variograma-espacio-temporal}{%
+\subsubsection{Propiedades de la covarianza y variograma espacio-temporal}\label{propiedades-de-la-covarianza-y-variograma-espacio-temporal}}
+
+Una condición necesaria y suficiente para que la función de valores reales \(C[(s_i,t_i),(s_j,t_j)]\) definido en \(\mathbb{R}^d \times \mathbb{R}\) sea una función de covarianza es que sea simétrica y definida positiva, es decir
+
+\begin{align}
+C[(s_i,t_i),(s_j,t_j)]&=C[(s_j,t_j),(s_i,t_i)]\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_ia_j&C[(s_i,t_i),(s_j,t_j)] \geq 0
+\end{align}
+
+para cualquier \(n\in \mathbb{N}\) y para cualquier \((s_i,t_i) \in \mathbb{R}^d \times \mathbb{R}\) y \(a_i\in \mathbb{R},\ i=1,...,n\).
+
+De manera similar, una condición necesaria y suficiente para una función no negativa de valores reales \(\gamma[(s_i,t_i),(s_j,t_j)]\) definidas en \(\mathbb{R}^d \times \mathbb{R}\) para que una función de variograma es que sea simétrica y condiconalmente definida negativa, es decir
+
+\begin{align}
+\gamma[(s_i,t_i),(s_j,t_j)]&=\gamma[(s_j,t_j),(s_i,t_i)]\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_ia_j&\gamma[(s_i,t_i),(s_j,t_j)] \leq 0
+\end{align}
+
+para cualquier \(n\in \mathbb{N}\) y para cualquier \((s_i,t_i) \in \mathbb{R}^d \times \mathbb{R}\) y \(a_i\in \mathbb{R},\ i=1,...,n\) con \(\sum_{i=1}^na_i=0\).
+
+En el caso de estacionariedad, se puede deducir que la fucnipon de valores reales \(C(\textbf{h},u)\) definido en \(\mathbb{R}^d \times \mathbb{R}\) es una función de covarianza, si y solo si, es una función par y definida positiva, es decir
+
+\begin{align}
+C(\textbf{h},u)&=C(-\textbf{h},-u)\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_i&a_jC(\textbf{h}_i,u_i) \geq 0
+\end{align}
+
+para cualquier \(n\in \mathbb{R}\) y para cualquier \((\textbf{h}_i,u_i) \in \mathbb{R}^d \times \mathbb{R},\ a_i \in \mathbb{R}, \ i=1,...,n\).
+
+En este sentido, una función no negativa de valores reales \(\gamma(\textbf{h},u)\) definida en \(\mathbb{R}^d \times \mathbb{R}\) es una función de variograma intrínsecamente estacionaria, si y solo si, es una función para y condicionalmente definida negativa, es decir
+
+\begin{align}
+\gamma(\textbf{h},u)&=\gamma(-\textbf{h},-u)\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_i&a_j\gamma(\textbf{h}_i,u_i) \leq 0
+\end{align}
+
+para cualquier \(n\in \mathbb{R}\) y para cualquier \((\textbf{h}_i,u_i) \in \mathbb{R}^d \times \mathbb{R},\ a_i \in \mathbb{R}, \ i=1,...,n\) con \(\sum_{i=1}^na_i=0\)
+
+Algunas de las propiedades más importantes son las siguientes
+
+\begin{itemize}
+\tightlist
+\item
+  Si \(C_1(\text{h},u)\) es una función de covariazna definida en \(\mathbb{R}^d \times \mathbb{R}\) y \(b>0\), entonces
+\end{itemize}
+
+\begin{align}
+C(\text{h},u)=bC_1(\text{h},u)
+\end{align}
+
+\begin{itemize}
+\tightlist
+\item
+  Sean \(C_1(\textbf{h},u)\) y \(C_2(\textbf{h},u)\) dos fucniones de covariana definidas en \(\mathbb{R}^d \times \mathbb{R}\), entonces
+\end{itemize}
+
+\begin{align}
+C(\textbf{h},u)&=C1(\textbf{h},u)+C2(\textbf{h},u)
+\end{align}
+
+es también una función de covarianza definida en \(\mathbb{R}^d \times \mathbb{R}\).
+
+\begin{itemize}
+\tightlist
+\item
+  Dadas dos funciones de covarianza \(C_1(\textbf{h},u)\) y \(C_2(\textbf{h},u)\) definidas en \(\mathbb{R}^d \times \mathbb{R}\), entonces
+\end{itemize}
+
+\begin{align}
+C(\textbf{h},u)&=C_1(\textbf{h},u)C_2(\textbf{h},u)
+\end{align}
+
+es también una función de covarianza definida en \(\mathbb{R}^d\times \mathbb{R}\).
+
+\begin{itemize}
+\tightlist
+\item
+  Si \(\{C_n(\textbf{h},u),n=1,...,\}\) es una secuencia de funciones de covaraizna definidas en \(\mathbb{R}^d \times \mathbb{R}\) convergen a \(C(\textbf{h},u), \forall (\textbf{h},u) \in \mathbb{R}^d \times \mathbb{R}\), entonces
+\end{itemize}
+
+\begin{align}
+C(\textbf{h},u)&=\lim_{n\to 2} C_n(\textbf{h},u)
+\end{align}
+
+es una función de covarianza en \(\mathbb{R}^d \times \mathbb{R}\).
+
+MODELOS NO SEPARABLES: sherman 127, g\_est\_temp\_casal: 157 (modelos)
+
+Modelos separabales: montero 198, g\_esp\_temp 52
+
+Estimacion de varis: montero 183
+
+montero 179
 nuestro 11
 sherman 127
 wikle para ejemplos de R pg 46
@@ -1569,8 +1709,8 @@ apoyo 2 martha pg69
 \hypertarget{estimaciuxf3n-del-variograma-espacio-temporal-ejemplos}{%
 \subsection{Estimación del variograma espacio-temporal (Ejemplos)}\label{estimaciuxf3n-del-variograma-espacio-temporal-ejemplos}}
 
-\hypertarget{introducciuxf3n-al-anuxe1lisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional}{%
-\chapter{Introducción al análisis de datos funcionales (FDA) (analisis descriptivo, distancias, algoritmos en funcional)}\label{introducciuxf3n-al-anuxe1lisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional}}
+\hypertarget{introducciuxf3n-al-anuxe1lisis-de-datos-funcionales-fda}{%
+\chapter{Introducción al análisis de datos funcionales (FDA)}\label{introducciuxf3n-al-anuxe1lisis-de-datos-funcionales-fda}}
 
 Los objetivos fundamentales del FDA son los mismos que la estadística convencional e incluyen: (a) Representar y transformar los datos de manera que faciliten el análisis posterior. (b) Mostrar los datos de manera que se destaquen las variables en estudio. (c) Estudiar fuentes relevantes de patrones y variación de los datos. (d) Explicar la variación de una variable resultante o dependiente utilizando la información de la variable independiente \citep{raichle}.
 
@@ -1594,85 +1734,85 @@ El espacio de \emph{Hilbert} generaliza la noción de espacio euclidiano, extend
 
 El espacio \(L^2=L^2[0,1]\) es el conjunto de funciones reales medibles de Lebesgue \(f\) definidas en \([0,1]\), tales que satisfacen \citep{lajos}:
 
-\begin{align*}
+\begin{align}
     \int_0^1 f^2(t)dt<\infty
-\end{align*}
+\end{align}
 
 Este espacio se le conoce como el \emph{Espacio de Funciones Cuadrado Integrables}.
 
 Si \(f,g \in L^2\), la igualdad \(f=g\), significa que \citep{kokoska}:
 
-\begin{align*}
+\begin{align}
     \int[f(t)-g(t)]dt=0
-\end{align*}
+\end{align}
 
 Las funciones cuadrado integrables forman un espacio vectorial; esto significa que, si \(f,g\in L^2\), entonces se cumple que, para cualquier escalar \(a,b\)::
 
-\begin{align*}
+\begin{align}
         af+bg\in L^2\hspace{2cm}\\
          (af+bg)(t)=af(t)+bg(t),\ t \in [0,1]
-  \end{align*}
+  \end{align}
 
 Se debe tener en cuenta que los elementos de \(L^2\) y operaciones sobre estos no necesitan estar definidos para todo punto \(t\), sino que están definidos para casi todo punto \(t\) \citep{kokoska}.
 
 Para funciones \(f,g\in L^2\), se define el producto interno de dos funciones como:
 
-\begin{align*}
+\begin{align}
     \langle f,g \rangle=\int f(t)g(t)dt
-\end{align*}
+\end{align}
 
 El producto interno permite entender la noción de ortogonalidad, lo cual hace que la estructura geométrica del espacio \(L^2\) sea intuitivamente muy similar al espacio euclidiano finito dimensional.
 
 Se dice que dos funciones \(f,g\) son ortogonales si:
 
-\begin{align*}
+\begin{align}
     \langle f,g \rangle=0
-\end{align*}
+\end{align}
 
 El producto interno permite definir la noción de distancia entre funciones a través de la norma:
 
-\begin{align*}
+\begin{align}
   ||f||=\sqrt{\langle f,f \rangle}=\left\{\int f^2 (t) dt \right\}^{\frac{1}{2}}
-\end{align*}
+\end{align}
 
 Por otro lado, la distancia entre dos funciones en el espacio \(L^2\) es la norma de su diferencia; es decir:
 
-\begin{align*}
+\begin{align}
     d(f,g)=||f-g||
-\end{align*}
+\end{align}
 
 Un conjunto de funciones \(\{e_1,e_2,e_3,...\}\) es una base en \(L^2\) si toda función \(f\in L^2\) admite una única expansión de la forma:
 
-\begin{align*}
+\begin{align}
     f(t)=\sum_{j=1}^\infty {a_je_j(t)}
-\end{align*}
+\end{align}
 
 y se dice que \(\{e_1,e_2,e_3,...\}\) es una base ortonormal, si:
 
-\begin{align*}
+\begin{align}
     \langle e_j,e_j' \rangle =0,\ j\neq j' \ y\ ||e_j||=1
-\end{align*}
+\end{align}
 
 Para una base ortonormal, como por ejemplo la base de Fourier, se tiene que:
 
-\begin{align*}
+\begin{align}
     a_j=\langle f,e_j \rangle
-\end{align*}
+\end{align}
 
 y tenemos la igualdad de \emph{Parseval}:
 
-\begin{align*}
+\begin{align}
     \int f^2 (t) dt = ||f||^2 = \sum_{j=1}^{\infty} {\langle f,e_j \rangle ^2} = \sum_{j=1}^{\infty} \left\{\int f(t)e_{j}(t) dt\right\}^2
-\end{align*}
+\end{align}
 
 \hypertarget{funciones-aleatorias-cuadrado-integrables}{%
 \subsection{\texorpdfstring{\textbf{Funciones Aleatorias Cuadrado Integrables}}{Funciones Aleatorias Cuadrado Integrables}}\label{funciones-aleatorias-cuadrado-integrables}}
 
 Dado que \(Z\) denota una función aleatoria en \(\mathbb{R^d}\). Así, como una variable aleatoria, una función aleatoria es definida en un espacio de probabilidad, digamos \(\Omega\); para cada \(\omega \in \Omega\), \(Z(\omega)\) es una función determinística. Se asume que cada una de las realizaciones \(Z(\omega),\omega \in \Omega\), son elementos del espacio \(L^2\) de funciones cuadrado integrables, lo que significa que para cada \(\omega\in \Omega\), se verifica que:
 
-\begin{align*}
+\begin{align}
     ||Z(\omega)||^2=\int \{ Z(\omega)(t)\}^2<\infty
-\end{align*}
+\end{align}
 
 La función \(||Z(\omega)||\) es por tanto una variable aleatoria; si esta variable aleatoria tiene momento de segundo orden finito; es decir, \(E||Z||^2<\infty\), por consiguiente \(Z\) es una función aleatoria cuadrado integrable.
 
@@ -1689,42 +1829,42 @@ Ahora bien, suponiendo que \(Z_1,Z_2,...,Z_N\) son iid en \(L^2\), y que tienen 
 \item
   Función de media:
 
-  \begin{align*}
+  \begin{align}
         \mu(t)=E[Z(t)]
-    \end{align*}
+    \end{align}
 \item
   Función de media estimada:
 
-  \begin{align*}
-        \hat{\mu}=\frac{1}{N}\sum_{i=1}^N Z_i(t)
-    \end{align*}
+  \begin{align}
+        {\hat{\mu}}=\frac{1}{N}\sum_{i=1}^N Z_i(t)
+    \end{align}
 \item
   Función de covarianza:
 
-  \begin{align*}
+  \begin{align}
         c(t,s)=E[(Z(t)-\mu(t))(Z(s)-\mu(s))]
-    \end{align*}
+    \end{align}
 \item
   Función de covarianza estimada:
 
-  \begin{align*}
-        \hat{c}(t,s)=\frac{1}{N}\sum_{i=1}^N(Z_i(t)-\hat{\mu}(t))(Z_i(s)-\hat{\mu}(s))
-    \end{align*}
+  \begin{align}
+        {\hat{c}}(t,s)=\frac{1}{N}\sum_{i=1}^N(Z_i(t)-{\hat{\mu}}(t))(Z_i(s)-{\hat{\mu}}(s))
+    \end{align}
 \item
   Operador de covarianza:
 
-  \begin{align*}
+  \begin{align}
         C=E[\langle(Z-\mu),\cdot \rangle (Z-\mu)]
-    \end{align*}
+    \end{align}
 \item
   Estimación del operador de covarianza:
 
-  \begin{align*}
-        \hat{C}(z)= \frac{1}{N} \sum_{i=1}^{N} \langle Z_i - \hat{\mu}, z\rangle ( Z_i-\hat{\mu}), \quad z\in L^2
-    \end{align*}
+  \begin{align}
+        {\hat{C}}(z)= \frac{1}{N} \sum_{i=1}^{N} \langle Z_i - {\hat{\mu}}, z\rangle ( Z_i-{\hat{\mu}}), \quad z\in L^2
+    \end{align}
 \end{itemize}
 
-Nótese que \(\hat{C}\) proyecta el espacio \(L^2\) en un subespacio finito dimensional generado por \(Z_1,Z_2,...,Z_N\), mostrando las limitaciones de la inferencia estadística para observaciones funcionales; una muestra finita puede cubrir un objeto infinito dimensional solo con reducida exactitud \citep{lajos}.
+Nótese que \({\hat{C}}\) proyecta el espacio \(L^2\) en un subespacio finito dimensional generado por \(Z_1,Z_2,...,Z_N\), mostrando las limitaciones de la inferencia estadística para observaciones funcionales; una muestra finita puede cubrir un objeto infinito dimensional solo con reducida exactitud \citep{lajos}.
 
 {INSERTAR GRAFICOS, CODIGO, EJEMPLOS}
 
@@ -1743,15 +1883,15 @@ Para tratar el problema de alta dimensionalidad, se hace uso de funciones base, 
 
 El conjunto de datos más simple, en el contexto de FDA, es una muestra de la forma:
 
-\begin{align*}
+\begin{align}
     z_n(t_{j,n})\in\mathbb{R}, t_{j,n}\in [T_1,T_2],\ n=1,...,N,\ j=1,...,J_n
-\end{align*}
+\end{align}
 
 es decir, tenemos \(N\) curvas que son observadas en un intervalo común \([T_1,T_2]\). Los valores de las curvas nunca son conocidos en todos los puntos \(t\in[T_1,T_2]\), pues solo están disponibles en puntos específicos \(t_{j,n}\), los cuales pueden ser diferentes para curvas \(z_n\) diferentes. Algunas aplicaciones relevantes del FDA, tratan con situaciones donde el número de puntos \(\{t_{j,n}\}\), por curva son pequeños. La idea fundamental del FDA es que los objetos en estudio sean curvas suaves:
 
-\begin{align*}
+\begin{align}
     \{z_n(t):t\in[T_1,T_2],n=1,...,N\}
-\end{align*}
+\end{align}
 
 para los cuáles los valores \(z_n(t)\) existen en todo punto \(t\), pero solo son observados en puntos específicos \(t_j\).
 
@@ -1765,23 +1905,23 @@ En la práctica se trabaja con funciones con características que pueden ser imp
 
 Se utiliza un conjunto de bloques funcionales \(\phi_k,k=1,..,K\) llamados \emph{funciones base}, los cuales son combinados linealmente; es decir, una función \(z(t)\) definida en este sentido es expresada de la siguiente forma:
 
-\begin{align*}
+\begin{align}
     z(t)=\sum_{k=1}^Kc_k\phi_k(t)=c'\phi(t)
-\end{align*}
+\end{align}
 
 conocido como \emph{expansión en funciones base}. Los parámetros \(c_1,...c_k\) son coeficientes de la expansión. La expresión matricial usa \(c\) para referirse al vector de \(K\) coeficientes y \(\phi\) para denotar al vector de tamaño \(K\) que contiene las funciones suaves de base que comparten las mismas propiedades. \citep{programsay}.
 
 Usualmente se considera una muestra de funciones de tamaño \(N\):
 
-\begin{align*}
+\begin{align}
     z_i(t)=\sum_{k=1}^Kc_{ik}\phi_k(t), \ i=1,...,N
-\end{align*}
+\end{align}
 
 en este caso, la notación matricial está dada por:
 
-\begin{align*}
+\begin{align}
     \textbf{z(t)}=C\phi(t)
-\end{align*}
+\end{align}
 
 donde \(\textbf{z(t)}\) es un vector de tamaño \(N\) conteniendo las funciones \(z_i(t)\), y la matriz de coeficientes \(C\) tiene \(N\) filas y \(K\) columnas \citep{programsay}.
 
@@ -1795,20 +1935,20 @@ El concepto de sistemas de bases no es nuevo; por ejemplo, un polinomio de cualq
 
 Probablemente la expansión de base más conocida está dada por las series de Fourier. Esta serie es especialmente útil para funciones extremadamente estables; es decir, funciones en las que no hay características locales fuertes y donde la curva tiende a ser del mismo orden en todas partes. Estas series suelen dar lugar a expansiones uniformes, sin embargo son inadecuadas en cierto grado para los datos que se sospecha que tienen discontinuidades en la función o en las derivadas de bajo orden\citep{ramsay}. En algunas ocasiones, es necesario que las funciones se puedan repetir sobre un cierto período de tiempo \(T\); por ejemplo, pueden ser requeridos para expresar comportamiento estacional en series de tiempo extensas. La serie de Fourier, está dada por \citep{programsay}:
 
-\begin{align*}
+\begin{align}
     \phi_1(t)&=1\\
     \phi_2(t)&=\sin(\omega t)\\
     \phi_3(t)&=\cos(\omega t)\\
     \phi_4(t)&=\sin(2\omega t)\\
     \phi_5(t)&=\cos(2\omega t)\\
     & \hspace{0.2cm}\vdots
-\end{align*}
+\end{align}
 
 donde la constante \(\omega\) está relacionado con el período \(T\) por la relación:
 
-\begin{align*}
+\begin{align}
     \omega =\frac{2\pi}{T}
-\end{align*}
+\end{align}
 
 Se observa que, después de la primera función base constante, las funciones base de Fourier son ordenadas de forma sucesiva en pares de seno/coseno, los dos con argumentos en cualquier par que se multiplique por uno de los enteros \(1,2,...\) hasta un límite superior \(m\). Si las series contienen ambos elementos de cada par, como es usual, el número de funciones base es \(K=1+2m\), puesto que, de la forma en que se definió \(\omega\), cada función base se repite por si misma después de \(T\) unidades de tiempo transcurrido.
 
@@ -1847,9 +1987,9 @@ La propiedad de que una base de funciones B-spline de orden \(m\) sea positiva s
 
 La notación \(B_k(t,\tau)\) se utiliza para indicar el valor en \(t\) de la base de funciones B-spline definido por la secuencia de puntos de ruptura \(\tau\); \(k\) hace referencia al número del nodo más grande en o inmediatamente a la izquierda de \(t\), teniendo en cuenta que cuando los nodos son discretos, se requieren \(m+L-1\) funciones base. Una función spline se puede escribir como:
 
-\begin{align*}
+\begin{align}
     S(t)=\sum_{k=1}^{m+L-1} {c_{k}B_{k}(t.\tau)}
-\end{align*}
+\end{align}
 
 En cuanto a las posiciones de los nodos \(\tau_l\), varias aplicaciones por defecto tienen la misma separación siempre y cuando los datos estén también separados de manera regular. Si no lo están, es recomendable ubicar un nodo en cada punto \(j\) de los datos, donde \(j\) es un número fijado previamente \citep{ramsay}.
 
@@ -1859,41 +1999,41 @@ En cuanto a las posiciones de los nodos \(\tau_l\), varias aplicaciones por defe
 
 Se tiene por objetivo ajustar observaciones discretas \(y_j,j=1,...,n\) utilizando el modelo \(y_j=x(t_j)+\epsilon_j\) y se utiliza una base de funciones para la expansión de \(x(t)\) de la forma:
 
-\begin{align*}
+\begin{align}
     x(t)=\sum_{k=1}^Kc_k\phi_k(t)=\mathbf{c'} \boldsymbol{\phi}
-\end{align*}
+\end{align}
 
 donde el vector \(\textbf{c}\) de tamaño \(K\) contiene los coeficientes \(c_k\) y \(\phi\) la matriz de orden \(n\times K\) que contiene los valores \(\phi_k(t_j)\).
 
 El suavizamiento básico se obtiene si se determinan los coeficientes de la expansión \(c_k\) minimizando el criterio de mínimos cuadrados:
 
-\begin{align*}
+\begin{align}
     SMSSE(y|c)=\sum_{j=1}^n[y_j-\sum_{k=1}^Kc_k\phi_k(t_j)]^2
-\end{align*}
+\end{align}
 
 en términos matriciales la expresión anterior está dada de la siguiente manera:
 
-\begin{align*}
+\begin{align}
     SMSSE(y|c)=(y-\Phi c)'(y-\Phi c)=||y-\Phi c||^2
-\end{align*}
+\end{align}
 
 luego, tomando el criterio de derivada de \(SMSSE(y|c)\) con respecto a \(\textbf{c}\) tenemos:
 
-\begin{align*}
+\begin{align}
     2\Phi \Phi'c-2\Phi'y=0
-\end{align*}
+\end{align}
 
-resolviendo para \(\textbf{c}\) tenemos la estimación \(\hat{\textbf{c}}\) que minimiza la solución de mínimos cuadrados:
+resolviendo para \(\textbf{c}\) tenemos la estimación \({\hat{\textbf{c}}}\) que minimiza la solución de mínimos cuadrados:
 
-\begin{align*}
-    \hat{c}=(\Phi'\Phi)^{-1}\Phi'y
-\end{align*}
+\begin{align}
+    {\hat{c}}=(\Phi'\Phi)^{-1}\Phi'y
+\end{align}
 
-así, el vector \(\hat{y}\) de valores estimados es:
+así, el vector \({\hat{y}}\) de valores estimados es:
 
-\begin{align*}
-    \hat{y}=\Phi \hat{c}=\Phi(\Phi'\Phi)^{-1}\Phi'y
-\end{align*}
+\begin{align}
+    {\hat{y}}=\Phi {\hat{c}}=\Phi(\Phi'\Phi)^{-1}\Phi'y
+\end{align}
 
 Este método básico de aproximación es adecuado cuando se asume que los residuos \(\epsilon_j\) sobre la curva verdadera son independientes e idénticamente distribuidas con media cero y varianza \(\sigma^2\) constante.
 
@@ -1901,25 +2041,25 @@ Este método básico de aproximación es adecuado cuando se asume que los residu
 
 En la práctica se trabaja con errores no estacionarios y/o autocorrelacionados, por lo que se usa el método de mínimos cuadrados ponderados como una extensión del método anterior de la forma:
 
-\begin{align*}
+\begin{align}
     SMSSE(y|c)=(y-\Phi c)'W(y-\Phi c)
-\end{align*}
+\end{align}
 
 donde \(W\) es una matriz simétrica definida positiva que permite la ponderación de cuadrados y producto de los residuos.
 
 Si la matriz de varianza-covarianza \(\Sigma_e\) para los residuos \(\epsilon_j\) se conoce, entonces:
 
-\begin{align*}
+\begin{align}
     W=\Sigma_e^{-1}
-\end{align*}
+\end{align}
 
 en aplicaciones donde una estimación completa de \(\Sigma_e\) no es factible, los valores de la covarianza de los errores son usualmente asumidos iguales a cero, entonces \(W\) es diagonal con los recíprocos de la varianza de los errores asociados con los \(y_j\).
 
-La estimación \(\hat{c}\) de los coeficientes del vector \(c\) está dada por:
+La estimación \({\hat{c}}\) de los coeficientes del vector \(c\) está dada por:
 
-\begin{align*}
-    \hat{c}=(\Phi'W\Phi)^{-1}\Phi'W'y
-\end{align*}
+\begin{align}
+    {\hat{c}}=(\Phi'W\Phi)^{-1}\Phi'W'y
+\end{align}
 
 \hypertarget{suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-de-fourier}{%
 \subsection*{Suavizamiento de datos funcionales mediante el uso de bases de Fourier}\label{suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-de-fourier}}
@@ -1927,24 +2067,24 @@ La estimación \(\hat{c}\) de los coeficientes del vector \(c\) está dada por:
 
 Una función \(f\) continua a trozos en el intervalo de \([-\pi,\pi]\), puede ser representada en un sistema de tipo Fourier de la siguiente manera:
 
-\begin{align*}
+\begin{align}
     f(x)=\frac{a_0}{2}+\sum_{k=1}^\infty(a_k\cos{kx}+b_k\sin{kx})
-\end{align*}
+\end{align}
 
 donde, para todo \(k\) se tiene que:
 
-\begin{align*}
+\begin{align}
     a_k&=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos{kx}dx\\
     b_k&=\frac{1}{\pi}\int_{-\pi}^\pi f(x) \sin{kx}dx
-\end{align*}
+\end{align}
 
 esta representación de \(f\) se conoce como la expansión en series de Fourier en el intervalo \([-\pi,\pi]\) y donde \(a_k,b_k\) son conocidos como los coeficientes de Euler-Fourier de \(f\) \citep{kreider} y este tipo de expansión se utiliza para aproximar datos periódicos.
 
 El suavizamiento de datos, utilizando una base de Fourier, siempre implica que se tenga más puntos de los necesarios para modelizar la suavidad de la función en estudio. En la práctica, la frecuencia de la serie no sobrepasa una frecuencia de corte; es decir, que a partir de cierto término, digamos \(m\), todos los coeficientes, \(a_k, b_k\), de Fourier serán prácticamente cero; por lo tanto, la ecuación anterior, puede escribirse de la siguiente manera:
 
-\begin{align*}
+\begin{align}
      f(x)=\frac{a_0}{2}+\sum_{k=1}^m(a_k\cos{kx}+b_k\sin{kx})
-\end{align*}
+\end{align}
 
 esta ecuación se conoce como la expansión de Fourier truncada y es la función suavizada de nuestros datos.
 
@@ -1954,80 +2094,80 @@ esta ecuación se conoce como la expansión de Fourier truncada y es la función
 
 Usualmente, el intervalo donde una función está definida no es \([-\pi,\pi]\) o \([0,\pi]\); también podría ser un intervalo \([a,b]\) arbitrario, por lo cual la expansión en serie de Fourier queda de la siguiente forma:
 
-\begin{align*}
+\begin{align}
     f(x)=\frac{a_0}{2}+\sum_{k=1}^\infty\left(a_k\cos{\frac{2k\pi x}{b-a}} + b_k\sin{\frac{2k\pi x}{b-a}} \right)
-\end{align*}
+\end{align}
 
 donde, para todo \(k\):
 
-\begin{align*}
+\begin{align}
     a_k&=\frac{2}{b-a}\int_a^bf(x)\cos{\frac{2k\pi x}{b-a}}dx\\
     b_k&=\frac{2}{b-a}\int_a^bf(x)\sin{\frac{2k\pi x}{b-a}}dx
-\end{align*}
+\end{align}
 
 \hypertarget{suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-b-splines}{%
 \subsection*{Suavizamiento de datos funcionales mediante el uso de bases B-splines}\label{suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-b-splines}}
 \addcontentsline{toc}{subsection}{Suavizamiento de datos funcionales mediante el uso de bases B-splines}
 
-Se tiene que, en el caso ``más general'', la estimación del vector de coeficientes \(c\), \(\hat{c}\) es de la forma:
+Se tiene que, en el caso ``más general'', la estimación del vector de coeficientes \(c\), \({\hat{c}}\) es de la forma:
 
-\begin{align*}
-    \hat{c}=(\Phi'W\Phi)^{-1}\Phi'W'y
-\end{align*}
+\begin{align}
+    {\hat{c}}=(\Phi'W\Phi)^{-1}\Phi'W'y
+\end{align}
 
 donde \(\Phi\) es una matriz de orden \(n \times K\) que contiene los valores de las \(K\) funciones base en los \(n\) puntos de muestra, \(W\) es la matriz de ponderación que permite tener una estructura de covarianza en los residuos, y \(y\) es el vector de los datos discretos a ser suavizados; por tanto, la expresión para el vector de ajuste de los datos es:
 
 \begin{align}
-    \hat{y}=\Phi(\Phi'W\Phi)^{-1} \Phi'Wy=S_\phi y
+    {\hat{y}}=\Phi(\Phi'W\Phi)^{-1} \Phi'Wy=S_\phi y
 \end{align}
 
 donde \(S_\phi\) es el operador proyección correspondiente al sistema de base \(\phi\):
 
-\begin{align*}
+\begin{align}
     S_\phi=\Phi(\Phi'W\Phi)^{-1} \Phi'W.
-\end{align*}
+\end{align}
 
 Dado que en el proceso de suavización se tiene un comportamiento de discontinuidades, calcular las rugosidades es de utilidad para compensar dicho comportamiento en los datos suavizados.
 
 Para medir la rugosidad de una función, la integral del cuadrado de la segunda derivada \([D^2x(t)]^2\) se utiliza:
 
-\begin{align*}
+\begin{align}
     PEN_2(x)=\int[D^2x(s)]^2ds
-\end{align*}
+\end{align}
 
 Para funciones con alta variabilidad, se espera un valor alto de \(PEN_2(x)\), pues su segunda derivada es grande al menos en algún rango de interés. De forma general, la penalización de la rugosidad permite una derivada \(D^mx\) de orden arbitrario \citep{ramsay}:
 
-\begin{align*}
+\begin{align}
     PEN_m(x)=\int[D^mx(s)]^2ds
-\end{align*}
+\end{align}
 
 matricialmente, la expresión anterior está dada por:
 
-\begin{align*}
+\begin{align}
     PEN_m(x)=c'Rc
- \end{align*} dónde
+ \end{align} dónde
 
-\begin{align*}
+\begin{align}
     R=\int D^m \phi D^m\phi'.
-\end{align*}
+\end{align}
 
 Ahora bien, añadiendo esta penalización al ajuste por mínimos cuadrados y multiplicando por un parámetro \(\lambda\) de suavizamiento, se obtiene:
 
-\begin{align*}
+\begin{align}
     PENSSE_m(y|c)=(y-\Phi c)'W(y-\Phi c)+\lambda c'Rc
-\end{align*}
+\end{align}
 
 y tomando la derivada con respecto al vector \(c\), se obtiene:
 
-\begin{align*}
+\begin{align}
     -2\Phi'Wy + \Phi' W \Phi c + \lambda R c=0
-\end{align*}
+\end{align}
 
-de done la expresión para el vector de coeficientes estimados \(\hat{c}\) es:
+de done la expresión para el vector de coeficientes estimados \({\hat{c}}\) es:
 
-\begin{align*}
-    \hat{c}=(\Phi W \Phi + \lambda R)^{-1} \Phi' Wy
-\end{align*}
+\begin{align}
+    {\hat{c}}=(\Phi W \Phi + \lambda R)^{-1} \Phi' Wy
+\end{align}
 
 \hypertarget{elecciuxf3n-de-nuxfamero-de-bases}{%
 \subsection{Elección de número de bases}\label{elecciuxf3n-de-nuxfamero-de-bases}}
@@ -2054,23 +2194,23 @@ El objetivo de profundidad para datos funcionales es medir la centralidad de una
 
 Sea \(F_{n,t}(z_i(t))\) la función de distribución acumulada empírica de los valores de las curvas \(z_1(t),...,z_n(t)\) en un punto de tiempo \(t\in [a,b]\) dado, dado por:
 
-\begin{align*}
+\begin{align}
     F_{n,t}(z_i(t))=\frac{1}{n}\sum_{k=1}^n I(z_k(t)\leq z_i(t))
-\end{align*}
+\end{align}
 
 donde \(I(.)\) es la función indicatriz.
 
 La medida de profundidad funcional de \emph{Fraiman y Muniz} de una curva \(z_i\) con respecto al conjunto de curvas \(z_1,...,z_n\), está dada por:
 
-\begin{align*}
+\begin{align}
     FMD_n(z_i)=\int_a^bD_n(z_i(t))dt
-\end{align*}
+\end{align}
 
 donde \(D_n(z_i(t))\) es la profundidad univariante del punto \(z_i(t)\) dada por:
 
-\begin{align*}
+\begin{align}
     D_n(z_i(t))=1-\left|\frac{1}{2}-F_{n,t}(z_i(t))\right|
-\end{align*}
+\end{align}
 
 \hypertarget{profundidad-h-modal}{%
 \subsubsection*{Profundidad H-modal}\label{profundidad-h-modal}}
@@ -2078,9 +2218,9 @@ donde \(D_n(z_i(t))\) es la profundidad univariante del punto \(z_i(t)\) dada po
 
 Esta medida de profundidad se base en el concepto de moda funcional, definiendo la moda funcional como la curva más densamente rodeada por el resto del conjunto de curvas. Así, la profundidad \emph{h-modal} de una curva \(z_i\), con respecto al conjunto de curvas \(z_1,...,z_n\), está dada por:
 
-\begin{align*}
+\begin{align}
     MD_n(z_i,h)=\sum_{k=1}^n  K\left( \frac{||z_i-z_k||}{h}\right)
-\end{align*}
+\end{align}
 
 \hypertarget{profundidad-de-proyecciuxf3n-aleatoria}{%
 \subsubsection*{Profundidad de proyección aleatoria}\label{profundidad-de-proyecciuxf3n-aleatoria}}
@@ -2088,15 +2228,15 @@ Esta medida de profundidad se base en el concepto de moda funcional, definiendo 
 
 La idea de esta medida es proyectar cada curva funcional y su primera derivada a través de una dirección aleatoria, definiendo un punto en \(\mathbb{R}^2\), luego, el valor de la profundidad en \(\mathbb{R}^2\), da un orden de puntos proyectados. Si se trabaja con un gran número de proyecciones aleatorias, el valor medio de profundidad de los puntos proyectados define la profundidad para datos funcionales. Así, dado un conjunto de curvas \(z_1,...,z_n\) y una dirección \(\nu\) que pertenece a un proceso independiente direccional \(V(.)\), así la proyección de \(z_i\) a través de la dirección \(\nu\), está dada por:
 
-\begin{align*}
+\begin{align}
     T_{i,\nu}=\langle \nu,z_i \rangle=\int_a^b \nu(t)z_i(t)dt
-\end{align*}
+\end{align}
 
 de manera similar, \(T_{i,\nu}'\)es la proyección de la derivada de \(z_i\) a través de la dirección \(\nu\), obteniendo así el par \((T_{i,\nu},T_{i,\nu}')\) que es un punto en \(\mathbb{R}^2\). Para \(P\) direcciones aleatorias independientes, la profundidad de proyección aleatoria de una curva \(z_i\) está definida por:
 
-\begin{align*}
+\begin{align}
     RPD_n(z-I)=\frac{1}{P}\sum_{p=1}^P D_n((\langle\nu_{p},z_i \rangle),\langle\nu_p, z_{i}'\rangle), h)
-\end{align*}
+\end{align}
 
 donde \(D_n\) es cualquier profundidad definida en \(\mathbb{R}^2\) de los puntos \((\langle\nu_p,z_i \rangle,\langle\nu_p,z_i' \rangle) \in \mathbb{R}^2\) \citep{manuel}. Para la visualización de datos atípicos se han desarrollado varias herramientas gráficas, principalmente propuestas para el caso univariante; sin embargo, para el caso multivariante han sido poco desarrolladas \citep{dai}.
 
@@ -2111,15 +2251,15 @@ Teniendo en cuenta que la externalidad es la medida, grado o cualidad de ser at�
 
 De manera formal, la externalidad direccional de un dato escalar está definida por:
 
-\begin{align*}
+\begin{align}
     O(Y,F_Y)=\left\{\frac{1}{d(Y,F_Y)-1}\right\}v,\quad d(Y,F_Y)>0
-\end{align*}
+\end{align}
 
 donde \(F_Y\) es la distribución de una variable aleatoria, \(d\) es una medida convencional de profundidad, y \(v\) es el vector unitario que va desde la mediana de \(F_Y\) a \(Y\). Asumiendo que \(Z\) es la única mediana de \(F_Y\) para la medida de profundidad \(d\), \(v\) puede expresarse como:
 
-\begin{align*}
+\begin{align}
     v=\frac{Y-Z}{||Y-Z||}
-\end{align*}
+\end{align}
 
 donde \(||.||\) es la norma \(L_2\).
 
@@ -2128,21 +2268,21 @@ Ahora bien, si \(X\) es una función p-dimensional definida en un dominio \(\mat
 \begin{itemize}
     \item[1)] Media de externalidad direccional:
     
-    \begin{align*}
-        MO(X,F_X)=\int_\mathcal{I}O(X(t),F_{X(t)})w(t)dt
-    \end{align*}
+  \begin{align}
+        MO(X,F_X)=\int_{\mathcal{I}}O(X(t),F_{X(t)})w(t)dt
+    \end{align}
     
-    \item[2)] Variación de externalidad direccional:
+  \item[2)] Variación de externalidad direccional:
     
-    \begin{align*}
-        VO(X,F_{X})=\int_\mathcal{I} ||O(X(t),F_{X(t)})-MO(X,F_{X})||^2 w(t) dt
-    \end{align*}
+  \begin{align}
+        VO(X,F_{X})=\int_{\mathcal{I}} ||O(X(t),F_{X(t)})-MO(X,F_{X})||^2 w(t) dt
+    \end{align}
     
-    \item[3)] Externalidad direccional funcional:
+  \item[3)] Externalidad direccional funcional:
     
-    \begin{align*}
-        F0(X,F_X)=\int_\mathcal{I}||O(X(t),F_{X(t)})||^2w(t)dt
-    \end{align*}
+  \begin{align}
+        F0(X,F_X)=\int_{\mathcal{I}}||O(X(t),F_{X(t)})||^2w(t)dt
+    \end{align}
     
 \end{itemize}
 
@@ -2150,9 +2290,9 @@ donde \(w(t)\) es una función de peso definida en \(\mathcal{I}\), la cual pued
 
 Las tres medidas anteriores de externalidad pueden escribirse en una sola ecuación de la siguiente manera:
 
-\begin{align*}
+\begin{align}
     FO=||MO||^2 +VO
-\end{align*}
+\end{align}
 
 La ecuación anterior realiza una descomposición total de la externalidad funcional \(\textbf{(FO)}\) en dos términos: la magnitud de externalidad (\(||\textbf{MO}||\)) y la cantidad de variación de externalidad direccional \(\textbf{(VO)}\). Esta descomposición permite una gran flexibilidad para describir la centralidad de un conjunto de datos funcionales y para identificar curvas potencialmente atípicas \citep{dai}. \textbackslash{}
 
@@ -2196,10 +2336,10 @@ Este problema puede ser formulado de la siguiente manera:
 
 Es interesante comprobar la igualdad de las \(k\) funciones de media; es decir:
 
-\begin{align*}
+\begin{align}
     H_0:m_1(t)&=....=m_k(t),\ t\in T\\
     H_a:m_1(t)&\neq....\neq m_k(t),\ t\in T
-\end{align*}
+\end{align}
 
 A continuación se presentan varias pruebas para este tipo de ANOVA.
 
@@ -2209,33 +2349,33 @@ A continuación se presentan varias pruebas para este tipo de ANOVA.
 
 El siguiente estadístico fue propuesto en \citep{cuevas}:
 
-\begin{align*}
-    V_n=\sum_{1\leq i<j\leq k} n_i\int_T (\bar{Z_i}(t)-\bar{Z_j}(t))^2dt
-\end{align*}
+\begin{align}
+    V_n=\sum_{1\leq i<j\leq k} n_i\int_T ({\bar{Z_i}}(t)-{\bar{Z_j}}(t))^2dt
+\end{align}
 
 Bajo la hipótesis nula y la asunción de que :
 
-\begin{equation*}
+\begin{align}
  n_i,n \to \infty \quad \text{tal que}\quad  \dfrac{n_i}{n}\to p_i >0,\ i=1,...,k
-\end{equation*}
+\end{align}
 
 se demuestra que la distribución aproximada de \(V_n\) es la del estadístico:
 
-\begin{align*}
+\begin{align}
     V=\sum_{1\leq i<j\leq k} n_i\int_T \left(\bar{Y_i}(t)-\sqrt{\frac{p_i}{p_j}}Y_j(t)\right)^2dt
-\end{align*}
+\end{align}
 
-donde \(Y_1(t),...,Y_k(t)\) son procesos Gaussianos independientes de media cero y función de covarianza \(\gamma(s,t)\). El valor crítico empírico se calcula mediante remuestreo sobre \(Y_i(t),i=1,..,k\) de un proceso Gaussiano con media cero y función de covarianza \(\hat{\gamma}\), definida por:
+donde \(Y_1(t),...,Y_k(t)\) son procesos Gaussianos independientes de media cero y función de covarianza \(\gamma(s,t)\). El valor crítico empírico se calcula mediante remuestreo sobre \(Y_i(t),i=1,..,k\) de un proceso Gaussiano con media cero y función de covarianza \({\hat{\gamma}}\), definida por:
 
-\begin{align*}
-    \hat{\gamma}(s,t)=\frac{1}{n-k}\sum_{i=1}^k\sum_{j=1}^{n_i}(Z_{ij}(s)-\bar{Z_i}(s))(Z_{ij}(t)-\bar{Z_i}(t))
-\end{align*}
+\begin{align}
+    {\hat{\gamma}}(s,t)&=\frac{1}{n-k}\sum_{i=1}^k\sum_{j=1}^{n_i}(Z_{ij}(s)-\bar{Z_i}(s))(Z_{ij}(t)-\bar{Z_i}(t))
+\end{align}
 
 Para el caso heterocedástico y mediante el cálculo del valor crítico empírico, el valor p de \(V_n\) puede calcularse como en el caso anterior, mediante procesos Gaussianos independientes con funciones de covarianza dadas por:
 
-\begin{align*}
-    \hat{\gamma_i}(s,t)=\frac{1}{n_i-1}\sum_{j=1}^{n_i}(Z_{ij}(s)-\bar{Z_i}(s))(Z_{ij}(t)-\bar{Z_i}(t))
-\end{align*}
+\begin{align}
+    {\hat{\gamma_i}}(s,t)=\frac{1}{n_i-1}\sum_{j=1}^{n_i}(Z_{ij}(s)-\bar{Z_i}(s))(Z_{ij}(t)-\bar{Z_i}(t))
+\end{align}
 
 \hypertarget{prueba-basadas-en-la-norma-mathcall2}{%
 \subsubsection*{\texorpdfstring{Prueba basadas en la norma \(\mathcal{L}^2\)}{Prueba basadas en la norma \textbackslash mathcal\{L\}\^{}2}}\label{prueba-basadas-en-la-norma-mathcall2}}
@@ -2243,46 +2383,46 @@ Para el caso heterocedástico y mediante el cálculo del valor crítico empíric
 
 Este test usa el siguiente estadístico:
 
-\begin{align*}
+\begin{align}
     S_n=\int_T SSR_n(t)dt 
-\end{align*}
+\end{align}
 
 donde:
 
-\begin{align*}
+\begin{align}
      SSR_n(t)&=\sum_{i=1}^k n_i(\bar{Z}_i(t)-\bar{Z}(t))^2\\
      \bar{Z}(t)&=\frac{1}{n}\sum_{i=1}^k \sum_{j=1}^{n_i}Z_{ij}(t)\\
      \bar{Z}_i(t)&=\frac{1}{n_i}\sum_{j=1}^{n_i}Z_{ij}(t)
- \end{align*}
+ \end{align}
 
 Bajo la hipótesis nula, se tiene que \(S_n\sim \beta \chi_d^2\) aproximadamente, donde:
 
-\begin{align*}
+\begin{align}
     \beta &=\frac{tr(\gamma^{\otimes 2})}{tr(\gamma)},\\
     d&=(k-1)\kappa,\\
     \kappa&=\frac{tr^2(\gamma)}{tr(\gamma^{\otimes 2})},\\
     \gamma^{\otimes 2}(s,t)&=\int_T \gamma(s,u)\gamma(u,t)du.
-\end{align*}
+\end{align}
 
 Esta distribución aproximada es usada para calcular el p-valor de \(S_n\); es decir, \(P(\chi_d^2\geq S_n/\beta)\) o su valor crítico \(\beta\chi_d^2(1-\alpha)\). Los parámetros \(\beta\) y \(\kappa\) son estimados con base en los datos funcionales por el método de \textit{naive} o el método de \textit{reducción de sesgo}.
 
-Utilizando el método naive, y con el estimador \(\hat{\gamma}(s,t)\), se tiene que:
+Utilizando el método naive, y con el estimador \({\hat{\gamma}}(s,t)\), se tiene que:
 
-\begin{align*}
-    \hat{\beta}&=\frac{tr(\hat{\gamma}^{\otimes 2})}{tr(\hat{\gamma})},\\
-    \hat{d}&=(k-1)\hat{\kappa},\\
-    \hat{\kappa}&=\frac{tr^2(\hat{\gamma})}{tr(\hat{\gamma^{\otimes 2}})}.
-\end{align*}
+\begin{align}
+    {\hat{\beta}}&=\frac{tr({\hat{\gamma}}^{\otimes 2})}{tr({\hat{\gamma}})},\\
+    {\hat{d}}&=(k-1){\hat{\kappa}},\\
+    {\hat{\kappa}}&=\frac{tr^2({\hat{\gamma}})}{tr({\hat{\gamma^{\otimes 2}}})}.
+\end{align}
 
 Utilizando el método de reducción de sesgo, se tiene que:
 
-\begin{align*}
-    \hat{\beta}&=\frac{\widehat{tr(\gamma^{\otimes 2})}}{tr(\hat{\gamma})},\\
-    \hat{d}&=(k-1)\hat{\kappa},\\
-    \hat{\kappa}&=\frac{\widehat{tr^2(\gamma)}}{\widehat{tr(\gamma^{\otimes 2}})},\\
-    \widehat{tr(\gamma^{\otimes 2})}&=\frac{(n-k)^2}{(n-k-1)(n-k+2)}\left(tr(\hat{\gamma}^{\otimes 2})-\frac{tr^2(\hat{\gamma})}{n-k} \right),\\
-    \widehat{tr^2(\gamma)}&=\frac{(n-k)(n-k+1)}{(n-k-1)(n-k+2)}\left(tr^2(\hat{\gamma})-\frac{2tr(\hat{\gamma}^{\otimes 2})}{n-k+1}\right).
-\end{align*}
+\begin{align}
+    {\hat{\beta}}&=\frac{{\widehat{tr(\gamma^{\otimes 2})}}}{tr({\hat{\gamma}})},\\
+    {\hat{d}}&=(k-1){\hat{\kappa}},\\
+    {\hat{\kappa}}&=\frac{{\widehat{tr^2(\gamma)}}}{{\widehat{tr(\gamma^{\otimes 2}})}},\\
+    {\widehat{tr(\gamma^{\otimes 2})}}&=\frac{(n-k)^2}{(n-k-1)(n-k+2)}\left(tr({\hat{\gamma}^{\otimes 2}})-\frac{tr^2({\hat{\gamma}})}{n-k} \right),\\
+    {\widehat{tr^2(\gamma)}}&=\frac{(n-k)(n-k+1)}{(n-k-1)(n-k+2)}\left(tr^2({\hat{\gamma}})-\frac{2tr({\hat{\gamma}}^{\otimes 2})}{n-k+1}\right).
+\end{align}
 
 \hypertarget{prueba-f}{%
 \subsubsection*{Prueba F}\label{prueba-f}}
@@ -2290,10 +2430,10 @@ Utilizando el método de reducción de sesgo, se tiene que:
 
 Este test usa el estadístico:
 
-\begin{align*}
+\begin{align}
     F_n&=\frac{\int_T SSR_n(t)dt/(k-1)}{\int_T SSE_n(t)dt/(n-k)}\\
     SSE_n(t)&=\sum_{i=1}^k\sum_{j=1}^{n_i}(Z_{ij}(t)-\bar{Z}_i(t))^2
-\end{align*}
+\end{align}
 
 Bajo la hipótesis nula, se tiene que \(F_n \sim F_{d_1,d_2}\) aproximadamente, donde \(d_1=(k-1)\kappa\) y \(d_2=(n-k)\kappa\). De manera similar, la distribución aproximada de la prueba \textit{F} puede ser usada para calcular el p-valor de \(F_n\) o su valor crítico; y el parámetro \(\kappa\) puede ser estimado por el método naive o el método de reducción de sesgo.
 
@@ -2309,17 +2449,17 @@ Asumiendo que se trabaja con \(k\) grupos de un proceso estocástico \(Z_{ij}\in
 
 Esta prueba usa el siguiente estadístico:
 
-\begin{align*}
+\begin{align}
     F=\frac{\frac{1}{k-1}\sum_{i=1}^k n_i||\bar{Z}_i-\bar{Z}||^2}{\frac{1}{n-k}\sum_{i=1}^k\sum_{j=1}^{n_i} ||Z_{ij}-\bar{Z_i}||^2}
-\end{align*}
+\end{align}
 
 donde el proceso estocástico, la media funcional muestral y media funcional grupal, escrita en notación matricial a partir de la representación en la base \(\phi\), están definidos de la siguiente manera:
 
-\begin{align*}
+\begin{align}
     Z_{ij}(t)&=c'_{ij}\phi(t),\\
     \bar{Z}(t)&=\frac{1}{n}\sum_{i=1}^k\sum_{j=1}^{n_i} c'_{ij}\phi(t), \quad \forall t\in T\\
     \bar{Z}_i(t)&=\frac{1}{n_i}\sum_{j=1}^{n_i}c'_{ij}\phi(t)
-\end{align*}
+\end{align}
 
 para todo \(t\in T\).
 

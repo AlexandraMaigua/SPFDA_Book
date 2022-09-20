@@ -1,0 +1,161 @@
+\contentsline {chapter}{Prefacio}{5}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Introducción}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivación de datos funcionales espaciales}{8}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Por qué es importante el análisis de datos}{8}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Data 1(H)}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Data 2(C)}{8}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Data 3(N)}{8}{subsection.1.2.3}%
+\contentsline {chapter}{\numberline {2}Estadística espacial}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Preliminares}{9}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Función Aleatoria}{9}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Proceso Estocástico}{9}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Proceso Espacial}{9}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Proceso Temporal}{10}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Proceso Espacio Temporal}{10}{subsection.2.1.5}%
+\contentsline {section}{\numberline {2.2}Clases de Datos Espaciales}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Geoestadística}{10}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Datos de Área}{11}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Patrones Puntuales}{11}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Datos Georreferenciados}{11}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Geoestadística}{11}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Variable Regionalizada}{11}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Función de Distribución Conjunta}{12}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Función de Media}{12}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Función de varianza}{12}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Función de Covarianza}{13}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Función de correlación o Correlograma}{13}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}Función de semi-variograma}{13}{subsection.2.3.7}%
+\contentsline {subsection}{\numberline {2.3.8}Estacionariedad de Funciones Aleatorias}{14}{subsection.2.3.8}%
+\contentsline {subsubsection}{Estacionariedad Fuerte o de primer orden}{14}{section*.3}%
+\contentsline {subsubsection}{Estacionariedad de Segundo Orden}{15}{section*.4}%
+\contentsline {subsubsection}{Estacionariedad Intrínseca}{16}{section*.5}%
+\contentsline {subsection}{\numberline {2.3.9}No estacionariedad de Funciones Aleatorias}{16}{subsection.2.3.9}%
+\contentsline {subsection}{\numberline {2.3.10}Isotropía}{16}{subsection.2.3.10}%
+\contentsline {subsection}{\numberline {2.3.11}Anisotropía}{17}{subsection.2.3.11}%
+\contentsline {subsection}{\numberline {2.3.12}Correlación Espacial}{17}{subsection.2.3.12}%
+\contentsline {subsubsection}{Covariograma}{17}{section*.6}%
+\contentsline {subsubsection}{Semivariograma}{19}{section*.7}%
+\contentsline {section}{\numberline {2.4}Variograma}{21}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Disimilitud contra Separación}{21}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Variograma Empírico}{23}{subsection.2.4.2}%
+\contentsline {subsubsection}{Tolerancia en los parámetros de cálculo}{26}{section*.8}%
+\contentsline {subsubsection}{Propiedades del variograma empírico}{26}{section*.9}%
+\contentsline {subsubsection}{Nube variográfica}{28}{section*.10}%
+\contentsline {subsection}{\numberline {2.4.3}Estimación del variograma (Ejemplos)*}{31}{subsection.2.4.3}%
+\contentsline {subsubsection}{Comportamiento en el origen}{31}{section*.11}%
+\contentsline {subsubsection}{Comportamiento para distancias muy grades}{31}{section*.12}%
+\contentsline {subsection}{\numberline {2.4.4}Criterios para la estimación y ajuste del variograma}{33}{subsection.2.4.4}%
+\contentsline {subsubsection}{Tendencia:}{33}{section*.13}%
+\contentsline {subsubsection}{Establecer la variable correcta:}{33}{section*.14}%
+\contentsline {subsubsection}{Verificación de isotropía:}{38}{section*.15}%
+\contentsline {subsection}{\numberline {2.4.5}Métodos de estimación teórica más utilizados}{38}{subsection.2.4.5}%
+\contentsline {subsubsection}{Estimador REML}{40}{section*.16}%
+\contentsline {subsubsection}{Verosimilitud Compuesta (CL)}{40}{section*.17}%
+\contentsline {subsubsection}{Mínimos cuadrados ponderados}{41}{section*.18}%
+\contentsline {subsubsection}{Modelo lineal de regionalización}{42}{section*.19}%
+\contentsline {subsection}{\numberline {2.4.6}Modelos teóricos de variograma}{44}{subsection.2.4.6}%
+\contentsline {subsubsection}{Variogramas con silla}{44}{section*.20}%
+\contentsline {subsubsection}{Variogramas con efecto hueco}{55}{section*.21}%
+\contentsline {subsubsection}{Variogramas sin silla}{55}{section*.22}%
+\contentsline {subsection}{\numberline {2.4.7}Caso Multivariante (Ejemplos)}{58}{subsection.2.4.7}%
+\contentsline {subsubsection}{Modelo lineal de coregionalización (MLC)}{59}{section*.23}%
+\contentsline {subsubsection}{Ajuste del MLC}{60}{section*.24}%
+\contentsline {section}{\numberline {2.5}Geoestadística Espacio Temporal}{62}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Conceptos}{63}{subsection.2.5.1}%
+\contentsline {subsubsection}{Proceso Espacio Temporal}{63}{section*.25}%
+\contentsline {subsubsection}{Propiedad de regularidad}{63}{section*.26}%
+\contentsline {subsubsection}{Campo aleatorio Gaussiano}{64}{section*.27}%
+\contentsline {subsubsection}{Función de media}{64}{section*.28}%
+\contentsline {subsubsection}{Función de covarianza}{64}{section*.29}%
+\contentsline {subsubsection}{Estacionariedad fuerte o estricta}{64}{section*.30}%
+\contentsline {subsubsection}{Estacionariedad de segundo orden}{65}{section*.31}%
+\contentsline {subsubsection}{Estacionariedad intrínseca}{65}{section*.32}%
+\contentsline {subsubsection}{Función de covarianza estacionaria espacial}{65}{section*.33}%
+\contentsline {subsubsection}{Función de covarianza estacionaria temporal}{65}{section*.34}%
+\contentsline {subsubsection}{Función de covarianza estacionaria espacio-temporal}{65}{section*.35}%
+\contentsline {subsubsection}{Función de covarianza separable}{66}{section*.36}%
+\contentsline {subsubsection}{Función de covarianza simétrica}{66}{section*.37}%
+\contentsline {subsubsection}{Función de covarianza espacialmente isotrópica}{67}{section*.38}%
+\contentsline {subsubsection}{Función de covarianza temporalmente isotrópica}{67}{section*.39}%
+\contentsline {subsubsection}{Variograma espacio-temporal}{67}{section*.40}%
+\contentsline {subsubsection}{Variograma espacio-temporal intrínsecamente estacionario espacial}{68}{section*.41}%
+\contentsline {subsubsection}{Variograma espacio-temporal intrínsecamente estacionario temporal}{68}{section*.42}%
+\contentsline {subsubsection}{Variograma espacio-temporal intrínsecamente estacionario}{68}{section*.43}%
+\contentsline {subsubsection}{Función de correlación espacio-temporal}{69}{section*.44}%
+\contentsline {subsubsection}{\numberline {2.5.1.1}Propiedades de la covarianza y variograma espacio-temporal}{69}{subsubsection.2.5.1.1}%
+\contentsline {subsection}{\numberline {2.5.2}Modelos separables}{71}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Modelos no separables}{71}{subsection.2.5.3}%
+\contentsline {subsection}{\numberline {2.5.4}Estimación del variograma espacio-temporal (Ejemplos)}{71}{subsection.2.5.4}%
+\contentsline {chapter}{\numberline {3}Introducción al análisis de datos funcionales (FDA)}{73}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Espacios de Hilbert}{74}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}\textbf {El Espacio} \(L^2\)}{74}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}\textbf {Funciones Aleatorias Cuadrado Integrables}}{76}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}\textbf {Estimación de la función de media y covarianza}}{76}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Campos aleatorios funcionales espaciales}{77}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Campos aleatorios funcionales espaciales multivariantes}{77}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Reducción de Dimensionalidad}{77}{section.3.4}%
+\contentsline {subsection}{Bases de expansión}{78}{section*.45}%
+\contentsline {subsection}{Bases de Fourier}{79}{section*.46}%
+\contentsline {subsection}{Base de Splines}{80}{section*.47}%
+\contentsline {subsection}{Estimación de curvas utilizando sistemas de bases por mínimos cuadrados}{82}{section*.48}%
+\contentsline {subsection}{Suavizamiento de datos funcionales mediante el uso de bases de Fourier}{84}{section*.49}%
+\contentsline {subsection}{Suavizamiento de datos funcionales mediante el uso de bases B-splines}{86}{section*.50}%
+\contentsline {subsection}{\numberline {3.4.1}Elección de número de bases}{87}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}Detección de atípicos}{87}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Medidas de profundidad}{88}{subsection.3.5.1}%
+\contentsline {subsubsection}{Profundidad de Fraiman y Muniz}{89}{section*.51}%
+\contentsline {subsubsection}{Profundidad H-modal}{89}{section*.52}%
+\contentsline {subsubsection}{Profundidad de proyección aleatoria}{89}{section*.53}%
+\contentsline {subsection}{\numberline {3.5.2}Gráfico de Magnitudes y Formas}{90}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}ANOVA Para datos funcionales}{92}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}One-Way ANOVA}{92}{subsection.3.6.1}%
+\contentsline {subsubsection}{CS-Test}{93}{section*.54}%
+\contentsline {subsubsection}{Prueba basadas en la norma \(\symcal {L}^2\)}{94}{section*.55}%
+\contentsline {subsubsection}{Prueba F}{95}{section*.56}%
+\contentsline {subsubsection}{Prueba basada en representación de funciones base}{96}{section*.57}%
+\contentsline {chapter}{\numberline {4}Introducción a la estadística esepacial funcional}{97}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Proceso Espacial Funcional}{98}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Datos funcionales espaciales}{98}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Variable Regionalizada Funcional}{98}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Función de Distribución Conjunta Funcional}{98}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Función de Media Funcional}{98}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Función de varianza Funcional}{98}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Función de Covarianza Funcional}{98}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Función de correlación o Correlograma Funcional}{98}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Función de semi-variograma Funcional}{98}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Estacionariedad de Funciones Aleatorias}{98}{section.4.10}%
+\contentsline {section}{\numberline {4.11}No estacionariedad de Funciones Aleatorias}{98}{section.4.11}%
+\contentsline {section}{\numberline {4.12}Correlación Espacial Funcional}{98}{section.4.12}%
+\contentsline {section}{\numberline {4.13}Índices de correlación espacial}{98}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Índice de Moran funcional}{98}{subsection.4.13.1}%
+\contentsline {subsection}{\numberline {4.13.2}Índice de Geary funcional}{98}{subsection.4.13.2}%
+\contentsline {chapter}{\numberline {5}Agrupación}{99}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Algoritmos de agrupación}{99}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Agrupación: Datos Multivariantes (apéndice)}{99}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Agrupación: Datos Funcionales}{99}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Métodos de datos en bruto}{100}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Métodos de filtrado}{101}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Métodos adaptativos}{101}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Clasificación basados en modelos}{101}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Método adaptativo de agrupación usando coeficientes de bases de expansión}{102}{subsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.3.6}Método adaptativo de agrupación usando FPCA}{102}{subsection.5.3.6}%
+\contentsline {subsection}{\numberline {5.3.7}Métodos basados en distancia}{103}{subsection.5.3.7}%
+\contentsline {subsubsection}{Métodos que usan distancias}{103}{section*.58}%
+\contentsline {subsubsection}{Métodos Heurísticos}{104}{section*.59}%
+\contentsline {section}{\numberline {5.4}Agrupación: Datos Espaciales}{104}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Agrupación: Datos funcionales con correlación espacial}{107}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Método jerárquico para datos funcionales con correlación espacial}{108}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Método k-medias para datos funcionales con correlación espacial}{112}{subsection.5.5.2}%
+\contentsline {chapter}{\numberline {6}Aplicaciones}{113}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Aplicación 1}{113}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Aplicación 2}{113}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Aplicación 3}{113}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Aplicación 4}{113}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Apéndice}{115}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Introducción a la simulación geoestadística codicional y no condicional}{115}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Estudio de simulación (referencia al artículo)}{115}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Índices}{115}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Selección de número de grupos}{115}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Validación de grupos}{115}{subsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.2.1}Correlación temporal}{115}{subsubsection.7.3.2.1}%
+\contentsline {subsubsection}{\numberline {7.3.2.2}Índices de correlación espacial}{115}{subsubsection.7.3.2.2}%

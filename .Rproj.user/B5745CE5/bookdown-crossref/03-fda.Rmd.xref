@@ -1,4 +1,4 @@
-h1:introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional Introducción al análisis de datos funcionales (FDA) (analisis descriptivo, distancias, algoritmos en funcional)
+h1:introducción-al-análisis-de-datos-funcionales-fda Introducción al análisis de datos funcionales (FDA)
 h2:espacios-de-hilbert Espacios de Hilbert
 h3:el-espacio-l2  
 h3:funciones-aleatorias-cuadrado-integrables 
@@ -11,6 +11,7 @@ h3:bases-de-fourier Bases de Fourier
 h3:base-de-splines Base de Splines
 h3:estimación-de-curvas-utilizando-sistemas-de-bases-por-mínimos-cuadrados Estimación de curvas utilizando sistemas de bases por mínimos cuadrados
 h3:suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-de-fourier Suavizamiento de datos funcionales mediante el uso de bases de Fourier
+fig:suaves Suavización de curvas.
 h3:suavizamiento-de-datos-funcionales-mediante-el-uso-de-bases-b-splines Suavizamiento de datos funcionales mediante el uso de bases B-splines
 h3:elección-de-número-de-bases Elección de número de bases
 h2:detección-de-atípicos Detección de atípicos

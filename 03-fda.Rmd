@@ -1,4 +1,4 @@
-# Introducción al análisis de datos funcionales (FDA) (analisis descriptivo, distancias, algoritmos en funcional)
+# Introducción al análisis de datos funcionales (FDA) 
 
 Los objetivos fundamentales del FDA son los mismos que la estadística convencional e incluyen: (a) Representar y transformar los datos de manera que faciliten el análisis posterior. (b) Mostrar los datos de manera que se destaquen las variables en estudio. (c) Estudiar fuentes relevantes de patrones y variación de los datos. (d) Explicar la variación de una variable resultante o dependiente utilizando la información de la variable independiente [@raichle].
 
@@ -22,97 +22,97 @@ El espacio de *Hilbert* generaliza la noción de espacio euclidiano, extendiendo
 
 El espacio $L^2=L^2[0,1]$ es el conjunto de funciones reales medibles de Lebesgue $f$ definidas en $[0,1]$, tales que satisfacen [@lajos]:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \int_0^1 f^2(t)dt<\infty
-\end{align*}
-```
+\end{align}
+
 Este espacio se le conoce como el *Espacio de Funciones Cuadrado Integrables*.
 
 Si $f,g \in L^2$, la igualdad $f=g$, significa que [@kokoska]:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \int[f(t)-g(t)]dt=0
-\end{align*}
-```
+\end{align}
+
 Las funciones cuadrado integrables forman un espacio vectorial; esto significa que, si $f,g\in L^2$, entonces se cumple que, para cualquier escalar $a,b$::
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
         af+bg\in L^2\hspace{2cm}\\
          (af+bg)(t)=af(t)+bg(t),\ t \in [0,1]
-  \end{align*}
-```
+  \end{align}
+
 Se debe tener en cuenta que los elementos de $L^2$ y operaciones sobre estos no necesitan estar definidos para todo punto $t$, sino que están definidos para casi todo punto $t$ [@kokoska].
 
 Para funciones $f,g\in L^2$, se define el producto interno de dos funciones como:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \langle f,g \rangle=\int f(t)g(t)dt
-\end{align*}
-```
+\end{align}
+
 El producto interno permite entender la noción de ortogonalidad, lo cual hace que la estructura geométrica del espacio $L^2$ sea intuitivamente muy similar al espacio euclidiano finito dimensional.
 
 Se dice que dos funciones $f,g$ son ortogonales si:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \langle f,g \rangle=0
-\end{align*}
-```
+\end{align}
+
 El producto interno permite definir la noción de distancia entre funciones a través de la norma:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
   ||f||=\sqrt{\langle f,f \rangle}=\left\{\int f^2 (t) dt \right\}^{\frac{1}{2}}
-\end{align*}
-```
+\end{align}
+
 Por otro lado, la distancia entre dos funciones en el espacio $L^2$ es la norma de su diferencia; es decir:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     d(f,g)=||f-g||
-\end{align*}
-```
+\end{align}
+
 Un conjunto de funciones $\{e_1,e_2,e_3,...\}$ es una base en $L^2$ si toda función $f\in L^2$ admite una única expansión de la forma:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     f(t)=\sum_{j=1}^\infty {a_je_j(t)}
-\end{align*}
-```
+\end{align}
+
 y se dice que $\{e_1,e_2,e_3,...\}$ es una base ortonormal, si:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \langle e_j,e_j' \rangle =0,\ j\neq j' \ y\ ||e_j||=1
-\end{align*}
-```
+\end{align}
+
 Para una base ortonormal, como por ejemplo la base de Fourier, se tiene que:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     a_j=\langle f,e_j \rangle
-\end{align*}
-```
+\end{align}
+
 y tenemos la igualdad de *Parseval*:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \int f^2 (t) dt = ||f||^2 = \sum_{j=1}^{\infty} {\langle f,e_j \rangle ^2} = \sum_{j=1}^{\infty} \left\{\int f(t)e_{j}(t) dt\right\}^2
-\end{align*}
-```
+\end{align}
+
 ### **Funciones Aleatorias Cuadrado Integrables**
 
 Dado que $Z$ denota una función aleatoria en $\mathbb{R^d}$. Así, como una variable aleatoria, una función aleatoria es definida en un espacio de probabilidad, digamos $\Omega$; para cada $\omega \in \Omega$, $Z(\omega)$ es una función determinística. Se asume que cada una de las realizaciones $Z(\omega),\omega \in \Omega$, son elementos del espacio $L^2$ de funciones cuadrado integrables, lo que significa que para cada $\omega\in \Omega$, se verifica que:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     ||Z(\omega)||^2=\int \{ Z(\omega)(t)\}^2<\infty
-\end{align*}
-```
+\end{align}
+
 La función $||Z(\omega)||$ es por tanto una variable aleatoria; si esta variable aleatoria tiene momento de segundo orden finito; es decir, $E||Z||^2<\infty$, por consiguiente $Z$ es una función aleatoria cuadrado integrable.
 
 Es importante notar la diferencia entre una función cuadrado integrable determinística, donde la integración se define en el intervalo $[0,1]$, y las funciones aleatorias cuadrado integrables, donde la integración está definida en el espacio de probabilidad $\Omega$ [@kokoska].
@@ -125,53 +125,52 @@ Ahora bien, suponiendo que $Z_1,Z_2,...,Z_N$ son iid en $L^2$, y que tienen la m
 
 -   Función de media:
 
-    ```{=tex}
-    \begin{align*}
+    
+    \begin{align}
           \mu(t)=E[Z(t)]
-      \end{align*}
-    ```
+      \end{align}
+    
 
 -   Función de media estimada:
 
-    ```{=tex}
-    \begin{align*}
-          \hat{\mu}=\frac{1}{N}\sum_{i=1}^N Z_i(t)
-      \end{align*}
-    ```
+    
+    \begin{align}
+          {\hat{\mu}}=\frac{1}{N}\sum_{i=1}^N Z_i(t)
+      \end{align}
+    
 
 -   Función de covarianza:
 
-    ```{=tex}
-    \begin{align*}
+    
+    \begin{align}
           c(t,s)=E[(Z(t)-\mu(t))(Z(s)-\mu(s))]
-      \end{align*}
-    ```
+      \end{align}
+    
 
 -   Función de covarianza estimada:
 
-    ```{=tex}
-    \begin{align*}
-          \hat{c}(t,s)=\frac{1}{N}\sum_{i=1}^N(Z_i(t)-\hat{\mu}(t))(Z_i(s)-\hat{\mu}(s))
-      \end{align*}
-    ```
+    
+    \begin{align}
+          {\hat{c}}(t,s)=\frac{1}{N}\sum_{i=1}^N(Z_i(t)-{\hat{\mu}}(t))(Z_i(s)-{\hat{\mu}}(s))
+      \end{align}
+    
 
 -   Operador de covarianza:
 
-    ```{=tex}
-    \begin{align*}
+    
+    \begin{align}
           C=E[\langle(Z-\mu),\cdot \rangle (Z-\mu)]
-      \end{align*}
-    ```
+      \end{align}
+    
 
 -   Estimación del operador de covarianza:
 
-    ```{=tex}
-    \begin{align*}
-          \hat{C}(z)= \frac{1}{N} \sum_{i=1}^{N} \langle Z_i - \hat{\mu}, z\rangle ( Z_i-\hat{\mu}), \quad z\in L^2
-      \end{align*}
-    ```
-
-Nótese que $\hat{C}$ proyecta el espacio $L^2$ en un subespacio finito dimensional generado por $Z_1,Z_2,...,Z_N$, mostrando las limitaciones de la inferencia estadística para observaciones funcionales; una muestra finita puede cubrir un objeto infinito dimensional solo con reducida exactitud [@lajos].
+    
+    \begin{align}
+          {\hat{C}}(z)= \frac{1}{N} \sum_{i=1}^{N} \langle Z_i - {\hat{\mu}}, z\rangle ( Z_i-{\hat{\mu}}), \quad z\in L^2
+      \end{align}
+    
+Nótese que ${\hat{C}}$ proyecta el espacio $L^2$ en un subespacio finito dimensional generado por $Z_1,Z_2,...,Z_N$, mostrando las limitaciones de la inferencia estadística para observaciones funcionales; una muestra finita puede cubrir un objeto infinito dimensional solo con reducida exactitud [@lajos].
 
 [INSERTAR GRAFICOS, CODIGO, EJEMPLOS]{style="color:red"} 
 
@@ -187,18 +186,18 @@ Para tratar el problema de alta dimensionalidad, se hace uso de funciones base, 
 
 El conjunto de datos más simple, en el contexto de FDA, es una muestra de la forma:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     z_n(t_{j,n})\in\mathbb{R}, t_{j,n}\in [T_1,T_2],\ n=1,...,N,\ j=1,...,J_n
-\end{align*}
-```
+\end{align}
+
 es decir, tenemos $N$ curvas que son observadas en un intervalo común $[T_1,T_2]$. Los valores de las curvas nunca son conocidos en todos los puntos $t\in[T_1,T_2]$, pues solo están disponibles en puntos específicos $t_{j,n}$, los cuales pueden ser diferentes para curvas $z_n$ diferentes. Algunas aplicaciones relevantes del FDA, tratan con situaciones donde el número de puntos $\{t_{j,n}\}$, por curva son pequeños. La idea fundamental del FDA es que los objetos en estudio sean curvas suaves:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \{z_n(t):t\in[T_1,T_2],n=1,...,N\}
-\end{align*}
-```
+\end{align}
+
 para los cuáles los valores $z_n(t)$ existen en todo punto $t$, pero solo son observados en puntos específicos $t_j$.
 
 El enfoque principal en el FDA es la forma de las funciones observadas o de las funciones que resumen las propiedades de los datos en un sentido específico [@kokoska].
@@ -209,27 +208,27 @@ En la práctica se trabaja con funciones con características que pueden ser imp
 
 Se utiliza un conjunto de bloques funcionales $\phi_k,k=1,..,K$ llamados *funciones base*, los cuales son combinados linealmente; es decir, una función $z(t)$ definida en este sentido es expresada de la siguiente forma:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     z(t)=\sum_{k=1}^Kc_k\phi_k(t)=c'\phi(t)
-\end{align*}
-```
+\end{align}
+
 conocido como *expansión en funciones base*. Los parámetros $c_1,...c_k$ son coeficientes de la expansión. La expresión matricial usa $c$ para referirse al vector de $K$ coeficientes y $\phi$ para denotar al vector de tamaño $K$ que contiene las funciones suaves de base que comparten las mismas propiedades. [@programsay].
 
 Usualmente se considera una muestra de funciones de tamaño $N$:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     z_i(t)=\sum_{k=1}^Kc_{ik}\phi_k(t), \ i=1,...,N
-\end{align*}
-```
+\end{align}
+
 en este caso, la notación matricial está dada por:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \textbf{z(t)}=C\phi(t)
-\end{align*}
-```
+\end{align}
+
 donde $\textbf{z(t)}$ es un vector de tamaño $N$ conteniendo las funciones $z_i(t)$, y la matriz de coeficientes $C$ tiene $N$ filas y $K$ columnas [@programsay].
 
 Lo ideal, es que las funciones base tengan características que coincidan con las características de las funciones que se están estimando, lo que permite la obtención de una aproximación adecuada utilizando un número más pequeño que $K$ de funciones; cuánto menor sea $K$ y mejor reflejen las funciones base ciertas características de los datos: se tendrá más grados de libertad para realizar pruebas de hipótesis y calcular intervalos de confianza más precisos, menos cálculo computacional es requerido y es factible que los mismos coeficientes logren describir los datos [@ramsay].
@@ -240,23 +239,23 @@ El concepto de sistemas de bases no es nuevo; por ejemplo, un polinomio de cualq
 
 Probablemente la expansión de base más conocida está dada por las series de Fourier. Esta serie es especialmente útil para funciones extremadamente estables; es decir, funciones en las que no hay características locales fuertes y donde la curva tiende a ser del mismo orden en todas partes. Estas series suelen dar lugar a expansiones uniformes, sin embargo son inadecuadas en cierto grado para los datos que se sospecha que tienen discontinuidades en la función o en las derivadas de bajo orden[@ramsay]. En algunas ocasiones, es necesario que las funciones se puedan repetir sobre un cierto período de tiempo $T$; por ejemplo, pueden ser requeridos para expresar comportamiento estacional en series de tiempo extensas. La serie de Fourier, está dada por [@programsay]:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \phi_1(t)&=1\\
     \phi_2(t)&=\sin(\omega t)\\
     \phi_3(t)&=\cos(\omega t)\\
     \phi_4(t)&=\sin(2\omega t)\\
     \phi_5(t)&=\cos(2\omega t)\\
     & \hspace{0.2cm}\vdots
-\end{align*}
-```
+\end{align}
+
 donde la constante $\omega$ está relacionado con el período $T$ por la relación:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \omega =\frac{2\pi}{T}
-\end{align*}
-```
+\end{align}
+
 Se observa que, después de la primera función base constante, las funciones base de Fourier son ordenadas de forma sucesiva en pares de seno/coseno, los dos con argumentos en cualquier par que se multiplique por uno de los enteros $1,2,...$ hasta un límite superior $m$. Si las series contienen ambos elementos de cada par, como es usual, el número de funciones base es $K=1+2m$, puesto que, de la forma en que se definió $\omega$, cada función base se repite por si misma después de $T$ unidades de tiempo transcurrido.
 
 Para definir una base de tipo Fourier, solo son necesario dos parámetros: el número de funciones base $K$ y el período $T$; no obstante, este último valor usualmente puede ser por defecto el rango de los valores $t$ en los cuales están definidos los datos [@programsay].
@@ -289,206 +288,207 @@ La propiedad de que una base de funciones B-spline de orden $m$ sea positiva sob
 
 La notación $B_k(t,\tau)$ se utiliza para indicar el valor en $t$ de la base de funciones B-spline definido por la secuencia de puntos de ruptura $\tau$; $k$ hace referencia al número del nodo más grande en o inmediatamente a la izquierda de $t$, teniendo en cuenta que cuando los nodos son discretos, se requieren $m+L-1$ funciones base. Una función spline se puede escribir como:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     S(t)=\sum_{k=1}^{m+L-1} {c_{k}B_{k}(t.\tau)}
-\end{align*}
-```
+\end{align}
+
 En cuanto a las posiciones de los nodos $\tau_l$, varias aplicaciones por defecto tienen la misma separación siempre y cuando los datos estén también separados de manera regular. Si no lo están, es recomendable ubicar un nodo en cada punto $j$ de los datos, donde $j$ es un número fijado previamente [@ramsay].
 
 ### Estimación de curvas utilizando sistemas de bases por mínimos cuadrados {.unnumbered}
 
 Se tiene por objetivo ajustar observaciones discretas $y_j,j=1,...,n$ utilizando el modelo $y_j=x(t_j)+\epsilon_j$ y se utiliza una base de funciones para la expansión de $x(t)$ de la forma:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     x(t)=\sum_{k=1}^Kc_k\phi_k(t)=\mathbf{c'} \boldsymbol{\phi}
-\end{align*}
-```
+\end{align}
+
 donde el vector $\textbf{c}$ de tamaño $K$ contiene los coeficientes $c_k$ y $\phi$ la matriz de orden $n\times K$ que contiene los valores $\phi_k(t_j)$.
 
 El suavizamiento básico se obtiene si se determinan los coeficientes de la expansión $c_k$ minimizando el criterio de mínimos cuadrados:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     SMSSE(y|c)=\sum_{j=1}^n[y_j-\sum_{k=1}^Kc_k\phi_k(t_j)]^2
-\end{align*}
-```
+\end{align}
+
 en términos matriciales la expresión anterior está dada de la siguiente manera:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     SMSSE(y|c)=(y-\Phi c)'(y-\Phi c)=||y-\Phi c||^2
-\end{align*}
-```
+\end{align}
+
 luego, tomando el criterio de derivada de $SMSSE(y|c)$ con respecto a $\textbf{c}$ tenemos:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     2\Phi \Phi'c-2\Phi'y=0
-\end{align*}
-```
-resolviendo para $\textbf{c}$ tenemos la estimación $\hat{\textbf{c}}$ que minimiza la solución de mínimos cuadrados:
+\end{align}
 
-```{=tex}
-\begin{align*}
-    \hat{c}=(\Phi'\Phi)^{-1}\Phi'y
-\end{align*}
-```
-así, el vector $\hat{y}$ de valores estimados es:
+resolviendo para $\textbf{c}$ tenemos la estimación ${\hat{\textbf{c}}}$ que minimiza la solución de mínimos cuadrados:
 
-```{=tex}
-\begin{align*}
-    \hat{y}=\Phi \hat{c}=\Phi(\Phi'\Phi)^{-1}\Phi'y
-\end{align*}
-```
+
+\begin{align}
+    {\hat{c}}=(\Phi'\Phi)^{-1}\Phi'y
+\end{align}
+
+así, el vector ${\hat{y}}$ de valores estimados es:
+
+
+\begin{align}
+    {\hat{y}}=\Phi {\hat{c}}=\Phi(\Phi'\Phi)^{-1}\Phi'y
+\end{align}
+
 Este método básico de aproximación es adecuado cuando se asume que los residuos $\epsilon_j$ sobre la curva verdadera son independientes e idénticamente distribuidas con media cero y varianza $\sigma^2$ constante.
 
 **Ajuste por mínimos cuadrados ponderados**
 
 En la práctica se trabaja con errores no estacionarios y/o autocorrelacionados, por lo que se usa el método de mínimos cuadrados ponderados como una extensión del método anterior de la forma:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     SMSSE(y|c)=(y-\Phi c)'W(y-\Phi c)
-\end{align*}
-```
+\end{align}
+
 donde $W$ es una matriz simétrica definida positiva que permite la ponderación de cuadrados y producto de los residuos.
 
 Si la matriz de varianza-covarianza $\Sigma_e$ para los residuos $\epsilon_j$ se conoce, entonces:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     W=\Sigma_e^{-1}
-\end{align*}
-```
+\end{align}
+
 en aplicaciones donde una estimación completa de $\Sigma_e$ no es factible, los valores de la covarianza de los errores son usualmente asumidos iguales a cero, entonces $W$ es diagonal con los recíprocos de la varianza de los errores asociados con los $y_j$.
 
-La estimación $\hat{c}$ de los coeficientes del vector $c$ está dada por:
+La estimación ${\hat{c}}$ de los coeficientes del vector $c$ está dada por:
 
-```{=tex}
-\begin{align*}
-    \hat{c}=(\Phi'W\Phi)^{-1}\Phi'W'y
-\end{align*}
-```
+
+\begin{align}
+    {\hat{c}}=(\Phi'W\Phi)^{-1}\Phi'W'y
+\end{align}
+
 ### Suavizamiento de datos funcionales mediante el uso de bases de Fourier {.unnumbered}
 
 Una función $f$ continua a trozos en el intervalo de $[-\pi,\pi]$, puede ser representada en un sistema de tipo Fourier de la siguiente manera:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     f(x)=\frac{a_0}{2}+\sum_{k=1}^\infty(a_k\cos{kx}+b_k\sin{kx})
-\end{align*}
-```
+\end{align}
+
 donde, para todo $k$ se tiene que:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     a_k&=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos{kx}dx\\
     b_k&=\frac{1}{\pi}\int_{-\pi}^\pi f(x) \sin{kx}dx
-\end{align*}
-```
+\end{align}
+
 esta representación de $f$ se conoce como la expansión en series de Fourier en el intervalo $[-\pi,\pi]$ y donde $a_k,b_k$ son conocidos como los coeficientes de Euler-Fourier de $f$ [@kreider] y este tipo de expansión se utiliza para aproximar datos periódicos.
 
 El suavizamiento de datos, utilizando una base de Fourier, siempre implica que se tenga más puntos de los necesarios para modelizar la suavidad de la función en estudio. En la práctica, la frecuencia de la serie no sobrepasa una frecuencia de corte; es decir, que a partir de cierto término, digamos $m$, todos los coeficientes, $a_k, b_k$, de Fourier serán prácticamente cero; por lo tanto, la ecuación anterior, puede escribirse de la siguiente manera:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
      f(x)=\frac{a_0}{2}+\sum_{k=1}^m(a_k\cos{kx}+b_k\sin{kx})
-\end{align*}
-```
+\end{align}
+
 esta ecuación se conoce como la expansión de Fourier truncada y es la función suavizada de nuestros datos.
 
 
 ```{r suaves, echo=FALSE, fig.cap="Suavización de curvas.", fig.height=5, fig.width=10}
 knitr::include_graphics("figuras/otros/suves_fda.png")
 ```
+
 Usualmente, el intervalo donde una función está definida no es $[-\pi,\pi]$ o $[0,\pi]$; también podría ser un intervalo $[a,b]$ arbitrario, por lo cual la expansión en serie de Fourier queda de la siguiente forma:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     f(x)=\frac{a_0}{2}+\sum_{k=1}^\infty\left(a_k\cos{\frac{2k\pi x}{b-a}} + b_k\sin{\frac{2k\pi x}{b-a}} \right)
-\end{align*}
-```
+\end{align}
+
 donde, para todo $k$:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     a_k&=\frac{2}{b-a}\int_a^bf(x)\cos{\frac{2k\pi x}{b-a}}dx\\
     b_k&=\frac{2}{b-a}\int_a^bf(x)\sin{\frac{2k\pi x}{b-a}}dx
-\end{align*}
-```
+\end{align}
+
 ### Suavizamiento de datos funcionales mediante el uso de bases B-splines {.unnumbered}
 
-Se tiene que, en el caso "más general", la estimación del vector de coeficientes $c$, $\hat{c}$ es de la forma:
+Se tiene que, en el caso "más general", la estimación del vector de coeficientes $c$, ${\hat{c}}$ es de la forma:
 
-```{=tex}
-\begin{align*}
-    \hat{c}=(\Phi'W\Phi)^{-1}\Phi'W'y
-\end{align*}
-```
+
+\begin{align}
+    {\hat{c}}=(\Phi'W\Phi)^{-1}\Phi'W'y
+\end{align}
+
 donde $\Phi$ es una matriz de orden $n \times K$ que contiene los valores de las $K$ funciones base en los $n$ puntos de muestra, $W$ es la matriz de ponderación que permite tener una estructura de covarianza en los residuos, y $y$ es el vector de los datos discretos a ser suavizados; por tanto, la expresión para el vector de ajuste de los datos es:
 
-```{=tex}
+
 \begin{align}
-    \hat{y}=\Phi(\Phi'W\Phi)^{-1} \Phi'Wy=S_\phi y
+    {\hat{y}}=\Phi(\Phi'W\Phi)^{-1} \Phi'Wy=S_\phi y
 \end{align}
-```
+
 donde $S_\phi$ es el operador proyección correspondiente al sistema de base $\phi$:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     S_\phi=\Phi(\Phi'W\Phi)^{-1} \Phi'W.
-\end{align*}
-```
+\end{align}
+
 Dado que en el proceso de suavización se tiene un comportamiento de discontinuidades, calcular las rugosidades es de utilidad para compensar dicho comportamiento en los datos suavizados.
 
 Para medir la rugosidad de una función, la integral del cuadrado de la segunda derivada $[D^2x(t)]^2$ se utiliza:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     PEN_2(x)=\int[D^2x(s)]^2ds
-\end{align*}
-```
+\end{align}
+
 Para funciones con alta variabilidad, se espera un valor alto de $PEN_2(x)$, pues su segunda derivada es grande al menos en algún rango de interés. De forma general, la penalización de la rugosidad permite una derivada $D^mx$ de orden arbitrario [@ramsay]:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     PEN_m(x)=\int[D^mx(s)]^2ds
-\end{align*}
-```
+\end{align}
+
 matricialmente, la expresión anterior está dada por:
 
-\begin{align*}
+\begin{align}
     PEN_m(x)=c'Rc
- \end{align*} dónde
+ \end{align} dónde
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     R=\int D^m \phi D^m\phi'.
-\end{align*}
-```
+\end{align}
+
 Ahora bien, añadiendo esta penalización al ajuste por mínimos cuadrados y multiplicando por un parámetro $\lambda$ de suavizamiento, se obtiene:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     PENSSE_m(y|c)=(y-\Phi c)'W(y-\Phi c)+\lambda c'Rc
-\end{align*}
-```
+\end{align}
+
 y tomando la derivada con respecto al vector $c$, se obtiene:
 
-```{=tex}
-\begin{align*}
-    -2\Phi'Wy + \Phi' W \Phi c + \lambda R c=0
-\end{align*}
-```
-de done la expresión para el vector de coeficientes estimados $\hat{c}$ es:
 
-```{=tex}
-\begin{align*}
-    \hat{c}=(\Phi W \Phi + \lambda R)^{-1} \Phi' Wy
-\end{align*}
-```
+\begin{align}
+    -2\Phi'Wy + \Phi' W \Phi c + \lambda R c=0
+\end{align}
+
+de done la expresión para el vector de coeficientes estimados ${\hat{c}}$ es:
+
+
+\begin{align}
+    {\hat{c}}=(\Phi W \Phi + \lambda R)^{-1} \Phi' Wy
+\end{align}
+
 ### Elección de número de bases
 
 ## Detección de atípicos
@@ -509,52 +509,52 @@ El objetivo de profundidad para datos funcionales es medir la centralidad de una
 
 Sea $F_{n,t}(z_i(t))$ la función de distribución acumulada empírica de los valores de las curvas $z_1(t),...,z_n(t)$ en un punto de tiempo $t\in [a,b]$ dado, dado por:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     F_{n,t}(z_i(t))=\frac{1}{n}\sum_{k=1}^n I(z_k(t)\leq z_i(t))
-\end{align*}
-```
+\end{align}
+
 donde $I(.)$ es la función indicatriz.
 
 La medida de profundidad funcional de *Fraiman y Muniz* de una curva $z_i$ con respecto al conjunto de curvas $z_1,...,z_n$, está dada por:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     FMD_n(z_i)=\int_a^bD_n(z_i(t))dt
-\end{align*}
-```
+\end{align}
+
 donde $D_n(z_i(t))$ es la profundidad univariante del punto $z_i(t)$ dada por:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     D_n(z_i(t))=1-\left|\frac{1}{2}-F_{n,t}(z_i(t))\right|
-\end{align*}
-```
+\end{align}
+
 #### Profundidad H-modal {.unnumbered}
 
 Esta medida de profundidad se base en el concepto de moda funcional, definiendo la moda funcional como la curva más densamente rodeada por el resto del conjunto de curvas. Así, la profundidad *h-modal* de una curva $z_i$, con respecto al conjunto de curvas $z_1,...,z_n$, está dada por:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     MD_n(z_i,h)=\sum_{k=1}^n  K\left( \frac{||z_i-z_k||}{h}\right)
-\end{align*}
-```
+\end{align}
+
 #### Profundidad de proyección aleatoria {.unnumbered}
 
 La idea de esta medida es proyectar cada curva funcional y su primera derivada a través de una dirección aleatoria, definiendo un punto en $\mathbb{R}^2$, luego, el valor de la profundidad en $\mathbb{R}^2$, da un orden de puntos proyectados. Si se trabaja con un gran número de proyecciones aleatorias, el valor medio de profundidad de los puntos proyectados define la profundidad para datos funcionales. Así, dado un conjunto de curvas $z_1,...,z_n$ y una dirección $\nu$ que pertenece a un proceso independiente direccional $V(.)$, así la proyección de $z_i$ a través de la dirección $\nu$, está dada por:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     T_{i,\nu}=\langle \nu,z_i \rangle=\int_a^b \nu(t)z_i(t)dt
-\end{align*}
-```
+\end{align}
+
 de manera similar, $T_{i,\nu}'$es la proyección de la derivada de $z_i$ a través de la dirección $\nu$, obteniendo así el par $(T_{i,\nu},T_{i,\nu}')$ que es un punto en $\mathbb{R}^2$. Para $P$ direcciones aleatorias independientes, la profundidad de proyección aleatoria de una curva $z_i$ está definida por:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     RPD_n(z-I)=\frac{1}{P}\sum_{p=1}^P D_n((\langle\nu_{p},z_i \rangle),\langle\nu_p, z_{i}'\rangle), h)
-\end{align*}
-```
+\end{align}
+
 donde $D_n$ es cualquier profundidad definida en $\mathbb{R}^2$ de los puntos $(\langle\nu_p,z_i \rangle,\langle\nu_p,z_i' \rangle) \in \mathbb{R}^2$ [@manuel]. Para la visualización de datos atípicos se han desarrollado varias herramientas gráficas, principalmente propuestas para el caso univariante; sin embargo, para el caso multivariante han sido poco desarrolladas [@dai].
 
 ### Gráfico de Magnitudes y Formas
@@ -567,53 +567,53 @@ Teniendo en cuenta que la externalidad es la medida, grado o cualidad de ser at�
 
 De manera formal, la externalidad direccional de un dato escalar está definida por:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     O(Y,F_Y)=\left\{\frac{1}{d(Y,F_Y)-1}\right\}v,\quad d(Y,F_Y)>0
-\end{align*}
-```
+\end{align}
+
 donde $F_Y$ es la distribución de una variable aleatoria, $d$ es una medida convencional de profundidad, y $v$ es el vector unitario que va desde la mediana de $F_Y$ a $Y$. Asumiendo que $Z$ es la única mediana de $F_Y$ para la medida de profundidad $d$, $v$ puede expresarse como:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     v=\frac{Y-Z}{||Y-Z||}
-\end{align*}
-```
+\end{align}
+
 donde $||.||$ es la norma $L_2$.
 
 Ahora bien, si $X$ es una función p-dimensional definida en un dominio $\mathcal{I}$, a partir de la distribución de los datos funcionales $F_X$, para cada punto fijado $t \in \mathcal{I}$, $F_{X(t)}$ es la función de distribución de $X(t)$ con dimensión $p$. De esta forma, se definen tres medidas de externalidad direccional para datos funcionales:
 
-```{=tex}
+
 \begin{itemize}
     \item[1)] Media de externalidad direccional:
     
-    \begin{align*}
-        MO(X,F_X)=\int_\mathcal{I}O(X(t),F_{X(t)})w(t)dt
-    \end{align*}
+  \begin{align}
+        MO(X,F_X)=\int_{\mathcal{I}}O(X(t),F_{X(t)})w(t)dt
+    \end{align}
     
-    \item[2)] Variación de externalidad direccional:
+  \item[2)] Variación de externalidad direccional:
     
-    \begin{align*}
-        VO(X,F_{X})=\int_\mathcal{I} ||O(X(t),F_{X(t)})-MO(X,F_{X})||^2 w(t) dt
-    \end{align*}
+  \begin{align}
+        VO(X,F_{X})=\int_{\mathcal{I}} ||O(X(t),F_{X(t)})-MO(X,F_{X})||^2 w(t) dt
+    \end{align}
     
-    \item[3)] Externalidad direccional funcional:
+  \item[3)] Externalidad direccional funcional:
     
-    \begin{align*}
-        F0(X,F_X)=\int_\mathcal{I}||O(X(t),F_{X(t)})||^2w(t)dt
-    \end{align*}
+  \begin{align}
+        F0(X,F_X)=\int_{\mathcal{I}}||O(X(t),F_{X(t)})||^2w(t)dt
+    \end{align}
     
 \end{itemize}
-```
+
 donde $w(t)$ es una función de peso definida en $\mathcal{I}$, la cual puede ser constante o proporcional a la variación local en cada punto de diseño; en particular, se usa $w(t)=\{\lambda(\mathcal{I})\}^{-1}$, donde $\lambda(.)$ es la medida de Lebesgue.
 
 Las tres medidas anteriores de externalidad pueden escribirse en una sola ecuación de la siguiente manera:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     FO=||MO||^2 +VO
-\end{align*}
-```
+\end{align}
+
 La ecuación anterior realiza una descomposición total de la externalidad funcional $\textbf{(FO)}$ en dos términos: la magnitud de externalidad ($||\textbf{MO}||$) y la cantidad de variación de externalidad direccional $\textbf{(VO)}$. Esta descomposición permite una gran flexibilidad para describir la centralidad de un conjunto de datos funcionales y para identificar curvas potencialmente atípicas [@dai]. \\
 
 \textbf{MS-Plot}\\
@@ -648,111 +648,111 @@ Este problema puede ser formulado de la siguiente manera:
 
 Es interesante comprobar la igualdad de las $k$ funciones de media; es decir:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     H_0:m_1(t)&=....=m_k(t),\ t\in T\\
     H_a:m_1(t)&\neq....\neq m_k(t),\ t\in T
-\end{align*}
-```
+\end{align}
+
 A continuación se presentan varias pruebas para este tipo de ANOVA.
 
 #### CS-Test {.unnumbered}
 
 El siguiente estadístico fue propuesto en [@cuevas]:
 
-```{=tex}
-\begin{align*}
-    V_n=\sum_{1\leq i<j\leq k} n_i\int_T (\bar{Z_i}(t)-\bar{Z_j}(t))^2dt
-\end{align*}
-```
+
+\begin{align}
+    V_n=\sum_{1\leq i<j\leq k} n_i\int_T ({\bar{Z_i}}(t)-{\bar{Z_j}}(t))^2dt
+\end{align}
+
 Bajo la hipótesis nula y la asunción de que :
 
-```{=tex}
-\begin{equation*}
+
+\begin{align}
  n_i,n \to \infty \quad \text{tal que}\quad  \dfrac{n_i}{n}\to p_i >0,\ i=1,...,k
-\end{equation*}
-```
+\end{align}
+
 se demuestra que la distribución aproximada de $V_n$ es la del estadístico:
 
-```{=tex}
-\begin{align*}
-    V=\sum_{1\leq i<j\leq k} n_i\int_T \left(\bar{Y_i}(t)-\sqrt{\frac{p_i}{p_j}}Y_j(t)\right)^2dt
-\end{align*}
-```
-donde $Y_1(t),...,Y_k(t)$ son procesos Gaussianos independientes de media cero y función de covarianza $\gamma(s,t)$. El valor crítico empírico se calcula mediante remuestreo sobre $Y_i(t),i=1,..,k$ de un proceso Gaussiano con media cero y función de covarianza $\hat{\gamma}$, definida por:
 
-```{=tex}
-\begin{align*}
-    \hat{\gamma}(s,t)=\frac{1}{n-k}\sum_{i=1}^k\sum_{j=1}^{n_i}(Z_{ij}(s)-\bar{Z_i}(s))(Z_{ij}(t)-\bar{Z_i}(t))
-\end{align*}
-```
+\begin{align}
+    V=\sum_{1\leq i<j\leq k} n_i\int_T \left(\bar{Y_i}(t)-\sqrt{\frac{p_i}{p_j}}Y_j(t)\right)^2dt
+\end{align}
+
+donde $Y_1(t),...,Y_k(t)$ son procesos Gaussianos independientes de media cero y función de covarianza $\gamma(s,t)$. El valor crítico empírico se calcula mediante remuestreo sobre $Y_i(t),i=1,..,k$ de un proceso Gaussiano con media cero y función de covarianza ${\hat{\gamma}}$, definida por:
+
+
+\begin{align}
+    {\hat{\gamma}}(s,t)&=\frac{1}{n-k}\sum_{i=1}^k\sum_{j=1}^{n_i}(Z_{ij}(s)-\bar{Z_i}(s))(Z_{ij}(t)-\bar{Z_i}(t))
+\end{align}
+
 Para el caso heterocedástico y mediante el cálculo del valor crítico empírico, el valor p de $V_n$ puede calcularse como en el caso anterior, mediante procesos Gaussianos independientes con funciones de covarianza dadas por:
 
-```{=tex}
-\begin{align*}
-    \hat{\gamma_i}(s,t)=\frac{1}{n_i-1}\sum_{j=1}^{n_i}(Z_{ij}(s)-\bar{Z_i}(s))(Z_{ij}(t)-\bar{Z_i}(t))
-\end{align*}
-```
+
+\begin{align}
+    {\hat{\gamma_i}}(s,t)=\frac{1}{n_i-1}\sum_{j=1}^{n_i}(Z_{ij}(s)-\bar{Z_i}(s))(Z_{ij}(t)-\bar{Z_i}(t))
+\end{align}
+
 #### Prueba basadas en la norma $\mathcal{L}^2$ {.unnumbered}
 
 Este test usa el siguiente estadístico:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     S_n=\int_T SSR_n(t)dt 
-\end{align*}
-```
+\end{align}
+
 donde:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
      SSR_n(t)&=\sum_{i=1}^k n_i(\bar{Z}_i(t)-\bar{Z}(t))^2\\
      \bar{Z}(t)&=\frac{1}{n}\sum_{i=1}^k \sum_{j=1}^{n_i}Z_{ij}(t)\\
      \bar{Z}_i(t)&=\frac{1}{n_i}\sum_{j=1}^{n_i}Z_{ij}(t)
- \end{align*}
-```
+ \end{align}
+
 Bajo la hipótesis nula, se tiene que $S_n\sim \beta \chi_d^2$ aproximadamente, donde:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     \beta &=\frac{tr(\gamma^{\otimes 2})}{tr(\gamma)},\\
     d&=(k-1)\kappa,\\
     \kappa&=\frac{tr^2(\gamma)}{tr(\gamma^{\otimes 2})},\\
     \gamma^{\otimes 2}(s,t)&=\int_T \gamma(s,u)\gamma(u,t)du.
-\end{align*}
-```
+\end{align}
+
 Esta distribución aproximada es usada para calcular el p-valor de $S_n$; es decir, $P(\chi_d^2\geq S_n/\beta)$ o su valor crítico $\beta\chi_d^2(1-\alpha)$. Los parámetros $\beta$ y $\kappa$ son estimados con base en los datos funcionales por el método de \textit{naive} o el método de \textit{reducción de sesgo}.
 
-Utilizando el método naive, y con el estimador $\hat{\gamma}(s,t)$, se tiene que:
+Utilizando el método naive, y con el estimador ${\hat{\gamma}}(s,t)$, se tiene que:
 
-```{=tex}
-\begin{align*}
-    \hat{\beta}&=\frac{tr(\hat{\gamma}^{\otimes 2})}{tr(\hat{\gamma})},\\
-    \hat{d}&=(k-1)\hat{\kappa},\\
-    \hat{\kappa}&=\frac{tr^2(\hat{\gamma})}{tr(\hat{\gamma^{\otimes 2}})}.
-\end{align*}
-```
+
+\begin{align}
+    {\hat{\beta}}&=\frac{tr({\hat{\gamma}}^{\otimes 2})}{tr({\hat{\gamma}})},\\
+    {\hat{d}}&=(k-1){\hat{\kappa}},\\
+    {\hat{\kappa}}&=\frac{tr^2({\hat{\gamma}})}{tr({\hat{\gamma^{\otimes 2}}})}.
+\end{align}
+
 Utilizando el método de reducción de sesgo, se tiene que:
 
-```{=tex}
-\begin{align*}
-    \hat{\beta}&=\frac{\widehat{tr(\gamma^{\otimes 2})}}{tr(\hat{\gamma})},\\
-    \hat{d}&=(k-1)\hat{\kappa},\\
-    \hat{\kappa}&=\frac{\widehat{tr^2(\gamma)}}{\widehat{tr(\gamma^{\otimes 2}})},\\
-    \widehat{tr(\gamma^{\otimes 2})}&=\frac{(n-k)^2}{(n-k-1)(n-k+2)}\left(tr(\hat{\gamma}^{\otimes 2})-\frac{tr^2(\hat{\gamma})}{n-k} \right),\\
-    \widehat{tr^2(\gamma)}&=\frac{(n-k)(n-k+1)}{(n-k-1)(n-k+2)}\left(tr^2(\hat{\gamma})-\frac{2tr(\hat{\gamma}^{\otimes 2})}{n-k+1}\right).
-\end{align*}
-```
+
+\begin{align}
+    {\hat{\beta}}&=\frac{{\widehat{tr(\gamma^{\otimes 2})}}}{tr({\hat{\gamma}})},\\
+    {\hat{d}}&=(k-1){\hat{\kappa}},\\
+    {\hat{\kappa}}&=\frac{{\widehat{tr^2(\gamma)}}}{{\widehat{tr(\gamma^{\otimes 2}})}},\\
+    {\widehat{tr(\gamma^{\otimes 2})}}&=\frac{(n-k)^2}{(n-k-1)(n-k+2)}\left(tr({\hat{\gamma}^{\otimes 2}})-\frac{tr^2({\hat{\gamma}})}{n-k} \right),\\
+    {\widehat{tr^2(\gamma)}}&=\frac{(n-k)(n-k+1)}{(n-k-1)(n-k+2)}\left(tr^2({\hat{\gamma}})-\frac{2tr({\hat{\gamma}}^{\otimes 2})}{n-k+1}\right).
+\end{align}
+
 #### Prueba F {.unnumbered}
 
 Este test usa el estadístico:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     F_n&=\frac{\int_T SSR_n(t)dt/(k-1)}{\int_T SSE_n(t)dt/(n-k)}\\
     SSE_n(t)&=\sum_{i=1}^k\sum_{j=1}^{n_i}(Z_{ij}(t)-\bar{Z}_i(t))^2
-\end{align*}
-```
+\end{align}
+
 Bajo la hipótesis nula, se tiene que $F_n \sim F_{d_1,d_2}$ aproximadamente, donde $d_1=(k-1)\kappa$ y $d_2=(n-k)\kappa$. De manera similar, la distribución aproximada de la prueba \textit{F} puede ser usada para calcular el p-valor de $F_n$ o su valor crítico; y el parámetro $\kappa$ puede ser estimado por el método naive o el método de reducción de sesgo.
 
 Cuando las muestras nos son Gaussianas o son pequeñas, estas pruebas no son utilizadas; en este caso, las versiones bootstrap de estas pruebas son usadas para calcular el p-valor de $S_n$ y $F_n$ [@gorgi].\\
@@ -765,20 +765,20 @@ Asumiendo que se trabaja con $k$ grupos de un proceso estocástico $Z_{ij}\in L_
 
 Esta prueba usa el siguiente estadístico:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     F=\frac{\frac{1}{k-1}\sum_{i=1}^k n_i||\bar{Z}_i-\bar{Z}||^2}{\frac{1}{n-k}\sum_{i=1}^k\sum_{j=1}^{n_i} ||Z_{ij}-\bar{Z_i}||^2}
-\end{align*}
-```
+\end{align}
+
 donde el proceso estocástico, la media funcional muestral y media funcional grupal, escrita en notación matricial a partir de la representación en la base $\phi$, están definidos de la siguiente manera:
 
-```{=tex}
-\begin{align*}
+
+\begin{align}
     Z_{ij}(t)&=c'_{ij}\phi(t),\\
     \bar{Z}(t)&=\frac{1}{n}\sum_{i=1}^k\sum_{j=1}^{n_i} c'_{ij}\phi(t), \quad \forall t\in T\\
     \bar{Z}_i(t)&=\frac{1}{n_i}\sum_{j=1}^{n_i}c'_{ij}\phi(t)
-\end{align*}
-```
+\end{align}
+
 para todo $t\in T$.
 
 El numerador del estadístico \textit{F}, mide la variabilidad externa entre las diferentes muestras, mientras que el denominador mide la variabilidad interna dentro de las muestras [@cuevas].
