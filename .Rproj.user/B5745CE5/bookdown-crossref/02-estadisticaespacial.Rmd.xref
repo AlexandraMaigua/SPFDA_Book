@@ -73,7 +73,6 @@ h4:variogramas-sin-silla Variogramas sin silla
 h3:caso-multivariante-ejemplos Caso Multivariante (Ejemplos)
 h4:modelo-lineal-de-coregionalización-mlc Modelo lineal de coregionalización (MLC)
 h4:ajuste-del-mlc Ajuste del MLC
-h2:geoestadística-espacio-temporal Geoestadística Espacio Temporal
 h3:conceptos Conceptos
 h4:proceso-espacio-temporal-1 Proceso Espacio Temporal
 h4:propiedad-de-regularidad Propiedad de regularidad
@@ -91,6 +90,11 @@ h4:función-de-covarianza-simétrica Función de covarianza simétrica
 h4:función-de-covarianza-espacialmente-isotrópica Función de covarianza espacialmente isotrópica
 h4:función-de-covarianza-temporalmente-isotrópica Función de covarianza temporalmente isotrópica
 h4:variograma-espacio-temporal Variograma espacio-temporal
+h4:variograma-espacio-temporal-intrínsecamente-estacionario-espacial Variograma espacio-temporal intrínsecamente estacionario espacial
+h4:variograma-espacio-temporal-intrínsecamente-estacionario-temporal Variograma espacio-temporal intrínsecamente estacionario temporal
+h4:variograma-espacio-temporal-intrínsecamente-estacionario Variograma espacio-temporal intrínsecamente estacionario
+h4:función-de-correlación-espacio-temporal Función de correlación espacio-temporal
+h4:propiedades-de-la-covarianza-y-variograma-espacio-temporal Propiedades de la covarianza y variograma espacio-temporal
 h3:modelos-separables Modelos separables
 h3:modelos-no-separables Modelos no separables
 h3:estimación-del-variograma-espacio-temporal-ejemplos Estimación del variograma espacio-temporal (Ejemplos)

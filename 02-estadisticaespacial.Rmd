@@ -1173,8 +1173,6 @@ Por tanto, la solución restringida es
 ```
 donde $\nabla_k^{+}$ es la matriz $\nabla_k$ en el cual los valores propios negativos son reemplazados por ceros. Este algoritmo iterativo siempre converge y la solución no depende del punto de partida [@peter].
 
-## Geoestadística Espacio Temporal
-
 A través de la geoestadística se han estudiado los campos aleatorios en la naturaleza; sin embargo, existen ramas de la ciencia que presentan aplicaciones prácticas como las ciencias sociales, monitorización de contaminación ambiental, climatología, geología, biología, medicina, arqueología y cualquier otro campo de la ciencia que estudie fenómenos que ocurren tanto en espacio como en tiempo [@montero]. Al considerar la evolución conjunta del proceso espacio-temporal, en lugar de solo considerar su distribución espacial para un determinado instante de tiempo (proceso puramente espacial) o la evolución temporal del proceso sobre una localización determinada (proceso puramente temporal), se obtendrá grandes beneficios en la modelización y predicción de un fenómeno en estudio [@gst_casal].Es así que considerar ambos elementos por separado nos llevaría a una pérdida de información. En este sentido, la geoestadística espacio-temporal ofrece las herramientas adecuadas para este tipo de estudios.Es por ello que la demanda de modelos covariográficos que describen la evolución de procesos en espacio-tiempo se hace cada vez más notoria.
 
 Los métodos geoestadísticos y espacio-temporales utilizan distancias euclídeas o espacio temporales, por tanto se consideran los métdos basados en distancias para el cáclculo entre las observaciones que junto la información proporcionada por el variograma permitirá la generación de mejores pronósticos [@gst_casal]. Por otro lado se debe considerar que en el campo espacio-tiempo también se trabaja con grandes volúmenes de datos debido a la resolución espacial y periodicidad temporal, lo que conlleva al uso de métodos computacionales intensivos.
@@ -1372,11 +1370,160 @@ Siempre que sea posible definir la función de covarianza y la función de vario
 
 $$
 \begin{align*}
-\gamma[(s_i,t_i),(s_j,t_j)]&=\frac{1}{2}V
+\gamma[(s_i,t_i),(s_j,t_j)]&=\frac{1}{2}V[Z(s_i,t_i)]+\frac{1}{2}V[Z(s_j,t_j)]-C[(s_i,t_i),(s_j,t_j)]
+(\#eq:varivar)
 \end{align*}
 $$
 
-montero 175
+#### Variograma espacio-temporal intrínsecamente estacionario espacial {.unnumbered}
+
+Un campo aleatorio $Z(s,t)$ tiene variograma intrínsecamente estacionario con respecto al espacio si, para cualquier para de puntos espacio-temporales $(s_i,t_i), \ (s_j,t_j) \in \mathbb{R}^d \times \mathbb{R}$, el variograma $\gamma[(s_i,t_i),(s_j,t_j)]$ solo depende de $\textbf{h}=s_i-s_j$ y los tiempos $t_i$ y $t_j$.  
+
+#### Variograma espacio-temporal intrínsecamente estacionario temporal {.unnumbered}
+
+Un campo aleatorio $Z(s,t)$ tiene variograma intrínsecamente estacionario con respecto al tiempo si, para cualquier para de puntos espacio-temporales $(s_i,t_i), \ (s_j,t_j) \in \mathbb{R}^d \times \mathbb{R}$, el variograma $\gamma[(s_i,t_i),(s_j,t_j)]$ solo depende de $u=t_i-t_j$ y las ubicaciones $s_i$ y $s_j$.  
+
+#### Variograma espacio-temporal intrínsecamente estacionario {.unnumbered}
+
+Un campo aleatorio $Z(s,t)$ tiene variograma intrínsecamente estacionario si, su variograma es intrínsecamente estacionario en espacio y tiempo. En este caso, el variograma se puede expresar de la siguiente forma
+
+$$
+\begin{align*}
+\gamma[(s_i,t_i),(s_j,t_j)]=\gamma(\textbf{h},u)
+\end{align*}
+$$
+donde $\textbf{h}=s_i-s_j$ y $u=t_i-t_j$ representan la distancia en espacio y tiempo respectivamente. 
+
+Dado un campo aleatorio estacionario de segundo orden $Z(s,t)$ con función de covarianza $C(\textbf{h},u)$, debido a \@ref(eq:varivar), se cumple que
+
+$$
+\begin{align*}
+V[Z(s_i,t_i)-Z(s_j,t_j)]&=V[Z(s_i,t_i)]+V[Z(s_j,t_j)]-2C[(s_i,t_i),(s_j,t_j)]\\
+&=2C(\textbf{0},0)-2C(s_i-s_j,t_i-t_j)
+\end{align*}
+$$
+por tanto el campo aleatorio $Z(s,t)$ será intrínsecamente estacionario con variograma
+
+$$
+\begin{align*}
+\gamma(\textbf{h},u)=C(\textbf{0},0)-C(\textbf{h},u)
+\end{align*}
+$$
+
+
+#### Función de correlación espacio-temporal {.unnumbered}
+
+Sea $Z(s,t)$ un campo aleatorio espacio-temporal estacionario de segundo orden con varianza a priori $\sigma^2 = C(\textbf{0},0)>0$. La función de correlación se define como sigue
+
+$$
+\begin{align*}
+\rho(\textbf{h},u)=\frac{C(\textbf{h},u)}{C(\textbf{0},u)}
+\end{align*}
+$$
+si $\rho(\textbf{h},u)$ es función de correlación en $\mathbb{R}^d \times \mathbb{R}$, entonces sus funciones marginales $\rho(\textbf{0},u)$ y $\rho(\textbf{h},0)$ serán funciones de correlación espacial en $\mathbb{R}^d$ y temporal en $\mathbb{R}$ respectivamente. 
+
+#### Propiedades de la covarianza y variograma espacio-temporal
+
+Una condición necesaria y suficiente para que la función de valores reales $C[(s_i,t_i),(s_j,t_j)]$ definido en $\mathbb{R}^d \times \mathbb{R}$ sea una función de covarianza es que sea simétrica y definida positiva, es decir
+
+$$
+\begin{align*}
+C[(s_i,t_i),(s_j,t_j)]&=C[(s_j,t_j),(s_i,t_i)]\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_ia_j&C[(s_i,t_i),(s_j,t_j)] \geq 0
+\end{align*}
+$$
+para cualquier $n\in \mathbb{N}$ y para cualquier $(s_i,t_i) \in \mathbb{R}^d \times \mathbb{R}$ y $a_i\in \mathbb{R},\ i=1,...,n$.
+
+De manera similar, una  condición necesaria y suficiente para una función no negativa de valores reales $\gamma[(s_i,t_i),(s_j,t_j)]$ definidas en $\mathbb{R}^d \times \mathbb{R}$ para que una función de variograma es que sea simétrica y condiconalmente definida negativa, es decir
+
+$$
+\begin{align*}
+\gamma[(s_i,t_i),(s_j,t_j)]&=\gamma[(s_j,t_j),(s_i,t_i)]\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_ia_j&\gamma[(s_i,t_i),(s_j,t_j)] \leq 0
+\end{align*}
+$$
+
+para cualquier $n\in \mathbb{N}$ y para cualquier $(s_i,t_i) \in \mathbb{R}^d \times \mathbb{R}$ y $a_i\in \mathbb{R},\ i=1,...,n$ con $\sum_{i=1}^na_i=0$.
+
+
+En el caso de estacionariedad, se puede deducir que la fucnipon de valores reales $C(\textbf{h},u)$ definido en $\mathbb{R}^d \times \mathbb{R}$ es una función de covarianza, si y solo si, es una función par y definida positiva, es decir
+
+$$
+\begin{align*}
+C(\textbf{h},u)&=C(-\textbf{h},-u)\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_i&a_jC(\textbf{h}_i,u_i) \geq 0
+\end{align*}
+$$
+para cualquier $n\in \mathbb{R}$ y para cualquier $(\textbf{h}_i,u_i) \in \mathbb{R}^d \times \mathbb{R},\ a_i \in \mathbb{R}, \ i=1,...,n$.
+
+En este sentido, una función no negativa de valores reales $\gamma(\textbf{h},u)$ definida en $\mathbb{R}^d \times \mathbb{R}$ es una función de variograma intrínsecamente estacionaria, si y solo si, es una función para y condicionalmente definida negativa, es decir
+
+
+$$
+\begin{align*}
+\gamma(\textbf{h},u)&=\gamma(-\textbf{h},-u)\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_i&a_j\gamma(\textbf{h}_i,u_i) \leq 0
+\end{align*}
+$$
+para cualquier $n\in \mathbb{R}$ y para cualquier $(\textbf{h}_i,u_i) \in \mathbb{R}^d \times \mathbb{R},\ a_i \in \mathbb{R}, \ i=1,...,n$ con $\sum_{i=1}^na_i=0$
+
+
+Algunas de las propiedades más importantes son las siguientes
+
++ Si $C_1(\text{h},u)$ es una función de covariazna definida en $\mathbb{R}^d \times \mathbb{R}$ y $b>0$, entonces
+
+$$
+\begin{align*}
+C(\text{h},u)=bC_1(\text{h},u)
+\end{align*}
+$$
++ Sean $C_1(\textbf{h},u)$ y $C_2(\textbf{h},u)$ dos fucniones de covariana definidas en $\mathbb{R}^d \times \mathbb{R}$, entonces
+
+$$
+\begin{align*}
+C(\textbf{h},u)&=C1(\textbf{h},u)+C2(\textbf{h},u)
+\end{align*}
+$$
+es también una función de covarianza definida en $\mathbb{R}^d \times \mathbb{R}$.
+
++ Dadas dos funciones de covarianza $C_1(\textbf{h},u)$ y $C_2(\textbf{h},u)$ definidas en $\mathbb{R}^d \times \mathbb{R}$, entonces
+
+$$
+\begin{align*}
+C(\textbf{h},u)&=C_1(\textbf{h},u)C_2(\textbf{h},u)
+\end{align*}
+$$
+es también una función de covarianza definida en $\mathbb{R}^d$\times \mathbb{R}.
+
++ Si $\{C_n(\textbf{h},u),n=1,...,\}$ es una secuencia de funciones de covaraizna definidas en $\mathbb{R}^d \times \mathbb{R}$ convergen a $C(\textbf{h},u), \forall (\textbf{h},u) \in \mathbb{R}^d \times \mathbb{R}$, entonces
+
+$$
+\begin{align*}
+C(\textbf{h},u)&=\lim_{n\to 2} C_n(\textbf{h},u)
+\end{align*}
+$$
+
+es una función de covarianza en $\mathbb{R}^d \times \mathbb{R}$.
+
+
+MODELOS NO SEPARABLES: sherman 127, g_est_temp_casal: 157 (modelos)
+
+Modelos separabales: montero 198, g_esp_temp 52
+
+
+Estimacion de varis: montero 183
+
+
+
+montero 179
 nuestro 11
 sherman 127 
 wikle para ejemplos de R pg 46 
