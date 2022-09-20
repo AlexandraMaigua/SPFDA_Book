@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Estadística espacial
 ```{r echo=FALSE}
 options(knitr.graphics.auto_pdf = TRUE)
@@ -1176,6 +1181,12 @@ donde $\nabla_k^{+}$ es la matriz $\nabla_k$ en el cual los valores propios nega
 A través de la geoestadística se han estudiado los campos aleatorios en la naturaleza; sin embargo, existen ramas de la ciencia que presentan aplicaciones prácticas como las ciencias sociales, monitorización de contaminación ambiental, climatología, geología, biología, medicina, arqueología y cualquier otro campo de la ciencia que estudie fenómenos que ocurren tanto en espacio como en tiempo [@montero]. Al considerar la evolución conjunta del proceso espacio-temporal, en lugar de solo considerar su distribución espacial para un determinado instante de tiempo (proceso puramente espacial) o la evolución temporal del proceso sobre una localización determinada (proceso puramente temporal), se obtendrá grandes beneficios en la modelización y predicción de un fenómeno en estudio [@gst_casal].Es así que considerar ambos elementos por separado nos llevaría a una pérdida de información. En este sentido, la geoestadística espacio-temporal ofrece las herramientas adecuadas para este tipo de estudios.Es por ello que la demanda de modelos covariográficos que describen la evolución de procesos en espacio-tiempo se hace cada vez más notoria.
 
 Los métodos geoestadísticos y espacio-temporales utilizan distancias euclídeas o espacio temporales, por tanto se consideran los métdos basados en distancias para el cáclculo entre las observaciones que junto la información proporcionada por el variograma permitirá la generación de mejores pronósticos [@gst_casal]. Por otro lado se debe considerar que en el campo espacio-tiempo también se trabaja con grandes volúmenes de datos debido a la resolución espacial y periodicidad temporal, lo que conlleva al uso de métodos computacionales intensivos.
+
+## Geoestadística Espacio Temporal
+
+A través de la geoestadística se han estudiado los campos aleatorios en la naturaleza; sin embargo, existen ramas de la ciencia que presentan aplicaciones prácticas como las ciencias sociales, monitorización de contaminación ambiental, climatología, geología, biología, medicina, arqueología y cualquier otro campo de la ciencia que estudie fenómenos que ocurren tanto en espacio como en tiempo [@montero]. Al considerar la evolución conjunta del proceso espacio-temporal, en lugar de solo considerar su distribución espacial para un determinado instante de tiempo (proceso puramente espacial) o la evolución temporal del proceso sobre una localización determinada (proceso puramente temporal), se obtendrá grandes beneficios en la modelización y predicción de un fenómeno en estudio [@gstcasal].Es así que considerar ambos elementos por separado nos llevaría a una pérdida de información. En este sentido, la geoestadística espacio-temporal ofrece las herramientas adecuadas para este tipo de estudios.Es por ello que la demanda de modelos covariográficos que describen la evolución de procesos en espacio-tiempo se hace cada vez más notoria.
+
+Los métodos geoestadísticos y espacio-temporales utilizan distancias euclídeas o espacio temporales, por tanto se consideran los métdos basados en distancias para el cáclculo entre las observaciones que junto la información proporcionada por el variograma permitirá la generación de mejores pronósticos [@gstcasal]. Por otro lado se debe considerar que en el campo espacio-tiempo también se trabaja con grandes volúmenes de datos debido a la resolución espacial y periodicidad temporal, lo que conlleva al uso de métodos computacionales intensivos.
 
 ### Conceptos
 

@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Nosotros" />
 
 
-<meta name="date" content="2022-09-13" />
+<meta name="date" content="2022-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,13 +152,10 @@ div.csl-indent {
 <li class="chapter" data-level="2.4.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#métodos-de-estimación-teórica-más-utilizados"><i class="fa fa-check"></i><b>2.4.5</b> Métodos de estimación teórica más utilizados</a></li>
 <li class="chapter" data-level="2.4.6" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-teóricos-de-variograma"><i class="fa fa-check"></i><b>2.4.6</b> Modelos teóricos de variograma</a></li>
 <li class="chapter" data-level="2.4.7" data-path="estadística-espacial.html"><a href="estadística-espacial.html#caso-multivariante-ejemplos"><i class="fa fa-check"></i><b>2.4.7</b> Caso Multivariante (Ejemplos)</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#geoestadística-espacio-temporal"><i class="fa fa-check"></i><b>2.5</b> Geoestadística Espacio Temporal</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#conceptos"><i class="fa fa-check"></i><b>2.5.1</b> Conceptos</a></li>
-<li class="chapter" data-level="2.5.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-separables"><i class="fa fa-check"></i><b>2.5.2</b> Modelos separables</a></li>
-<li class="chapter" data-level="2.5.3" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-no-separables"><i class="fa fa-check"></i><b>2.5.3</b> Modelos no separables</a></li>
-<li class="chapter" data-level="2.5.4" data-path="estadística-espacial.html"><a href="estadística-espacial.html#estimación-del-variograma-espacio-temporal-ejemplos"><i class="fa fa-check"></i><b>2.5.4</b> Estimación del variograma espacio-temporal (Ejemplos)</a></li>
+<li class="chapter" data-level="2.4.8" data-path="estadística-espacial.html"><a href="estadística-espacial.html#conceptos"><i class="fa fa-check"></i><b>2.4.8</b> Conceptos</a></li>
+<li class="chapter" data-level="2.4.9" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-separables"><i class="fa fa-check"></i><b>2.4.9</b> Modelos separables</a></li>
+<li class="chapter" data-level="2.4.10" data-path="estadística-espacial.html"><a href="estadística-espacial.html#modelos-no-separables"><i class="fa fa-check"></i><b>2.4.10</b> Modelos no separables</a></li>
+<li class="chapter" data-level="2.4.11" data-path="estadística-espacial.html"><a href="estadística-espacial.html#estimación-del-variograma-espacio-temporal-ejemplos"><i class="fa fa-check"></i><b>2.4.11</b> Estimación del variograma espacio-temporal (Ejemplos)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><a href="introducción-al-análisis-de-datos-funcionales-fda-analisis-descriptivo-distancias-algoritmos-en-funcional.html"><i class="fa fa-check"></i><b>3</b> Introducción al análisis de datos funcionales (FDA) (analisis descriptivo, distancias, algoritmos en funcional)</a>
@@ -1131,15 +1128,12 @@ Figura 2.22: Izquierda: Variable regionalizada. Derecha: Variograma seno cardina
     B_k^{&#39;}=U_k\nabla_k^{+}U_k^{&#39;}
 \end{align*}\]</span>
 <p>donde <span class="math inline">\(\nabla_k^{+}\)</span> es la matriz <span class="math inline">\(\nabla_k\)</span> en el cual los valores propios negativos son reemplazados por ceros. Este algoritmo iterativo siempre converge y la solución no depende del punto de partida <span class="citation">(<a href="#ref-peter" role="doc-biblioref">P. J. Diggle 2007</a>)</span>.</p>
-</div>
-</div>
-</div>
-<div id="geoestadística-espacio-temporal" class="section level2 hasAnchor" number="2.5">
-<h2><span class="header-section-number">2.5</span> Geoestadística Espacio Temporal<a href="estadística-espacial.html#geoestadística-espacio-temporal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A través de la geoestadística se han estudiado los campos aleatorios en la naturaleza; sin embargo, existen ramas de la ciencia que presentan aplicaciones prácticas como las ciencias sociales, monitorización de contaminación ambiental, climatología, geología, biología, medicina, arqueología y cualquier otro campo de la ciencia que estudie fenómenos que ocurren tanto en espacio como en tiempo <span class="citation">(<a href="#ref-montero" role="doc-biblioref">Montero, Fernández-Avilés, and Mateu 2015</a>)</span>. Al considerar la evolución conjunta del proceso espacio-temporal, en lugar de solo considerar su distribución espacial para un determinado instante de tiempo (proceso puramente espacial) o la evolución temporal del proceso sobre una localización determinada (proceso puramente temporal), se obtendrá grandes beneficios en la modelización y predicción de un fenómeno en estudio <span class="citation">(<a href="#ref-gst_casal" role="doc-biblioref"><strong>gst_casal?</strong></a>)</span>.Es así que considerar ambos elementos por separado nos llevaría a una pérdida de información. En este sentido, la geoestadística espacio-temporal ofrece las herramientas adecuadas para este tipo de estudios.Es por ello que la demanda de modelos covariográficos que describen la evolución de procesos en espacio-tiempo se hace cada vez más notoria.</p>
 <p>Los métodos geoestadísticos y espacio-temporales utilizan distancias euclídeas o espacio temporales, por tanto se consideran los métdos basados en distancias para el cáclculo entre las observaciones que junto la información proporcionada por el variograma permitirá la generación de mejores pronósticos <span class="citation">(<a href="#ref-gst_casal" role="doc-biblioref"><strong>gst_casal?</strong></a>)</span>. Por otro lado se debe considerar que en el campo espacio-tiempo también se trabaja con grandes volúmenes de datos debido a la resolución espacial y periodicidad temporal, lo que conlleva al uso de métodos computacionales intensivos.</p>
-<div id="conceptos" class="section level3 hasAnchor" number="2.5.1">
-<h3><span class="header-section-number">2.5.1</span> Conceptos<a href="estadística-espacial.html#conceptos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="conceptos" class="section level3 hasAnchor" number="2.4.8">
+<h3><span class="header-section-number">2.4.8</span> Conceptos<a href="estadística-espacial.html#conceptos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se puede considerar a cada ubicación espacio-temporal como un punto en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span>, con <span class="math inline">\(\mathbb{R}^d\)</span> siendo el espacio euclidiano <span class="math inline">\(d-\)</span>dimensional y <span class="math inline">\(\mathbb{R}\)</span> la dimensión del tiempo. Notemos que ni las escalas ni las unidades de distancia en el tiempo y el espacio son generalmente comparables. Por lo que la dificultad principal en el análisis de procesos espacio-temporales recae en la elección de un modelo de covarianza válido que se ajuste a las observaciones. Bajo hipótesis de regularidad se podrán analizar las observaciones separadas por un vector de distancia espacio temporal <span class="math inline">\((\textbf{h},u)\)</span> <span class="citation">(<a href="#ref-gespt_cas" role="doc-biblioref"><strong>gespt_cas?</strong></a>)</span>.</p>
 <p>El objetivo de esta sección es introducir aquellos conceptos más relevantes en el análisis de procesos estocásticos espacio-temporales. Muchos de los conceptos tratados serán generalizaciones del caso espacial que se han visto en el capítulo <strong>X</strong>.</p>
 <div id="proceso-espacio-temporal-1" class="section level4 unnumbered hasAnchor">
@@ -1296,12 +1290,134 @@ En el caso de un campo aleatorio con media constante se tiene que</p>
 \end{align*}
 \]</span>
 Siempre que sea posible definir la función de covarianza y la función de variograma, estas estarán relacionadas de acuerdo a lo siguiente</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:varivar">\[
 \begin{align*}
-\gamma[(s_i,t_i),(s_j,t_j)]&amp;=\frac{1}{2}V
+\gamma[(s_i,t_i),(s_j,t_j)]&amp;=\frac{1}{2}V[Z(s_i,t_i)]+\frac{1}{2}V[Z(s_j,t_j)]-C[(s_i,t_i),(s_j,t_j)]
+\tag{2.2}
 \end{align*}
 \]</span></p>
-<p>montero 175
+</div>
+<div id="variograma-espacio-temporal-intrínsecamente-estacionario-espacial" class="section level4 unnumbered hasAnchor">
+<h4>Variograma espacio-temporal intrínsecamente estacionario espacial<a href="estadística-espacial.html#variograma-espacio-temporal-intrínsecamente-estacionario-espacial" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Un campo aleatorio <span class="math inline">\(Z(s,t)\)</span> tiene variograma intrínsecamente estacionario con respecto al espacio si, para cualquier para de puntos espacio-temporales <span class="math inline">\((s_i,t_i), \ (s_j,t_j) \in \mathbb{R}^d \times \mathbb{R}\)</span>, el variograma <span class="math inline">\(\gamma[(s_i,t_i),(s_j,t_j)]\)</span> solo depende de <span class="math inline">\(\textbf{h}=s_i-s_j\)</span> y los tiempos <span class="math inline">\(t_i\)</span> y <span class="math inline">\(t_j\)</span>.</p>
+</div>
+<div id="variograma-espacio-temporal-intrínsecamente-estacionario-temporal" class="section level4 unnumbered hasAnchor">
+<h4>Variograma espacio-temporal intrínsecamente estacionario temporal<a href="estadística-espacial.html#variograma-espacio-temporal-intrínsecamente-estacionario-temporal" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Un campo aleatorio <span class="math inline">\(Z(s,t)\)</span> tiene variograma intrínsecamente estacionario con respecto al tiempo si, para cualquier para de puntos espacio-temporales <span class="math inline">\((s_i,t_i), \ (s_j,t_j) \in \mathbb{R}^d \times \mathbb{R}\)</span>, el variograma <span class="math inline">\(\gamma[(s_i,t_i),(s_j,t_j)]\)</span> solo depende de <span class="math inline">\(u=t_i-t_j\)</span> y las ubicaciones <span class="math inline">\(s_i\)</span> y <span class="math inline">\(s_j\)</span>.</p>
+</div>
+<div id="variograma-espacio-temporal-intrínsecamente-estacionario" class="section level4 unnumbered hasAnchor">
+<h4>Variograma espacio-temporal intrínsecamente estacionario<a href="estadística-espacial.html#variograma-espacio-temporal-intrínsecamente-estacionario" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Un campo aleatorio <span class="math inline">\(Z(s,t)\)</span> tiene variograma intrínsecamente estacionario si, su variograma es intrínsecamente estacionario en espacio y tiempo. En este caso, el variograma se puede expresar de la siguiente forma</p>
+<p><span class="math display">\[
+\begin{align*}
+\gamma[(s_i,t_i),(s_j,t_j)]=\gamma(\textbf{h},u)
+\end{align*}
+\]</span>
+donde <span class="math inline">\(\textbf{h}=s_i-s_j\)</span> y <span class="math inline">\(u=t_i-t_j\)</span> representan la distancia en espacio y tiempo respectivamente.</p>
+<p>Dado un campo aleatorio estacionario de segundo orden <span class="math inline">\(Z(s,t)\)</span> con función de covarianza <span class="math inline">\(C(\textbf{h},u)\)</span>, debido a <a href="estadística-espacial.html#eq:varivar">(2.2)</a>, se cumple que</p>
+<p><span class="math display">\[
+\begin{align*}
+V[Z(s_i,t_i)-Z(s_j,t_j)]&amp;=V[Z(s_i,t_i)]+V[Z(s_j,t_j)]-2C[(s_i,t_i),(s_j,t_j)]\\
+&amp;=2C(\textbf{0},0)-2C(s_i-s_j,t_i-t_j)
+\end{align*}
+\]</span>
+por tanto el campo aleatorio <span class="math inline">\(Z(s,t)\)</span> será intrínsecamente estacionario con variograma</p>
+<p><span class="math display">\[
+\begin{align*}
+\gamma(\textbf{h},u)=C(\textbf{0},0)-C(\textbf{h},u)
+\end{align*}
+\]</span></p>
+</div>
+<div id="función-de-correlación-espacio-temporal" class="section level4 unnumbered hasAnchor">
+<h4>Función de correlación espacio-temporal<a href="estadística-espacial.html#función-de-correlación-espacio-temporal" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Sea <span class="math inline">\(Z(s,t)\)</span> un campo aleatorio espacio-temporal estacionario de segundo orden con varianza a priori <span class="math inline">\(\sigma^2 = C(\textbf{0},0)&gt;0\)</span>. La función de correlación se define como sigue</p>
+<p><span class="math display">\[
+\begin{align*}
+\rho(\textbf{h},u)=\frac{C(\textbf{h},u)}{C(\textbf{0},u)}
+\end{align*}
+\]</span>
+si <span class="math inline">\(\rho(\textbf{h},u)\)</span> es función de correlación en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span>, entonces sus funciones marginales <span class="math inline">\(\rho(\textbf{0},u)\)</span> y <span class="math inline">\(\rho(\textbf{h},0)\)</span> serán funciones de correlación espacial en <span class="math inline">\(\mathbb{R}^d\)</span> y temporal en <span class="math inline">\(\mathbb{R}\)</span> respectivamente.</p>
+</div>
+<div id="propiedades-de-la-covarianza-y-variograma-espacio-temporal" class="section level4 hasAnchor" number="2.4.8.1">
+<h4><span class="header-section-number">2.4.8.1</span> Propiedades de la covarianza y variograma espacio-temporal<a href="estadística-espacial.html#propiedades-de-la-covarianza-y-variograma-espacio-temporal" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Una condición necesaria y suficiente para que la función de valores reales <span class="math inline">\(C[(s_i,t_i),(s_j,t_j)]\)</span> definido en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span> sea una función de covarianza es que sea simétrica y definida positiva, es decir</p>
+<p><span class="math display">\[
+\begin{align*}
+C[(s_i,t_i),(s_j,t_j)]&amp;=C[(s_j,t_j),(s_i,t_i)]\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_ia_j&amp;C[(s_i,t_i),(s_j,t_j)] \geq 0
+\end{align*}
+\]</span>
+para cualquier <span class="math inline">\(n\in \mathbb{N}\)</span> y para cualquier <span class="math inline">\((s_i,t_i) \in \mathbb{R}^d \times \mathbb{R}\)</span> y <span class="math inline">\(a_i\in \mathbb{R},\ i=1,...,n\)</span>.</p>
+<p>De manera similar, una condición necesaria y suficiente para una función no negativa de valores reales <span class="math inline">\(\gamma[(s_i,t_i),(s_j,t_j)]\)</span> definidas en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span> para que una función de variograma es que sea simétrica y condiconalmente definida negativa, es decir</p>
+<p><span class="math display">\[
+\begin{align*}
+\gamma[(s_i,t_i),(s_j,t_j)]&amp;=\gamma[(s_j,t_j),(s_i,t_i)]\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_ia_j&amp;\gamma[(s_i,t_i),(s_j,t_j)] \leq 0
+\end{align*}
+\]</span></p>
+<p>para cualquier <span class="math inline">\(n\in \mathbb{N}\)</span> y para cualquier <span class="math inline">\((s_i,t_i) \in \mathbb{R}^d \times \mathbb{R}\)</span> y <span class="math inline">\(a_i\in \mathbb{R},\ i=1,...,n\)</span> con <span class="math inline">\(\sum_{i=1}^na_i=0\)</span>.</p>
+<p>En el caso de estacionariedad, se puede deducir que la fucnipon de valores reales <span class="math inline">\(C(\textbf{h},u)\)</span> definido en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span> es una función de covarianza, si y solo si, es una función par y definida positiva, es decir</p>
+<p><span class="math display">\[
+\begin{align*}
+C(\textbf{h},u)&amp;=C(-\textbf{h},-u)\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_i&amp;a_jC(\textbf{h}_i,u_i) \geq 0
+\end{align*}
+\]</span>
+para cualquier <span class="math inline">\(n\in \mathbb{R}\)</span> y para cualquier <span class="math inline">\((\textbf{h}_i,u_i) \in \mathbb{R}^d \times \mathbb{R},\ a_i \in \mathbb{R}, \ i=1,...,n\)</span>.</p>
+<p>En este sentido, una función no negativa de valores reales <span class="math inline">\(\gamma(\textbf{h},u)\)</span> definida en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span> es una función de variograma intrínsecamente estacionaria, si y solo si, es una función para y condicionalmente definida negativa, es decir</p>
+<p><span class="math display">\[
+\begin{align*}
+\gamma(\textbf{h},u)&amp;=\gamma(-\textbf{h},-u)\\
+\sum_
+{i=1}^{n}\sum_
+{j=1}^{n}a_i&amp;a_j\gamma(\textbf{h}_i,u_i) \leq 0
+\end{align*}
+\]</span>
+para cualquier <span class="math inline">\(n\in \mathbb{R}\)</span> y para cualquier <span class="math inline">\((\textbf{h}_i,u_i) \in \mathbb{R}^d \times \mathbb{R},\ a_i \in \mathbb{R}, \ i=1,...,n\)</span> con <span class="math inline">\(\sum_{i=1}^na_i=0\)</span></p>
+<p>Algunas de las propiedades más importantes son las siguientes</p>
+<ul>
+<li>Si <span class="math inline">\(C_1(\text{h},u)\)</span> es una función de covariazna definida en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span> y <span class="math inline">\(b&gt;0\)</span>, entonces</li>
+</ul>
+<p><span class="math display">\[
+\begin{align*}
+C(\text{h},u)=bC_1(\text{h},u)
+\end{align*}
+\]</span>
++ Sean <span class="math inline">\(C_1(\textbf{h},u)\)</span> y <span class="math inline">\(C_2(\textbf{h},u)\)</span> dos fucniones de covariana definidas en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span>, entonces</p>
+<p><span class="math display">\[
+\begin{align*}
+C(\textbf{h},u)&amp;=C1(\textbf{h},u)+C2(\textbf{h},u)
+\end{align*}
+\]</span>
+es también una función de covarianza definida en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span>.</p>
+<ul>
+<li>Dadas dos funciones de covarianza <span class="math inline">\(C_1(\textbf{h},u)\)</span> y <span class="math inline">\(C_2(\textbf{h},u)\)</span> definidas en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span>, entonces</li>
+</ul>
+<p><span class="math display">\[
+\begin{align*}
+C(\textbf{h},u)&amp;=C_1(\textbf{h},u)C_2(\textbf{h},u)
+\end{align*}
+\]</span>
+es también una función de covarianza definida en <span class="math inline">\(\mathbb{R}^d\)</span>.</p>
+<ul>
+<li>Si <span class="math inline">\(\{C_n(\textbf{h},u),n=1,...,\}\)</span> es una secuencia de funciones de covaraizna definidas en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span> convergen a <span class="math inline">\(C(\textbf{h},u), \forall (\textbf{h},u) \in \mathbb{R}^d \times \mathbb{R}\)</span>, entonces</li>
+</ul>
+<p><span class="math display">\[
+\begin{align*}
+C(\textbf{h},u)&amp;=\lim_{n\to 2} C_n(\textbf{h},u)
+\end{align*}
+\]</span></p>
+<p>es una función de covarianza en <span class="math inline">\(\mathbb{R}^d \times \mathbb{R}\)</span>.</p>
+<p>MODELOS NO SEPARABLES: sherman 127, g_est_temp_casal: 157 (modelos)</p>
+<p>Modelos separabales: montero 198, g_esp_temp 52</p>
+<p>Estimacion de varis: montero 183</p>
+<p>montero 179
 nuestro 11
 sherman 127
 wikle para ejemplos de R pg 46
@@ -1310,14 +1426,14 @@ apoyo c01 pg 12
 apoyo 2 martha pg69</p>
 </div>
 </div>
-<div id="modelos-separables" class="section level3 hasAnchor" number="2.5.2">
-<h3><span class="header-section-number">2.5.2</span> Modelos separables<a href="estadística-espacial.html#modelos-separables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="modelos-separables" class="section level3 hasAnchor" number="2.4.9">
+<h3><span class="header-section-number">2.4.9</span> Modelos separables<a href="estadística-espacial.html#modelos-separables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="modelos-no-separables" class="section level3 hasAnchor" number="2.5.3">
-<h3><span class="header-section-number">2.5.3</span> Modelos no separables<a href="estadística-espacial.html#modelos-no-separables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="modelos-no-separables" class="section level3 hasAnchor" number="2.4.10">
+<h3><span class="header-section-number">2.4.10</span> Modelos no separables<a href="estadística-espacial.html#modelos-no-separables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="estimación-del-variograma-espacio-temporal-ejemplos" class="section level3 hasAnchor" number="2.5.4">
-<h3><span class="header-section-number">2.5.4</span> Estimación del variograma espacio-temporal (Ejemplos)<a href="estadística-espacial.html#estimación-del-variograma-espacio-temporal-ejemplos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="estimación-del-variograma-espacio-temporal-ejemplos" class="section level3 hasAnchor" number="2.4.11">
+<h3><span class="header-section-number">2.4.11</span> Estimación del variograma espacio-temporal (Ejemplos)<a href="estadística-espacial.html#estimación-del-variograma-espacio-temporal-ejemplos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
 </div>

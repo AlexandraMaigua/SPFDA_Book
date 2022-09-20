@@ -124,3 +124,5 @@ selección-de-número-de-grupos
 validación-de-grupos
 correlación-temporal
 índices-de-correlación-espacial-1
+eq:varivar
+propiedades-de-la-covarianza-y-variograma-espacio-temporal
