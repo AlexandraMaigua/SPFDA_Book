@@ -65,9 +65,9 @@ caso-multivariante-ejemplos
 geoestadística-espacio-temporal
 conceptos
 propiedades-de-la-covarianza-y-variograma-espacio-temporal
-modelos-separables
-modelos-no-separables
-estimación-del-variograma-espacio-temporal-ejemplos
+estimación-del-variograma-y-covariograma-espacio-temporal-ejemplos
+estimadores-clásicos
+estimador-robusto-por-cressie-y-hawkins
 introducción-al-análisis-de-datos-funcionales-fda
 espacios-de-hilbert
 el-espacio-l2
@@ -126,3 +126,4 @@ selección-de-número-de-grupos
 validación-de-grupos
 correlación-temporal
 índices-de-correlación-espacial-1
+estimación-del-variograma-y-covariograma-espacio-temporal

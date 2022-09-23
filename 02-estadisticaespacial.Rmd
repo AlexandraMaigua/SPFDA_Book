@@ -228,11 +228,11 @@ Sea $\{Z(s): s\in D\}$ un proceso estocástico o campo aleatorio; se dice que es
 
 -   $Z(s)$ tiene esperanza finita y constante para todo punto en el domino, lo cual implica que la esperanza de los incrementos sea cero.
 
-    E(Z(s+\textbf{h})-Z(s))=0
+    \begin{align}E(Z(s+\textbf{h})-Z(s))=0\end{align}
 
 -   Para cualquier vector $\textbf{h}$, la varianza del incremento está definida y es una función única de la distancia.
 
-    V(Z(s+\textbf{h})-Z(s))=E(Z(s+\textbf{h})-Z(s))^2=2\gamma(\textbf{h})
+    \begin{align}V(Z(s+\textbf{h})-Z(s))=E(Z(s+\textbf{h})-Z(s))^2=2\gamma(\textbf{h})\end{align}
 
 **EJEMPLOS (MARTA)??**
 
@@ -992,7 +992,9 @@ Estos modelos corresponden a procesos estocásticos espaciales o campos aleatori
 Este modelo es válido en $\mathbb{R}^d,d\geq 1$ y está definido por:
 
 
-          \gamma(||\textbf{h}||)=(||\textbf{h}||)^\alpha,\quad  0<\alpha<2, 
+\begin{align}
+  \gamma(||\textbf{h}||)=(||\textbf{h}||)^\alpha,\quad  0<\alpha<2, 
+\end{align}
 
 
 Este variograma no posee ni silla ni rango, sino que crece indefinidamente. Si $\alpha$ es cercano a cero, se dice que es un variograma de efecto pepita, si $\alpha$ es cercano a dos tiene un comportamiento parabólico y si $\alpha$ es igual a uno presenta un comportamiento lineal. Para $\alpha\geq 2$ la condición $\lim_{h\to \infty}\frac{\gamma||\textbf{h}||}{h^2}=0$ no se satisface; es decir, el modelo no es intrínsecamente estacionario.
@@ -1002,7 +1004,10 @@ Este variograma no posee ni silla ni rango, sino que crece indefinidamente. Si $
 Este modelo es un caso especial del modelo potencia si $\alpha=1$, y está asociado con la estacionariedad intrínseca, pero no con la estacionariedad de segundo orden y está definido por:
 
 
-          \gamma(||\textbf{h}||)=\left \{ \begin{matrix} 0 & si\ ||\textbf{h}||=0\\ ||\textbf{h}|| & si\ ||\textbf{h}||>0 \end{matrix}\right.  
+\begin{align}
+  \gamma(||\textbf{h}||)=\left \{ \begin{matrix} 0 & si\ ||\textbf{h}||=0\\
+  ||\textbf{h}|| & si\ ||\textbf{h}||>0 \end{matrix}\right.
+\end{align}
 
 
 ### Caso Multivariante (Ejemplos)
@@ -1201,8 +1206,9 @@ El objetivo de esta sección es introducir aquellos conceptos más relevantes en
 Sea $Z$ la variable aleatoria de interés, $s$ su ubicación espacial y $t$ el tiempo de ocurrencia. Un proceso espacio-temporal es un proceso estocástico
 
 
-\{Z(s,t):(s,t) \in D \times D' \}
-
+\begin{align}
+  \{Z(s,t):(s,t) \in D \times D' \}
+\end{align}
 
 donde el conjunto $D \subset \mathbb{R}^d$ es el conjunto de todas las ubicaciones espaciales y el conjunto $D' \subset \mathbb{R}$ es el conjunto de todos los instantes de tiempo. Los conjuntos $D$ y $D'$ pueden ser continuos o discretos, fijos o aleatorios [@marta].
 
@@ -1335,9 +1341,9 @@ Al descomponer la covarianza de acuerdo con \@ref(eq:separ) permite mayor eficie
 
 Un campo aleatorio espacio-temporal $Z(s,t)$ tiene función de covarianza simétrica si para cualquier par de puntos espacio-temporales $(s_i,t_i),\ (s_j,t_j)\in \mathbb{R}^d \times \mathbb{R}$ se tiene que
 
-
-C[(s_i,t_i),(s_j,t_j)]=C[(s_i,t_j),(s_j,t_i)]
-
+\begin{align}
+  C[(s_i,t_i),(s_j,t_j)]=C[(s_i,t_j),(s_j,t_i)]
+\end{align}
 
 Nótese que la separabilidad es un caso particular de la propiedad de simetría.
 
@@ -1516,7 +1522,7 @@ C(\text{h},u)=bC_1(\text{h},u)
 
 
 \begin{align}
-C(\textbf{h},u)&=C1(\textbf{h},u)+C2(\textbf{h},u)
+C(\textbf{h},u)&=C_1(\textbf{h},u)+C_2(\textbf{h},u)
 \end{align}
 
 es también una función de covarianza definida en $\mathbb{R}^d \times \mathbb{R}$.
@@ -1539,27 +1545,14 @@ C(\textbf{h},u)&=\lim_{n\to 2} C_n(\textbf{h},u)
 
 es una función de covarianza en $\mathbb{R}^d \times \mathbb{R}$.
 
-MODELOS NO SEPARABLES: sherman 127, g_est_temp_casal: 157 (modelos)
+### Estimación del variograma y covariograma espacio-temporal
 
-Modelos separabales: montero 198, g_esp_temp 52
+La estimación del variograma o covariograma espacio-temporal puede ser la generalización de la estimación de un proceso espacial. Es así que, sea $Z(s,t)$ un proceso intrinsecamente estacionario sobre un conjunto de $n$ ubicaciones espacio-temporales $\{(s_1,t_1),...,(s_n.t_n)\}$. 
+Usualmente se utilizan dos alternativas para estimar el variograma $\gamma(.,.)$ o covariograma ${\hat{C}(.,.)}$, utilizando los valores observados: 
 
-Estimacion de varis: montero 183
+#### Estimadores clásicos
 
-montero 179
-nuestro 11
-sherman 127 
-wikle para ejemplos de R pg 46 
-g_esp_tiempo pg 49 y 
-apoyo c01 pg 12 
-apoyo 2 martha pg69
-
-
-### Estimación del variograma espacio-temporal (Ejemplos)
-
-La estimación del variograma espacio-temporal puede ser la generalización de la estimación de un proceso espacial. Es así que, sea $Z(s,t)$ un proceso intrinsecamente estacionario sobre un conjunto de $n$ ubicaciones espacio-temporales $\{(s_1,t_1),...,(s_n.t_n)\}$. 
-Usualmente se utilizan dos alternativas para estimar el semivariograma $\gamma(.,.)$  utilizando los valores observados: 
-
-**Estimador clásico**
+**Estimador empírico del variograma**
 
 El estimador empírico del variograma, propuesto por Matheron, está basado en el método de momentos y está dado por:
 
@@ -1567,10 +1560,47 @@ El estimador empírico del variograma, propuesto por Matheron, está basado en e
 {\hat{\gamma}}(\textbf{h}(l),u(k))=\frac{1}{2|N(\textbf{h}(l),u(k))|} \sum_{(s_i,t_i),(s_j,t_j)\in N(\textbf{h}(l),u(k))} [Z(s_i,t_i)-Z(s_j,t_j)]^2
 \end{align}
 
-donde $N(\textbf{h}(l),u(k))=\{(s_i,t_i)(s_j,t_j):s_i -s_j \in T(\textbf{h}(l)), t_i-t_j \in T(u(k))\}$, $T(\textbf{h}(l))$es la region de tolerancia sobre $\mathbb{R}^d$ alrededor de $\textbf{h}(l)$ y $T(u(k))$ una región de tolerancia sobre $\mathbb{R}$ alrededor de $u(k)$ y $|N(\textbf{h}(l),u(k))|$ es el número de elementos diferentes en $N(\textbf{h}(l),u(k))$ con $l=1,...,L$ y $k=1,..K$
+donde $N(\textbf{h}(l),u(k))=\{(s_i,t_i)(s_j,t_j):s_i -s_j \in T(\textbf{h}(l)), t_i-t_j \in T(u(k))\}$, $T(\textbf{h}(l))$es la region de tolerancia sobre $\mathbb{R}^d$ alrededor de $\textbf{h}(l)$ y $T(u(k))$ es una región de tolerancia sobre $\mathbb{R}$ alrededor de $u(k)$ y $|N(\textbf{h}(l),u(k))|$ es el número de elementos diferentes en $N(\textbf{h}(l),u(k))$ con $l=1,...,L$ y $k=1,...,K$
 
-MONTERO 183
-CASAL 170
+Si se asume isotropía para el proceso espacial, se puede elegir $T(\textbf{h}(l))$  alrededor de cada valor $\textbf{h}(l)$ como $\left[h(l)-\frac{d_1}{2}, h(l)+\frac{d_1}{2}\right]$ donde $d_1$ es la tolerancia espacial utilizada.También es común elegir valores en $\mathbb{Z}$ para el componente temporal, en este caso el variograma empirico es calculado para  $u(k)=0,1,,...$ que se obtiene como las sucesivas diferencias de tiempo en que se observa el proceso. 
 
-**Estimador robusto por Cressie y Hawkins**
+**Estimador empírico del covariograma**
 
+El estimador empírico de la función de covariograma utilizando el método de momentos está dado por
+
+\begin{align}
+{\hat{C}}(\textbf{h}(l),u(k))=\frac{1}{|N(\textbf{h}(l),u(k))|} \sum_{(s_i,t_i),(s_j,t_j)\in N(\textbf{h}(l),u(k))} [Z(s_i,t_i)-{\bar{Z}}][Z(s_j,t_j)-\bar{Z}]
+\end{align}
+
+donde $\bar{Z}=\frac{1}{n} \sum_{i} Z(s_i , t_i)$ es un estimador de la media $\mu$ de un campo aleatorio y $N(\textbf{h}(l),u(k))$ al igual que en los casos anteriores.
+
+Al igual que en el caso de geoestadística clásica los estimadores presentados anteriormente son susceptibles a valores atípicos o extremos para evitar este problema se considera el siguiente estimador robusto. 
+
+#### Estimador robusto por Cressie y Hawkins
+
+Este estimador espacio-temporal de la función de variograma se define de por
+
+\begin{align}
+{\hat{\gamma}}(\textbf{h}(l),u(k))&=\left({\frac{1}{2|N(\textbf{h}(l),u(k))|}}{\sum_{(s_i,t_i),(s_j,t_j)\in N(\textbf{h}(l),u(k))} {|Z(s_i,t_i)-Z(s_j,t_j)|^{\frac{1}{2}}}}\right)^4\\
+& \times \left(0.457 + \frac{0.494}{|N(\textbf{h}(l),u(k))|} \right)^{-1}
+\end{align}
+
+
+ejercicio para el lector: calcular el covariograma
+
+<!-- MONTERO 183 -->
+<!-- CASAL 170 -->
+
+<!-- MODELOS NO SEPARABLES: sherman 127, g_est_temp_casal: 157 (modelos) -->
+
+<!-- Modelos separabales: montero 198, g_esp_temp 52 -->
+
+<!-- Estimacion de varis: montero 183 -->
+
+<!-- montero 179 -->
+<!-- nuestro 11 -->
+<!-- sherman 127  -->
+<!-- wikle para ejemplos de R pg 46  -->
+<!-- g_esp_tiempo pg 49 y  -->
+<!-- apoyo c01 pg 12  -->
+<!-- apoyo 2 martha pg69 -->
