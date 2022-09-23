@@ -1537,18 +1537,13 @@ es también una función de covarianza definida en $\mathbb{R}^d\times \mathbb{R
 C(\textbf{h},u)&=\lim_{n\to 2} C_n(\textbf{h},u)
 \end{align}
 
-
 es una función de covarianza en $\mathbb{R}^d \times \mathbb{R}$.
-
 
 MODELOS NO SEPARABLES: sherman 127, g_est_temp_casal: 157 (modelos)
 
 Modelos separabales: montero 198, g_esp_temp 52
 
-
 Estimacion de varis: montero 183
-
-
 
 montero 179
 nuestro 11
@@ -1559,8 +1554,23 @@ apoyo c01 pg 12
 apoyo 2 martha pg69
 
 
-### Modelos separables
-
-### Modelos no separables
-
 ### Estimación del variograma espacio-temporal (Ejemplos)
+
+La estimación del variograma espacio-temporal puede ser la generalización de la estimación de un proceso espacial. Es así que, sea $Z(s,t)$ un proceso intrinsecamente estacionario sobre un conjunto de $n$ ubicaciones espacio-temporales $\{(s_1,t_1),...,(s_n.t_n)\}$. 
+Usualmente se utilizan dos alternativas para estimar el semivariograma $\gamma(.,.)$  utilizando los valores observados: 
+
+**Estimador clásico**
+
+El estimador empírico del variograma, propuesto por Matheron, está basado en el método de momentos y está dado por:
+
+\begin{align}
+{\hat{\gamma}}(\textbf{h}(l),u(k))=\frac{1}{2|N(\textbf{h}(l),u(k))|} \sum_{(s_i,t_i),(s_j,t_j)\in N(\textbf{h}(l),u(k))} [Z(s_i,t_i)-Z(s_j,t_j)]^2
+\end{align}
+
+donde $N(\textbf{h}(l),u(k))=\{(s_i,t_i)(s_j,t_j):s_i -s_j \in T(\textbf{h}(l)), t_i-t_j \in T(u(k))\}$, $T(\textbf{h}(l))$es la region de tolerancia sobre $\mathbb{R}^d$ alrededor de $\textbf{h}(l)$ y $T(u(k))$ una región de tolerancia sobre $\mathbb{R}$ alrededor de $u(k)$ y $|N(\textbf{h}(l),u(k))|$ es el número de elementos diferentes en $N(\textbf{h}(l),u(k))$ con $l=1,...,L$ y $k=1,..K$
+
+MONTERO 183
+CASAL 170
+
+**Estimador robusto por Cressie y Hawkins**
+
