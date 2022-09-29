@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Nosotros" />
 
 
-<meta name="date" content="2022-09-22" />
+<meta name="date" content="2022-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -61,6 +61,28 @@ set in the _output.yml file.</p>" />
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,7 +156,7 @@ set in the _output.yml file.</p>" />
 <li class="chapter" data-level="2.5" data-path="estadística-espacial.html"><a href="estadística-espacial.html#geoestadística-espacio-temporal"><i class="fa fa-check"></i><b>2.5</b> Geoestadística Espacio Temporal</a>
 <ul>
 <li class="chapter" data-level="2.5.1" data-path="estadística-espacial.html"><a href="estadística-espacial.html#conceptos"><i class="fa fa-check"></i><b>2.5.1</b> Conceptos</a></li>
-<li class="chapter" data-level="2.5.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#estimación-del-variograma-y-covariograma-espacio-temporal-ejemplos"><i class="fa fa-check"></i><b>2.5.2</b> Estimación del variograma y covariograma espacio-temporal (Ejemplos)</a></li>
+<li class="chapter" data-level="2.5.2" data-path="estadística-espacial.html"><a href="estadística-espacial.html#estimación-del-variograma-y-covariograma-espacio-temporal"><i class="fa fa-check"></i><b>2.5.2</b> Estimación del variograma y covariograma espacio-temporal</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="introducción-al-análisis-de-datos-funcionales-fda.html"><a href="introducción-al-análisis-de-datos-funcionales-fda.html"><i class="fa fa-check"></i><b>3</b> Introducción al análisis de datos funcionales (FDA)</a>
@@ -248,10 +270,10 @@ set in the _output.yml file.</p>" />
             <section class="normal" id="section-">
 <div id="introducción-al-análisis-de-datos-funcionales-fda" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number"> 3</span> Introducción al análisis de datos funcionales (FDA)<a href="introducción-al-análisis-de-datos-funcionales-fda.html#introducción-al-análisis-de-datos-funcionales-fda" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Los objetivos fundamentales del FDA son los mismos que la estadística convencional e incluyen: (a) Representar y transformar los datos de manera que faciliten el análisis posterior. (b) Mostrar los datos de manera que se destaquen las variables en estudio. (c) Estudiar fuentes relevantes de patrones y variación de los datos. (d) Explicar la variación de una variable resultante o dependiente utilizando la información de la variable independiente <span class="citation">(<a href="#ref-raichle" role="doc-biblioref"><strong>raichle?</strong></a>)</span>.</p>
-<p>En la estadística elemental las observaciones son escalares, pero en la estadística multivariante las observaciones son vectores que pertenecen al espacio Euclídeo <span class="math inline">\(\mathbb{R}^d\)</span>, donde <span class="math inline">\(d\)</span> es la dimensión de los vectores observados. Sin embargo, en el FDA las observaciones son funciones o curvas y aunque estas pueden ser medidas en puntos discretos se las pueden pensar como funciones en espacios infinitos dimensionales <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref"><strong>kokoska?</strong></a>)</span>.</p>
-<p>Los datos funcionales por tanto son una generalización natural de datos multivariantes, pasando de una dimensión finita a una dimensión infinita <span class="citation">(<a href="#ref-jin" role="doc-biblioref"><strong>jin?</strong></a>)</span>. La alta dimensionalidad de los datos, representa un reto para la teoría y para el cálculo computacional, donde estos retos varían dependiendo de como se tomaron las muestras. Sin embargo, la alta o infinita dimensionalidad de los datos, son una fuente rica en información, lo que conlleva a poder realizar investigaciones y análisis de datos mas robustos <span class="citation">(<a href="#ref-wang" role="doc-biblioref"><strong>wang?</strong></a>)</span>.</p>
-<p>La extensa variedad de aplicaciones y herramientas hacen que definir de forma precisa el FDA sea de cierta manera difícil. El FDA surge cuando una variable de interés, en un conjunto de datos, puede ser naturalmente vista como una curva o función suave; entonces el FDA puede pensarse como un análisis de alto nivel estadístico sobre muestras de curvas <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref"><strong>kokoska?</strong></a>)</span>. En la práctica, los datos funcionales son obtenidos por medio de observaciones sobre el tiempo, <span style="color:red">ESPACIO</span> u otros dominios continuos; los datos funcionales resultantes pueden ser curvas, superficies u objetos complejos <span class="citation">(<a href="#ref-jin" role="doc-biblioref"><strong>jin?</strong></a>)</span>.</p>
+<p>Los objetivos fundamentales del FDA son los mismos que la estadística convencional e incluyen: (a) Representar y transformar los datos de manera que faciliten el análisis posterior. (b) Mostrar los datos de manera que se destaquen las variables en estudio. (c) Estudiar fuentes relevantes de patrones y variación de los datos. (d) Explicar la variación de una variable resultante o dependiente utilizando la información de la variable independiente <span class="citation">(<a href="#ref-raichle" role="doc-biblioref">Ramsay and Silverman 2001</a>)</span>.</p>
+<p>En la estadística elemental las observaciones son escalares, pero en la estadística multivariante las observaciones son vectores que pertenecen al espacio Euclídeo <span class="math inline">\(\mathbb{R}^d\)</span>, donde <span class="math inline">\(d\)</span> es la dimensión de los vectores observados. Sin embargo, en el FDA las observaciones son funciones o curvas y aunque estas pueden ser medidas en puntos discretos se las pueden pensar como funciones en espacios infinitos dimensionales <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref">Kokoszka 2017</a>)</span>.</p>
+<p>Los datos funcionales por tanto son una generalización natural de datos multivariantes, pasando de una dimensión finita a una dimensión infinita <span class="citation">(<a href="#ref-jin" role="doc-biblioref">Zhang 2013</a>)</span>. La alta dimensionalidad de los datos, representa un reto para la teoría y para el cálculo computacional, donde estos retos varían dependiendo de como se tomaron las muestras. Sin embargo, la alta o infinita dimensionalidad de los datos, son una fuente rica en información, lo que conlleva a poder realizar investigaciones y análisis de datos mas robustos <span class="citation">(<a href="#ref-wang" role="doc-biblioref">Wang, Chiou, and Müller 2016</a>)</span>.</p>
+<p>La extensa variedad de aplicaciones y herramientas hacen que definir de forma precisa el FDA sea de cierta manera difícil. El FDA surge cuando una variable de interés, en un conjunto de datos, puede ser naturalmente vista como una curva o función suave; entonces el FDA puede pensarse como un análisis de alto nivel estadístico sobre muestras de curvas <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref">Kokoszka 2017</a>)</span>. En la práctica, los datos funcionales son obtenidos por medio de observaciones sobre el tiempo, <span style="color:red">ESPACIO</span> u otros dominios continuos; los datos funcionales resultantes pueden ser curvas, superficies u objetos complejos <span class="citation">(<a href="#ref-jin" role="doc-biblioref">Zhang 2013</a>)</span>.</p>
 <p><span style="color:red">iNSERTAR IMÁGENES DATO FUNCIONAL CON DOMINIOS</span></p>
 <p>Las funciones o curvas pueden ser vistas como realizaciones de un proceso estocástico uno dimensional; usualmente se asume que estas realizaciones pertenecen al espacio de <em>Hilbert</em>.<br />
 </p>
@@ -260,12 +282,12 @@ set in the _output.yml file.</p>" />
 <p>El espacio de <em>Hilbert</em> generaliza la noción de espacio euclidiano, extendiendo las propiedades de dimensión finita para dimensión infinita.</p>
 <div id="el-espacio-l2" class="section level3 hasAnchor" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> <strong>El Espacio</strong> <span class="math inline">\(L^2\)</span><a href="introducción-al-análisis-de-datos-funcionales-fda.html#el-espacio-l2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El espacio <span class="math inline">\(L^2=L^2[0,1]\)</span> es el conjunto de funciones reales medibles de Lebesgue <span class="math inline">\(f\)</span> definidas en <span class="math inline">\([0,1]\)</span>, tales que satisfacen <span class="citation">(<a href="#ref-lajos" role="doc-biblioref"><strong>lajos?</strong></a>)</span>:</p>
+<p>El espacio <span class="math inline">\(L^2=L^2[0,1]\)</span> es el conjunto de funciones reales medibles de Lebesgue <span class="math inline">\(f\)</span> definidas en <span class="math inline">\([0,1]\)</span>, tales que satisfacen <span class="citation">(<a href="#ref-lajos" role="doc-biblioref">Young 2014</a>)</span>:</p>
 <p><span class="math display">\[\begin{align}
     \int_0^1 f^2(t)dt&lt;\infty
 \end{align}\]</span></p>
 <p>Este espacio se le conoce como el <em>Espacio de Funciones Cuadrado Integrables</em>.</p>
-<p>Si <span class="math inline">\(f,g \in L^2\)</span>, la igualdad <span class="math inline">\(f=g\)</span>, significa que <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref"><strong>kokoska?</strong></a>)</span>:</p>
+<p>Si <span class="math inline">\(f,g \in L^2\)</span>, la igualdad <span class="math inline">\(f=g\)</span>, significa que <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref">Kokoszka 2017</a>)</span>:</p>
 <p><span class="math display">\[\begin{align}
     \int[f(t)-g(t)]dt=0
 \end{align}\]</span></p>
@@ -274,7 +296,7 @@ set in the _output.yml file.</p>" />
         af+bg\in L^2\hspace{2cm}\\
          (af+bg)(t)=af(t)+bg(t),\ t \in [0,1]
   \end{align}\]</span></p>
-<p>Se debe tener en cuenta que los elementos de <span class="math inline">\(L^2\)</span> y operaciones sobre estos no necesitan estar definidos para todo punto <span class="math inline">\(t\)</span>, sino que están definidos para casi todo punto <span class="math inline">\(t\)</span> <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref"><strong>kokoska?</strong></a>)</span>.</p>
+<p>Se debe tener en cuenta que los elementos de <span class="math inline">\(L^2\)</span> y operaciones sobre estos no necesitan estar definidos para todo punto <span class="math inline">\(t\)</span>, sino que están definidos para casi todo punto <span class="math inline">\(t\)</span> <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref">Kokoszka 2017</a>)</span>.</p>
 <p>Para funciones <span class="math inline">\(f,g\in L^2\)</span>, se define el producto interno de dos funciones como:</p>
 <p><span class="math display">\[\begin{align}
     \langle f,g \rangle=\int f(t)g(t)dt
@@ -316,7 +338,7 @@ set in the _output.yml file.</p>" />
     ||Z(\omega)||^2=\int \{ Z(\omega)(t)\}^2&lt;\infty
 \end{align}\]</span></p>
 <p>La función <span class="math inline">\(||Z(\omega)||\)</span> es por tanto una variable aleatoria; si esta variable aleatoria tiene momento de segundo orden finito; es decir, <span class="math inline">\(E||Z||^2&lt;\infty\)</span>, por consiguiente <span class="math inline">\(Z\)</span> es una función aleatoria cuadrado integrable.</p>
-<p>Es importante notar la diferencia entre una función cuadrado integrable determinística, donde la integración se define en el intervalo <span class="math inline">\([0,1]\)</span>, y las funciones aleatorias cuadrado integrables, donde la integración está definida en el espacio de probabilidad <span class="math inline">\(\Omega\)</span> <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref"><strong>kokoska?</strong></a>)</span>.</p>
+<p>Es importante notar la diferencia entre una función cuadrado integrable determinística, donde la integración se define en el intervalo <span class="math inline">\([0,1]\)</span>, y las funciones aleatorias cuadrado integrables, donde la integración está definida en el espacio de probabilidad <span class="math inline">\(\Omega\)</span> <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref">Kokoszka 2017</a>)</span>.</p>
 </div>
 <div id="estimación-de-la-función-de-media-y-covarianza" class="section level3 hasAnchor" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> <strong>Estimación de la función de media y covarianza</strong><a href="introducción-al-análisis-de-datos-funcionales-fda.html#estimación-de-la-función-de-media-y-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -348,7 +370,7 @@ set in the _output.yml file.</p>" />
       {\hat{C}}(z)= \frac{1}{N} \sum_{i=1}^{N} \langle Z_i - {\hat{\mu}}, z\rangle ( Z_i-{\hat{\mu}}), \quad z\in L^2
   \end{align}\]</span></p></li>
 </ul>
-<p>Nótese que <span class="math inline">\({\hat{C}}\)</span> proyecta el espacio <span class="math inline">\(L^2\)</span> en un subespacio finito dimensional generado por <span class="math inline">\(Z_1,Z_2,...,Z_N\)</span>, mostrando las limitaciones de la inferencia estadística para observaciones funcionales; una muestra finita puede cubrir un objeto infinito dimensional solo con reducida exactitud <span class="citation">(<a href="#ref-lajos" role="doc-biblioref"><strong>lajos?</strong></a>)</span>.</p>
+<p>Nótese que <span class="math inline">\({\hat{C}}\)</span> proyecta el espacio <span class="math inline">\(L^2\)</span> en un subespacio finito dimensional generado por <span class="math inline">\(Z_1,Z_2,...,Z_N\)</span>, mostrando las limitaciones de la inferencia estadística para observaciones funcionales; una muestra finita puede cubrir un objeto infinito dimensional solo con reducida exactitud <span class="citation">(<a href="#ref-lajos" role="doc-biblioref">Young 2014</a>)</span>.</p>
 <p><span style="color:red">INSERTAR GRAFICOS, CODIGO, EJEMPLOS</span></p>
 </div>
 </div>
@@ -360,8 +382,8 @@ set in the _output.yml file.</p>" />
 </div>
 <div id="reducción-de-dimensionalidad" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Reducción de Dimensionalidad<a href="introducción-al-análisis-de-datos-funcionales-fda.html#reducción-de-dimensionalidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como se mencionó, un dato funcional es intrínsecamente infinito dimensional, incluso si un gran número de datos son medidos de manera discreta sobre un conjunto finito de cualquier intervalo la dimensionalidad es alta, produciendo dificultades en el análisis de datos <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref"><strong>kokoska?</strong></a>)</span>, como la ralentización de algoritmos estadísticos convencionales o incluso produciendo que algunos de estos sean inviables. En algoritmos de clasificación, el costo computacional y la precisión de clasificación pueden ser mejorados de manera significativa utilizando un subconjunto de mediciones representativas; una razón es que instantes en el tiempo consecutivos usualmente están altamente correlacionados, incluyendo redundancias que pueden incrementar el nivel de ruido y ocultar información útil acerca de la estructura de los datos <span class="citation">(<a href="#ref-tian" role="doc-biblioref"><strong>tian?</strong></a>)</span>.</p>
-<p>Para tratar el problema de alta dimensionalidad, se hace uso de funciones base, las que constituyen una herramienta para almacenar información acerca de las funciones y da la flexibilidad para combinar el poder computacional para ajustar cientos y miles de observaciones. Además, permite expresar los cálculos requeridos mediante matrices <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref"><strong>ramsay?</strong></a>)</span>.</p>
+<p>Como se mencionó, un dato funcional es intrínsecamente infinito dimensional, incluso si un gran número de datos son medidos de manera discreta sobre un conjunto finito de cualquier intervalo la dimensionalidad es alta, produciendo dificultades en el análisis de datos <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref">Kokoszka 2017</a>)</span>, como la ralentización de algoritmos estadísticos convencionales o incluso produciendo que algunos de estos sean inviables. En algoritmos de clasificación, el costo computacional y la precisión de clasificación pueden ser mejorados de manera significativa utilizando un subconjunto de mediciones representativas; una razón es que instantes en el tiempo consecutivos usualmente están altamente correlacionados, incluyendo redundancias que pueden incrementar el nivel de ruido y ocultar información útil acerca de la estructura de los datos <span class="citation">(<a href="#ref-tian" role="doc-biblioref">Tian 2010</a>)</span>.</p>
+<p>Para tratar el problema de alta dimensionalidad, se hace uso de funciones base, las que constituyen una herramienta para almacenar información acerca de las funciones y da la flexibilidad para combinar el poder computacional para ajustar cientos y miles de observaciones. Además, permite expresar los cálculos requeridos mediante matrices <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref">Ramsay J. 2005</a>)</span>.</p>
 <p>El conjunto de datos más simple, en el contexto de FDA, es una muestra de la forma:</p>
 <p><span class="math display">\[\begin{align}
     z_n(t_{j,n})\in\mathbb{R}, t_{j,n}\in [T_1,T_2],\ n=1,...,N,\ j=1,...,J_n
@@ -371,7 +393,7 @@ set in the _output.yml file.</p>" />
     \{z_n(t):t\in[T_1,T_2],n=1,...,N\}
 \end{align}\]</span></p>
 <p>para los cuáles los valores <span class="math inline">\(z_n(t)\)</span> existen en todo punto <span class="math inline">\(t\)</span>, pero solo son observados en puntos específicos <span class="math inline">\(t_j\)</span>.</p>
-<p>El enfoque principal en el FDA es la forma de las funciones observadas o de las funciones que resumen las propiedades de los datos en un sentido específico <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref"><strong>kokoska?</strong></a>)</span>.</p>
+<p>El enfoque principal en el FDA es la forma de las funciones observadas o de las funciones que resumen las propiedades de los datos en un sentido específico <span class="citation">(<a href="#ref-kokoska" role="doc-biblioref">Kokoszka 2017</a>)</span>.</p>
 <div id="bases-de-expansión" class="section level3 unnumbered hasAnchor">
 <h3>Bases de expansión<a href="introducción-al-análisis-de-datos-funcionales-fda.html#bases-de-expansión" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En la práctica se trabaja con funciones con características que pueden ser impredecibles y complicadas, por lo que se requiere de estrategias para construir funciones que trabajen con parámetros que sean fáciles de estimar y que puedan ser lo más cercano posible a cualquier característica de la curva.</p>
@@ -379,7 +401,7 @@ set in the _output.yml file.</p>" />
 <p><span class="math display">\[\begin{align}
     z(t)=\sum_{k=1}^Kc_k\phi_k(t)=c&#39;\phi(t)
 \end{align}\]</span></p>
-<p>conocido como <em>expansión en funciones base</em>. Los parámetros <span class="math inline">\(c_1,...c_k\)</span> son coeficientes de la expansión. La expresión matricial usa <span class="math inline">\(c\)</span> para referirse al vector de <span class="math inline">\(K\)</span> coeficientes y <span class="math inline">\(\phi\)</span> para denotar al vector de tamaño <span class="math inline">\(K\)</span> que contiene las funciones suaves de base que comparten las mismas propiedades. <span class="citation">(<a href="#ref-programsay" role="doc-biblioref"><strong>programsay?</strong></a>)</span>.</p>
+<p>conocido como <em>expansión en funciones base</em>. Los parámetros <span class="math inline">\(c_1,...c_k\)</span> son coeficientes de la expansión. La expresión matricial usa <span class="math inline">\(c\)</span> para referirse al vector de <span class="math inline">\(K\)</span> coeficientes y <span class="math inline">\(\phi\)</span> para denotar al vector de tamaño <span class="math inline">\(K\)</span> que contiene las funciones suaves de base que comparten las mismas propiedades. <span class="citation">(<a href="#ref-programsay" role="doc-biblioref">James Ramsay 2009</a>)</span>.</p>
 <p>Usualmente se considera una muestra de funciones de tamaño <span class="math inline">\(N\)</span>:</p>
 <p><span class="math display">\[\begin{align}
     z_i(t)=\sum_{k=1}^Kc_{ik}\phi_k(t), \ i=1,...,N
@@ -388,13 +410,13 @@ set in the _output.yml file.</p>" />
 <p><span class="math display">\[\begin{align}
     \textbf{z(t)}=C\phi(t)
 \end{align}\]</span></p>
-<p>donde <span class="math inline">\(\textbf{z(t)}\)</span> es un vector de tamaño <span class="math inline">\(N\)</span> conteniendo las funciones <span class="math inline">\(z_i(t)\)</span>, y la matriz de coeficientes <span class="math inline">\(C\)</span> tiene <span class="math inline">\(N\)</span> filas y <span class="math inline">\(K\)</span> columnas <span class="citation">(<a href="#ref-programsay" role="doc-biblioref"><strong>programsay?</strong></a>)</span>.</p>
-<p>Lo ideal, es que las funciones base tengan características que coincidan con las características de las funciones que se están estimando, lo que permite la obtención de una aproximación adecuada utilizando un número más pequeño que <span class="math inline">\(K\)</span> de funciones; cuánto menor sea <span class="math inline">\(K\)</span> y mejor reflejen las funciones base ciertas características de los datos: se tendrá más grados de libertad para realizar pruebas de hipótesis y calcular intervalos de confianza más precisos, menos cálculo computacional es requerido y es factible que los mismos coeficientes logren describir los datos <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref"><strong>ramsay?</strong></a>)</span>.</p>
-<p>El concepto de sistemas de bases no es nuevo; por ejemplo, un polinomio de cualquier orden, no es más que una combinación lineal de las funciones base monomial <span class="math inline">\(\{1,t,t^2,....,t^n\}\)</span>; no obstante, los polimonios no son muy útiles cuando se trabajan con formas funcionales complejas, por lo que, sistemas de base de tipo splines y Fourier son ampliamente utilizados en la práctica <span class="citation">(<a href="#ref-programsay" role="doc-biblioref"><strong>programsay?</strong></a>)</span>.</p>
+<p>donde <span class="math inline">\(\textbf{z(t)}\)</span> es un vector de tamaño <span class="math inline">\(N\)</span> conteniendo las funciones <span class="math inline">\(z_i(t)\)</span>, y la matriz de coeficientes <span class="math inline">\(C\)</span> tiene <span class="math inline">\(N\)</span> filas y <span class="math inline">\(K\)</span> columnas <span class="citation">(<a href="#ref-programsay" role="doc-biblioref">James Ramsay 2009</a>)</span>.</p>
+<p>Lo ideal, es que las funciones base tengan características que coincidan con las características de las funciones que se están estimando, lo que permite la obtención de una aproximación adecuada utilizando un número más pequeño que <span class="math inline">\(K\)</span> de funciones; cuánto menor sea <span class="math inline">\(K\)</span> y mejor reflejen las funciones base ciertas características de los datos: se tendrá más grados de libertad para realizar pruebas de hipótesis y calcular intervalos de confianza más precisos, menos cálculo computacional es requerido y es factible que los mismos coeficientes logren describir los datos <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref">Ramsay J. 2005</a>)</span>.</p>
+<p>El concepto de sistemas de bases no es nuevo; por ejemplo, un polinomio de cualquier orden, no es más que una combinación lineal de las funciones base monomial <span class="math inline">\(\{1,t,t^2,....,t^n\}\)</span>; no obstante, los polimonios no son muy útiles cuando se trabajan con formas funcionales complejas, por lo que, sistemas de base de tipo splines y Fourier son ampliamente utilizados en la práctica <span class="citation">(<a href="#ref-programsay" role="doc-biblioref">James Ramsay 2009</a>)</span>.</p>
 </div>
 <div id="bases-de-fourier" class="section level3 unnumbered hasAnchor">
 <h3>Bases de Fourier<a href="introducción-al-análisis-de-datos-funcionales-fda.html#bases-de-fourier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Probablemente la expansión de base más conocida está dada por las series de Fourier. Esta serie es especialmente útil para funciones extremadamente estables; es decir, funciones en las que no hay características locales fuertes y donde la curva tiende a ser del mismo orden en todas partes. Estas series suelen dar lugar a expansiones uniformes, sin embargo son inadecuadas en cierto grado para los datos que se sospecha que tienen discontinuidades en la función o en las derivadas de bajo orden<span class="citation">(<a href="#ref-ramsay" role="doc-biblioref"><strong>ramsay?</strong></a>)</span>. En algunas ocasiones, es necesario que las funciones se puedan repetir sobre un cierto período de tiempo <span class="math inline">\(T\)</span>; por ejemplo, pueden ser requeridos para expresar comportamiento estacional en series de tiempo extensas. La serie de Fourier, está dada por <span class="citation">(<a href="#ref-programsay" role="doc-biblioref"><strong>programsay?</strong></a>)</span>:</p>
+<p>Probablemente la expansión de base más conocida está dada por las series de Fourier. Esta serie es especialmente útil para funciones extremadamente estables; es decir, funciones en las que no hay características locales fuertes y donde la curva tiende a ser del mismo orden en todas partes. Estas series suelen dar lugar a expansiones uniformes, sin embargo son inadecuadas en cierto grado para los datos que se sospecha que tienen discontinuidades en la función o en las derivadas de bajo orden<span class="citation">(<a href="#ref-ramsay" role="doc-biblioref">Ramsay J. 2005</a>)</span>. En algunas ocasiones, es necesario que las funciones se puedan repetir sobre un cierto período de tiempo <span class="math inline">\(T\)</span>; por ejemplo, pueden ser requeridos para expresar comportamiento estacional en series de tiempo extensas. La serie de Fourier, está dada por <span class="citation">(<a href="#ref-programsay" role="doc-biblioref">James Ramsay 2009</a>)</span>:</p>
 <p><span class="math display">\[\begin{align}
     \phi_1(t)&amp;=1\\
     \phi_2(t)&amp;=\sin(\omega t)\\
@@ -408,16 +430,16 @@ set in the _output.yml file.</p>" />
     \omega =\frac{2\pi}{T}
 \end{align}\]</span></p>
 <p>Se observa que, después de la primera función base constante, las funciones base de Fourier son ordenadas de forma sucesiva en pares de seno/coseno, los dos con argumentos en cualquier par que se multiplique por uno de los enteros <span class="math inline">\(1,2,...\)</span> hasta un límite superior <span class="math inline">\(m\)</span>. Si las series contienen ambos elementos de cada par, como es usual, el número de funciones base es <span class="math inline">\(K=1+2m\)</span>, puesto que, de la forma en que se definió <span class="math inline">\(\omega\)</span>, cada función base se repite por si misma después de <span class="math inline">\(T\)</span> unidades de tiempo transcurrido.</p>
-<p>Para definir una base de tipo Fourier, solo son necesario dos parámetros: el número de funciones base <span class="math inline">\(K\)</span> y el período <span class="math inline">\(T\)</span>; no obstante, este último valor usualmente puede ser por defecto el rango de los valores <span class="math inline">\(t\)</span> en los cuales están definidos los datos <span class="citation">(<a href="#ref-programsay" role="doc-biblioref"><strong>programsay?</strong></a>)</span>.</p>
+<p>Para definir una base de tipo Fourier, solo son necesario dos parámetros: el número de funciones base <span class="math inline">\(K\)</span> y el período <span class="math inline">\(T\)</span>; no obstante, este último valor usualmente puede ser por defecto el rango de los valores <span class="math inline">\(t\)</span> en los cuales están definidos los datos <span class="citation">(<a href="#ref-programsay" role="doc-biblioref">James Ramsay 2009</a>)</span>.</p>
 </div>
 <div id="base-de-splines" class="section level3 unnumbered hasAnchor">
 <h3>Base de Splines<a href="introducción-al-análisis-de-datos-funcionales-fda.html#base-de-splines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Las funciones spline son utilizadas usualmente para aproximaciones de datos funcionales no periódicos o perimétricos y estas son parecidas a los polinomios. Esta base ofrece una mayor flexibilidad, sin embargo es más compleja que la series finitas de Fourier. Los splines combinan el cálculo eficiente de los polinomios con una sustancial flexibilidad, usualmente conseguidos con un moderado número de funciones base. El principal camino para ganar flexibilidad en un spline es incrementar el número de puntos de división del intervalo en el cual se define la función <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref"><strong>ramsay?</strong></a>)</span>.</p>
+<p>Las funciones spline son utilizadas usualmente para aproximaciones de datos funcionales no periódicos o perimétricos y estas son parecidas a los polinomios. Esta base ofrece una mayor flexibilidad, sin embargo es más compleja que la series finitas de Fourier. Los splines combinan el cálculo eficiente de los polinomios con una sustancial flexibilidad, usualmente conseguidos con un moderado número de funciones base. El principal camino para ganar flexibilidad en un spline es incrementar el número de puntos de división del intervalo en el cual se define la función <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref">Ramsay J. 2005</a>)</span>.</p>
 <p><strong>Funciones Splines y Grados de Libertad</strong></p>
 <p>Para definir un spline, el primer paso es dividir el intervalo sobre el cual una función va a ser aproximada en <span class="math inline">\(L\)</span> subintervalos separados por valores <span class="math inline">\(\tau_l, l=1,...,L\)</span> que se conocen como <em>puntos de ruptura</em> o <em>nodos</em>.</p>
-<p>El término <em>puntos de ruptura</em>, se refiere al número único de valores de los <em>nodos</em> mientras el que término <em>nodos</em> se refiere a la secuencia de valores en los <em>puntos de ruptura</em>, donde algunos <em>puntos de ruptura</em> pueden estar asociados con múltiples <em>nodos</em>. Todos los <em>nodos</em> son distintos en varias aplicaciones, y por tanto <em>puntos de ruptura</em> y <em>nodos</em> son la misma cosa, sin embargo, se encuentran sistemas de datos de entrada y salida donde las entradas son variadas en un sentido discreto, y estos requieren nodos coincidentes para modelizar estos cambios <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref"><strong>ramsay?</strong></a>)</span>.</p>
-<p>Sobre cada intervalo, un spline es un polinomio de orden específico <span class="math inline">\(m\)</span>. El orden de un polinomio es el número de constantes requeridos para definirlo, y a medida que mayor es su grado, más alta es su potencia. El número total de grados de libertad en un ajuste es igual al orden de los polinomios más el número de <em>puntos de ruptura</em> en el interior <span class="math inline">\(m+L-1\)</span>. <em>puntos de ruptura</em> interior, el spline se convierte en un polinomio sencillo. Un spline gana flexibilidad al incrementar el número de <em>puntos de ruptura</em>; generalmente se requiere más de estos puntos sobre regiones donde la función presenta la variación más compleja, y menos donde la función es levemente no lineal <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref"><strong>ramsay?</strong></a>)</span>.</p>
-<p>Para splines de grado mayor que uno, los valores de la función están restringidos a ser iguales en su unión, puesto que los polinomios adyacentes se unen suavemente en el punto de ruptura que los separa, incluso las derivadas de orden <span class="math inline">\(m-2\)</span> también deben coincidir en esta unión <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref"><strong>ramsay?</strong></a>)</span></p>
+<p>El término <em>puntos de ruptura</em>, se refiere al número único de valores de los <em>nodos</em> mientras el que término <em>nodos</em> se refiere a la secuencia de valores en los <em>puntos de ruptura</em>, donde algunos <em>puntos de ruptura</em> pueden estar asociados con múltiples <em>nodos</em>. Todos los <em>nodos</em> son distintos en varias aplicaciones, y por tanto <em>puntos de ruptura</em> y <em>nodos</em> son la misma cosa, sin embargo, se encuentran sistemas de datos de entrada y salida donde las entradas son variadas en un sentido discreto, y estos requieren nodos coincidentes para modelizar estos cambios <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref">Ramsay J. 2005</a>)</span>.</p>
+<p>Sobre cada intervalo, un spline es un polinomio de orden específico <span class="math inline">\(m\)</span>. El orden de un polinomio es el número de constantes requeridos para definirlo, y a medida que mayor es su grado, más alta es su potencia. El número total de grados de libertad en un ajuste es igual al orden de los polinomios más el número de <em>puntos de ruptura</em> en el interior <span class="math inline">\(m+L-1\)</span>. <em>puntos de ruptura</em> interior, el spline se convierte en un polinomio sencillo. Un spline gana flexibilidad al incrementar el número de <em>puntos de ruptura</em>; generalmente se requiere más de estos puntos sobre regiones donde la función presenta la variación más compleja, y menos donde la función es levemente no lineal <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref">Ramsay J. 2005</a>)</span>.</p>
+<p>Para splines de grado mayor que uno, los valores de la función están restringidos a ser iguales en su unión, puesto que los polinomios adyacentes se unen suavemente en el punto de ruptura que los separa, incluso las derivadas de orden <span class="math inline">\(m-2\)</span> también deben coincidir en esta unión <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref">Ramsay J. 2005</a>)</span></p>
 <p><strong>Base B-Spline</strong></p>
 <p>Este sistema de funciones base <span class="math inline">\(\phi_k(t)\)</span> tiene la siguientes propiedades:</p>
 <ul>
@@ -425,12 +447,12 @@ set in the _output.yml file.</p>" />
 <li><p>La combinación lineal de funciones base spline, también es una función spline.</p></li>
 <li><p>Cualquier función spline definida por <span class="math inline">\(m\)</span> y <span class="math inline">\(\tau\)</span> puede expresarse como combinación lineal de estas funciones base.</p></li>
 </ul>
-<p>La propiedad de que una base de funciones B-spline de orden <span class="math inline">\(m\)</span> sea positiva sobre no más de <span class="math inline">\(m\)</span> intervalos, y que estos se junten, es denominada la <strong>propiedad de soporte compacto</strong>, y es de suma importancia para un cálculo computacional eficiente <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref"><strong>ramsay?</strong></a>)</span>.</p>
+<p>La propiedad de que una base de funciones B-spline de orden <span class="math inline">\(m\)</span> sea positiva sobre no más de <span class="math inline">\(m\)</span> intervalos, y que estos se junten, es denominada la <strong>propiedad de soporte compacto</strong>, y es de suma importancia para un cálculo computacional eficiente <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref">Ramsay J. 2005</a>)</span>.</p>
 <p>La notación <span class="math inline">\(B_k(t,\tau)\)</span> se utiliza para indicar el valor en <span class="math inline">\(t\)</span> de la base de funciones B-spline definido por la secuencia de puntos de ruptura <span class="math inline">\(\tau\)</span>; <span class="math inline">\(k\)</span> hace referencia al número del nodo más grande en o inmediatamente a la izquierda de <span class="math inline">\(t\)</span>, teniendo en cuenta que cuando los nodos son discretos, se requieren <span class="math inline">\(m+L-1\)</span> funciones base. Una función spline se puede escribir como:</p>
 <p><span class="math display">\[\begin{align}
     S(t)=\sum_{k=1}^{m+L-1} {c_{k}B_{k}(t.\tau)}
 \end{align}\]</span></p>
-<p>En cuanto a las posiciones de los nodos <span class="math inline">\(\tau_l\)</span>, varias aplicaciones por defecto tienen la misma separación siempre y cuando los datos estén también separados de manera regular. Si no lo están, es recomendable ubicar un nodo en cada punto <span class="math inline">\(j\)</span> de los datos, donde <span class="math inline">\(j\)</span> es un número fijado previamente <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref"><strong>ramsay?</strong></a>)</span>.</p>
+<p>En cuanto a las posiciones de los nodos <span class="math inline">\(\tau_l\)</span>, varias aplicaciones por defecto tienen la misma separación siempre y cuando los datos estén también separados de manera regular. Si no lo están, es recomendable ubicar un nodo en cada punto <span class="math inline">\(j\)</span> de los datos, donde <span class="math inline">\(j\)</span> es un número fijado previamente <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref">Ramsay J. 2005</a>)</span>.</p>
 </div>
 <div id="estimación-de-curvas-utilizando-sistemas-de-bases-por-mínimos-cuadrados" class="section level3 unnumbered hasAnchor">
 <h3>Estimación de curvas utilizando sistemas de bases por mínimos cuadrados<a href="introducción-al-análisis-de-datos-funcionales-fda.html#estimación-de-curvas-utilizando-sistemas-de-bases-por-mínimos-cuadrados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -487,7 +509,7 @@ set in the _output.yml file.</p>" />
     a_k&amp;=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\cos{kx}dx\\
     b_k&amp;=\frac{1}{\pi}\int_{-\pi}^\pi f(x) \sin{kx}dx
 \end{align}\]</span></p>
-<p>esta representación de <span class="math inline">\(f\)</span> se conoce como la expansión en series de Fourier en el intervalo <span class="math inline">\([-\pi,\pi]\)</span> y donde <span class="math inline">\(a_k,b_k\)</span> son conocidos como los coeficientes de Euler-Fourier de <span class="math inline">\(f\)</span> <span class="citation">(<a href="#ref-kreider" role="doc-biblioref"><strong>kreider?</strong></a>)</span> y este tipo de expansión se utiliza para aproximar datos periódicos.</p>
+<p>esta representación de <span class="math inline">\(f\)</span> se conoce como la expansión en series de Fourier en el intervalo <span class="math inline">\([-\pi,\pi]\)</span> y donde <span class="math inline">\(a_k,b_k\)</span> son conocidos como los coeficientes de Euler-Fourier de <span class="math inline">\(f\)</span> <span class="citation">(<a href="#ref-kreider" role="doc-biblioref">Kreider 1971.</a>)</span> y este tipo de expansión se utiliza para aproximar datos periódicos.</p>
 <p>El suavizamiento de datos, utilizando una base de Fourier, siempre implica que se tenga más puntos de los necesarios para modelizar la suavidad de la función en estudio. En la práctica, la frecuencia de la serie no sobrepasa una frecuencia de corte; es decir, que a partir de cierto término, digamos <span class="math inline">\(m\)</span>, todos los coeficientes, <span class="math inline">\(a_k, b_k\)</span>, de Fourier serán prácticamente cero; por lo tanto, la ecuación anterior, puede escribirse de la siguiente manera:</p>
 <p><span class="math display">\[\begin{align}
      f(x)=\frac{a_0}{2}+\sum_{k=1}^m(a_k\cos{kx}+b_k\sin{kx})
@@ -528,7 +550,7 @@ Figura 3.1: Suavización de curvas.
 <p><span class="math display">\[\begin{align}
     PEN_2(x)=\int[D^2x(s)]^2ds
 \end{align}\]</span></p>
-<p>Para funciones con alta variabilidad, se espera un valor alto de <span class="math inline">\(PEN_2(x)\)</span>, pues su segunda derivada es grande al menos en algún rango de interés. De forma general, la penalización de la rugosidad permite una derivada <span class="math inline">\(D^mx\)</span> de orden arbitrario <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref"><strong>ramsay?</strong></a>)</span>:</p>
+<p>Para funciones con alta variabilidad, se espera un valor alto de <span class="math inline">\(PEN_2(x)\)</span>, pues su segunda derivada es grande al menos en algún rango de interés. De forma general, la penalización de la rugosidad permite una derivada <span class="math inline">\(D^mx\)</span> de orden arbitrario <span class="citation">(<a href="#ref-ramsay" role="doc-biblioref">Ramsay J. 2005</a>)</span>:</p>
 <p><span class="math display">\[\begin{align}
     PEN_m(x)=\int[D^mx(s)]^2ds
 \end{align}\]</span></p>
@@ -558,13 +580,13 @@ Figura 3.1: Suavización de curvas.
 </div>
 <div id="detección-de-atípicos" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Detección de atípicos<a href="introducción-al-análisis-de-datos-funcionales-fda.html#detección-de-atípicos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>El tratamiento de datos atípicos es un aspecto importante en cualquier análisis estadístico, pese a que los datos atípicos influyen de manera significativa en metodologías estadísticas en varios sentidos, su análisis en datos funcionales ha sido poco abordado <span class="citation">(<a href="#ref-oviedo" role="doc-biblioref"><strong>oviedo?</strong></a>)</span>.</p>
-<p>De manera intuitiva, se podría pensar en la estadística multivariante para tratar casos de datos atípicos en muestras de datos funcionales. Desafortunadamente, hay varios motivos por las que la estadística multivariante falla en el caso funcional. La primera es que los datos funcionales son realizaciones de un proceso aleatorio suave medido en un conjunto discreto de tiempo, por lo cual la estructura de correlación temporal es ignorada cuando se utilizan métodos de estadística multivariante. La segunda es que por la naturaleza infinto-dimensional, los métodos de estadística multivariante son afectados por la alta dimensionalidad; es decir, los métodos no son capaces de manejar las situaciones en donde el número de mediciones de una o más variables es más grande que el número de individuos en la muestra. La tercera es que pocas asunciones sobre la distribución son impuestas sobre los conjuntos de datos funcionales, mientras que los métodos mutlivariantes están implícitamente sujetos a poblaciones Gaussianas <span class="citation">(<a href="#ref-oviedo" role="doc-biblioref"><strong>oviedo?</strong></a>)</span>.</p>
-<p>Los datos atípicos en un conjunto de datos funcionales pueden surgir principalmente por dos razones. La primera es que las curvas pueden tener graves errores de medición, registro o de digitación; estos errores deben ser identificados y corregidos siempre que sea posible. La segunda es que los datos atípicos pueden ser curvas de datos que expresan la realidad, en el sentido de que no tienen errores graves; sin embargo, no se comportan como el resto de curvas. Por tanto, se considera que una curva es un dato atípico si ha sido generado por un proceso estocástico con diferente distribución que el resto de curvas, las cuales se asumen que son idénticamente distribuidas. Una curva puede ser un dato atípico si esta está significativamente alejada del proceso estocástico o si tiene diferente forma y/o comportamiento del resto de curvas <span class="citation">(<a href="#ref-oviedo" role="doc-biblioref"><strong>oviedo?</strong></a>)</span>.</p>
-<p>Para identificar datos atípicos en un conjunto de datos funcionales, se hace uso de la <em>profundidad funcional</em>. Este concepto fue originalmente introducido en el análisis multivariante para medir la centralidad de un punto en relación con la nube de puntos; es decir, la profundidad da una forma de ordenar los puntos en un espacio Euclídeo desde el centro hacia el exterior; así, los puntos cercanos al centro tendrán una profundidad más grande <span class="citation">(<a href="#ref-pinero" role="doc-biblioref"><strong>pinero?</strong></a>)</span>. Por otro lado, para datos funcionales, si una curva es un dato atípico, esta curva tendrá una profundidad baja, por lo que para detectar la presencia de datos atípicos funcionales basta analizar las curvas con profundidades más bajas <span class="citation">(<a href="#ref-oviedo" role="doc-biblioref"><strong>oviedo?</strong></a>)</span>. Existen tres medidas principales para calcular la profundidad funcional, las cuales son: <em>Profundidad de Fraiman y Muniz</em>, <em>Profundidad H-modal</em>, y <em>Profundidad de proyección aleatoria</em>. Para mayor detalle revisar <span class="citation">(<a href="#ref-manuel" role="doc-biblioref"><strong>manuel?</strong></a>)</span>.</p>
+<p>El tratamiento de datos atípicos es un aspecto importante en cualquier análisis estadístico, pese a que los datos atípicos influyen de manera significativa en metodologías estadísticas en varios sentidos, su análisis en datos funcionales ha sido poco abordado <span class="citation">(<a href="#ref-oviedo" role="doc-biblioref">Febrero-Bande and Fuente 2012</a>)</span>.</p>
+<p>De manera intuitiva, se podría pensar en la estadística multivariante para tratar casos de datos atípicos en muestras de datos funcionales. Desafortunadamente, hay varios motivos por las que la estadística multivariante falla en el caso funcional. La primera es que los datos funcionales son realizaciones de un proceso aleatorio suave medido en un conjunto discreto de tiempo, por lo cual la estructura de correlación temporal es ignorada cuando se utilizan métodos de estadística multivariante. La segunda es que por la naturaleza infinto-dimensional, los métodos de estadística multivariante son afectados por la alta dimensionalidad; es decir, los métodos no son capaces de manejar las situaciones en donde el número de mediciones de una o más variables es más grande que el número de individuos en la muestra. La tercera es que pocas asunciones sobre la distribución son impuestas sobre los conjuntos de datos funcionales, mientras que los métodos mutlivariantes están implícitamente sujetos a poblaciones Gaussianas <span class="citation">(<a href="#ref-oviedo" role="doc-biblioref">Febrero-Bande and Fuente 2012</a>)</span>.</p>
+<p>Los datos atípicos en un conjunto de datos funcionales pueden surgir principalmente por dos razones. La primera es que las curvas pueden tener graves errores de medición, registro o de digitación; estos errores deben ser identificados y corregidos siempre que sea posible. La segunda es que los datos atípicos pueden ser curvas de datos que expresan la realidad, en el sentido de que no tienen errores graves; sin embargo, no se comportan como el resto de curvas. Por tanto, se considera que una curva es un dato atípico si ha sido generado por un proceso estocástico con diferente distribución que el resto de curvas, las cuales se asumen que son idénticamente distribuidas. Una curva puede ser un dato atípico si esta está significativamente alejada del proceso estocástico o si tiene diferente forma y/o comportamiento del resto de curvas <span class="citation">(<a href="#ref-oviedo" role="doc-biblioref">Febrero-Bande and Fuente 2012</a>)</span>.</p>
+<p>Para identificar datos atípicos en un conjunto de datos funcionales, se hace uso de la <em>profundidad funcional</em>. Este concepto fue originalmente introducido en el análisis multivariante para medir la centralidad de un punto en relación con la nube de puntos; es decir, la profundidad da una forma de ordenar los puntos en un espacio Euclídeo desde el centro hacia el exterior; así, los puntos cercanos al centro tendrán una profundidad más grande <span class="citation">(<a href="#ref-pinero" role="doc-biblioref">Di Blasi et al. 2013</a>)</span>. Por otro lado, para datos funcionales, si una curva es un dato atípico, esta curva tendrá una profundidad baja, por lo que para detectar la presencia de datos atípicos funcionales basta analizar las curvas con profundidades más bajas <span class="citation">(<a href="#ref-oviedo" role="doc-biblioref">Febrero-Bande and Fuente 2012</a>)</span>. Existen tres medidas principales para calcular la profundidad funcional, las cuales son: <em>Profundidad de Fraiman y Muniz</em>, <em>Profundidad H-modal</em>, y <em>Profundidad de proyección aleatoria</em>. Para mayor detalle revisar <span class="citation">(<a href="#ref-manuel" role="doc-biblioref">Febrero, Galeano, and González-Manteiga 2008</a>)</span>.</p>
 <div id="medidas-de-profundidad" class="section level3 hasAnchor" number="3.5.1">
 <h3><span class="header-section-number">3.5.1</span> Medidas de profundidad<a href="introducción-al-análisis-de-datos-funcionales-fda.html#medidas-de-profundidad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El objetivo de profundidad para datos funcionales es medir la centralidad de una curva dada <span class="math inline">\(z_i\)</span> dento de un conjunto de curvas <span class="math inline">\(z_1,...,z_n\)</span> generadas por un proceso estocástico <span class="math inline">\(Z(.)\)</span> con muestra de trayectorias en <span class="math inline">\(C[a,b]\)</span>, el espacio de las funciones continuas definidas en el intervalo <span class="math inline">\([a,b]\subset \mathbb{R}\)</span>; es decir, la idea bajo la profundidad funcional es medir cuánto tiempo un curva permanece en el centro de todo el grupo de trayectorias <span class="citation">(<a href="#ref-manuel" role="doc-biblioref"><strong>manuel?</strong></a>)</span>.</p>
+<p>El objetivo de profundidad para datos funcionales es medir la centralidad de una curva dada <span class="math inline">\(z_i\)</span> dento de un conjunto de curvas <span class="math inline">\(z_1,...,z_n\)</span> generadas por un proceso estocástico <span class="math inline">\(Z(.)\)</span> con muestra de trayectorias en <span class="math inline">\(C[a,b]\)</span>, el espacio de las funciones continuas definidas en el intervalo <span class="math inline">\([a,b]\subset \mathbb{R}\)</span>; es decir, la idea bajo la profundidad funcional es medir cuánto tiempo un curva permanece en el centro de todo el grupo de trayectorias <span class="citation">(<a href="#ref-manuel" role="doc-biblioref">Febrero, Galeano, and González-Manteiga 2008</a>)</span>.</p>
 <div id="profundidad-de-fraiman-y-muniz" class="section level4 unnumbered hasAnchor">
 <h4>Profundidad de Fraiman y Muniz<a href="introducción-al-análisis-de-datos-funcionales-fda.html#profundidad-de-fraiman-y-muniz" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Sea <span class="math inline">\(F_{n,t}(z_i(t))\)</span> la función de distribución acumulada empírica de los valores de las curvas <span class="math inline">\(z_1(t),...,z_n(t)\)</span> en un punto de tiempo <span class="math inline">\(t\in [a,b]\)</span> dado, dado por:</p>
@@ -598,12 +620,12 @@ Figura 3.1: Suavización de curvas.
 <p><span class="math display">\[\begin{align}
     RPD_n(z-I)=\frac{1}{P}\sum_{p=1}^P D_n((\langle\nu_{p},z_i \rangle),\langle\nu_p, z_{i}&#39;\rangle), h)
 \end{align}\]</span></p>
-<p>donde <span class="math inline">\(D_n\)</span> es cualquier profundidad definida en <span class="math inline">\(\mathbb{R}^2\)</span> de los puntos <span class="math inline">\((\langle\nu_p,z_i \rangle,\langle\nu_p,z_i&#39; \rangle) \in \mathbb{R}^2\)</span> <span class="citation">(<a href="#ref-manuel" role="doc-biblioref"><strong>manuel?</strong></a>)</span>. Para la visualización de datos atípicos se han desarrollado varias herramientas gráficas, principalmente propuestas para el caso univariante; sin embargo, para el caso multivariante han sido poco desarrolladas <span class="citation">(<a href="#ref-dai" role="doc-biblioref"><strong>dai?</strong></a>)</span>.</p>
+<p>donde <span class="math inline">\(D_n\)</span> es cualquier profundidad definida en <span class="math inline">\(\mathbb{R}^2\)</span> de los puntos <span class="math inline">\((\langle\nu_p,z_i \rangle,\langle\nu_p,z_i&#39; \rangle) \in \mathbb{R}^2\)</span> <span class="citation">(<a href="#ref-manuel" role="doc-biblioref">Febrero, Galeano, and González-Manteiga 2008</a>)</span>. Para la visualización de datos atípicos se han desarrollado varias herramientas gráficas, principalmente propuestas para el caso univariante; sin embargo, para el caso multivariante han sido poco desarrolladas <span class="citation">(<a href="#ref-dai" role="doc-biblioref">Dai and Genton 2017</a>)</span>.</p>
 </div>
 </div>
 <div id="gráfico-de-magnitudes-y-formas" class="section level3 hasAnchor" number="3.5.2">
 <h3><span class="header-section-number">3.5.2</span> Gráfico de Magnitudes y Formas<a href="introducción-al-análisis-de-datos-funcionales-fda.html#gráfico-de-magnitudes-y-formas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Una de la herramientas gráficas usadas es el o propuesto por <span class="citation">(<a href="#ref-dai" role="doc-biblioref"><strong>dai?</strong></a>)</span>, el cual se basa en el marco de la periferia funcional direccional, que mide la centralidad de los datos funcionales considerando el nivel y la dirección de sus desviaciones de la región central.\</p>
+<p>Una de la herramientas gráficas usadas es el o propuesto por <span class="citation">(<a href="#ref-dai" role="doc-biblioref">Dai and Genton 2017</a>)</span>, el cual se basa en el marco de la periferia funcional direccional, que mide la centralidad de los datos funcionales considerando el nivel y la dirección de sus desviaciones de la región central.\</p>
 <p>\</p>
 <p>Teniendo en cuenta que la externalidad es la medida, grado o cualidad de ser atípico; a este concepto se añade el de dirección, ya que la dirección de externalidad es crucial para describir la centralidad de datos funcionales multivariantes.</p>
 <p>De manera formal, la externalidad direccional de un dato escalar está definida por:</p>
@@ -621,9 +643,9 @@ Figura 3.1: Suavización de curvas.
 <p><span class="math display">\[\begin{align}
     FO=||MO||^2 +VO
 \end{align}\]</span></p>
-<p>La ecuación anterior realiza una descomposición total de la externalidad funcional <span class="math inline">\(\textbf{(FO)}\)</span> en dos términos: la magnitud de externalidad (<span class="math inline">\(||\textbf{MO}||\)</span>) y la cantidad de variación de externalidad direccional <span class="math inline">\(\textbf{(VO)}\)</span>. Esta descomposición permite una gran flexibilidad para describir la centralidad de un conjunto de datos funcionales y para identificar curvas potencialmente atípicas <span class="citation">(<a href="#ref-dai" role="doc-biblioref"><strong>dai?</strong></a>)</span>. \</p>
+<p>La ecuación anterior realiza una descomposición total de la externalidad funcional <span class="math inline">\(\textbf{(FO)}\)</span> en dos términos: la magnitud de externalidad (<span class="math inline">\(||\textbf{MO}||\)</span>) y la cantidad de variación de externalidad direccional <span class="math inline">\(\textbf{(VO)}\)</span>. Esta descomposición permite una gran flexibilidad para describir la centralidad de un conjunto de datos funcionales y para identificar curvas potencialmente atípicas <span class="citation">(<a href="#ref-dai" role="doc-biblioref">Dai and Genton 2017</a>)</span>. \</p>
 <p>\</p>
-<p>El es un gráfico de dispersión de puntos, <span class="math inline">\((M0&#39;,VO)&#39;\)</span>, para un grupo de datos funcionales. Cuando la dimensión es más grande que dos, se usa <span class="math inline">\((||MO||,VO)&#39;\)</span>, la cual representa la magnitud general de externalidad y la forma de externalidad sin información de la dirección <span class="citation">(<a href="#ref-dai" role="doc-biblioref"><strong>dai?</strong></a>)</span>.</p>
+<p>El es un gráfico de dispersión de puntos, <span class="math inline">\((M0&#39;,VO)&#39;\)</span>, para un grupo de datos funcionales. Cuando la dimensión es más grande que dos, se usa <span class="math inline">\((||MO||,VO)&#39;\)</span>, la cual representa la magnitud general de externalidad y la forma de externalidad sin información de la dirección <span class="citation">(<a href="#ref-dai" role="doc-biblioref">Dai and Genton 2017</a>)</span>.</p>
 <p>De las definiciones de MO Y VO, se esperaría que:</p>
 <ul>
 <li><p>Las curvas centrales se asignen a la región central baja del MS-Plot; es decir, <span class="math inline">\(||MO||\)</span> pequeño y VO pequeño.</p></li>
@@ -635,7 +657,7 @@ Figura 3.1: Suavización de curvas.
 </div>
 <div id="anova-para-datos-funcionales" class="section level2 hasAnchor" number="3.6">
 <h2><span class="header-section-number">3.6</span> ANOVA Para datos funcionales<a href="introducción-al-análisis-de-datos-funcionales-fda.html#anova-para-datos-funcionales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En la práctica se vuelve un problema decidir si existen o no diferencias en el proceso de interés cuando varían condiciones que pueden afectarlo. Este problema se suele abordar mediante un modelo que supone la existencia de una función base que describe la evolución típica del proceso estudiado, suponiendo que los datos con los que se trabaja se han obtenido agregando variaciones aleatorias a esta función. Entonces, este problema se convierte en un tipo de problema de ANOVA funcional <span class="citation">(<a href="#ref-cuesta" role="doc-biblioref"><strong>cuesta?</strong></a>)</span>.</p>
+<p>En la práctica se vuelve un problema decidir si existen o no diferencias en el proceso de interés cuando varían condiciones que pueden afectarlo. Este problema se suele abordar mediante un modelo que supone la existencia de una función base que describe la evolución típica del proceso estudiado, suponiendo que los datos con los que se trabaja se han obtenido agregando variaciones aleatorias a esta función. Entonces, este problema se convierte en un tipo de problema de ANOVA funcional <span class="citation">(<a href="#ref-cuesta" role="doc-biblioref">Cuesta-Albertos and Febrero-Bande 2010</a>)</span>.</p>
 <p>Existen varios procedimientos para tratar problemas de tipo ANOVA. En el presente trabajo se tratará el problema de <em>one-way</em> ANOVA para datos funcionales univariantes, conocido también como el problema de la <em>prueba de k-muestras</em>.</p>
 <div id="one-way-anova" class="section level3 hasAnchor" number="3.6.1">
 <h3><span class="header-section-number">3.6.1</span> One-Way ANOVA<a href="introducción-al-análisis-de-datos-funcionales-fda.html#one-way-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -653,7 +675,7 @@ Figura 3.1: Suavización de curvas.
 <p>A continuación se presentan varias pruebas para este tipo de ANOVA.</p>
 <div id="cs-test" class="section level4 unnumbered hasAnchor">
 <h4>CS-Test<a href="introducción-al-análisis-de-datos-funcionales-fda.html#cs-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>El siguiente estadístico fue propuesto en <span class="citation">(<a href="#ref-cuevas" role="doc-biblioref"><strong>cuevas?</strong></a>)</span>:</p>
+<p>El siguiente estadístico fue propuesto en <span class="citation">(<a href="#ref-cuevas" role="doc-biblioref">Cuevas, Febrero, and Fraiman 2004</a>)</span>:</p>
 <p><span class="math display">\[\begin{align}
     V_n=\sum_{1\leq i&lt;j\leq k} n_i\int_T ({\bar{Z_i}}(t)-{\bar{Z_j}}(t))^2dt
 \end{align}\]</span></p>
@@ -717,7 +739,7 @@ n_i,n \to \infty \quad \text{tal que}\quad  \dfrac{n_i}{n}\to p_i &gt;0,\ i=1,..
     SSE_n(t)&amp;=\sum_{i=1}^k\sum_{j=1}^{n_i}(Z_{ij}(t)-\bar{Z}_i(t))^2
 \end{align}\]</span></p>
 <p>Bajo la hipótesis nula, se tiene que <span class="math inline">\(F_n \sim F_{d_1,d_2}\)</span> aproximadamente, donde <span class="math inline">\(d_1=(k-1)\kappa\)</span> y <span class="math inline">\(d_2=(n-k)\kappa\)</span>. De manera similar, la distribución aproximada de la prueba puede ser usada para calcular el p-valor de <span class="math inline">\(F_n\)</span> o su valor crítico; y el parámetro <span class="math inline">\(\kappa\)</span> puede ser estimado por el método naive o el método de reducción de sesgo.</p>
-<p>Cuando las muestras nos son Gaussianas o son pequeñas, estas pruebas no son utilizadas; en este caso, las versiones bootstrap de estas pruebas son usadas para calcular el p-valor de <span class="math inline">\(S_n\)</span> y <span class="math inline">\(F_n\)</span> <span class="citation">(<a href="#ref-gorgi" role="doc-biblioref"><strong>gorgi?</strong></a>)</span>.\</p>
+<p>Cuando las muestras nos son Gaussianas o son pequeñas, estas pruebas no son utilizadas; en este caso, las versiones bootstrap de estas pruebas son usadas para calcular el p-valor de <span class="math inline">\(S_n\)</span> y <span class="math inline">\(F_n\)</span> <span class="citation">(<a href="#ref-gorgi" role="doc-biblioref">Górecki and Smaga 2015</a>)</span>.\</p>
 </div>
 <div id="prueba-basada-en-representación-de-funciones-base" class="section level4 unnumbered hasAnchor">
 <h4>Prueba basada en representación de funciones base<a href="introducción-al-análisis-de-datos-funcionales-fda.html#prueba-basada-en-representación-de-funciones-base" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -734,10 +756,61 @@ n_i,n \to \infty \quad \text{tal que}\quad  \dfrac{n_i}{n}\to p_i &gt;0,\ i=1,..
     \bar{Z}_i(t)&amp;=\frac{1}{n_i}\sum_{j=1}^{n_i}c&#39;_{ij}\phi(t)
 \end{align}\]</span></p>
 <p>para todo <span class="math inline">\(t\in T\)</span>.</p>
-<p>El numerador del estadístico , mide la variabilidad externa entre las diferentes muestras, mientras que el denominador mide la variabilidad interna dentro de las muestras <span class="citation">(<a href="#ref-cuevas" role="doc-biblioref"><strong>cuevas?</strong></a>)</span>.</p>
+<p>El numerador del estadístico , mide la variabilidad externa entre las diferentes muestras, mientras que el denominador mide la variabilidad interna dentro de las muestras <span class="citation">(<a href="#ref-cuevas" role="doc-biblioref">Cuevas, Febrero, and Fraiman 2004</a>)</span>.</p>
 
 </div>
 </div>
+</div>
+</div>
+<h3>Referencias<a href="referencias.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-cuesta" class="csl-entry">
+Cuesta-Albertos, J. A., and M. Febrero-Bande. 2010. <span>“A Simple Multiway ANOVA for Functional Data.”</span> <em>TEST</em> 19: 537–57. <a href="https://doi.org/10.1007/s11749-010-0185-3">https://doi.org/10.1007/s11749-010-0185-3</a>.
+</div>
+<div id="ref-cuevas" class="csl-entry">
+Cuevas, Antonio, Manuel Febrero, and Ricardo Fraiman. 2004. <span>“An Anova Test for Functional Data.”</span> <em>Computational Statistics &amp; Data Analysis</em> 47 (1): 111–22. <a href="https://doi.org/10.1016/j.csda.2003.10.021">https://doi.org/10.1016/j.csda.2003.10.021</a>.
+</div>
+<div id="ref-dai" class="csl-entry">
+Dai, Wenlin, and Marc Genton. 2017. <span>“Multivariate Functional Data Visualization and Outlier Detection.”</span> <em>Journal of Computational and Graphical Statistics</em> 27 (March). <a href="https://doi.org/10.1080/10618600.2018.1473781">https://doi.org/10.1080/10618600.2018.1473781</a>.
+</div>
+<div id="ref-pinero" class="csl-entry">
+Di Blasi, J. I. Piñeiro, J. Martínez Torres, P. J. García Nieto, J. R. Alonso Fernández, C. Díaz Muñiz, and J. Taboada. 2013. <span>“Analysis and Detection of Outliers in Water Quality Parameters from Different Automated Monitoring Stations in the Miño River Basin (NW Spain).”</span> <em>Ecological Engineering</em> 60: 60–66. <a href="https://doi.org/10.1016/j.ecoleng.2013.07.054">https://doi.org/10.1016/j.ecoleng.2013.07.054</a>.
+</div>
+<div id="ref-manuel" class="csl-entry">
+Febrero, Manuel, Pedro Galeano, and Wenceslao González-Manteiga. 2008. <span>“Outlier Detection in Functional Data by Depth Measures, with Application to Identify Abnormal NOx Levels.”</span> <em>Environmetrics</em> 19 (4): 331–45. <a href="https://doi.org/10.1002/env.878">https://doi.org/10.1002/env.878</a>.
+</div>
+<div id="ref-oviedo" class="csl-entry">
+Febrero-Bande, Manuel, and Manuel Oviedo de la Fuente. 2012. <span>“Statistical Computing in Functional Data Analysis: The r Package Fda.usc.”</span> <em>Journal of Statistical Software</em> 51 (4): 1–28. <a href="https://doi.org/10.18637/jss.v051.i04">https://doi.org/10.18637/jss.v051.i04</a>.
+</div>
+<div id="ref-gorgi" class="csl-entry">
+Górecki, Tomasz, and Łukasz Smaga. 2015. <span>“A Comparison of Tests for the One-Way ANOVA Problem for Functional Data.”</span> <em>Computational Statistics</em> 30 (January). <a href="https://doi.org/10.1007/s00180-015-0555-0">https://doi.org/10.1007/s00180-015-0555-0</a>.
+</div>
+<div id="ref-programsay" class="csl-entry">
+James Ramsay, Spencer Graves (auth.), Giles Hooker. 2009. <em>Functional Data Analysis with r and MATLAB</em>. 1st ed. Use r. Springer-Verlag New York. <a href="https://doi.org/10.1007/978-0-387-98185-7">https://doi.org/10.1007/978-0-387-98185-7</a>.
+</div>
+<div id="ref-kokoska" class="csl-entry">
+Kokoszka, Matthew, Piotr; Reimherr. 2017. <em>Introduction to Functional Data Analysis</em>. 1st ed. Chapman &amp; Hall/CRC Texts in Statistical Science Series. Chapman &amp; Hall / CRC. <a href="https://doi.org/10.1201/9781315117416 ">https://doi.org/10.1201/9781315117416 </a>.
+</div>
+<div id="ref-kreider" class="csl-entry">
+Kreider, Donald L. 1971. <em>Introducción Al Análisis Lineal /</em>. Bogotá : Fondo Educativo Interamericano,.
+</div>
+<div id="ref-raichle" class="csl-entry">
+Ramsay, J. O., and B. W. Silverman. 2001. <span>“Functional Data Analysis.”</span> In <em>International Encyclopedia of the Social &amp; Behavioral Sciences</em>, edited by Neil J. Smelser and Paul B. Baltes, 5822–28. Oxford: Pergamon. <a href="https://doi.org/10.1016/B0-08-043076-7/00434-4">https://doi.org/10.1016/B0-08-043076-7/00434-4</a>.
+</div>
+<div id="ref-ramsay" class="csl-entry">
+Ramsay J., Silverman B. W. 2005. <em>Functional Data Analysis</em>. 2ed ed. Springer Series in Statistics. Springer. <a href="https://doi.org/10.1007/b98888">https://doi.org/10.1007/b98888</a>.
+</div>
+<div id="ref-tian" class="csl-entry">
+Tian, Tian Siva. 2010. <span>“Functional Data Analysis in Brain Imaging Studies.”</span> <em>Frontiers in Psychology</em> 1: 35. <a href="https://doi.org/10.3389/fpsyg.2010.00035">https://doi.org/10.3389/fpsyg.2010.00035</a>.
+</div>
+<div id="ref-wang" class="csl-entry">
+Wang, Jane-Ling, Jeng-Min Chiou, and Hans-Georg Müller. 2016. <span>“Functional Data Analysis.”</span> <em>Annual Review of Statistics and Its Application</em> 3 (1): 257–95. <a href="https://doi.org/10.1146/annurev-statistics-041715-033624">https://doi.org/10.1146/annurev-statistics-041715-033624</a>.
+</div>
+<div id="ref-lajos" class="csl-entry">
+Young, G. Alastair. 2014. <span>“Inference for Functional Data with Applications by Lajos Horváth and Piotr Kokoszka.”</span> <em>International Statistical Review</em> 82 (1): 155–56. <a href="https://doi.org/10.1111/insr.12051\_17">https://doi.org/10.1111/insr.12051\_17</a>.
+</div>
+<div id="ref-jin" class="csl-entry">
+Zhang, Jin-Ting. 2013. <em>Analysis of Variance for Functional Data</em>. Chapman &amp; Hall/CRC Monographs on Statistics &amp; Applied Probability. Chapman &amp; Hall / CRC Press. <a href="https://doi.org/10.1201/b15005">https://doi.org/10.1201/b15005</a>.
 </div>
 </div>
             </section>

@@ -262,7 +262,36 @@ el proceso posee función de covarianza y/o semivarianza isotrópica. La estacio
 
 ### Anisotropía
 
-Buscar teoría y poner lo de las tranformaciones con funciones trigonométricas
+Un modelo teórico de variograma $\gamma(\textbf{h})$ es anisotrópico si este depende de la dirección del vector de separación $\textbf{h}$ [@montero]. La anisotropía es causada por procesos físicos que evolucionan de forma diferente en el espacio. Frecuentemenete, el proceso en la dirección vertical será diferente de la dirección horizontal, pues la primera se ve afectada por el campo de la gravedad [@Cressi]. En la practica es detectada por la revisión del variograma empírico en las diferentes direcciones [@hans].Existen dos tipos de anisotropía: anisotropía geométrica y zonal.
+
+#### Anisitroía geométrica
+
+En el espacio de  dos dimesiones se puede hacer una representación del comportamiento del vaiograma empírico mediante un diagrama que muestre el rango o la pendiente como una función de la dirección. Si la curva es una elipse, la anisotropía se dice que será geométrica o eliptica. En estos casos un simple cambio de cordenadas transforman la elipse en un círculo y elimina la anisotropía [@basic]. 
+
+La transformación es simple cuando el eje mayor de la elipse coincide con el eje de cordenadas horizontal. Luego si la ecuación del variograma en la dirección horizontal es $\gamma_1(h)$ el variograma después de corregir la anisotropía es de la siguiente forma:
+
+\begin{align}
+\gamma(h)=\gamma_{1} \left(\sqrt{{h_1}^2 + {k^2} {h_2}^2}\right)
+\end{align}
+
+donde $h_1$ y $h_2$ son dos componentes de $h$ y $k$ es la relación de  anisotropía:
+
+\begin{align}
+k&=\frac{rango_1}{rango_2} \quad \text{o} \quad
+k= \frac{pendiente_1}{pendiente_2}
+\end{align}
+
+Cuando se calcula el variograma empírico es importante utilizar almenos cuatro direcciones pues al no hacerlo es posible que no se observe la anisotropía.
+<!-- GRAFICOS Y EJEMPLOS 39 BASIC
+Basic 40
+montero86
+cressie 81
+wack 72-->
+#### Anisotropía zonal
+
+
+
+
 
 ### Correlación Espacial
 

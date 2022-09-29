@@ -53,6 +53,7 @@ estacionariedad-de-funciones-aleatorias
 no-estacionariedad-de-funciones-aleatorias
 isotropía
 anisotropía
+anisitroía-geométrica
 correlación-espacial
 variograma
 disimilitud-contra-separación
@@ -65,7 +66,7 @@ caso-multivariante-ejemplos
 geoestadística-espacio-temporal
 conceptos
 propiedades-de-la-covarianza-y-variograma-espacio-temporal
-estimación-del-variograma-y-covariograma-espacio-temporal-ejemplos
+estimación-del-variograma-y-covariograma-espacio-temporal
 estimadores-clásicos
 estimador-robusto-por-cressie-y-hawkins
 introducción-al-análisis-de-datos-funcionales-fda
@@ -126,4 +127,3 @@ selección-de-número-de-grupos
 validación-de-grupos
 correlación-temporal
 índices-de-correlación-espacial-1
-estimación-del-variograma-y-covariograma-espacio-temporal

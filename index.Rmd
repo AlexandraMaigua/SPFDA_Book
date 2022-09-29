@@ -14,10 +14,8 @@ description: |
   set in the _output.yml file.
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-
 ---
 
 # Prefacio {.unnumbered}
-
 
 La dependencia espacial en datos medio ambientales es un criterio influyente en procesos de agrupación, dado que los resultados obtenidos brindan información relevante. Como los métodos clásicos no consideran la dependencia espacial, al considerar esta estructura se producen resultados inesperados, proporcionando agrupaciones de curvas que pueden no ser similares en forma y/o comportamiento. En este trabajo se realiza la agrupación mediante el método k-medias modificado para datos funcionales correlacionados espacialmente aplicado a datos del Índice de Vegetación de Diferencia Normalizada (NDVI) de los páramos del Ecuador. Para esto se implementan índices de calidad que permitan obtener el número adecuado de grupos. Con base en la metodología desarrollada en el método de clasificación jerárquico para datos funcionales con correlación espacial, y dado que los datos funcionales pertenecen al espacio de Hilbert de funciones cuadrado-integrables; se desarrolla el análisis considerando la distancia entre curvas a través de la norma $\mathcal{L}^2$, obteniendo una representación reducida de los datos a través de una base finita de tipo Fourier. Luego, se calcula el variograma empírico y se ajusta a un modelo teórico para así ponderar la matriz de distancia entre las curvas por el trazo-variograma y variograma multivariado calculado con los coeficientes de las funciones base, y esta matriz se utiliza para la agrupación de datos funcionales correlacionados espacialmente. Para la validación del método se realizaron varios escenarios de simulación, obteniéndose buenos resultados de correcta clasificación y se complementa con un caso de aplicación a datos del NDVI, donde se obtuvieron cinco regiones distribuidas latitudinalmente.
